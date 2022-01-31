@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;align&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;align&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;align&gt;</h1>
+</div>
+<div>
+<span id="align"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">align</td>
+<td colspan="2" class="wovenodd-col2">marks an temporal alignment point within transcribed speech.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.ptrLike.html">model.ptrLike</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element align { attribute with { <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.pointer.html">data.pointer</a> }, empty }</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes)<table>
+<tr>
+<td class="attDef">with</td>
+<td colspan="2">supplies an arbitrary identifier; all
+      elements specifying the same value for this attribute are
+      understood to be aligned with each other in time.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span><b>Required</b>
+</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.pointer.html">data.pointer</a></code>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Values: </span>A unique identifier in the form....</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="PS6SF"<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="12"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="tell" <span class="attribute">pos</span>="VERB"&gt;</span>tell <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="billy" <span class="attribute">pos</span>="SUBST"&gt;</span>Billy <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;align <span class="attribute">with</span>="KSWLC001"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="that" <span class="attribute">pos</span>="ADJ"&gt;</span>that <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/> <span class="element">&lt;u <span class="attribute">who</span>="PS6SJ"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="13"&gt;</span><br/>   <span class="element">&lt;align <span class="attribute">with</span>="KSWLC001"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="ITJ" <span class="attribute">hw</span>="hello" <span class="attribute">pos</span>="INTERJ"&gt;</span>Hello <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="now" <span class="attribute">pos</span>="ADV"&gt;</span>now <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="can" <span class="attribute">pos</span>="VERB"&gt;</span>can <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="hear" <span class="attribute">pos</span>="VERB"&gt;</span>hear <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>me<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">module-from-bncxml</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

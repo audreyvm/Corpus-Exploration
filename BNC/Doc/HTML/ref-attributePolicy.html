@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;attributePolicy&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;attributePolicy&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;attributePolicy&gt;</h1>
+</div>
+<div>
+<span id="attributePolicy"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">attributePolicy</td>
+<td colspan="2" class="wovenodd-col2">specifies the indexing policy to be used for one or more
+attributes.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.identifiable.html">att.identifiable</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element attributePolicy
+{
+   attribute ident { <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.name.html">data.name</a> }?,
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.identifiable.html">att.identifiable.attribute.ns</a>,
+   attribute type { "none" | "jointo" | "joinfrom" | "taxonomy" }?,
+   ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-nameList.html">nameList</a>?, <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-joinTo.html">joinTo</a>? )
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [<a class="classlink" href="ref-att.identifiable.html">att.identifiable</a> ] )<table>
+<tr>
+<td class="attDef">ident</td>
+<td colspan="2">identifies the attribute to which the
+indexing policy applies.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.name.html">data.name</a></code>
+</td>
+</tr>
+<tr>
+<td class="attDef">type</td>
+<td colspan="2">specifies the required indexing policy.
+.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>none</b></td>
+<td valign="top">no part of the attribute will be indexed.</td>
+</tr>
+<tr>
+<td valign="top"><b>jointo</b></td>
+<td valign="top">the attribute supplies an identifier
+which can be linked to from elsewhere.</td>
+</tr>
+<tr>
+<td valign="top"><b>joinfrom</b></td>
+<td valign="top">the value of the attribute is used as
+an  identifier on some other element.</td>
+</tr>
+<tr>
+<td valign="top"><b>taxonomy</b></td>
+<td valign="top">the value of the attribute is used to
+supply a key for some predefined codebook or taxonomy of possible
+values.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">module-from-bncxml</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

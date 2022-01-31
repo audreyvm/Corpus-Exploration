@@ -1,0 +1,2383 @@
+default namespace = ""
+namespace a1 = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+namespace teix = "http://www.tei-c.org/ns/Examples"
+namespace xlink = "http://www.w3.org/1999/xlink"
+
+# Schema generated from ODD source 2007-03-06T16:38:34Z.
+
+# 
+# Distributed freely as part of the BNC World Edition
+data.count = xsd:nonNegativeInteger
+data.temporal = xsd:date | xsd:gYear | xsd:gYearMonth
+data.language = xsd:language
+data.namespace = xsd:anyURI
+data.pointer = xsd:anyURI
+data.pointers = list { data.pointer+ }
+data.enumerated = xsd:token
+data.word = xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+data.name = xsd:Name
+macro.paraContent = (model.phrase | model.inter | model.global)+
+macro.phraseSeq = text
+macro.fileDescPart = titleStmt, editionStmt?, extent?, publicationStmt
+mix.spoken = model.divPart.spoken
+att.ascribed.attributes = att.ascribed.attribute.who, empty
+att.ascribed.attribute.who =
+  
+  ## indicates the person, or group of
+  ##	people, to whom the element content is ascribed.
+  attribute who { data.pointers }?
+att.authorialIntervention.attributes =
+  att.authorialIntervention.attribute.hand,
+  att.authorialIntervention.attribute.status,
+  att.authorialIntervention.attribute.type,
+  empty
+att.authorialIntervention.attribute.hand =
+  
+  ## signifies the hand of the agent which made the addition or
+  ##       performed the deletion.
+  attribute hand { data.pointer }?
+att.authorialIntervention.attribute.status =
+  
+  ## may be used to indicate faulty deletions, e.g. strikeouts
+  ##       which include too much or too little text, or erroneous
+  ##       additions, e.g., an insertion which duplicates some of the text
+  ##       already present.
+  ## Sample values include: 1] duplicate (all of the text indicated as an addition duplicates
+  ##	  some text that is in the original, whether the duplication
+  ##	  is word-for-word or less exact.); 2] duplicate-partial (part of the text indicated as an addition duplicates
+  ##	  some text that is in the original); 3] excessStart (some text at the beginning of the deletion is marked
+  ##           as deleted even though it clearly should not be
+  ##           deleted.); 4] excessEnd (some text at the end of the deletion is marked as
+  ##           deleted even though it clearly should not be
+  ##           deleted.); 5] shortStart (some text at the beginning of the deletion is not
+  ##           marked as deleted even though it clearly should be.); 6] shortEnd (some text at the end of the deletion is not marked as
+  ##           deleted even though it clearly should be.); 7] unremarkable (the deletion is not faulty.)
+  [ a1:defaultValue = "unremarkable" ]
+  attribute status { data.enumerated }?
+att.authorialIntervention.attribute.type =
+  
+  ## classifies the type of addition or deletion using any convenient typology.
+  attribute type { data.enumerated }?
+att.datePart.attributes =
+  att.datePart.attribute.value, att.datePart.attribute.dur, empty
+att.datePart.attribute.value =
+  
+  ## supplies the value of a date or time in a standard form.
+  attribute value { data.temporal }?
+att.datePart.attribute.dur =
+  
+  ## (duration) indicates the length of this element in time.
+  attribute dur { xsd:duration }?
+att.interpLike.attributes =
+  att.interpLike.attribute.resp,
+  att.interpLike.attribute.type,
+  att.interpLike.attribute.inst,
+  empty
+att.interpLike.attribute.resp =
+  
+  ## indicates who is responsible for the interpretation.
+  attribute resp { data.pointer }?
+att.interpLike.attribute.type =
+  
+  ## indicates what kind of phenomenon is being noted in the passage.
+  ## Sample values include: 1] image (identifies an image in the passage.
+  ##    ); 2] character (identifies a character associated with the passage.
+  ##    ); 3] theme (identifies a theme in the passage.
+  ##    ); 4] allusion (identifies an allusion to another text.
+  ##    )
+  attribute type { data.enumerated }?
+att.interpLike.attribute.inst =
+  
+  ## points to instances of the analysis or interpretation represented
+  ## by the current element.
+  attribute inst { data.pointers }?
+att.editLike.attributes = att.editLike.attribute.resp, empty
+att.editLike.attribute.resp =
+  
+  ## indicates the agency responsible for the
+  ##	intervention or interpretation, for example an editor or transcriber.
+  attribute resp { data.pointer }?
+att.spanning.attributes = att.spanning.attribute.spanTo, empty
+att.spanning.attribute.spanTo =
+  
+  ## indicates the end of a span initiated by the element
+  ##	bearing this attribute.
+  attribute spanTo { data.pointer }?
+att.tableDecoration.attributes =
+  att.tableDecoration.attribute.role,
+  att.tableDecoration.attribute.rows,
+  att.tableDecoration.attribute.cols,
+  empty
+att.tableDecoration.attribute.role =
+  
+  ## indicates the kind of information held in this cell or
+  ## in each cell of this row.
+  ## Suggested values include: 1] label (labelling or descriptive information only.); 2] data (data values.)
+  [ a1:defaultValue = "data" ] attribute role { data.enumerated }?
+att.tableDecoration.attribute.rows =
+  
+  ## indicates the number of rows occupied by this cell or row.
+  [ a1:defaultValue = "1" ] attribute rows { data.count }?
+att.tableDecoration.attribute.cols =
+  
+  ## indicates the number of columns occupied by this cell or
+  ##	row.
+  [ a1:defaultValue = "1" ] attribute cols { data.count }?
+att.timed.attributes = att.timed.attribute.dur, empty
+att.timed.attribute.dur =
+  
+  ## (duration) indicates the duration of the element in seconds.
+  attribute dur { data.count }?
+att.typed.attributes = att.typed.attribute.type, empty
+att.typed.attribute.type =
+  
+  ## characterizes the element in some sense, using any convenient
+  ##  classification scheme or typology.
+  attribute type { data.word }?
+model.nameLike.agent = name
+model.nameLike.agent_sequence = name
+model.nameLike.agent_sequenceOptional = name?
+model.nameLike.agent_sequenceOptionalRepeatable = name*
+model.nameLike.agent_sequenceRepeatable = name+
+model.segLike = s | w | c | mw
+model.segLike_sequence = s, w, c, mw
+model.segLike_sequenceOptional = s?, w?, c?, mw?
+model.segLike_sequenceOptionalRepeatable = s*, w*, c*, mw*
+model.segLike_sequenceRepeatable = s+, w+, c+, mw+
+model.hiLike = hi
+model.hiLike_sequence = hi
+model.hiLike_sequenceOptional = hi?
+model.hiLike_sequenceOptionalRepeatable = hi*
+model.hiLike_sequenceRepeatable = hi+
+model.dateLike = date
+model.dateLike_sequence = date
+model.dateLike_sequenceOptional = date?
+model.dateLike_sequenceOptionalRepeatable = date*
+model.dateLike_sequenceRepeatable = date+
+model.pPart.edit = corr | unclear
+model.pPart.edit_sequence = corr, unclear
+model.pPart.edit_sequenceOptional = corr?, unclear?
+model.pPart.edit_sequenceOptionalRepeatable = corr*, unclear*
+model.pPart.edit_sequenceRepeatable = corr+, unclear+
+model.ptrLike = align
+model.ptrLike_sequence = align
+model.ptrLike_sequenceOptional = align?
+model.ptrLike_sequenceOptionalRepeatable = align*
+model.ptrLike_sequenceRepeatable = align+
+model.milestoneLike = pb
+model.milestoneLike_sequence = pb
+model.milestoneLike_sequenceOptional = pb?
+model.milestoneLike_sequenceOptionalRepeatable = pb*
+model.milestoneLike_sequenceRepeatable = pb+
+model.gLike = notAllowed
+model.gLike_sequence = empty
+model.gLike_sequenceOptional = empty
+model.gLike_sequenceOptionalRepeatable = empty
+model.gLike_sequenceRepeatable = notAllowed
+model.oddRef = notAllowed
+model.oddRef_sequence = empty
+model.oddRef_sequenceOptional = empty
+model.oddRef_sequenceOptionalRepeatable = empty
+model.oddRef_sequenceRepeatable = notAllowed
+model.qLike = quote | lg
+model.qLike_sequence = quote, lg
+model.qLike_sequenceOptional = quote?, lg?
+model.qLike_sequenceOptionalRepeatable = quote*, lg*
+model.qLike_sequenceRepeatable = quote+, lg+
+model.biblLike = bibl
+model.biblLike_sequence = bibl
+model.biblLike_sequenceOptional = bibl?
+model.biblLike_sequenceOptionalRepeatable = bibl*
+model.biblLike_sequenceRepeatable = bibl+
+model.listLike = \list
+model.listLike_sequence = \list
+model.listLike_sequenceOptional = \list?
+model.listLike_sequenceOptionalRepeatable = \list*
+model.listLike_sequenceRepeatable = \list+
+model.noteLike = notAllowed
+model.noteLike_sequence = empty
+model.noteLike_sequenceOptional = empty
+model.noteLike_sequenceOptionalRepeatable = empty
+model.noteLike_sequenceRepeatable = notAllowed
+model.stageLike = stage
+model.stageLike_sequence = stage
+model.stageLike_sequenceOptional = stage?
+model.stageLike_sequenceOptionalRepeatable = stage*
+model.stageLike_sequenceRepeatable = stage+
+model.complexVal = notAllowed
+model.complexVal_sequence = empty
+model.complexVal_sequenceOptional = empty
+model.complexVal_sequenceOptionalRepeatable = empty
+model.complexVal_sequenceRepeatable = notAllowed
+model.singleVal = notAllowed
+model.singleVal_sequence = empty
+model.singleVal_sequenceOptional = empty
+model.singleVal_sequenceOptionalRepeatable = empty
+model.singleVal_sequenceRepeatable = notAllowed
+model.global.edit = gap
+model.global.edit_sequence = gap
+model.global.edit_sequenceOptional = gap?
+model.global.edit_sequenceOptionalRepeatable = gap*
+model.global.edit_sequenceRepeatable = gap+
+model.divPart = p | quote | \list | note | l | lg | sp
+model.divPart_sequence = p, quote, \list, note, l, lg, sp
+model.divPart_sequenceOptional = p?, quote?, \list?, note?, l?, lg?, sp?
+model.divPart_sequenceOptionalRepeatable =
+  p*, quote*, \list*, note*, l*, lg*, sp*
+model.divPart_sequenceRepeatable =
+  p+, quote+, \list+, note+, l+, lg+, sp+
+model.blockLike = notAllowed
+model.blockLike_sequence = empty
+model.blockLike_sequenceOptional = empty
+model.blockLike_sequenceOptionalRepeatable = empty
+model.blockLike_sequenceRepeatable = notAllowed
+model.pLike = p
+model.pLike_sequence = p
+model.pLike_sequenceOptional = p?
+model.pLike_sequenceOptionalRepeatable = p*
+model.pLike_sequenceRepeatable = p+
+model.persStateLike = persName | age | occupation | dialect | persNote
+model.persStateLike_sequence =
+  persName, age, occupation, dialect, persNote
+model.persStateLike_sequenceOptional =
+  persName?, age?, occupation?, dialect?, persNote?
+model.persStateLike_sequenceOptionalRepeatable =
+  persName*, age*, occupation*, dialect*, persNote*
+model.persStateLike_sequenceRepeatable =
+  persName+, age+, occupation+, dialect+, persNote+
+model.assertLike = model.persStateLike
+model.assertLike_sequence = model.persStateLike
+model.assertLike_sequenceOptional = model.persStateLike?
+model.assertLike_sequenceOptionalRepeatable = model.persStateLike*
+model.assertLike_sequenceRepeatable = model.persStateLike+
+model.personLike = notAllowed
+model.personLike_sequence = empty
+model.personLike_sequenceOptional = empty
+model.personLike_sequenceOptionalRepeatable = empty
+model.personLike_sequenceRepeatable = notAllowed
+model.personPart = model.assertLike
+model.personPart_sequence = model.assertLike
+model.personPart_sequenceOptional = model.assertLike?
+model.personPart_sequenceOptionalRepeatable = model.assertLike*
+model.personPart_sequenceRepeatable = model.assertLike+
+model.publicationStmtPart =
+  address
+  | date
+  | publisher
+  | pubPlace
+  | distributor
+  | idno
+  | availability
+model.publicationStmtPart_sequence =
+  address, date, publisher, pubPlace, distributor, idno, availability
+model.publicationStmtPart_sequenceOptional =
+  address?,
+  date?,
+  publisher?,
+  pubPlace?,
+  distributor?,
+  idno?,
+  availability?
+model.publicationStmtPart_sequenceOptionalRepeatable =
+  address*,
+  date*,
+  publisher*,
+  pubPlace*,
+  distributor*,
+  idno*,
+  availability*
+model.publicationStmtPart_sequenceRepeatable =
+  address+,
+  date+,
+  publisher+,
+  pubPlace+,
+  distributor+,
+  idno+,
+  availability+
+model.glossLike = desc
+model.glossLike_sequence = desc
+model.glossLike_sequenceOptional = desc?
+model.glossLike_sequenceOptionalRepeatable = desc*
+model.glossLike_sequenceRepeatable = desc+
+model.quoteLike = notAllowed
+model.quoteLike_sequence = empty
+model.quoteLike_sequenceOptional = empty
+model.quoteLike_sequenceOptionalRepeatable = empty
+model.quoteLike_sequenceRepeatable = notAllowed
+model.respLike = author | editor
+model.respLike_sequence = author, editor
+model.respLike_sequenceOptional = author?, editor?
+model.respLike_sequenceOptionalRepeatable = author*, editor*
+model.respLike_sequenceRepeatable = author+, editor+
+model.divWrapper.bottom = notAllowed
+model.divWrapper.bottom_sequence = empty
+model.divWrapper.bottom_sequenceOptional = empty
+model.divWrapper.bottom_sequenceOptionalRepeatable = empty
+model.divWrapper.bottom_sequenceRepeatable = notAllowed
+model.divWrapper = head
+model.divWrapper_sequence = head
+model.divWrapper_sequenceOptional = head?
+model.divWrapper_sequenceOptionalRepeatable = head*
+model.divWrapper_sequenceRepeatable = head+
+model.frontPart.drama = notAllowed
+model.frontPart.drama_sequence = empty
+model.frontPart.drama_sequenceOptional = empty
+model.frontPart.drama_sequenceOptionalRepeatable = empty
+model.frontPart.drama_sequenceRepeatable = notAllowed
+model.pLike.front = notAllowed
+model.pLike.front_sequence = empty
+model.pLike.front_sequenceOptional = empty
+model.pLike.front_sequenceOptionalRepeatable = empty
+model.pLike.front_sequenceRepeatable = notAllowed
+model.titlepagePart = notAllowed
+model.titlepagePart_sequence = empty
+model.titlepagePart_sequenceOptional = empty
+model.titlepagePart_sequenceOptionalRepeatable = empty
+model.titlepagePart_sequenceRepeatable = notAllowed
+model.lLike = l
+model.lLike_sequence = l
+model.lLike_sequenceOptional = l?
+model.lLike_sequenceOptionalRepeatable = l*
+model.lLike_sequenceRepeatable = l+
+model.recordingPart = model.dateLike
+model.recordingPart_sequence = model.dateLike
+model.recordingPart_sequenceOptional = model.dateLike?
+model.recordingPart_sequenceOptionalRepeatable = model.dateLike*
+model.recordingPart_sequenceRepeatable = model.dateLike+
+model.imprintPart = publisher | pubPlace
+model.imprintPart_sequence = publisher, pubPlace
+model.imprintPart_sequenceOptional = publisher?, pubPlace?
+model.imprintPart_sequenceOptionalRepeatable = publisher*, pubPlace*
+model.imprintPart_sequenceRepeatable = publisher+, pubPlace+
+model.catDescPart = notAllowed
+model.catDescPart_sequence = empty
+model.catDescPart_sequenceOptional = empty
+model.catDescPart_sequenceOptionalRepeatable = empty
+model.catDescPart_sequenceRepeatable = notAllowed
+model.settingPart = locale | activity | placeName
+model.settingPart_sequence = locale, activity, placeName
+model.settingPart_sequenceOptional = locale?, activity?, placeName?
+model.settingPart_sequenceOptionalRepeatable =
+  locale*, activity*, placeName*
+model.settingPart_sequenceRepeatable = locale+, activity+, placeName+
+model.textDescPart_sequence = empty
+model.castItemPart = notAllowed
+model.castItemPart_sequence = empty
+model.castItemPart_sequenceOptional = empty
+model.castItemPart_sequenceOptionalRepeatable = empty
+model.castItemPart_sequenceRepeatable = notAllowed
+model.physDescPart_sequenceOptional = empty
+model.addressLike = email | address
+model.addressLike_sequence = email, address
+model.addressLike_sequenceOptional = email?, address?
+model.addressLike_sequenceOptionalRepeatable = email*, address*
+model.addressLike_sequenceRepeatable = email+, address+
+model.nameLike = model.nameLike.agent
+model.nameLike_sequence = model.nameLike.agent
+model.nameLike_sequenceOptional = model.nameLike.agent?
+model.nameLike_sequenceOptionalRepeatable = model.nameLike.agent*
+model.nameLike_sequenceRepeatable = model.nameLike.agent+
+model.global = model.milestoneLike | model.noteLike | model.global.edit
+model.global_sequence =
+  model.milestoneLike, model.noteLike, model.global.edit
+model.global_sequenceOptional =
+  model.milestoneLike?, model.noteLike?, model.global.edit?
+model.global_sequenceOptionalRepeatable =
+  model.milestoneLike*, model.noteLike*, model.global.edit*
+model.global_sequenceRepeatable =
+  model.milestoneLike+, model.noteLike+, model.global.edit+
+model.datePart = notAllowed
+model.datePart_sequence = empty
+model.datePart_sequenceOptional = empty
+model.datePart_sequenceOptionalRepeatable = empty
+model.datePart_sequenceRepeatable = notAllowed
+model.pPart.data = model.dateLike | model.addressLike | model.nameLike
+model.pPart.data_sequence =
+  model.dateLike, model.addressLike, model.nameLike
+model.pPart.data_sequenceOptional =
+  model.dateLike?, model.addressLike?, model.nameLike?
+model.pPart.data_sequenceOptionalRepeatable =
+  model.dateLike*, model.addressLike*, model.nameLike*
+model.pPart.data_sequenceRepeatable =
+  model.dateLike+, model.addressLike+, model.nameLike+
+model.inter =
+  model.oddRef
+  | model.qLike
+  | model.biblLike
+  | model.listLike
+  | model.stageLike
+model.inter_sequence =
+  model.oddRef,
+  model.qLike,
+  model.biblLike,
+  model.listLike,
+  model.stageLike
+model.inter_sequenceOptional =
+  model.oddRef?,
+  model.qLike?,
+  model.biblLike?,
+  model.listLike?,
+  model.stageLike?
+model.inter_sequenceOptionalRepeatable =
+  model.oddRef*,
+  model.qLike*,
+  model.biblLike*,
+  model.listLike*,
+  model.stageLike*
+model.inter_sequenceRepeatable =
+  model.oddRef+,
+  model.qLike+,
+  model.biblLike+,
+  model.listLike+,
+  model.stageLike+
+model.phrase =
+  model.segLike
+  | model.hiLike
+  | model.pPart.edit
+  | model.ptrLike
+  | model.pPart.data
+model.phrase_sequence =
+  model.segLike,
+  model.hiLike,
+  model.pPart.edit,
+  model.ptrLike,
+  model.pPart.data
+model.phrase_sequenceOptional =
+  model.segLike?,
+  model.hiLike?,
+  model.pPart.edit?,
+  model.ptrLike?,
+  model.pPart.data?
+model.phrase_sequenceOptionalRepeatable =
+  model.segLike*,
+  model.hiLike*,
+  model.pPart.edit*,
+  model.ptrLike*,
+  model.pPart.data*
+model.phrase_sequenceRepeatable =
+  model.segLike+,
+  model.hiLike+,
+  model.pPart.edit+,
+  model.ptrLike+,
+  model.pPart.data+
+model.divLike = notAllowed
+model.divLike_sequence = empty
+model.divLike_sequenceOptional = empty
+model.divLike_sequenceOptionalRepeatable = empty
+model.divLike_sequenceRepeatable = notAllowed
+model.divGenLike = notAllowed
+model.divGenLike_sequence = empty
+model.divGenLike_sequenceOptional = empty
+model.divGenLike_sequenceOptionalRepeatable = empty
+model.divGenLike_sequenceRepeatable = notAllowed
+model.div1Like = notAllowed
+model.div1Like_sequence = empty
+model.div1Like_sequenceOptional = empty
+model.div1Like_sequenceOptionalRepeatable = empty
+model.div1Like_sequenceRepeatable = notAllowed
+model.div2Like = notAllowed
+model.div2Like_sequence = empty
+model.div2Like_sequenceOptional = empty
+model.div2Like_sequenceOptionalRepeatable = empty
+model.div2Like_sequenceRepeatable = notAllowed
+model.div3Like = notAllowed
+model.div3Like_sequence = empty
+model.div3Like_sequenceOptional = empty
+model.div3Like_sequenceOptionalRepeatable = empty
+model.div3Like_sequenceRepeatable = notAllowed
+model.div4Like = notAllowed
+model.div4Like_sequence = empty
+model.div4Like_sequenceOptional = empty
+model.div4Like_sequenceOptionalRepeatable = empty
+model.div4Like_sequenceRepeatable = notAllowed
+model.div5Like = notAllowed
+model.div5Like_sequence = empty
+model.div5Like_sequenceOptional = empty
+model.div5Like_sequenceOptionalRepeatable = empty
+model.div5Like_sequenceRepeatable = notAllowed
+model.div6Like = notAllowed
+model.div6Like_sequence = empty
+model.div6Like_sequenceOptional = empty
+model.div6Like_sequenceOptionalRepeatable = empty
+model.div6Like_sequenceRepeatable = notAllowed
+model.div7Like = notAllowed
+model.div7Like_sequence = empty
+model.div7Like_sequenceOptional = empty
+model.div7Like_sequenceOptionalRepeatable = empty
+model.div7Like_sequenceRepeatable = notAllowed
+model.placeNamePart = notAllowed
+model.placeNamePart_sequence = empty
+model.placeNamePart_sequenceOptional = empty
+model.placeNamePart_sequenceOptionalRepeatable = empty
+model.placeNamePart_sequenceRepeatable = notAllowed
+p =
+  
+  ## (paragraph) marks paragraphs in prose.
+  element p { p.content, p.attributes }
+p.content = macro.paraContent
+p.attributes =
+  
+  ## indicates how the paragraph is displayed.
+  attribute type { text }?,
+  att.rendered.attribute.rend,
+  empty
+hi =
+  
+  ## (highlighted) marks a word or phrase as graphically distinct from the
+  ## surrounding text, for reasons concerning which no claim is
+  ## made. 
+  element hi { hi.content, hi.attributes }
+hi.content = macro.paraContent
+hi.attributes = att.rendered.attribute.rend, empty
+quote =
+  
+  ## (quotation) contains a phrase or passage attributed by the narrator or
+  ##   author to some agency external to the text.
+  element quote { quote.content, quote.attributes }
+quote.content = bibl?, model.divPart+, bibl?
+quote.attributes = att.rendered.attribute.rend, empty
+desc =
+  
+  ## (description) supplies explanatory text associated with a category or other
+  ## component defined in the corpus header.
+  element desc { desc.content, desc.attributes }
+desc.content = macro.phraseSeq
+desc.attributes = empty
+term =
+  
+  ## contains a word or phrase used to describe the topic or nature of a text.
+  element term { term.content, term.attributes }
+term.content = macro.phraseSeq
+term.attributes = empty
+corr =
+  
+  ## (correction) contains the correct form of a passage apparently erroneous in the copy text.
+  element corr { corr.content, corr.attributes }
+corr.content = (w | c | mw | gap)*
+corr.attributes =
+  
+  ## contains verbatim text which has been corrected, or an empty string if
+  ## the correction consists of an addition.
+  attribute sic { text }?,
+  att.rendered.attribute.rend,
+  
+  ## a code identifying the agency responsible for making the
+  ## correction.
+  attribute resp { data.pointer }?,
+  empty
+gap =
+  
+  ## (omitted material) indicates a point where material has been omitted from the
+  ## transcription.
+  element gap { gap.content, gap.attributes }
+gap.content = empty
+gap.attributes =
+  
+  ## briefly describes the material which has been omitted.
+  attribute desc { text }?,
+  
+  ## gives further details of the reason for omission.
+  attribute reason { text }?,
+  att.editLike.attribute.resp,
+  empty
+unclear =
+  
+  ## contains a word, phrase, or passage which cannot be transcribed
+  ## with certainty because it is illegible or inaudible in the source.
+  element unclear { unclear.content, unclear.attributes }
+unclear.content = empty
+unclear.attributes = att.timed.attribute.dur, empty
+name =
+  
+  ## (name, proper noun) contains a proper noun or noun phrase.
+  element name { name.content, name.attributes }
+name.content = macro.phraseSeq
+name.attributes = empty
+email =
+  
+  ## contains an e-mail address identifying a location to which
+  ## e-mail messages can be delivered.
+  ##		
+  element email { email.content, email.attributes }
+email.content = macro.phraseSeq
+email.attributes = empty
+address =
+  
+  ## contains a postal  address, for example of a
+  ## publisher, an organization, or an individual.
+  element address { address.content, address.attributes }
+address.content = macro.phraseSeq
+address.attributes = empty
+date =
+  
+  ## contains a date in any format.
+  element date { date.content, date.attributes }
+date.content = macro.phraseSeq
+date.attributes =
+  
+  ## supplies a standardized representation of the date.
+  attribute value { data.temporal }?,
+  empty
+\list =
+  
+  ## contains any sequence of items organized as a list.
+  element list { list.content, list.attributes }
+list.content =
+  (model.divWrapper | model.global)*,
+  ((item, model.global*)+
+   | (label, model.global*, item, model.global*)+),
+  model.divWrapper.bottom*
+list.attributes = att.rendered.attribute.rend, empty
+item =
+  
+  ## contains one
+  ## component of a list.
+  element item { item.content, item.attributes }
+item.content =
+  (model.pLike | model.qLike | model.listLike | s | model.global)+
+item.attributes = att.rendered.attribute.rend, empty
+label =
+  
+  ## contains the label associated with an item in a list; in
+  ## glossaries, marks the term being defined.
+  element label { label.content, label.attributes }
+label.content = (s | gap | pb)+
+label.attributes = att.rendered.attribute.rend, empty
+head =
+  
+  ## (heading) contains any type of heading, for example the title of a section
+  ## or a poem.
+  element head { head.content, head.attributes }
+head.content = (s | gap | pb)+
+head.attributes =
+  
+  ## describes the kind of heading.
+  attribute type {
+    
+    ## a major heading.
+    "MAIN"
+    | 
+      ## any sub-heading.
+      "SUB"
+    | 
+      ## a sub-heading providing the name of a
+      ## journalist or other source of a newspaper report.
+      "BYLINE"
+  }?,
+  att.rendered.attribute.rend,
+  empty
+note =
+  
+  ## contains a note or annotation.
+  element note { note.content, note.attributes }
+note.content = s+
+note.attributes =
+  
+  ## specifies where the note is placed in the original source.
+  attribute place { text }?,
+  
+  ## internal identifier.
+  attribute n { text }?,
+  empty
+pb =
+  
+  ## (page break) marks the boundary between one page of a text and the next
+  ## in a standard reference system.
+  element pb { pb.content, pb.attributes }
+pb.content = empty
+pb.attributes =
+  
+  ## gives the number of the page beginning here.
+  attribute n { text }?,
+  empty
+bibl =
+  
+  ## (bibliographic citation) contains any bibliographic reference, occurring either within
+  ## the header of a written corpus text in which case it has a fixed
+  ## substructure, or within the body of a corpus text, in which case it
+  ## contains only s elements.
+  element bibl { bibl.content, bibl.attributes }
+bibl.content =
+  s+
+  | (title+, (editor | author)*, imprint, pp?)
+bibl.attributes = att.rendered.attribute.rend, empty
+author =
+  
+  ## in a bibliographic reference, contains the name of the author(s),
+  ## personal or corporate,
+  ## of a work; the primary statement of responsibility for any
+  ## bibliographic item. 
+  element author { author.content, author.attributes }
+author.content = macro.phraseSeq
+author.attributes =
+  
+  ## main country of residence where known.
+  attribute domicile { text }?,
+  
+  ## internal identifier.
+  attribute n { text }?,
+  
+  ## year of birth where known.
+  attribute born { text }?,
+  empty
+editor =
+  
+  ## secondary statement of responsibility for a
+  ## bibliographic item, for example the name of an individual, institution
+  ## or organization, (or of several such) acting as editor, compiler,
+  ## translator, etc. 
+  element editor { editor.content, editor.attributes }
+editor.content = macro.phraseSeq
+editor.attributes =
+  
+  ## supplies a number for the editor where multiple editors are
+  ## specified for a single text.
+  attribute n { text }?,
+  empty
+respStmt =
+  
+  ## (statement of responsibility) supplies a statement of responsibility for someone responsible
+  ##   for the intellectual content of a text, edition, recording, or
+  ##   series, where the specialized elements for authors, editors, etc. do
+  ##   not suffice or do not apply.
+  element respStmt { respStmt.content, respStmt.attributes }
+respStmt.content = (name | resp)+
+respStmt.attributes = empty
+resp =
+  
+  ## contains a phrase describing the nature of a person's
+  ##   intellectual responsibility.
+  element resp { resp.content, resp.attributes }
+resp.content = macro.phraseSeq
+resp.attributes = empty
+title =
+  
+  ## contains the full title of a work of any kind.
+  element title { title.content, title.attributes }
+title.content = macro.phraseSeq
+title.attributes =
+  
+  ## indicates the bibliographic level of this title.
+  attribute level { text }?,
+  empty
+imprint =
+  
+  ## groups information relating to the publication or distribution
+  ##   of a bibliographic item.
+  element imprint { imprint.content, imprint.attributes }
+imprint.content = (pubPlace | publisher | date | pp)*
+imprint.attributes =
+  
+  ## internal identifier.
+  attribute n { text }?,
+  empty
+publisher =
+  
+  ## provides the name of the organization responsible for
+  ## the publication or distribution of a bibliographic item.
+  element publisher { publisher.content, publisher.attributes }
+publisher.content = macro.phraseSeq
+publisher.attributes = empty
+pubPlace =
+  
+  ## contains the name of the place where a bibliographic item was
+  ## published.
+  element pubPlace { pubPlace.content, pubPlace.attributes }
+pubPlace.content = macro.phraseSeq
+pubPlace.attributes = empty
+l =
+  
+  ## (verse line) contains a single, possibly incomplete, line of verse.
+  element l { l.content, l.attributes }
+l.content = (s | gap | pb)+
+l.attributes = att.rendered.attribute.rend, empty
+lg =
+  
+  ## (line group) contains a group of verse lines functioning as a formal unit,
+  ## e.g. a stanza, refrain, verse paragraph, etc.
+  element lg { lg.content, lg.attributes }
+lg.content =
+  (model.divWrapper | model.global)*,
+  (model.lLike | lg),
+  (model.lLike | lg | model.global)*,
+  model.divWrapper.bottom*
+lg.attributes = empty
+sp =
+  
+  ## (speech) An individual speech in a performance text, or a passage
+  ##	  presented as such in a prose or verse text.
+  element sp { sp.content, sp.attributes }
+sp.content =
+  model.global*,
+  (speaker, model.global*)?,
+  ((model.lLike | lg | model.pLike | model.blockLike | model.stageLike),
+   model.global*)+
+sp.attributes = att.ascribed.attribute.who, empty
+speaker =
+  
+  ## A specialized form of heading or label, giving the name of
+  ## one or more speakers in a dramatic text or fragment.
+  element speaker { speaker.content, speaker.attributes }
+speaker.content = (s | gap | pb)+
+speaker.attributes = empty
+stage =
+  
+  ## (stage direction) contains any kind of stage direction within a dramatic text or
+  ## fragment.
+  element stage { stage.content, stage.attributes }
+stage.content = macro.paraContent
+stage.attributes = att.rendered.attribute.rend, empty
+teiCorpus =
+  
+  ## (TEI corpus) contains the whole of a TEI encoded corpus, comprising a
+  ## single corpus header and one or more TEI elements, each containing
+  ## a single text header and a text.
+  element bnc { teiCorpus.content, teiCorpus.attributes }
+teiCorpus.content = teiHeader, bncDoc+
+teiCorpus.attributes = empty
+s =
+  
+  ## (s-unit) contains a sentence-like division of a text.
+  element s { s.content, s.attributes }
+s.content = (model.global | model.phrase | model.divPart.spoken)+
+s.attributes =
+  
+  ## sequence number .
+  attribute n { text },
+  empty
+w =
+  
+  ## (word) represents a grammatical (not necessarily orthographic) word.
+  element w { w.content, w.attributes }
+w.content = text
+w.attributes =
+  
+  ## supplies a simplified  part-of-speech code.
+  attribute pos {
+    
+    ## adjective.
+    "ADJ"
+    | 
+      ## adverb.
+      "ADV"
+    | 
+      ## article.
+      "ART"
+    | 
+      ## conjunction.
+      "CONJ"
+    | 
+      ## interjection.
+      "INTERJ"
+    | 
+      ## preposition.
+      "PREP"
+    | 
+      ## pronoun.
+      "PRON"
+    | 
+      ## punctuation.
+      "STOP"
+    | 
+      ## substantive.
+      "SUBST"
+    | 
+      ## unclassified or non-lexical word.
+      "UNC"
+    | 
+      ## verb.
+      "VERB"
+  },
+  
+  ## specifies the headword under which this lexical unit is
+  ##       conventionally grouped, where known.
+  attribute hw { text },
+  att.c5coded.attribute.c5,
+  empty
+c =
+  
+  ## (character) contains a significant punctuation mark as identified by the CLAWS tagger.
+  element c { c.content, c.attributes }
+c.content = text
+c.attributes =
+  
+  ## the CLAWS 5 code associated with this punctuation
+  ##    mark.
+  attribute c5 {
+    
+    ## any separating punctuation mark.
+    "PUN"
+    | 
+      ## opening round or square parenthesis.
+      "PUL"
+    | 
+      ## closing round or square parenthesis.
+      "PUR"
+    | 
+      ## any quotation mark.
+      "PUQ"
+  },
+  empty
+particDesc =
+  
+  ## (participation description) describes the identifiable speakers, voices, or other participants
+  ## in a linguistic interaction. 
+  element particDesc { particDesc.content, particDesc.attributes }
+particDesc.content = person+
+particDesc.attributes =
+  
+  ## in demographic texts, supplies the respondent number used
+  ## to identify the batch of tapes.
+  attribute n { text }?,
+  empty
+settingDesc =
+  
+  ## (setting description) describes the setting or settings within which a language
+  ## interaction takes place, either as a prose description or as a
+  ## series of setting elements.
+  element settingDesc { settingDesc.content, settingDesc.attributes }
+settingDesc.content = setting+
+settingDesc.attributes = empty
+setting =
+  
+  ## (setting) describes one particular setting in which a language
+  ##   interaction takes place.
+  element setting { setting.content, setting.attributes }
+setting.content = (date | model.settingPart)*
+setting.attributes =
+  
+  ## an internal identifier for a setting.
+  attribute n { text }?,
+  att.uniqueId.attribute.xmlid,
+  att.ascribed.attribute.who,
+  empty
+locale =
+  
+  ## contains a brief informal description of the nature of a
+  ## place for example a room, a restaurant, a park bench etc.
+  element locale { locale.content, locale.attributes }
+locale.content = macro.phraseSeq
+locale.attributes = empty
+activity =
+  
+  ## contains a brief informal description of what a participant in a
+  ## language interaction is doing other than speaking, if anything.
+  element activity { activity.content, activity.attributes }
+activity.content = macro.phraseSeq
+activity.attributes =
+  
+  ## level of spontaneity or informality of the context as assessed by transcriber.
+  attribute spont { text }?,
+  empty
+teiHeader =
+  
+  ## (TEI Header) supplies the descriptive and declarative information making
+  ##	up an electronic title page prefixed to every TEI-conformant
+  ##	text.
+  element teiHeader { teiHeader.content, teiHeader.attributes }
+teiHeader.content = fileDesc, model.headerPart*, revisionDesc?
+teiHeader.attributes = empty
+fileDesc =
+  
+  ## (File Description) contains a full bibliographic description of an electronic
+  ## file.
+  element fileDesc { fileDesc.content, fileDesc.attributes }
+fileDesc.content = macro.fileDescPart, sourceDesc+
+fileDesc.attributes = empty
+titleStmt =
+  
+  ## (title statement) groups information about the title of a work and those
+  ## responsible for its intellectual content.
+  element titleStmt { titleStmt.content, titleStmt.attributes }
+titleStmt.content = title+, (author | editor | respStmt)*
+titleStmt.attributes = empty
+editionStmt =
+  
+  ## (edition statement) groups information relating to one edition of a text.
+  element editionStmt { editionStmt.content, editionStmt.attributes }
+editionStmt.content = edition
+editionStmt.attributes = empty
+edition =
+  
+  ## (Edition) describes the particularities of one edition of a text.
+  element edition { edition.content, edition.attributes }
+edition.content = macro.phraseSeq
+edition.attributes =
+  
+  ## supplies an identifying number for the edition.
+  attribute n { data.count }?,
+  empty
+extent =
+  
+  ## specifies the approximate size of the text, in orthographic
+  ## words, w elements, and s elements .
+  element extent { extent.content, extent.attributes }
+extent.content = macro.phraseSeq
+extent.attributes = empty
+publicationStmt =
+  
+  ## (publication statement) groups information concerning the publication or distribution
+  ## of an electronic or other text. 
+  element publicationStmt {
+    publicationStmt.content, publicationStmt.attributes
+  }
+publicationStmt.content = model.pLike+ | model.publicationStmtPart+
+publicationStmt.attributes = empty
+distributor =
+  
+  ## supplies the name of a person or other agency responsible for the
+  ## distribution of a text.
+  element distributor { distributor.content, distributor.attributes }
+distributor.content = macro.phraseSeq
+distributor.attributes = empty
+idno =
+  
+  ## (identifying number) supplies an identifying code for a text.
+  element idno { idno.content, idno.attributes }
+idno.content = text
+idno.attributes =
+  
+  ## categorizes the code number used.
+  attribute type { data.enumerated }?,
+  empty
+availability =
+  
+  ## supplies information about the availability of a text, for
+  ##   example any restrictions on its use or distribution, its copyright
+  ##   status, etc.
+  element availability { availability.content, availability.attributes }
+availability.content = (text | para)*
+availability.attributes = empty
+sourceDesc =
+  
+  ## supplies a description of the source text(s) from
+  ## which an electronic text was derived or generated.
+  element sourceDesc { sourceDesc.content, sourceDesc.attributes }
+sourceDesc.content = bibl | recordingStmt | para+
+sourceDesc.attributes = empty
+recordingStmt =
+  
+  ## (recording statement) describes a set of recordings used in transcription of a
+  ## spoken text.
+  element recordingStmt {
+    recordingStmt.content, recordingStmt.attributes
+  }
+recordingStmt.content = model.pLike+ | recording+
+recordingStmt.attributes = empty
+recording =
+  
+  ## (recording event) details of an audio or video recording event
+  ## used as the source of a spoken text, either directly or from
+  ## a public broadcast. 
+  element recording { recording.content, recording.attributes }
+recording.content = macro.phraseSeq
+recording.attributes =
+  
+  ## date of the recording in standardized form.
+  attribute date { data.temporal }?,
+  
+  ## tape number.
+  attribute n { text }?,
+  
+  ## time of day the recording was made.
+  attribute time { text }?,
+  
+  ## kind of recording.
+  [ a1:defaultValue = "audio" ] attribute type { text }?,
+  
+  ## duration of the recording in seconds.
+  attribute dur { data.count }?,
+  att.uniqueId.attribute.xmlid,
+  empty
+encodingDesc =
+  
+  ## (Encoding description) documents the relationship between an electronic text and the
+  ## source or sources from which it was derived.
+  element encodingDesc { encodingDesc.content, encodingDesc.attributes }
+encodingDesc.content = model.encodingPart*
+encodingDesc.attributes = empty
+projectDesc =
+  
+  ## (project description) describes in detail the aim or purpose for which an electronic
+  ## file was encoded, together with any other relevant information
+  ## concerning the process by which it was assembled or collected.
+  element projectDesc { projectDesc.content, projectDesc.attributes }
+projectDesc.content = para+
+projectDesc.attributes = empty
+samplingDecl =
+  
+  ## (sampling declaration) contains a prose description of the rationale and methods used
+  ## in sampling texts in the creation of a corpus or collection.
+  element samplingDecl { samplingDecl.content, samplingDecl.attributes }
+samplingDecl.content = (text | para)*
+samplingDecl.attributes = empty
+editorialDecl =
+  
+  ## (editorial practice declaration) provides details of editorial principles and practices applied
+  ## during the encoding of a text.
+  element editorialDecl {
+    editorialDecl.content, editorialDecl.attributes
+  }
+editorialDecl.content = (text | para)*
+editorialDecl.attributes = empty
+tagsDecl =
+  
+  ## (tagging declaration) provides information about the XML elements actually used within
+  ## a BNC text.
+  element tagsDecl { tagsDecl.content, tagsDecl.attributes }
+tagsDecl.content = \namespace*
+tagsDecl.attributes = empty
+tagUsage =
+  
+  ## (tag usage) supplies information about the usage of a specific element
+  ## within a text. 
+  element tagUsage { tagUsage.content, tagUsage.attributes }
+tagUsage.content = macro.phraseSeq
+tagUsage.attributes =
+  
+  ## the name (generic identifier)
+  ## of the element indicated by the tag.
+  attribute gi { data.name },
+  
+  ## specifies the number of occurrences of this element within the text.
+  ##  
+  attribute occurs { data.count }?,
+  empty
+\namespace =
+  
+  ## supplies the formal name of the namespace to which the elements
+  ## documented by its children belong. 
+  element namespace { namespace.content, namespace.attributes }
+namespace.content = tagUsage+
+namespace.attributes =
+  
+  ## the full formal name of the namespace concerned.
+  attribute name { data.namespace },
+  empty
+refsDecl =
+  
+  ## (references declaration) provides documentation for the reference system applicable to
+  ## the corpus.
+  element refsDecl { refsDecl.content, refsDecl.attributes }
+refsDecl.content = para+
+refsDecl.attributes = empty
+classDecl =
+  
+  ## (classification declarations) contains one or more taxonomies defining any classificatory
+  ## codes used elsewhere in the text.
+  element classDecl { classDecl.content, classDecl.attributes }
+classDecl.content = taxonomy+
+classDecl.attributes = empty
+taxonomy =
+  
+  ## (taxonomy) defines a typology used to classify texts either implicitly, by
+  ## means of a bibliographic citation, or explicitly by a structured
+  ## taxonomy.
+  element taxonomy { taxonomy.content, taxonomy.attributes }
+taxonomy.content = desc?, (category+ | model.biblLike)
+taxonomy.attributes = att.uniqueId.attribute.xmlid, empty
+category =
+  
+  ## (category) defines a single category within a taxonomy of texts.
+  element category { category.content, category.attributes }
+category.content = catDesc
+category.attributes = att.uniqueId.attribute.xmlid, empty
+catDesc =
+  
+  ## (category description) provides a description for one category within the text taxonomies
+  ## provided in the corpus header.
+  element catDesc { catDesc.content, catDesc.attributes }
+catDesc.content = macro.phraseSeq
+catDesc.attributes = empty
+profileDesc =
+  
+  ## (text-profile description) provides a detailed description of non-bibliographic aspects of a
+  ## text, specifically the languages and sublanguages used, the situation in
+  ## which it was produced, the participants and their setting.
+  element profileDesc { profileDesc.content, profileDesc.attributes }
+profileDesc.content = creation?, model.profileDescPart*
+profileDesc.attributes = empty
+creation =
+  
+  ## contains information about the creation of a text.
+  element creation { creation.content, creation.attributes }
+creation.content = macro.phraseSeq
+creation.attributes =
+  
+  ## supplies the year of original composition, if known; or 000-00-00 if
+  ## the date is unknown.
+  attribute date { data.temporal }?,
+  empty
+langUsage =
+  
+  ## (language usage) describes the languages, sublanguages, registers, dialects etc.
+  ## represented within a text.
+  element langUsage { langUsage.content, langUsage.attributes }
+langUsage.content = language+
+langUsage.attributes = empty
+language =
+  
+  ## characterizes a single language or sublanguage used within a
+  ##   text.
+  element language { language.content, language.attributes }
+language.content = macro.phraseSeq
+language.attributes =
+  
+  ## Supplies a language code constructed as defined in RFC 3066 (or
+  ##       its successor) which is used to identify the language documented
+  ##       by this element, and which is referenced by the global xml:lang attribute.
+  attribute ident { data.language },
+  empty
+textClass =
+  
+  ## (text classification) groups information which describes the nature or topic of a text
+  ## in terms of a standard classification scheme, thesaurus, etc.
+  element textClass { textClass.content, textClass.attributes }
+textClass.content = catRef, classCode*, keywords*
+textClass.attributes = empty
+keywords =
+  
+  ## contains a list of keywords or phrases identifying the topic or
+  ## nature of a text.
+  element keywords { keywords.content, keywords.attributes }
+keywords.content = term+
+keywords.attributes =
+  
+  ## identifies the controlled vocabulary within which the set of
+  ##   keywords concerned is defined.
+  ##    
+  attribute scheme { data.pointer }?,
+  empty
+classCode =
+  
+  ## contains the classification code used for this text in some
+  ## standard classification system.
+  element classCode { classCode.content, classCode.attributes }
+classCode.content = macro.phraseSeq
+classCode.attributes =
+  
+  ## identifies the classification system or taxonomy in use.
+  attribute scheme { data.pointer },
+  empty
+catRef =
+  
+  ## (category reference) provides a list of codes identifying the categories to which
+  ## this text has been assigned, each code referencing a category element
+  ## declared in the corpus header.
+  element catRef { catRef.content, catRef.attributes }
+catRef.content = empty
+catRef.attributes =
+  
+  ## identifies the categories concerned
+  ##    
+  attribute targets { data.pointers },
+  empty
+revisionDesc =
+  
+  ## (revision description) summarizes the revision history for a file.
+  element revisionDesc { revisionDesc.content, revisionDesc.attributes }
+revisionDesc.content = change+
+revisionDesc.attributes = empty
+change =
+  
+  ## summarizes a particular change or correction made
+  ## to a particular version of an electronic text which is
+  ## shared between several researchers.
+  element change { change.content, change.attributes }
+change.content = macro.phraseSeq
+change.attributes =
+  
+  ## supplies the date of the change in standard form,  i.e. yyyy-mm-dd.
+  attribute date { data.temporal }?,
+  att.ascribed.attribute.who,
+  empty
+model.headerPart = encodingDesc | profileDesc
+model.headerPart_sequence = encodingDesc, profileDesc
+model.headerPart_sequenceOptional = encodingDesc?, profileDesc?
+model.headerPart_sequenceOptionalRepeatable =
+  encodingDesc*, profileDesc*
+model.headerPart_sequenceRepeatable = encodingDesc+, profileDesc+
+model.sourceDescPart = recordingStmt
+model.sourceDescPart_sequence = recordingStmt
+model.sourceDescPart_sequenceOptional = recordingStmt?
+model.sourceDescPart_sequenceOptionalRepeatable = recordingStmt*
+model.sourceDescPart_sequenceRepeatable = recordingStmt+
+model.encodingPart =
+  projectDesc
+  | samplingDecl
+  | editorialDecl
+  | tagsDecl
+  | refsDecl
+  | classDecl
+  | xairaSpecification
+model.encodingPart_sequence =
+  projectDesc,
+  samplingDecl,
+  editorialDecl,
+  tagsDecl,
+  refsDecl,
+  classDecl,
+  xairaSpecification
+model.encodingPart_sequenceOptional =
+  projectDesc?,
+  samplingDecl?,
+  editorialDecl?,
+  tagsDecl?,
+  refsDecl?,
+  classDecl?,
+  xairaSpecification?
+model.encodingPart_sequenceOptionalRepeatable =
+  projectDesc*,
+  samplingDecl*,
+  editorialDecl*,
+  tagsDecl*,
+  refsDecl*,
+  classDecl*,
+  xairaSpecification*
+model.encodingPart_sequenceRepeatable =
+  projectDesc+,
+  samplingDecl+,
+  editorialDecl+,
+  tagsDecl+,
+  refsDecl+,
+  classDecl+,
+  xairaSpecification+
+model.editorialDeclPart = notAllowed
+model.editorialDeclPart_sequence = empty
+model.editorialDeclPart_sequenceOptional = empty
+model.editorialDeclPart_sequenceOptionalRepeatable = empty
+model.editorialDeclPart_sequenceRepeatable = notAllowed
+model.profileDescPart = particDesc | settingDesc | langUsage | textClass
+model.profileDescPart_sequence =
+  particDesc, settingDesc, langUsage, textClass
+model.profileDescPart_sequenceOptional =
+  particDesc?, settingDesc?, langUsage?, textClass?
+model.profileDescPart_sequenceOptionalRepeatable =
+  particDesc*, settingDesc*, langUsage*, textClass*
+model.profileDescPart_sequenceRepeatable =
+  particDesc+, settingDesc+, langUsage+, textClass+
+persName =
+  
+  ## (personal name) contains a proper noun or proper-noun phrase referring to a
+  ##   person, possibly including any or all of the person's forenames,
+  ##   surnames, honorifics, added names, etc.
+  element persName { persName.content, persName.attributes }
+persName.content = macro.phraseSeq
+persName.attributes = empty
+placeName =
+  
+  ## contains an absolute or relative place name. 
+  element placeName { placeName.content, placeName.attributes }
+placeName.content = macro.phraseSeq
+placeName.attributes = empty
+age =
+  
+  ## specifies the age in years of a recorded participant at the time of the
+  ##   recording in which they participate.
+  element age { age.content, age.attributes }
+age.content = macro.phraseSeq
+age.attributes = empty
+occupation =
+  
+  ## contains an informal description of a person's trade,
+  ## profession or occupation.
+  element occupation { occupation.content, occupation.attributes }
+occupation.content = macro.phraseSeq
+occupation.attributes = att.editLike.attribute.resp, empty
+person =
+  
+  ## provides information about an identifiable individual, for
+  ## example a participant in a language interaction, or a person referred
+  ## to in a historical source.
+  element person { person.content, person.attributes }
+person.content = model.pLike+ | (model.personPart | model.global)*
+person.attributes =
+  
+  ## specifies the age group to which the participant belongs.
+  attribute ageGroup { text }?,
+  
+  ## specifies the dialect or accent of a participant's speech, as identified
+  ## by the respondent.
+  attribute dialect { text }?,
+  
+  ## specifies the country of origin  of the 
+  ## participant, as identified
+  ## by the respondent.
+  attribute firstLang {
+    
+    ## Unknown.
+    "XX-XXX"
+    | 
+      ## German.
+      "DE-DEU"
+    | 
+      ## French.
+      "FR-FRA"
+    | 
+      ## British English.
+      "EN-GBR"
+    | 
+      ## North American English.
+      "EN-USA"
+    | 
+      ## Unknown Indian language.
+      "XX-IND"
+  }?,
+  
+  ## internal identifier.
+  attribute n { text }?,
+  
+  ## specifies the age at which the participant ceased full-time 
+  ## education.
+  attribute educ {
+    
+    ## Still in education.
+    "Ed0"
+    | 
+      ## Left school aged 14 or under.
+      "Ed1"
+    | 
+      ## Education continued until age 19 or over.
+      "Ed4"
+    | 
+      ## Unknown.
+      "X"
+  }?,
+  
+  ## specifies the social class of the participant.
+  attribute soc {
+    
+    ## Higher management: administrative or  professional.
+    "AB"
+    | 
+      ## Lower management: supervisory or clerical.
+      "C1"
+    | 
+      ## Skilled manual.
+      "C2"
+    | 
+      ## Semi-skilled or unskilled.
+      "DE"
+    | 
+      ## Social class unknown.
+      "UU"
+  }?,
+  
+  ## specifies the sex of the participant.
+  attribute sex {
+    
+    ## male.
+    "m"
+    | 
+      ## female.
+      "f"
+    | 
+      ## unknown.
+      "u"
+  }?,
+  
+  ## describes the relationship or role of this participant with respect to the
+  ## respondent.
+  attribute role { text }?,
+  att.uniqueId.attribute.xmlid,
+  empty
+model.persNamePart = notAllowed
+model.persNamePart_sequence = empty
+model.persNamePart_sequenceOptional = empty
+model.persNamePart_sequenceOptionalRepeatable = empty
+model.persNamePart_sequenceRepeatable = notAllowed
+att.personal.attributes =
+  att.personal.attribute.type,
+  att.personal.attribute.full,
+  att.personal.attribute.sort,
+  empty
+att.personal.attribute.type =
+  
+  ## provides more culture- linguistic- or application- specific
+  ## information used to categorize this name component.
+  attribute type { data.enumerated }?
+att.personal.attribute.full =
+  
+  ## indicates whether the name component is given in full, as an
+  ## abbreviation or simply as an initial.
+  [ a1:defaultValue = "yes" ]
+  attribute full {
+    
+    ## (the name component is spelled out in full.) 
+    "yes"
+    | 
+      ## (the name component is given in an
+      ## abbreviated form.) 
+      "abb"
+    | 
+      ## (the name component is indicated only by
+      ## one initial.) 
+      "init"
+  }?
+att.personal.attribute.sort =
+  
+  ## specifies the sort order of the name component in relation
+  ## to others within the personal name.
+  attribute sort { xsd:nonNegativeInteger }?
+u =
+  
+  ## (utterance) a stretch of speech usually preceded and followed by
+  ## silence or by a change of speaker.
+  element u { u.content, u.attributes }
+u.content =
+  (text
+   | model.gLike
+   | model.phrase
+   | model.divPart.spoken
+   | model.global)*
+u.attributes = att.ascribed.attribute.who, empty
+pause =
+  
+  ## a pause either between or within utterances.
+  element pause { pause.content, pause.attributes }
+pause.content = empty
+pause.attributes = att.timed.attribute.dur, empty
+vocal =
+  
+  ## (Vocalized semi-lexical) any vocalized but not necessarily lexical phenomenon, for example
+  ## voiced pauses, non-lexical backchannels, etc.
+  element vocal { vocal.content, vocal.attributes }
+vocal.content = empty
+vocal.attributes =
+  
+  ## provides a brief description of the vocal event.
+  attribute desc { text }?,
+  att.timed.attribute.dur,
+  att.ascribed.attribute.who,
+  empty
+event =
+  
+  ## any phenomenon or occurrence, not necessarily vocalized or
+  ## communicative, for example incidental noises or other events affecting
+  ## communication.
+  element event { event.content, event.attributes }
+event.content = empty
+event.attributes =
+  
+  ## provides a brief description of the event.
+  attribute desc { text }?,
+  att.timed.attribute.dur,
+  empty
+shift =
+  
+  ## marks the point at which some paralinguistic feature of a series of
+  ## utterances by any one speaker changes.
+  element shift { shift.content, shift.attributes }
+shift.content = empty
+shift.attributes =
+  
+  ## specifies the new state of the paralinguistic feature specified.
+  [ a1:defaultValue = "normal" ] attribute new { data.enumerated }?,
+  empty
+model.divPart.spoken = u | pause | vocal | event | shift | trunc
+model.divPart.spoken_sequence = u, pause, vocal, event, shift, trunc
+model.divPart.spoken_sequenceOptional =
+  u?, pause?, vocal?, event?, shift?, trunc?
+model.divPart.spoken_sequenceOptionalRepeatable =
+  u*, pause*, vocal*, event*, shift*, trunc*
+model.divPart.spoken_sequenceRepeatable =
+  u+, pause+, vocal+, event+, shift+, trunc+
+gi =
+  
+  ## (generic identifier) contains the name (generic identifier) of an element.
+  element gi { gi.content, gi.attributes }
+gi.content = text
+gi.attributes =
+  att.identifiable.attribute.ident, att.identifiable.attribute.ns, empty
+ident =
+  
+  ## contains an identifier or name for an object of some kind in a formal language
+  element ident { ident.content, ident.attributes }
+ident.content = text
+ident.attributes =
+  att.identifiable.attribute.ident, att.identifiable.attribute.ns, empty
+attList =
+  
+  ## contains documentation for all the attributes associated with this
+  ## element, as a series of attDef elements.
+  element attList { attList.content, attList.attributes }
+attList.content = attDef+
+attList.attributes = empty
+attDef =
+  
+  ## (attribute definition) provides the definition for a single attribute.
+  element attDef { attDef.content, attDef.attributes }
+attDef.content = desc*, valList?
+attDef.attributes = att.identifiable.attribute.ident, empty
+defaultVal =
+  
+  ## specifies the default declared value for an attribute.
+  element defaultVal { defaultVal.content, defaultVal.attributes }
+defaultVal.content = text
+defaultVal.attributes = empty
+valItem =
+  
+  ## (value definition) contains a single value and gloss  pair for an attribute.
+  element valItem { valItem.content, valItem.attributes }
+valItem.content = desc
+valItem.attributes =
+  att.identifiable.attribute.ident, att.identifiable.attribute.ns, empty
+valList =
+  
+  ## (value list) contains one or more valItem elements defining possible
+  ##   values for an attribute.
+  element valList { valList.content, valList.attributes }
+valList.content = valItem+
+valList.attributes =
+  
+  ## supplies the identifier of a previously-defined value list to be
+  ## used at this point.
+  attribute copyOf { data.pointer }?,
+  
+  ## specifies the extensibility of the list of attribute values
+  ##       specified.
+  ##       
+  [ a1:defaultValue = "open" ]
+  attribute type {
+    
+    ## (only the values specified are permitted.) 
+    "closed"
+    | 
+      ## (all the values specified should be supported, but
+      ##	  other values are legal and software should have appropriate
+      ##	  fallback processing for them.
+      ##	  ) 
+      "semi"
+    | 
+      ## (the values specified are sample values only.) 
+      "open"
+  }?,
+  att.identifiable.attribute.ident,
+  att.identifiable.attribute.ns,
+  empty
+\div =
+  
+  ## (text division) contains a subdivision of the front, body, or back of a
+  ## text.
+  element div { div.content, div.attributes }
+div.content =
+  (model.divWrapper | model.global)*,
+  ((model.divPart, (model.divPart | model.global)*)
+   | (model.divPart.spoken, (model.divPart.spoken | model.global)*))?,
+  \div*
+div.attributes =
+  
+  ## supplies an additional name or number for this division, taken
+  ## from the original source.
+  attribute n { text }?,
+  
+  ## for a spoken text, identities the declarations (for setting,
+  ## recording etc.) in the header which apply to this
+  ## division.
+  attribute decls { data.pointers }?,
+  
+  ## specifies the hierarchic level of this division as a number
+  ## between  1 (outermost or largest division) and 4
+  ## (innermost or smallest).
+  attribute level { data.count }?,
+  
+  ## identifies the type or function of the division (for a written text).
+  attribute type { text }?,
+  att.rendered.attribute.rend,
+  empty
+att.uniqueId.attributes = att.uniqueId.attribute.xmlid, empty
+att.uniqueId.attribute.xmlid =
+  
+  ## provides the unique identifier for this element.
+  attribute xml:id { xsd:ID }?
+att.identifiable.attributes =
+  att.identifiable.attribute.ident, att.identifiable.attribute.ns, empty
+att.identifiable.attribute.ident =
+  
+  ## supplies an element's generic identifier,
+  ## or one of the codes * (meaning all elements), or
+  ## name() meaning that the name of the referenced element is
+  ## to be used rather than its value.
+  attribute ident { data.name }?
+att.identifiable.attribute.ns =
+  
+  ## supplies the namespace within which the generic identifier is to be
+  ## found.
+  attribute ns { data.namespace }?
+att.rendered.attributes = att.rendered.attribute.rend, empty
+att.rendered.attribute.rend =
+  
+  ## a code briefly characterising the way the element content was originally
+  ## presented.
+  attribute rend {
+    
+    ## bold weight font.
+    "bo"
+    | 
+      ## boxed.
+      "bx"
+    | 
+      ## superscript.
+      "hi"
+    | 
+      ## italic and bold.
+      "ib"
+    | 
+      ## italic superscript.
+      "ih"
+    | 
+      ## italic subscript.
+      "il"
+    | 
+      ## italic font.
+      "it"
+    | 
+      ## italic and underlined.
+      "iu"
+    | 
+      ## subscript.
+      "lo"
+    | 
+      ## centre-aligned.
+      "qc"
+    | 
+      ## roman within italic.
+      "ro"
+    | 
+      ## strike-out.
+      "st"
+    | 
+      ## bold underlined .
+      "ub"
+    | 
+      ## underlined.
+      "ul"
+    | 
+      ## crossed-out.
+      "xx"
+  }?
+att.c5coded.attributes = att.c5coded.attribute.c5, empty
+att.c5coded.attribute.c5 =
+  
+  ## supplies the CLAWS 5 code associated with this word.
+  attribute c5 {
+    
+    ## Adjective (general or positive) (e.g. good, old, beautiful).
+    "AJ0"
+    | 
+      ## Comparative adjective (e.g. better, older).
+      "AJC"
+    | 
+      ## Superlative adjective (e.g. best, oldest).
+      "AJS"
+    | 
+      ## Article (e.g. the, a, an, no).
+      "AT0"
+    | 
+      ## General adverb: an adverb not subclassified as AVP or AVQ (see below) (e.g. often, well, longer (adv.), furthest.
+      "AV0"
+    | 
+      ## Adverb particle (e.g. up, off, out).
+      "AVP"
+    | 
+      ## Wh-adverb (e.g. when, where, how, why, wherever) .
+      "AVQ"
+    | 
+      ## Coordinating conjunction (e.g. and, or, but).
+      "CJC"
+    | 
+      ## Subordinating conjunction (e.g. although, when).
+      "CJS"
+    | 
+      ## The subordinating conjunction that .
+      "CJT"
+    | 
+      ## Cardinal number (e.g. one, 3, fifty-five, 3609).
+      "CRD"
+    | 
+      ## Possessive determiner-pronoun (e.g. your, their, his).
+      "DPS"
+    | 
+      ## General determiner-pronoun: i.e. a determiner-pronoun which is not a DTQ or an AT0.
+      "DT0"
+    | 
+      ## Wh-determiner-pronoun (e.g. which, what, whose, whichever) .
+      "DTQ"
+    | 
+      ## Existential there, i.e. there occurring in the there is ... or there are ... construction.
+      "EX0"
+    | 
+      ## Interjection or other isolate (e.g. oh, yes, mhm, wow).
+      "ITJ"
+    | 
+      ## Common noun, neutral for number (e.g. aircraft, data, committee) .
+      "NN0"
+    | 
+      ## Singular common noun (e.g. pencil, goose, time, revelation).
+      "NN1"
+    | 
+      ## Plural common noun (e.g. pencils, geese, times, revelations).
+      "NN2"
+    | 
+      ## Proper noun (e.g. London, Michael, Mars, IBM) .
+      "NP0"
+    | 
+      ## Ordinal numeral (e.g. first, sixth, 77th, last) .
+      "ORD"
+    | 
+      ## Indefinite pronoun (e.g. none, everything, one [as pronoun], nobody).
+      "PNI"
+    | 
+      ## Personal pronoun (e.g. I, you, them, ours).
+      "PNP"
+    | 
+      ## Wh-pronoun (e.g. who, whoever, whom).
+      "PNQ"
+    | 
+      ## Reflexive pronoun (e.g. myself, yourself, itself, ourselves).
+      "PNX"
+    | 
+      ## The possessive or genitive marker 's or '.
+      "POS"
+    | 
+      ## The preposition of.
+      "PRF"
+    | 
+      ## Preposition (except for of) (e.g. about, at, in, on, on behalf of, with).
+      "PRP"
+    | 
+      ## Infinitive marker to .
+      "TO0"
+    | 
+      ## Unclassified items which are not appropriately considered as items of the English lexicon.
+      "UNC"
+    | 
+      ## The present tense forms of the verb BE, except for is, 's: i.e. am, are, 'm, 're and be [subjunctive or imperative].
+      "VBB"
+    | 
+      ## The past tense forms of the verb BE: was and were.
+      "VBD"
+    | 
+      ## The -ing form of the verb BE: being.
+      "VBG"
+    | 
+      ## The infinitive form of the verb BE: be.
+      "VBI"
+    | 
+      ## The past participle form of the verb BE: been.
+      "VBN"
+    | 
+      ## The -s form of the verb BE: is, 's.
+      "VBZ"
+    | 
+      ## The finite base form of the verb BE: do.
+      "VDB"
+    | 
+      ## The past tense form of the verb DO: did.
+      "VDD"
+    | 
+      ## The -ing form of the verb DO: doing.
+      "VDG"
+    | 
+      ## The infinitive form of the verb DO: do.
+      "VDI"
+    | 
+      ## The past participle form of the verb DO: done.
+      "VDN"
+    | 
+      ## The -s form of the verb DO: does, 's.
+      "VDZ"
+    | 
+      ## The finite base form of the verb HAVE: have, 've.
+      "VHB"
+    | 
+      ## The past tense form of the verb HAVE: had, 'd.
+      "VHD"
+    | 
+      ## The -ing form of the verb HAVE: having.
+      "VHG"
+    | 
+      ## The infinitive form of the verb HAVE: have.
+      "VHI"
+    | 
+      ## The past participle form of the verb HAVE: had.
+      "VHN"
+    | 
+      ## The -s form of the verb HAVE: has, 's.
+      "VHZ"
+    | 
+      ## Modal auxiliary verb (e.g. will, would, can, could, 'll, 'd).
+      "VM0"
+    | 
+      ## The finite base form of lexical verbs (e.g. forget, send, live, return) [Including the imperative and present subjunctive].
+      "VVB"
+    | 
+      ## The past tense form of lexical verbs (e.g. forgot, sent, lived, returned).
+      "VVD"
+    | 
+      ## The -ing form of lexical verbs (e.g. forgetting, sending, living, returning).
+      "VVG"
+    | 
+      ## The infinitive form of lexical verbs (e.g. forget, send, live, return).
+      "VVI"
+    | 
+      ## The past participle form of lexical verbs (e.g. forgotten, sent, lived, returned).
+      "VVN"
+    | 
+      ## The -s form of lexical verbs (e.g. forgets, sends, lives, returns).
+      "VVZ"
+    | 
+      ## The negative particle not or n't .
+      "XX0"
+    | 
+      ## Alphabetical symbols (e.g. A, a, B, b, c, d).
+      "ZZ0"
+    | 
+      ## Probably AJ0 (adjective), but maybe AV0 (adverb).
+      "AJ0-AV0"
+    | 
+      ## Probably AJ0 (adjective), but maybe NN1 (singular noun).
+      "AJ0-NN1"
+    | 
+      ## Probably AJ0 (adjective), but maybe VVD (verb past tense).
+      "AJ0-VVD"
+    | 
+      ## Probably AJ0 (adjective), but maybe VVG (-ing verb).
+      "AJ0-VVG"
+    | 
+      ## Probably AJ0 (adjective), but maybe VVN (verb past participle).
+      "AJ0-VVN"
+    | 
+      ## Probably AV0 (adverb), but maybe AJ0 (adjective).
+      "AV0-AJ0"
+    | 
+      ## Probably AVP (adverb particle), but maybe PRP (preposition).
+      "AVP-PRP"
+    | 
+      ## Probably AVQ (wh- adverb), but maybe CJS (subordinating conjunction).
+      "AVQ-CJS"
+    | 
+      ## Probably CJS (subordinating conjunction), but maybe AVQ (wh- adverb).
+      "CJS-AVQ"
+    | 
+      ## Probably CJS (subordinating conjunction), but maybe PRP (preposition).
+      "CJS-PRP"
+    | 
+      ## Probably CJT ("that" as conjunction), but maybe DT0 (determiner).
+      "CJT-DT0"
+    | 
+      ## Probably CRD (number), but maybe PNI (indefinite pronoun).
+      "CRD-PNI"
+    | 
+      ## Probably DT0 (determiner), but maybe CJT ("that" as conjunction).
+      "DT0-CJT"
+    | 
+      ## Probably NN1 (singular noun), but maybe AJ0 (adjective).
+      "NN1-AJ0"
+    | 
+      ## Probably NN1 (singular noun), but maybe NP0 (proper noun).
+      "NN1-NP0"
+    | 
+      ## Probably NN1 (singular noun), but maybe VVB (verb).
+      "NN1-VVB"
+    | 
+      ## Probably NN1 (singular noun), but maybe VVG (-ing verb).
+      "NN1-VVG"
+    | 
+      ## Probably NN2 (plural noun), but maybe VVZ (-s verb).
+      "NN2-VVZ"
+    | 
+      ## Probably NP0 (proper noun), but maybe NN1 (singular noun).
+      "NP0-NN1"
+    | 
+      ## Probably PNI (indefinite pronoun), but maybe CRD (number).
+      "PNI-CRD"
+    | 
+      ## Probably PRP (preposition), but maybe AVP (adverb particle).
+      "PRP-AVP"
+    | 
+      ## Probably PRP (preposition), but maybe CJS (subordinating conjunction).
+      "PRP-CJS"
+    | 
+      ## Probably VVB (verb), but maybe NN1 (singular noun).
+      "VVB-NN1"
+    | 
+      ## Probably VVD (verb past tense), but maybe AJ0 (adjective).
+      "VVD-AJ0"
+    | 
+      ## Probably VVD (verb past tense), but maybe VVN (verb past participle).
+      "VVD-VVN"
+    | 
+      ## Probably VVG (-ing verb), but maybe AJ0 (adjective).
+      "VVG-AJ0"
+    | 
+      ## Probably VVG (-ing verb), but maybe NN1 (singular noun).
+      "VVG-NN1"
+    | 
+      ## Probably VVN (verb past participle), but maybe AJ0.
+      "VVN-AJ0"
+    | 
+      ## Probably VVN (verb past participle), but maybe VVD (verb past tense).
+      "VVN-VVD"
+    | 
+      ## Probably VVZ (-s verb), but maybe NN2 (plural noun).
+      "VVZ-NN2"
+  }
+bncDoc =
+  
+  ## contains a distinct document within the corpus, either spoken
+  ##  or written.
+  element bncDoc { bncDoc.content, bncDoc.attributes }
+bncDoc.content = teiHeader, (wtext | stext)
+bncDoc.attributes = att.uniqueId.attribute.xmlid, empty
+align =
+  
+  ## marks an temporal alignment point within transcribed speech.
+  element align { align.content, align.attributes }
+align.content = empty
+align.attributes =
+  
+  ## supplies an arbitrary identifier; all
+  ##       elements specifying the same value for this attribute are
+  ##       understood to be aligned with each other in time.
+  attribute with { data.pointer },
+  empty
+dialect =
+  
+  ## contains an informal description of the regional variety of
+  ## English used by a participant in a spoken text.
+  element dialect { dialect.content, dialect.attributes }
+dialect.content = macro.phraseSeq
+dialect.attributes = empty
+mw =
+  
+  ## contains a multi-word unit as identified by CLAWS, that is, a
+  ## sequence of individual tokens which function as a single
+  ## unit and can be given a single part of speech code.
+  element mw { mw.content, mw.attributes }
+mw.content = w+
+mw.attributes = att.c5coded.attribute.c5, empty
+para =
+  
+  ## contains descriptive text appearing within components of a TEI header.
+  element para { para.content, para.attributes }
+para.content = (text | hi | \list)*
+para.attributes = empty
+persNote =
+  
+  ## contains any additional information supplied about a participant in a spoken text.
+  element persNote { persNote.content, persNote.attributes }
+persNote.content = macro.phraseSeq
+persNote.attributes = empty
+pp =
+  
+  ## supplies page numbers for a bibliographic citation.
+  element pp { pp.content, pp.attributes }
+pp.content = macro.phraseSeq
+pp.attributes = empty
+stext =
+  
+  ## contains a single spoken text, i.e. a transcription or
+  ## collection of transcriptions from a single source.
+  element stext { stext.content, stext.attributes }
+stext.content = model.divPart.spoken*, \div*
+stext.attributes =
+  
+  ## specifies the type of spoken  text.
+  attribute type {
+    
+    ## demographically sampled conversation.
+    "CONVRSN"
+    | 
+      ## any other spoken text.
+      "OTHERSP"
+  },
+  empty
+trunc =
+  
+  ## contains one or more truncated words in transcribed speech.
+  element trunc { trunc.content, trunc.attributes }
+trunc.content = (w | mw | gap | unclear)+
+trunc.attributes = empty
+wtext =
+  
+  ## contains a single written text.
+  element wtext { wtext.content, wtext.attributes }
+wtext.content =
+  (model.divPart | model.global)*,
+  (\div, (\div | model.global)*)?
+wtext.attributes =
+  
+  ## specifies the type of written text.
+  attribute type {
+    
+    ## Academic prose.
+    "ACPROSE"
+    | 
+      ## Fiction and verse.
+      "FICTION"
+    | 
+      ## Newspapers.
+      "NEWS"
+    | 
+      ## Non-academic prose and biography.
+      "NONAC"
+    | 
+      ## Other published materials.
+      "OTHERPUB"
+    | 
+      ## Unpublished materials.
+      "UNPUB"
+  },
+  empty
+xairaSpecification =
+  
+  ## specifies additional information needed by XAIRA.
+  element xairaSpecification {
+    xairaSpecification.content, xairaSpecification.attributes
+  }
+xairaSpecification.content = xairaList+
+xairaSpecification.attributes = empty
+attributePolicy =
+  
+  ## specifies the indexing policy to be used for one or more
+  ## attributes.
+  element attributePolicy {
+    attributePolicy.content, attributePolicy.attributes
+  }
+attributePolicy.content = nameList?, joinTo?
+attributePolicy.attributes =
+  
+  ## identifies the attribute to which the
+  ## indexing policy applies.
+  attribute ident { data.name }?,
+  att.identifiable.attribute.ns,
+  
+  ## specifies the required indexing policy.
+  ## .
+  attribute type {
+    
+    ## no part of the attribute will be indexed.
+    "none"
+    | 
+      ## the attribute supplies an identifier
+      ## which can be linked to from elsewhere.
+      "jointo"
+    | 
+      ## the value of the attribute is used as
+      ## an  identifier on some other element.
+      "joinfrom"
+    | 
+      ## the value of the attribute is used to
+      ## supply a key for some predefined codebook or taxonomy of possible
+      ## values.
+      "taxonomy"
+  }?,
+  empty
+collate =
+  
+  ## supplies any additional ICU-conformant collating rules to be used when sorting
+  ## words in the corpus.
+  element collate { collate.content, collate.attributes }
+collate.content = text
+collate.attributes = empty
+elementPolicy =
+  
+  ## specifies the XAIRA indexing policy to be used for one or more
+  ## elements.
+  element elementPolicy {
+    elementPolicy.content, elementPolicy.attributes
+  }
+elementPolicy.content = nameList?
+elementPolicy.attributes =
+  att.identifiable.attribute.ident,
+  att.identifiable.attribute.ns,
+  
+  ## specifies the required indexing policy.
+  ## .
+  attribute type {
+    
+    ## no part of the element or its
+    ## content will be indexed.
+    "none"
+    | 
+      ## no part of the element will be
+      ## indexed, but any child elements will be.
+      "children"
+    | 
+      ## only the text and child content of the element will be
+      ## indexed.
+      "content"
+    | 
+      ## only the start and end tags for the
+      ## element and any child elements not otherwise specified will be
+      ## indexed.
+      "markup"
+  }?,
+  empty
+labelGen =
+  
+  ## specifies the label to be generated for the parent reference.
+  element labelGen { labelGen.content, labelGen.attributes }
+labelGen.content = text
+labelGen.attributes =
+  
+  ## specifies when the new label is to be generated.
+  attribute change {
+    
+    ## a new label is generated when a new
+    ## instance of the scope-defining element is found, and remains in force
+    ## until the next such element is found.
+    "onStart"
+    | 
+      ## a new label is generated when a new
+      ## instance of the scope-defining element is found, and remains in force
+      ## until that instance ends.
+      "within"
+  }?,
+  empty
+nameList =
+  
+  ## supplies a list of element names or attribute identifiers.
+  element nameList { nameList.content, nameList.attributes }
+nameList.content = (gi | ident)+
+nameList.attributes = empty
+joinTo =
+  
+  ## supplies a list of element names carrying an attribute which has
+  ## been specified with the XAIRA "joinTo" indexing policy.
+  element joinTo { joinTo.content, joinTo.attributes }
+joinTo.content = gi+
+joinTo.attributes = empty
+tokenize =
+  
+  ## supplies any additional ICU-conformant rules to be used
+  ## when tokenization is performed by XAIRA rather than by explicit XML markup.
+  element tokenize { tokenize.content, tokenize.attributes }
+tokenize.content = text
+tokenize.attributes = empty
+valSource =
+  
+  ## specifies where the XAIRA indexer is to find a value.
+  element valSource { valSource.content, valSource.attributes }
+valSource.content = nameList?, (defaultVal | labelGen)?
+valSource.attributes =
+  att.identifiable.attribute.ident,
+  att.identifiable.attribute.ns,
+  
+  ## indicates the kind of value to be found.
+  attribute type {
+    
+    ## element content.
+    "element"
+    | 
+      ## attribute content.
+      "attribute"
+    | 
+      ## content returned by one of the pseudo-
+      ## functions count(), sysid(), or lineno() .
+      "pseudo"
+  },
+  
+  ## indicates whether the value required should be casefolded or
+  ## not.
+  [ a1:defaultValue = "false" ] attribute caseFold { text }?,
+  empty
+xairaItem =
+  
+  ## provides data needed to define one part of a  XAIRA specification.
+  element xairaItem { xairaItem.content, xairaItem.attributes }
+xairaItem.content =
+  desc*,
+  ((valSource, labelGen?)
+   | attList
+   | nameList
+   | elementPolicy
+   | attributePolicy
+   | tokenize
+   | collate)?
+xairaItem.attributes =
+  att.identifiable.attribute.ident,
+  att.identifiable.attribute.ns,
+  
+  ## indicates what is defined by this part of the specification.
+  attribute type {
+    
+    ##  an element and its attributes.
+    "element"
+    | 
+      ## a lexical form.
+      "form"
+    | 
+      ## an additional key.
+      "addKey"
+    | 
+      ## a lemmatization scheme.
+      "lemmaScheme"
+    | 
+      ## a region.
+      "region"
+    | 
+      ## the reference used to identify
+      ## a document in the corpus.
+      "textRef"
+    | 
+      ## the default scope for results
+      ## obtained from a corpus.
+      "scopeRef"
+    | 
+      ## the reference used to identify
+      ## some segmentation of a corpus document.
+      "unitRef"
+    | 
+      ## the indexing policy for some
+      ## corpus component.
+      "indexPol"
+    | 
+      ## the default language for
+      ## a corpus.
+      "defaultLang"
+    | 
+      ## any additional tokenization or
+      ## collation rules for some language used in a corpus.
+      "langRules"
+  },
+  empty
+xairaList =
+  
+  ## contains a list of XAIRA parameters of a particular type.
+  element xairaList { xairaList.content, xairaList.attributes }
+xairaList.content = xairaItem+
+xairaList.attributes =
+  
+  ## indicates the function of this part of the specification.
+  attribute type {
+    
+    ## lists and glosses the elements,
+    ## attributes, and codebooks used in a corpus .
+    "elementSpec"
+    | 
+      ## specifies how items are to be indexed.
+      "keySpec"
+    | 
+      ## specifies any predefined regions to
+      ## be made avalable to the client.
+      "regionSpec"
+    | 
+      ## specifies any lemmatization schemes
+      ## used.
+      "lemmaSpec"
+    | 
+      ## specifies how items are to be referenced.
+      "refSpec"
+    | 
+      ## specifies any special indexing
+      ## policies.
+      "indexSpec"
+    | 
+      ## specifies any language-specific rules.
+      "langSpec"
+  },
+  empty
+start = teiHeader | bncDoc | teiCorpus

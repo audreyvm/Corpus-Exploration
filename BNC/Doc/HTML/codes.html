@@ -1,0 +1,5141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Miscellaneous tables</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Miscellaneous tables">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="codes">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">9  Miscellaneous tables</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="refs.html">8  References</a><i> Next: </i><a class="navigation" href="bibliog.html">10  List of Sources</a></p>
+<p><span id="id2375009"></span>This section consists of a series of supplementary tables listing
+values used for some open or semi open value-lists, and other
+aspects of the corpus and its encoding not provided by the reference
+information in section <a class="link_ptr" href="bnctags.html" title="Formal Specification of the BNC XML schema">12  Formal Specification of the BNC XML schema</a>.
+</p>
+<div class="p">
+<span id="id2375020"></span>The following code tables are provided:
+<ul>
+<li>
+<a class="link_ptr" href="codes.html#tagcounts" title="XML tag usage by text type">9.1  XML tag usage by text type</a> gives a breakdown of XML tag usage by
+text type; </li>
+<li>
+<a class="link_ptr" href="codes.html#shiftcodes" title="Voice quality codes">9.2  Voice quality codes</a> lists the most frequent values used in the corpus
+for the <strong>new</strong> attribute on the <code>&lt;shift&gt;</code> element, to
+indicate changes in voice quality for spoken texts; </li>
+<li>
+<a class="link_ptr" href="codes.html#gapcodes" title="Gap descriptions">9.3  Gap descriptions</a> lists the most frequent values used in
+the corpus for the <strong>desc</strong> attribute on the <code>&lt;gap&gt;</code>
+element, to describe material not transcribed in spoken texts; </li>
+<li>
+<a class="link_ptr" href="codes.html#eventcodes" title="Event descriptions">9.4  Event descriptions</a> lists the most frequent values used in
+the corpus for the <strong>desc</strong> attribute on the <code>&lt;event&gt;</code>
+element, which describes non-linguistic events noted by the
+transcriber of a spoken text; </li>
+<li>
+<a class="link_ptr" href="codes.html#reltypes" title="Speaker relationships">9.5  Speaker relationships</a> lists the codes used to identify
+the roles relationships of participants, as specified in the
+<strong>role</strong> attribute on <code>&lt;person&gt;</code>; </li>
+<li>
+<a class="link_ptr" href="codes.html#classcodes" title="Text and genre classification codes">9.6  Text and genre classification codes</a> lists the text-type codes making up
+David Lee's text classification system as applied to the BNC.
+</li>
+<li>
+<a class="link_ptr" href="codes.html#defrobs" title="Contracted forms and multiwords">9.7  Contracted forms and multiwords</a> lists all the multiword items identified
+by the CLAWS system and tagged as <code>&lt;mw&gt;</code> elements, together with
+the C5 wordclass tag assigned to each of their constituent
+parts </li>
+<li>
+<a class="link_ptr" href="codes.html#klettpos" title="Simplified Wordclass Tags">9.8  Simplified Wordclass Tags</a> lists the mapping between simple POS
+code and CLAWS5 wordclass tags</li>
+</ul>
+</div>
+<div class="teidiv1" id="tagcounts">
+<h3>9.1  XML tag usage by text type</h3>
+<p><span id="id2375136"></span>Each of the 4049 texts in the BNC is categorized broadly by type
+(written fiction, written academic prose, spoken demographic,
+etc.). This table lists the usage of the various XML elements
+documented in this manual within the corpus, both in total and in each of the different
+text types. Note that elements which appear only in corpus or text
+headers are excluded. </p>
+<div class="left"><table class="center">
+<caption>Table 31. Tag usage by Text Type</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">Total</td>
+<td valign="top">Academic writing</td>
+<td valign="top">Published fiction</td>
+<td valign="top">News and journalism</td>
+<td valign="top">Published non-fiction</td>
+<td valign="top">Other published writing</td>
+<td valign="top">Unpublished writing</td>
+<td valign="top">Conversation</td>
+<td valign="top">Other spoken</td>
+</tr>
+<tr>
+<td valign="top" class="label">align</td>
+<td valign="top">407023</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">66.96%<br>272552</td>
+<td valign="top">33.03%<br>134471</td>
+</tr>
+<tr>
+<td valign="top" class="label">bibl</td>
+<td valign="top">1036</td>
+<td valign="top">17.85%<br>185</td>
+<td valign="top">10.90%<br>113</td>
+<td valign="top"> -- </td>
+<td valign="top">55.59%<br>576</td>
+<td valign="top">15.54%<br>161</td>
+<td valign="top">0.09%<br>1</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">c</td>
+<td valign="top">13614363</td>
+<td valign="top">14.55%<br>1981729</td>
+<td valign="top">23.65%<br>3220541</td>
+<td valign="top">8.68%<br>1182536</td>
+<td valign="top">22.31%<br>3038629</td>
+<td valign="top">16.64%<br>2266554</td>
+<td valign="top">3.87%<br>527101</td>
+<td valign="top">5.03%<br>684858</td>
+<td valign="top">5.23%<br>712415</td>
+</tr>
+<tr>
+<td valign="top" class="label">corr</td>
+<td valign="top">17000</td>
+<td valign="top">11.42%<br>1943</td>
+<td valign="top">7.86%<br>1337</td>
+<td valign="top">11.07%<br>1882</td>
+<td valign="top">28.34%<br>4819</td>
+<td valign="top">28.94%<br>4921</td>
+<td valign="top">12.12%<br>2062</td>
+<td valign="top">0.02%<br>5</td>
+<td valign="top">0.18%<br>31</td>
+</tr>
+<tr>
+<td valign="top" class="label">div</td>
+<td valign="top">210145</td>
+<td valign="top">12.04%<br>25308</td>
+<td valign="top">3.10%<br>6518</td>
+<td valign="top">18.31%<br>38484</td>
+<td valign="top">20.35%<br>42778</td>
+<td valign="top">33.35%<br>70090</td>
+<td valign="top">11.02%<br>23172</td>
+<td valign="top">1.73%<br>3640</td>
+<td valign="top">0.07%<br>155</td>
+</tr>
+<tr>
+<td valign="top" class="label">event</td>
+<td valign="top">6943</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">36.85%<br>2559</td>
+<td valign="top">63.14%<br>4384</td>
+</tr>
+<tr>
+<td valign="top" class="label">gap</td>
+<td valign="top">65159</td>
+<td valign="top">21.16%<br>13790</td>
+<td valign="top">0.35%<br>232</td>
+<td valign="top">1.62%<br>1060</td>
+<td valign="top">14.64%<br>9542</td>
+<td valign="top">16.74%<br>10911</td>
+<td valign="top">8.79%<br>5731</td>
+<td valign="top">7.67%<br>4998</td>
+<td valign="top">28.99%<br>18895</td>
+</tr>
+<tr>
+<td valign="top" class="label">head</td>
+<td valign="top">222085</td>
+<td valign="top">10.71%<br>23797</td>
+<td valign="top">2.62%<br>5836</td>
+<td valign="top">22.11%<br>49108</td>
+<td valign="top">21.74%<br>48288</td>
+<td valign="top">33.44%<br>74283</td>
+<td valign="top">9.35%<br>20773</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">hi</td>
+<td valign="top">210508</td>
+<td valign="top">27.84%<br>58613</td>
+<td valign="top">12.50%<br>26315</td>
+<td valign="top">0.14%<br>302</td>
+<td valign="top">31.23%<br>65758</td>
+<td valign="top">25.28%<br>53236</td>
+<td valign="top">2.98%<br>6284</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">item</td>
+<td valign="top">117237</td>
+<td valign="top">27.82%<br>32621</td>
+<td valign="top">0.74%<br>870</td>
+<td valign="top">2.23%<br>2621</td>
+<td valign="top">22.93%<br>26893</td>
+<td valign="top">30.82%<br>36139</td>
+<td valign="top">15.43%<br>18093</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">l</td>
+<td valign="top">51310</td>
+<td valign="top">2.59%<br>1333</td>
+<td valign="top">71.39%<br>36631</td>
+<td valign="top">0.17%<br>89</td>
+<td valign="top">13.59%<br>6974</td>
+<td valign="top">8.62%<br>4426</td>
+<td valign="top">3.61%<br>1857</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">label</td>
+<td valign="top">65697</td>
+<td valign="top">43.83%<br>28799</td>
+<td valign="top">0.65%<br>430</td>
+<td valign="top">1.66%<br>1093</td>
+<td valign="top">21.27%<br>13976</td>
+<td valign="top">21.96%<br>14428</td>
+<td valign="top">10.61%<br>6971</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">lg</td>
+<td valign="top">3040</td>
+<td valign="top">7.23%<br>220</td>
+<td valign="top">54.53%<br>1658</td>
+<td valign="top">0.23%<br>7</td>
+<td valign="top">21.71%<br>660</td>
+<td valign="top">11.71%<br>356</td>
+<td valign="top">4.57%<br>139</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">list</td>
+<td valign="top">19758</td>
+<td valign="top">20.72%<br>4095</td>
+<td valign="top">0.71%<br>142</td>
+<td valign="top">1.63%<br>323</td>
+<td valign="top">26.41%<br>5220</td>
+<td valign="top">31.75%<br>6274</td>
+<td valign="top">18.74%<br>3704</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">mw</td>
+<td valign="top">792599</td>
+<td valign="top">19.55%<br>155017</td>
+<td valign="top">16.83%<br>133469</td>
+<td valign="top">7.74%<br>61366</td>
+<td valign="top">25.39%<br>201249</td>
+<td valign="top">16.73%<br>132634</td>
+<td valign="top">4.09%<br>32478</td>
+<td valign="top">3.24%<br>25742</td>
+<td valign="top">6.38%<br>50644</td>
+</tr>
+<tr>
+<td valign="top" class="label">note</td>
+<td valign="top">117</td>
+<td valign="top">45.29%<br>53</td>
+<td valign="top">0.85%<br>1</td>
+<td valign="top">0.85%<br>1</td>
+<td valign="top">5.12%<br>6</td>
+<td valign="top">47.86%<br>56</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">p</td>
+<td valign="top">1599693</td>
+<td valign="top">8.78%<br>140550</td>
+<td valign="top">27.13%<br>434019</td>
+<td valign="top">17.95%<br>287171</td>
+<td valign="top">18.18%<br>290826</td>
+<td valign="top">20.35%<br>325612</td>
+<td valign="top">7.59%<br>121515</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">pause</td>
+<td valign="top">216354</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">64.98%<br>140589</td>
+<td valign="top">35.01%<br>75765</td>
+</tr>
+<tr>
+<td valign="top" class="label">pb</td>
+<td valign="top">94620</td>
+<td valign="top">26.16%<br>24760</td>
+<td valign="top">25.60%<br>24224</td>
+<td valign="top">0.15%<br>148</td>
+<td valign="top">31.63%<br>29931</td>
+<td valign="top">14.75%<br>13961</td>
+<td valign="top">1.68%<br>1596</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">quote</td>
+<td valign="top">15208</td>
+<td valign="top">40.20%<br>6114</td>
+<td valign="top">4.58%<br>698</td>
+<td valign="top">0.03%<br>5</td>
+<td valign="top">45.66%<br>6945</td>
+<td valign="top">6.14%<br>934</td>
+<td valign="top">3.36%<br>512</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">s</td>
+<td valign="top">6026276</td>
+<td valign="top">11.55%<br>696038</td>
+<td valign="top">21.96%<br>1323573</td>
+<td valign="top">8.43%<br>508609</td>
+<td valign="top">18.83%<br>1135264</td>
+<td valign="top">16.95%<br>1021633</td>
+<td valign="top">5.02%<br>303078</td>
+<td valign="top">10.13%<br>610558</td>
+<td valign="top">7.09%<br>427523</td>
+</tr>
+<tr>
+<td valign="top" class="label">shift</td>
+<td valign="top">36053</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">70.90%<br>25564</td>
+<td valign="top">29.09%<br>10489</td>
+</tr>
+<tr>
+<td valign="top" class="label">sp</td>
+<td valign="top">29112</td>
+<td valign="top">0.21%<br>62</td>
+<td valign="top">1.28%<br>373</td>
+<td valign="top"> -- </td>
+<td valign="top">4.76%<br>1386</td>
+<td valign="top">35.69%<br>10391</td>
+<td valign="top">58.05%<br>16900</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">speaker</td>
+<td valign="top">23466</td>
+<td valign="top">0.26%<br>62</td>
+<td valign="top">1.58%<br>373</td>
+<td valign="top"> -- </td>
+<td valign="top">5.90%<br>1385</td>
+<td valign="top">44.16%<br>10363</td>
+<td valign="top">48.08%<br>11283</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">stage</td>
+<td valign="top">507</td>
+<td valign="top">1.38%<br>7</td>
+<td valign="top">10.25%<br>52</td>
+<td valign="top"> -- </td>
+<td valign="top">5.71%<br>29</td>
+<td valign="top">82.44%<br>418</td>
+<td valign="top">0.19%<br>1</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+</tr>
+<tr>
+<td valign="top" class="label">trunc</td>
+<td valign="top">52674</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">38.69%<br>20382</td>
+<td valign="top">61.30%<br>32292</td>
+</tr>
+<tr>
+<td valign="top" class="label">u</td>
+<td valign="top">784483</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">67.02%<br>525789</td>
+<td valign="top">32.97%<br>258694</td>
+</tr>
+<tr>
+<td valign="top" class="label">unclear</td>
+<td valign="top">203045</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">62.39%<br>126686</td>
+<td valign="top">37.60%<br>76359</td>
+</tr>
+<tr>
+<td valign="top" class="label">vocal</td>
+<td valign="top">43457</td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top"> -- </td>
+<td valign="top">63.61%<br>27645</td>
+<td valign="top">36.38%<br>15812</td>
+</tr>
+<tr>
+<td valign="top" class="label">w</td>
+<td valign="top">98363707</td>
+<td valign="top">16.04%<br>15781859</td>
+<td valign="top">16.41%<br>16143913</td>
+<td valign="top">9.56%<br>9412174</td>
+<td valign="top">24.58%<br>24179010</td>
+<td valign="top">18.26%<br>17970212</td>
+<td valign="top">4.54%<br>4466681</td>
+<td valign="top">4.30%<br>4233962</td>
+<td valign="top">6.27%<br>6175896</td>
+</tr>
+</table></div>
+</div>
+<div class="teidiv1" id="shiftcodes">
+<h3>9.2  Voice quality codes</h3>
+<div class="p">
+<span id="id2376416"></span>Changes in voice quality in spoken texts are indicated by values
+for  the <code>&lt;new&gt;</code> attribute on a <code>&lt;shift&gt;</code> element, at
+the point where the speaker's voice
+change. 156 distinct values are used, but most of them appear only
+infrequently. The following list gives the values which appear more
+than 10 times in the whole corpus:
+
+<div class="left"><table>
+<tr class="label">
+<td valign="top">voice quality</td>
+<td valign="top">number such</td>
+</tr>
+<tr>
+<td valign="top">laughing</td>
+<td valign="top">9268</td>
+</tr>
+<tr>
+<td valign="top">reading</td>
+<td valign="top">2463</td>
+</tr>
+<tr>
+<td valign="top">singing</td>
+<td valign="top">2045</td>
+</tr>
+<tr>
+<td valign="top">shouting</td>
+<td valign="top">1419</td>
+</tr>
+<tr>
+<td valign="top">whispering</td>
+<td valign="top">1247</td>
+</tr>
+<tr>
+<td valign="top">yawning</td>
+<td valign="top">363</td>
+</tr>
+<tr>
+<td valign="top">sighing</td>
+<td valign="top">276</td>
+</tr>
+<tr>
+<td valign="top">mimicking</td>
+<td valign="top">241</td>
+</tr>
+<tr>
+<td valign="top">spelling</td>
+<td valign="top">224</td>
+</tr>
+<tr>
+<td valign="top">crying</td>
+<td valign="top">108</td>
+</tr>
+<tr>
+<td valign="top">screaming</td>
+<td valign="top">97</td>
+</tr>
+<tr>
+<td valign="top">whining</td>
+<td valign="top">40</td>
+</tr>
+<tr>
+<td valign="top">whingeing</td>
+<td valign="top">38</td>
+</tr>
+<tr>
+<td valign="top">praying</td>
+<td valign="top">23</td>
+</tr>
+<tr>
+<td valign="top">reading bible</td>
+<td valign="top">22</td>
+</tr>
+<tr>
+<td valign="top">reading newspaper</td>
+<td valign="top">20</td>
+</tr>
+<tr>
+<td valign="top">reading+laughing</td>
+<td valign="top">15</td>
+</tr>
+<tr>
+<td valign="top">reading book</td>
+<td valign="top">14</td>
+</tr>
+<tr>
+<td valign="top">on telephone</td>
+<td valign="top">11</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div class="teidiv1" id="gapcodes">
+<h3>9.3  Gap descriptions</h3>
+<div class="p">
+<span id="id2376583"></span>Where material is omitted for some reason during the transcription
+of a text, either written or spoken, the <code>&lt;gap&gt;</code> element is used
+to provide a brief description of the material omitted and the reason
+for its exclusion. The <strong>desc</strong> attribute supplies the
+description, and the <strong>cause</strong> attribute explains why it
+was done. Over 1700 distinct descriptions are used, but most of them
+appear only infrequently. The following list gives the 65 values which
+appear more than 25 times in the whole corpus:
+
+<div class="left"><table>
+<tr class="label">
+<td valign="top">material omitted</td>
+<td valign="top">number such</td>
+</tr>
+<tr>
+<td valign="top">name</td>
+<td valign="top">29698</td>
+</tr>
+<tr>
+<td valign="top">formula</td>
+<td valign="top">12476</td>
+</tr>
+<tr>
+<td valign="top">figure</td>
+<td valign="top">4060</td>
+</tr>
+<tr>
+<td valign="top">address</td>
+<td valign="top">3914</td>
+</tr>
+<tr>
+<td valign="top">many nonRoman characters</td>
+<td valign="top">2835</td>
+</tr>
+<tr>
+<td valign="top">telephone number</td>
+<td valign="top">2173</td>
+</tr>
+<tr>
+<td valign="top">table</td>
+<td valign="top">1393</td>
+</tr>
+<tr>
+<td valign="top">illustration</td>
+<td valign="top">903</td>
+</tr>
+<tr>
+<td valign="top">photograph</td>
+<td valign="top">338</td>
+</tr>
+<tr>
+<td valign="top">footnote</td>
+<td valign="top">197</td>
+</tr>
+<tr>
+<td valign="top">references etc.</td>
+<td valign="top">188</td>
+</tr>
+<tr>
+<td valign="top">date</td>
+<td valign="top">172</td>
+</tr>
+<tr>
+<td valign="top">list of names</td>
+<td valign="top">171</td>
+</tr>
+<tr>
+<td valign="top">picture</td>
+<td valign="top">144</td>
+</tr>
+<tr>
+<td valign="top">personal name</td>
+<td valign="top">142</td>
+</tr>
+<tr>
+<td valign="top">advert</td>
+<td valign="top">141</td>
+</tr>
+<tr>
+<td valign="top">reference</td>
+<td valign="top">133</td>
+</tr>
+<tr>
+<td valign="top">adverts</td>
+<td valign="top">126</td>
+</tr>
+<tr>
+<td valign="top">list</td>
+<td valign="top">123</td>
+</tr>
+<tr>
+<td valign="top">period quotation</td>
+<td valign="top">112</td>
+</tr>
+<tr>
+<td valign="top">name and address</td>
+<td valign="top">101</td>
+</tr>
+<tr>
+<td valign="top">phonetic transcription</td>
+<td valign="top">95</td>
+</tr>
+<tr>
+<td valign="top">list of venues</td>
+<td valign="top">95</td>
+</tr>
+<tr>
+<td valign="top">table of contents</td>
+<td valign="top">92</td>
+</tr>
+<tr>
+<td valign="top">names</td>
+<td valign="top">91</td>
+</tr>
+<tr>
+<td valign="top">ingredients</td>
+<td valign="top">91</td>
+</tr>
+<tr>
+<td valign="top">publication details</td>
+<td valign="top">84</td>
+</tr>
+<tr>
+<td valign="top">footnotes</td>
+<td valign="top">83</td>
+</tr>
+<tr>
+<td valign="top">contents omitted</td>
+<td valign="top">72</td>
+</tr>
+<tr>
+<td valign="top">contents</td>
+<td valign="top">65</td>
+</tr>
+<tr>
+<td valign="top">list of ingredients</td>
+<td valign="top">64</td>
+</tr>
+<tr>
+<td valign="top">diagram</td>
+<td valign="top">60</td>
+</tr>
+<tr>
+<td valign="top">hebrew</td>
+<td valign="top">59</td>
+</tr>
+<tr>
+<td valign="top">address, telephone number etc.</td>
+<td valign="top">50</td>
+</tr>
+<tr>
+<td valign="top">tel. no</td>
+<td valign="top">47</td>
+</tr>
+<tr>
+<td valign="top">cover page</td>
+<td valign="top">47</td>
+</tr>
+<tr>
+<td valign="top">text</td>
+<td valign="top">46</td>
+</tr>
+<tr>
+<td valign="top">venue, dates, times, prices etc.</td>
+<td valign="top">46</td>
+</tr>
+<tr>
+<td valign="top">venue</td>
+<td valign="top">46</td>
+</tr>
+<tr>
+<td valign="top">telephone no</td>
+<td valign="top">44</td>
+</tr>
+<tr>
+<td valign="top">number</td>
+<td valign="top">41</td>
+</tr>
+<tr>
+<td valign="top">names and addresses</td>
+<td valign="top">41</td>
+</tr>
+<tr>
+<td valign="top">other venues</td>
+<td valign="top">41</td>
+</tr>
+<tr>
+<td valign="top">venues</td>
+<td valign="top">40</td>
+</tr>
+<tr>
+<td valign="top">form</td>
+<td valign="top">39</td>
+</tr>
+<tr>
+<td valign="top">personal names</td>
+<td valign="top">38</td>
+</tr>
+<tr>
+<td valign="top">computer code</td>
+<td valign="top">38</td>
+</tr>
+<tr>
+<td valign="top">gaelic</td>
+<td valign="top">36</td>
+</tr>
+<tr>
+<td valign="top">email address</td>
+<td valign="top">36</td>
+</tr>
+<tr>
+<td valign="top">author details</td>
+<td valign="top">35</td>
+</tr>
+<tr>
+<td valign="top">address and telephone</td>
+<td valign="top">35</td>
+</tr>
+<tr>
+<td valign="top">cover omitted</td>
+<td valign="top">35</td>
+</tr>
+<tr>
+<td valign="top">company name</td>
+<td valign="top">34</td>
+</tr>
+<tr>
+<td valign="top">credits</td>
+<td valign="top">33</td>
+</tr>
+<tr>
+<td valign="top">caption</td>
+<td valign="top">31</td>
+</tr>
+<tr>
+<td valign="top">dates</td>
+<td valign="top">30</td>
+</tr>
+<tr>
+<td valign="top">name and phone number</td>
+<td valign="top">29</td>
+</tr>
+<tr>
+<td valign="top">sales details</td>
+<td valign="top">28</td>
+</tr>
+<tr>
+<td valign="top">address, dates, times, prices etc.</td>
+<td valign="top">28</td>
+</tr>
+<tr>
+<td valign="top">period quotation/verse</td>
+<td valign="top">27</td>
+</tr>
+<tr>
+<td valign="top">notes</td>
+<td valign="top">27</td>
+</tr>
+<tr>
+<td valign="top">map</td>
+<td valign="top">26</td>
+</tr>
+<tr>
+<td valign="top">period/overseas quotation</td>
+<td valign="top">25</td>
+</tr>
+<tr>
+<td valign="top">quotation</td>
+<td valign="top">25</td>
+</tr>
+</table></div>
+</div>
+<div class="p">
+<span id="id2377055"></span>The cause for a gap in transcription is usually self-evident, which
+may be why only a small number of  values is used for the
+<strong>cause</strong> attribute. The following four values are the
+most significant:
+<div class="left"><table>
+<tr class="label">
+<td valign="top">reason for ommission</td>
+<td valign="top">number such</td>
+</tr>
+<tr>
+<td valign="top">anonymization</td>
+<td valign="top">31924</td>
+</tr>
+<tr>
+<td valign="top">label</td>
+<td valign="top">303</td>
+</tr>
+<tr>
+<td valign="top">sampling strategy</td>
+<td valign="top">115</td>
+</tr>
+<tr>
+<td valign="top">repeated elsewhere</td>
+<td valign="top">6</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div class="teidiv1" id="eventcodes">
+<h3>9.4  Event descriptions</h3>
+<div class="p">
+<span id="id2377115"></span>The <code>&lt;event&gt;</code> element is used in spoken texts to mark wherever
+some non-linguistic but significant event is noted by a
+transcriber. The brief texts used to describe such events are very
+various, and there are more than 1500 different values for the
+<strong>desc</strong> attribute which stores them. The following lists
+shows the 60 or so values which appear more than 10 times in the whole
+corpus:
+<div class="left"><table>
+<tr class="label">
+<td valign="top">Event description</td>
+<td valign="top">number such</td>
+</tr>
+<tr>
+<td valign="top">clapping</td>
+<td valign="top">1134</td>
+</tr>
+<tr>
+<td valign="top">music</td>
+<td valign="top">397</td>
+</tr>
+<tr>
+<td valign="top">recorded jingle</td>
+<td valign="top">330</td>
+</tr>
+<tr>
+<td valign="top">break in recording</td>
+<td valign="top">310</td>
+</tr>
+<tr>
+<td valign="top">speaking french</td>
+<td valign="top">212</td>
+</tr>
+<tr>
+<td valign="top">pre-recorded blurb</td>
+<td valign="top">199</td>
+</tr>
+<tr>
+<td valign="top">too quiet to hear</td>
+<td valign="top">180</td>
+</tr>
+<tr>
+<td valign="top">recording ends</td>
+<td valign="top">177</td>
+</tr>
+<tr>
+<td valign="top">tape change</td>
+<td valign="top">158</td>
+</tr>
+<tr>
+<td valign="top">phonecall starts</td>
+<td valign="top">138</td>
+</tr>
+<tr>
+<td valign="top">phone rings</td>
+<td valign="top">138</td>
+</tr>
+<tr>
+<td valign="top">phonecall ends</td>
+<td valign="top">125</td>
+</tr>
+<tr>
+<td valign="top">tape breaks here</td>
+<td valign="top">120</td>
+</tr>
+<tr>
+<td valign="top">piano music</td>
+<td valign="top">109</td>
+</tr>
+<tr>
+<td valign="top">paper rustling</td>
+<td valign="top">93</td>
+</tr>
+<tr>
+<td valign="top">tv on</td>
+<td valign="top">80</td>
+</tr>
+<tr>
+<td valign="top">people talking</td>
+<td valign="top">77</td>
+</tr>
+<tr>
+<td valign="top">applause</td>
+<td valign="top">67</td>
+</tr>
+<tr>
+<td valign="top">dog barks</td>
+<td valign="top">63</td>
+</tr>
+<tr>
+<td valign="top">tape jumps</td>
+<td valign="top">62</td>
+</tr>
+<tr>
+<td valign="top">dog barking</td>
+<td valign="top">55</td>
+</tr>
+<tr>
+<td valign="top">baby talk</td>
+<td valign="top">55</td>
+</tr>
+<tr>
+<td valign="top">jingle</td>
+<td valign="top">47</td>
+</tr>
+<tr>
+<td valign="top">banging</td>
+<td valign="top">47</td>
+</tr>
+<tr>
+<td valign="top">classroom chatter</td>
+<td valign="top">47</td>
+</tr>
+<tr>
+<td valign="top">talk in background</td>
+<td valign="top">41</td>
+</tr>
+<tr>
+<td valign="top">people laughing</td>
+<td valign="top">35</td>
+</tr>
+<tr>
+<td valign="top">advert</td>
+<td valign="top">35</td>
+</tr>
+<tr>
+<td valign="top">door knock</td>
+<td valign="top">33</td>
+</tr>
+<tr>
+<td valign="top">noise - traffic</td>
+<td valign="top">30</td>
+</tr>
+<tr>
+<td valign="top">playing piano</td>
+<td valign="top">30</td>
+</tr>
+<tr>
+<td valign="top">tape ends</td>
+<td valign="top">28</td>
+</tr>
+<tr>
+<td valign="top">door bell</td>
+<td valign="top">27</td>
+</tr>
+<tr>
+<td valign="top">noise - background</td>
+<td valign="top">26</td>
+</tr>
+<tr>
+<td valign="top">portuguese speech</td>
+<td valign="top">24</td>
+</tr>
+<tr>
+<td valign="top">writing on board</td>
+<td valign="top">24</td>
+</tr>
+<tr>
+<td valign="top">hits ball</td>
+<td valign="top">23</td>
+</tr>
+<tr>
+<td valign="top">music in background</td>
+<td valign="top">21</td>
+</tr>
+<tr>
+<td valign="top">speaking italian</td>
+<td valign="top">19</td>
+</tr>
+<tr>
+<td valign="top">television</td>
+<td valign="top">19</td>
+</tr>
+<tr>
+<td valign="top">baby crying</td>
+<td valign="top">18</td>
+</tr>
+<tr>
+<td valign="top">door closing</td>
+<td valign="top">17</td>
+</tr>
+<tr>
+<td valign="top">bell ring</td>
+<td valign="top">17</td>
+</tr>
+<tr>
+<td valign="top">singing</td>
+<td valign="top">16</td>
+</tr>
+<tr>
+<td valign="top">crockery noise</td>
+<td valign="top">16</td>
+</tr>
+<tr>
+<td valign="top">noseblow</td>
+<td valign="top">16</td>
+</tr>
+<tr>
+<td valign="top">telephone conversation ends</td>
+<td valign="top">16</td>
+</tr>
+<tr>
+<td valign="top">talking from other room</td>
+<td valign="top">16</td>
+</tr>
+<tr>
+<td valign="top">everyone talking</td>
+<td valign="top">15</td>
+</tr>
+<tr>
+<td valign="top">radio on</td>
+<td valign="top">15</td>
+</tr>
+<tr>
+<td valign="top">noise</td>
+<td valign="top">15</td>
+</tr>
+<tr>
+<td valign="top">door opening</td>
+<td valign="top">15</td>
+</tr>
+<tr>
+<td valign="top">introduction music</td>
+<td valign="top">15</td>
+</tr>
+<tr>
+<td valign="top">drilling noise</td>
+<td valign="top">14</td>
+</tr>
+<tr>
+<td valign="top">microphone moved</td>
+<td valign="top">14</td>
+</tr>
+<tr>
+<td valign="top">plane overhead</td>
+<td valign="top">13</td>
+</tr>
+<tr>
+<td valign="top">knocking</td>
+<td valign="top">13</td>
+</tr>
+<tr>
+<td valign="top">phonic</td>
+<td valign="top">13</td>
+</tr>
+<tr>
+<td valign="top">closing music</td>
+<td valign="top">12</td>
+</tr>
+<tr>
+<td valign="top">noise - train</td>
+<td valign="top">12</td>
+</tr>
+<tr>
+<td valign="top">cat noise</td>
+<td valign="top">12</td>
+</tr>
+<tr>
+<td valign="top">clicks fingers</td>
+<td valign="top">11</td>
+</tr>
+<tr>
+<td valign="top">speaking german</td>
+<td valign="top">11</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div class="teidiv1" id="reltypes">
+<h3>9.5  Speaker relationships</h3>
+<p><span id="id2377846"></span>In demographically sampled texts, the role of each speaker with
+respect to the respondent is supplied by the <strong>role</strong>
+attribute on the <code>&lt;person&gt;</code> element. The following table lists
+all 79 values used in the curent version of the corpus in descending
+frequency order.
+</p>
+<div class="left"><table>
+<tr class="label">
+<td valign="top">role name</td>
+<td valign="top">persons</td>
+</tr>
+<tr>
+<td valign="top">unspecified</td>
+<td valign="top">6862</td>
+</tr>
+<tr>
+<td valign="top">other</td>
+<td valign="top">1454</td>
+</tr>
+<tr>
+<td valign="top">friend</td>
+<td valign="top">654</td>
+</tr>
+<tr>
+<td valign="top">?</td>
+<td valign="top">354</td>
+</tr>
+<tr>
+<td valign="top">self</td>
+<td valign="top">306</td>
+</tr>
+<tr>
+<td valign="top">colleague</td>
+<td valign="top">216</td>
+</tr>
+<tr>
+<td valign="top">daughter</td>
+<td valign="top">102</td>
+</tr>
+<tr>
+<td valign="top">son</td>
+<td valign="top">100</td>
+</tr>
+<tr>
+<td valign="top">husband</td>
+<td valign="top">68</td>
+</tr>
+<tr>
+<td valign="top">wife</td>
+<td valign="top">66</td>
+</tr>
+<tr>
+<td valign="top">mother</td>
+<td valign="top">64</td>
+</tr>
+<tr>
+<td valign="top">stranger</td>
+<td valign="top">52</td>
+</tr>
+<tr>
+<td valign="top">neighbour</td>
+<td valign="top">50</td>
+</tr>
+<tr>
+<td valign="top">father</td>
+<td valign="top">42</td>
+</tr>
+<tr>
+<td valign="top">sister</td>
+<td valign="top">42</td>
+</tr>
+<tr>
+<td valign="top">brother</td>
+<td valign="top">38</td>
+</tr>
+<tr>
+<td valign="top">mother-in-law</td>
+<td valign="top">22</td>
+</tr>
+<tr>
+<td valign="top">sister-in-law</td>
+<td valign="top">22</td>
+</tr>
+<tr>
+<td valign="top">teacher</td>
+<td valign="top">22</td>
+</tr>
+<tr>
+<td valign="top">acquaintance</td>
+<td valign="top">18</td>
+</tr>
+<tr>
+<td valign="top">brother-in-law</td>
+<td valign="top">18</td>
+</tr>
+<tr>
+<td valign="top">employee</td>
+<td valign="top">14</td>
+</tr>
+<tr>
+<td valign="top">son-in-law</td>
+<td valign="top">14</td>
+</tr>
+<tr>
+<td valign="top">father-in-law</td>
+<td valign="top">12</td>
+</tr>
+<tr>
+<td valign="top">granddaughter</td>
+<td valign="top">12</td>
+</tr>
+<tr>
+<td valign="top">niece</td>
+<td valign="top">12</td>
+</tr>
+<tr>
+<td valign="top">chairman</td>
+<td valign="top">10</td>
+</tr>
+<tr>
+<td valign="top">grandson</td>
+<td valign="top">10</td>
+</tr>
+<tr>
+<td valign="top">daughter-in-law</td>
+<td valign="top">8</td>
+</tr>
+<tr>
+<td valign="top">nephew</td>
+<td valign="top">8</td>
+</tr>
+<tr>
+<td valign="top">aunt</td>
+<td valign="top">6</td>
+</tr>
+<tr>
+<td valign="top">boyfriend</td>
+<td valign="top">6</td>
+</tr>
+<tr>
+<td valign="top">customer</td>
+<td valign="top">6</td>
+</tr>
+<tr>
+<td valign="top">girlfriend</td>
+<td valign="top">6</td>
+</tr>
+<tr>
+<td valign="top">babysitter</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">cousin</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">fiancé</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">friend's son</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">grandmother</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">lecturer</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">son's teacher</td>
+<td valign="top">4</td>
+</tr>
+<tr>
+<td valign="top">aunt-in-law</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">boss</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">boyfriend's father</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">boyfriend's mother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">brother's friend</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">brother-in-law's mother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">child's teacher</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">cousin-in-law</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">cousin-in-law's son</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">cousin-in-law's wife</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">daughter's boyfriend</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">daughter's friend</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">employee's wife</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">friend's brother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">friend's father</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">friend's granddaughter</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">friend's mother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">friend's sister</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">grandmother-in-law</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">hairdresser</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">hairdresser's son</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">housekeeper</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">husband's great-niece</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">husband's niece</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">neighbour's son</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">partner</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">partner's mother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">plumber</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">sister's friend</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">sister's friend's mother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">sister-in-law's father</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">sister-in-law's mother</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">son's friend</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">step-father</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">stepfather</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">uncle</td>
+<td valign="top">2</td>
+</tr>
+<tr>
+<td valign="top">visitor</td>
+<td valign="top">2</td>
+</tr>
+</table></div>
+</div>
+<div class="teidiv1" id="classcodes">
+<h3>9.6  Text and genre classification codes</h3>
+<p><span id="id2378412"></span>Texts are classified in several different ways in the BNC, as
+described in section <a class="link_ptr" href="cdifhd.html#hdpdtc" title="Text classification">5.3.5  Text classification </a>.  Each text carries a
+number of text classification codes, specified as a string of values on
+the <strong>target</strong> attribute of its <code>&lt;catRefs&gt;</code>
+element. Each code identifies one of the values in one of the 23
+<code>&lt;taxonomy&gt;</code> element provided in the BNC Header, corresponding
+with the design criteria outlined in <a class="link_ptr" href="BNCdes.html" title="Design of the corpus">1  Design of the corpus</a>. Possible
+values for these codes and brief explanations of their meanings are listed in the corpus
+header. Distribution tables showing the number of texts, words, and
+sentences classified under most of them are given above in section
+<a class="link_ptr" href="BNCdes.html" title="Design of the corpus">1  Design of the corpus</a> and elsewhere in the current section.
+</p>
+<p><span id="id2378450"></span>One of the codes listed below is also supplied for each text as the
+content of a <code>&lt;classCode&gt;</code> element in its text header, as an
+alternative way of characterising each text. A description of the
+analysis scheme used and its rationale are provided in <a class="link_ref" href="refs.html" title="References">Lee 2001</a>. The codes used in the present version of
+the corpus have been updated to take note of a small number of
+corrections made by Lee on his web site (<a class="link_ptr" href="http://clix.to/davidlee00" title=""><span>http://clix.to/davidlee00</span></a>) since publication of that
+article. </p>
+<div class="p">
+<span id="id2378474"></span><div class="left">
+<span id="Lee1"></span><table class="center">
+<caption>Table 37. Genre classification for spoken texts</caption>
+<tr class="label">
+<td valign="top"><tt>Classification</tt></td>
+<td valign="top">Number of texts</td>
+<td valign="top">W-units</td>
+<td valign="top">%</td>
+<td valign="top">S-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">S brdcast discussn</td>
+<td valign="top">53</td>
+<td valign="top">761595</td>
+<td valign="top">0.77</td>
+<td valign="top">41144</td>
+<td valign="top">0.68</td>
+</tr>
+<tr>
+<td valign="top" class="label">S brdcast documentary</td>
+<td valign="top">10</td>
+<td valign="top">41893</td>
+<td valign="top">0.04</td>
+<td valign="top">2369</td>
+<td valign="top">0.03</td>
+</tr>
+<tr>
+<td valign="top" class="label">S brdcast news</td>
+<td valign="top">12</td>
+<td valign="top">263255</td>
+<td valign="top">0.26</td>
+<td valign="top">12454</td>
+<td valign="top">0.20</td>
+</tr>
+<tr>
+<td valign="top" class="label">S classroom</td>
+<td valign="top">58</td>
+<td valign="top">433646</td>
+<td valign="top">0.44</td>
+<td valign="top">51355</td>
+<td valign="top">0.85</td>
+</tr>
+<tr>
+<td valign="top" class="label">S consult</td>
+<td valign="top">128</td>
+<td valign="top">139320</td>
+<td valign="top">0.14</td>
+<td valign="top">20698</td>
+<td valign="top">0.34</td>
+</tr>
+<tr>
+<td valign="top" class="label">S conv</td>
+<td valign="top">153</td>
+<td valign="top">4233955</td>
+<td valign="top">4.30</td>
+<td valign="top">610557</td>
+<td valign="top">10.13</td>
+</tr>
+<tr>
+<td valign="top" class="label">S courtroom</td>
+<td valign="top">13</td>
+<td valign="top">129067</td>
+<td valign="top">0.13</td>
+<td valign="top">6366</td>
+<td valign="top">0.10</td>
+</tr>
+<tr>
+<td valign="top" class="label">S demonstratn</td>
+<td valign="top">6</td>
+<td valign="top">32062</td>
+<td valign="top">0.03</td>
+<td valign="top">2175</td>
+<td valign="top">0.03</td>
+</tr>
+<tr>
+<td valign="top" class="label">S interview</td>
+<td valign="top">13</td>
+<td valign="top">125096</td>
+<td valign="top">0.12</td>
+<td valign="top">11809</td>
+<td valign="top">0.19</td>
+</tr>
+<tr>
+<td valign="top" class="label">S interview oral history</td>
+<td valign="top">119</td>
+<td valign="top">822489</td>
+<td valign="top">0.83</td>
+<td valign="top">57831</td>
+<td valign="top">0.95</td>
+</tr>
+<tr>
+<td valign="top" class="label">S lect commerce</td>
+<td valign="top">3</td>
+<td valign="top">15233</td>
+<td valign="top">0.01</td>
+<td valign="top">406</td>
+<td valign="top">0.00</td>
+</tr>
+<tr>
+<td valign="top" class="label">S lect humanities arts</td>
+<td valign="top">4</td>
+<td valign="top">51510</td>
+<td valign="top">0.05</td>
+<td valign="top">2639</td>
+<td valign="top">0.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">S lect nat science</td>
+<td valign="top">4</td>
+<td valign="top">22938</td>
+<td valign="top">0.02</td>
+<td valign="top">1019</td>
+<td valign="top">0.01</td>
+</tr>
+<tr>
+<td valign="top" class="label">S lect polit law edu</td>
+<td valign="top">7</td>
+<td valign="top">51407</td>
+<td valign="top">0.05</td>
+<td valign="top">1670</td>
+<td valign="top">0.02</td>
+</tr>
+<tr>
+<td valign="top" class="label">S lect soc science</td>
+<td valign="top">13</td>
+<td valign="top">162030</td>
+<td valign="top">0.16</td>
+<td valign="top">8136</td>
+<td valign="top">0.13</td>
+</tr>
+<tr>
+<td valign="top" class="label">S meeting</td>
+<td valign="top">132</td>
+<td valign="top">1391207</td>
+<td valign="top">1.41</td>
+<td valign="top">103266</td>
+<td valign="top">1.71</td>
+</tr>
+<tr>
+<td valign="top" class="label">S parliament</td>
+<td valign="top">6</td>
+<td valign="top">97289</td>
+<td valign="top">0.09</td>
+<td valign="top">2609</td>
+<td valign="top">0.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">S pub debate</td>
+<td valign="top">16</td>
+<td valign="top">287062</td>
+<td valign="top">0.29</td>
+<td valign="top">13347</td>
+<td valign="top">0.22</td>
+</tr>
+<tr>
+<td valign="top" class="label">S sermon</td>
+<td valign="top">16</td>
+<td valign="top">82775</td>
+<td valign="top">0.08</td>
+<td valign="top">3345</td>
+<td valign="top">0.05</td>
+</tr>
+<tr>
+<td valign="top" class="label">S speech scripted</td>
+<td valign="top">25</td>
+<td valign="top">193020</td>
+<td valign="top">0.19</td>
+<td valign="top">9571</td>
+<td valign="top">0.15</td>
+</tr>
+<tr>
+<td valign="top" class="label">S speech unscripted</td>
+<td valign="top">51</td>
+<td valign="top">469492</td>
+<td valign="top">0.47</td>
+<td valign="top">33121</td>
+<td valign="top">0.54</td>
+</tr>
+<tr>
+<td valign="top" class="label">S sportslive</td>
+<td valign="top">4</td>
+<td valign="top">33630</td>
+<td valign="top">0.03</td>
+<td valign="top">1867</td>
+<td valign="top">0.03</td>
+</tr>
+<tr>
+<td valign="top" class="label">S tutorial</td>
+<td valign="top">18</td>
+<td valign="top">144783</td>
+<td valign="top">0.14</td>
+<td valign="top">8814</td>
+<td valign="top">0.14</td>
+</tr>
+<tr>
+<td valign="top" class="label">S unclassified</td>
+<td valign="top">44</td>
+<td valign="top">425097</td>
+<td valign="top">0.43</td>
+<td valign="top">31512</td>
+<td valign="top">0.52</td>
+</tr>
+<tr>
+<td valign="top" class="label">W ac:humanities arts</td>
+<td valign="top">87</td>
+<td valign="top">3358167</td>
+<td valign="top">3.41</td>
+<td valign="top">130167</td>
+<td valign="top">2.15</td>
+</tr>
+<tr>
+<td valign="top" class="label">W ac:medicine</td>
+<td valign="top">24</td>
+<td valign="top">1435608</td>
+<td valign="top">1.45</td>
+<td valign="top">66811</td>
+<td valign="top">1.10</td>
+</tr>
+<tr>
+<td valign="top" class="label">W ac:nat science</td>
+<td valign="top">43</td>
+<td valign="top">1122939</td>
+<td valign="top">1.14</td>
+<td valign="top">51203</td>
+<td valign="top">0.84</td>
+</tr>
+<tr>
+<td valign="top" class="label">W ac:polit law edu</td>
+<td valign="top">186</td>
+<td valign="top">4703304</td>
+<td valign="top">4.78</td>
+<td valign="top">190220</td>
+<td valign="top">3.15</td>
+</tr>
+<tr>
+<td valign="top" class="label">W ac:soc science</td>
+<td valign="top">142</td>
+<td valign="top">4785423</td>
+<td valign="top">4.8</td>
+<td valign="top">307998</td>5.12<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top" class="label">W ac:tech engin</td>
+<td valign="top">23</td>
+<td valign="top">692141</td>
+<td valign="top">0.70</td>
+<td valign="top">34982</td>
+<td valign="top">0.58</td>
+</tr>
+<tr>
+<td valign="top" class="label">W admin</td>
+<td valign="top">12</td>
+<td valign="top">222803</td>
+<td valign="top">0.22</td>
+<td valign="top">14045</td>
+<td valign="top">0.23</td>
+</tr>
+<tr>
+<td valign="top" class="label">W advert</td>
+<td valign="top">59</td>
+<td valign="top">553625</td>
+<td valign="top">0.56</td>
+<td valign="top">42147</td>
+<td valign="top">0.69</td>
+</tr>
+<tr>
+<td valign="top" class="label">W biography</td>
+<td valign="top">100</td>
+<td valign="top">3556688</td>
+<td valign="top">3.61</td>
+<td valign="top">172615</td>
+<td valign="top">2.86</td>
+</tr>
+<tr>
+<td valign="top" class="label">W commerce</td>
+<td valign="top">112</td>
+<td valign="top">3807494</td>
+<td valign="top">3.87</td>
+<td valign="top">187127</td>
+<td valign="top">3.10</td>
+</tr>
+<tr>
+<td valign="top" class="label">W email</td>
+<td valign="top">7</td>
+<td valign="top">214022</td>
+<td valign="top">0.21</td>
+<td valign="top">17411</td>
+<td valign="top">0.28</td>
+</tr>
+<tr>
+<td valign="top" class="label">W essay school</td>
+<td valign="top">7</td>
+<td valign="top">147736</td>
+<td valign="top">0.15</td>
+<td valign="top">7871</td>
+<td valign="top">0.13</td>
+</tr>
+<tr>
+<td valign="top" class="label">W essay univ</td>
+<td valign="top">3</td>
+<td valign="top">56273</td>
+<td valign="top">0.05</td>
+<td valign="top">2905</td>
+<td valign="top">0.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">W fict drama</td>
+<td valign="top">2</td>
+<td valign="top">46094</td>
+<td valign="top">0.04</td>
+<td valign="top">4932</td>
+<td valign="top">0.08</td>
+</tr>
+<tr>
+<td valign="top" class="label">W fict poetry</td>
+<td valign="top">30</td>
+<td valign="top">223682</td>
+<td valign="top">0.22</td>
+<td valign="top">38137</td>
+<td valign="top">0.63</td>
+</tr>
+<tr>
+<td valign="top" class="label">W fict prose</td>
+<td valign="top">431</td>
+<td valign="top">16033647</td>
+<td valign="top">16.30</td>
+<td valign="top">1293211</td>
+<td valign="top">21.45</td>
+</tr>
+<tr>
+<td valign="top" class="label">W hansard</td>
+<td valign="top">4</td>
+<td valign="top">1168362</td>
+<td valign="top">1.18</td>
+<td valign="top">63234</td>
+<td valign="top">1.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">W institut doc</td>
+<td valign="top">43</td>
+<td valign="top">552124</td>
+<td valign="top">0.56</td>
+<td valign="top">30159</td>
+<td valign="top">0.50</td>
+</tr>
+<tr>
+<td valign="top" class="label">W instructional</td>
+<td valign="top">15</td>
+<td valign="top">440548</td>
+<td valign="top">0.44</td>
+<td valign="top">27875</td>
+<td valign="top">0.46</td>
+</tr>
+<tr>
+<td valign="top" class="label">W letters personal</td>
+<td valign="top">6</td>
+<td valign="top">52915</td>
+<td valign="top">0.05</td>
+<td valign="top">2583</td>
+<td valign="top">0.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">W letters prof</td>
+<td valign="top">11</td>
+<td valign="top">66591</td>
+<td valign="top">0.06</td>
+<td valign="top">4800</td>
+<td valign="top">0.07</td>
+</tr>
+<tr>
+<td valign="top" class="label">W misc</td>
+<td valign="top">502</td>
+<td valign="top">9237504</td>
+<td valign="top">9.39</td>
+<td valign="top">521286</td>
+<td valign="top">8.65</td>
+</tr>
+<tr>
+<td valign="top" class="label">W news script</td>
+<td valign="top">32</td>
+<td valign="top">1248609</td>
+<td valign="top">1.26</td>
+<td valign="top">102937</td>
+<td valign="top">1.70</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: arts</td>
+<td valign="top">51</td>
+<td valign="top">352137</td>
+<td valign="top">0.35</td>
+<td valign="top">16991</td>
+<td valign="top">0.28</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: commerce</td>
+<td valign="top">44</td>
+<td valign="top">430075</td>
+<td valign="top">0.43</td>
+<td valign="top">21103</td>
+<td valign="top">0.35</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: editorial</td>
+<td valign="top">12</td>
+<td valign="top">102718</td>
+<td valign="top">0.10</td>
+<td valign="top">5150</td>
+<td valign="top">0.08</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: misc</td>
+<td valign="top">95</td>
+<td valign="top">1040943</td>
+<td valign="top">1.05</td>
+<td valign="top">51455</td>
+<td valign="top">0.85</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: report</td>
+<td valign="top">49</td>
+<td valign="top">668613</td>
+<td valign="top">0.67</td>
+<td valign="top">32079</td>
+<td valign="top">0.53</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: science</td>
+<td valign="top">29</td>
+<td valign="top">65880</td>
+<td valign="top">0.06</td>
+<td valign="top">3390</td>
+<td valign="top">0.05</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: social</td>
+<td valign="top">36</td>
+<td valign="top">82605</td>
+<td valign="top">0.08</td>
+<td valign="top">4388</td>
+<td valign="top">0.07</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp brdsht nat: sports</td>
+<td valign="top">24</td>
+<td valign="top">300033</td>
+<td valign="top">0.30</td>
+<td valign="top">14679</td>
+<td valign="top">0.24</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp other: arts</td>
+<td valign="top">15</td>
+<td valign="top">240877</td>
+<td valign="top">0.24</td>
+<td valign="top">13005</td>
+<td valign="top">0.21</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp other: commerce</td>
+<td valign="top">17</td>
+<td valign="top">419996</td>
+<td valign="top">0.42</td>
+<td valign="top">20506</td>
+<td valign="top">0.34</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp other: report</td>
+<td valign="top">39</td>
+<td valign="top">2735074</td>
+<td valign="top">2.78</td>
+<td valign="top">150676</td>
+<td valign="top">2.50</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp other: science</td>
+<td valign="top">23</td>
+<td valign="top">55319</td>
+<td valign="top">0.05</td>
+<td valign="top">2798</td>
+<td valign="top">0.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp other: social</td>
+<td valign="top">37</td>
+<td valign="top">1151490</td>
+<td valign="top">1.17</td>
+<td valign="top">63846</td>
+<td valign="top">1.05</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp other: sports</td>
+<td valign="top">9</td>
+<td valign="top">1033352</td>
+<td valign="top">1.05</td>
+<td valign="top">56802</td>
+<td valign="top">0.94</td>
+</tr>
+<tr>
+<td valign="top" class="label">W newsp tabloid</td>
+<td valign="top">6</td>
+<td valign="top">733066</td>
+<td valign="top">0.74</td>
+<td valign="top">51744</td>
+<td valign="top">0.85</td>
+</tr>
+<tr>
+<td valign="top" class="label">W nonAc: humanities arts</td>
+<td valign="top">110</td>
+<td valign="top">3744321</td>
+<td valign="top">3.80</td>
+<td valign="top">155839</td>
+<td valign="top">2.58</td>
+</tr>
+<tr>
+<td valign="top" class="label">W nonAc: medicine</td>
+<td valign="top">17</td>
+<td valign="top">504610</td>
+<td valign="top">0.51</td>
+<td valign="top">27156</td>
+<td valign="top">0.45</td>
+</tr>
+<tr>
+<td valign="top" class="label">W nonAc: nat science</td>
+<td valign="top">62</td>
+<td valign="top">2533635</td>
+<td valign="top">2.57</td>
+<td valign="top">120610</td>
+<td valign="top">2.00</td>
+</tr>
+<tr>
+<td valign="top" class="label">W nonAc: polit law edu</td>
+<td valign="top">93</td>
+<td valign="top">4521040</td>
+<td valign="top">4.59</td>
+<td valign="top">208785</td>
+<td valign="top">3.46</td>
+</tr>
+<tr>
+<td valign="top" class="label">W nonAc: soc science</td>
+<td valign="top">123</td>
+<td valign="top">3708033</td>
+<td valign="top">3.76</td>
+<td valign="top">183588</td>
+<td valign="top">3.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">W nonAc: tech engin</td>
+<td valign="top">123</td>
+<td valign="top">1220026</td>
+<td valign="top">1.24</td>
+<td valign="top">52750</td>
+<td valign="top">0.87</td>
+</tr>
+<tr>
+<td valign="top" class="label">W pop lore</td>
+<td valign="top">211</td>
+<td valign="top">7450814</td>
+<td valign="top">7.57</td>
+<td valign="top">425448</td>
+<td valign="top">7.05</td>
+</tr>
+<tr>
+<td valign="top" class="label">W religion</td>
+<td valign="top">35</td>
+<td valign="top">1132976</td>
+<td valign="top">1.15</td>
+<td valign="top">60334</td>
+<td valign="top">1.00</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="teidiv1" id="defrobs">
+<h3>9.7  Contracted forms and multiwords</h3>
+<p><span id="id2379842"></span>The following tables summarize and document the tokenization
+decisions taken by the CLAWS system, where these do not coincide with
+normal orthographic convention. </p>
+<p><span id="id2379848"></span>The first list specifies common word-endings or
+<span class="term">enclitics</span> which are regarded by CLAWS as indicating the
+start of a new &#8216;word&#8217;, although words containing
+them are conventionally represented as a  single orthographic word.  
+</p>
+<p><span id="id2379861"></span>The second list specifies some common two, three or four word
+phrases treated by CLAWS as single tokens. These are represented in
+this version of the corpus by means of a <code>&lt;mw&gt;</code> element; the
+table gives the C5 code assigned to this element, and also the
+codes assigned to the distinct <code>&lt;w&gt;</code> elements constituting it.
+</p>
+<div class="teidiv2" id="body.1_div.9_div.7_div.1">
+<h4>9.7.1  Contracted forms</h4>
+<p><span id="id2379881"></span>Words ending with certain character strings are treated by CLAWS as
+distinct words, even though they are conventionally fused together
+when written.  For example, &#8216;they're&#8217; is treated as if it were two
+distinct &#8216;words&#8217; &#8212; <strong>they</strong> and <strong>'re</strong>. The fact that
+these two items are orthographically fused is evident in the XML
+encoding of the corpus because there is no whitespace following the
+string &#8216;they&#8217;. Some XML processors may however assume that the
+end of an XML element such as the <code>&lt;w&gt;</code> enclosing the string
+should always be treated as a word separator, and may therefore
+introduce unwanted extra space. </p>
+<p><span id="id2379915"></span>In the following table we show how  contracted forms are tokenized
+  by CLAWS. The left column shows the contracted form; the right column
+  shows the content of the two or more <code>&lt;w&gt;</code> elements used to
+  represent it. </p>
+<div class="left"><table>
+<tr class="label">
+<td valign="top">orthographic form</td>
+<td valign="top">tokenization</td>
+</tr>
+<tr>
+<td valign="top">[word]'d</td>
+<td valign="top">[word] 'd</td>
+</tr>
+<tr>
+<td valign="top">[word]'m</td>
+<td valign="top">[word] 'm</td>
+</tr>
+<tr>
+<td valign="top">[word]'s</td>
+<td valign="top">[word] 's</td>
+</tr>
+<tr>
+<td valign="top">[word]'ll</td>
+<td valign="top">[word] 'll</td>
+</tr>
+<tr>
+<td valign="top">[word]n't</td>
+<td valign="top">[word] n't</td>
+</tr>
+<tr>
+<td valign="top">[word]'re</td>
+<td valign="top">[word] 're</td>
+</tr>
+<tr>
+<td valign="top">[word]'v</td>
+<td valign="top">[word] 'v</td>
+</tr>
+<tr>
+<td valign="top">[word]'d've</td>
+<td valign="top">[word] 'd 've</td>
+</tr>
+<tr>
+<td valign="top">'tis</td>
+<td valign="top">'t is</td>
+</tr>
+<tr>
+<td valign="top">'twas</td>
+<td valign="top">'t was</td>
+</tr>
+<tr>
+<td valign="top">'twere</td>
+<td valign="top">'t were</td>
+</tr>
+<tr>
+<td valign="top">'twould</td>
+<td valign="top">'t would</td>
+</tr>
+<tr>
+<td valign="top">ain't</td>
+<td valign="top">ai n't</td>
+</tr>
+<tr>
+<td valign="top">aint</td>
+<td valign="top">ai nt</td>
+</tr>
+<tr>
+<td valign="top">aintcha</td>
+<td valign="top">ai nt cha</td>
+</tr>
+<tr>
+<td valign="top">arent</td>
+<td valign="top">are nt</td>
+</tr>
+<tr>
+<td valign="top">c'mon</td>
+<td valign="top">c'm on</td>
+</tr>
+<tr>
+<td valign="top">can't</td>
+<td valign="top">ca n't</td>
+</tr>
+<tr>
+<td valign="top">cannot</td>
+<td valign="top">can not</td>
+</tr>
+<tr>
+<td valign="top">couldnt</td>
+<td valign="top">could nt</td>
+</tr>
+<tr>
+<td valign="top">d'ya</td>
+<td valign="top">d' ya</td>
+</tr>
+<tr>
+<td valign="top">d'you</td>
+<td valign="top">d' you</td>
+</tr>
+<tr>
+<td valign="top">didnt</td>
+<td valign="top">did nt</td>
+</tr>
+<tr>
+<td valign="top">doesnt</td>
+<td valign="top">does nt</td>
+</tr>
+<tr>
+<td valign="top">dont</td>
+<td valign="top">do nt</td>
+</tr>
+<tr>
+<td valign="top">dunnit</td>
+<td valign="top">dun n it</td>
+</tr>
+<tr>
+<td valign="top">dunno</td>
+<td valign="top">du n no</td>
+</tr>
+<tr>
+<td valign="top">geroff</td>
+<td valign="top">ger off</td>
+</tr>
+<tr>
+<td valign="top">gimme</td>
+<td valign="top">gim me</td>
+</tr>
+<tr>
+<td valign="top">gonna</td>
+<td valign="top">gon na</td>
+</tr>
+<tr>
+<td valign="top">gotta</td>
+<td valign="top">got ta</td>
+</tr>
+<tr>
+<td valign="top">hadnt</td>
+<td valign="top">had nt</td>
+</tr>
+<tr>
+<td valign="top">hasnt</td>
+<td valign="top">has nt</td>
+</tr>
+<tr>
+<td valign="top">hes</td>
+<td valign="top">he s</td>
+</tr>
+<tr>
+<td valign="top">inne</td>
+<td valign="top">in n e</td>
+</tr>
+<tr>
+<td valign="top">innit</td>
+<td valign="top">in n it</td>
+</tr>
+<tr>
+<td valign="top">isnt</td>
+<td valign="top">is nt</td>
+</tr>
+<tr>
+<td valign="top">lorra</td>
+<td valign="top">lor ra</td>
+</tr>
+<tr>
+<td valign="top">m'lud</td>
+<td valign="top">m' lud</td>
+</tr>
+<tr>
+<td valign="top">ought'a</td>
+<td valign="top">ough t 'a</td>
+</tr>
+<tr>
+<td valign="top">oughta</td>
+<td valign="top">ought a</td>
+</tr>
+<tr>
+<td valign="top">shan't</td>
+<td valign="top">sha n't</td>
+</tr>
+<tr>
+<td valign="top">shouldn't've</td>
+<td valign="top">should n't 've</td>
+</tr>
+<tr>
+<td valign="top">shouldn't</td>
+<td valign="top">should n't</td>
+</tr>
+<tr>
+<td valign="top">t'other</td>
+<td valign="top">t' other</td>
+</tr>
+<tr>
+<td valign="top">thats</td>
+<td valign="top">that s</td>
+</tr>
+<tr>
+<td valign="top">theres</td>
+<td valign="top">there s</td>
+</tr>
+<tr>
+<td valign="top">theyve</td>
+<td valign="top">they ve</td>
+</tr>
+<tr>
+<td valign="top">tis</td>
+<td valign="top">t is</td>
+</tr>
+<tr>
+<td valign="top">twas</td>
+<td valign="top">t was</td>
+</tr>
+<tr>
+<td valign="top">twere</td>
+<td valign="top">t were</td>
+</tr>
+<tr>
+<td valign="top">twould</td>
+<td valign="top">t would</td>
+</tr>
+<tr>
+<td valign="top">wanna</td>
+<td valign="top">wan na</td>
+</tr>
+<tr>
+<td valign="top">wannit</td>
+<td valign="top">wann it</td>
+</tr>
+<tr>
+<td valign="top">wasnt</td>
+<td valign="top">was nt</td>
+</tr>
+<tr>
+<td valign="top">weve</td>
+<td valign="top">we ve</td>
+</tr>
+<tr>
+<td valign="top">won't</td>
+<td valign="top">wo n't</td>
+</tr>
+<tr>
+<td valign="top">wotta</td>
+<td valign="top">wott a</td>
+</tr>
+<tr>
+<td valign="top">wouldn't've</td>
+<td valign="top">would n't 've</td>
+</tr>
+<tr>
+<td valign="top">wouldnt</td>
+<td valign="top">would nt</td>
+</tr>
+</table></div>
+</div>
+<div class="teidiv2" id="body.1_div.9_div.7_div.2">
+<h4>9.7.2  Multiwords</h4>
+<p><span id="id2380360"></span>CLAWS recognizes certain sequences of orthographically distinct
+words as constituting a single item: examples include common
+prepositional phrases such as &#8216;in spite of&#8217;, as well as phrases
+from other languages such as &#8216;aide memoire&#8217;. In this version of
+the corpus, such items are explicitly tagged using an XML <code>&lt;mw&gt;</code> (for
+multiword) tag carrying the appropriate wordclass tag, as indicated
+below. Within this <code>&lt;mw&gt;</code> element however, in a departure from
+earlier versions of the corpus, the individual words are also tagged
+using <code>&lt;w&gt;</code> tags in the same way as elsewhere in the corpus.</p>
+<p><span id="id2380389"></span>The following table lists all multiwords recognized in the corpus
+alphabetically, indicating both the wordclass codes assigned to it,
+and also the wordclass codes assigned to its constituent <code>&lt;w&gt;</code>
+elements. Note that these latter wordclass codes were assigned
+automatically during the XML conversion process and therefore should
+not be included in any assessment of the CLAWS error rate.</p>
+<div class="left"><table>
+<tr class="label">
+<td valign="top">multiword</td>
+<td valign="top">mw
+wordclass/es</td>
+<td valign="top">constituent wordclasses</td>
+</tr>
+<tr>
+<td valign="top">ab initio</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a bit</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">a capella</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">according as</td>
+<td valign="top">CJS</td>
+<td valign="top">VVG CJS </td>
+</tr>
+<tr>
+<td valign="top">according to</td>
+<td valign="top">PRP</td>
+<td valign="top">VVG PRP </td>
+</tr>
+<tr>
+<td valign="top">ad astra</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ad hoc</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ad hominem</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ad infinitum</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">adjacent to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">ad lib</td>
+<td valign="top">AJ0 or AV0 or NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ad nauseam</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">affaire de coeur</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">affaire d'honneur</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a fortiori</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">agent provocateur</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">agnus dei</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a good deal</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 AJ0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">a great deal</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 AJ0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">ahead of</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 PRF </td>
+</tr>
+<tr>
+<td valign="top">a heck of a lot</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 NN1 PRF AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">aide de camp</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">aide memoire</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a la</td>
+<td valign="top">PRP</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a la carte</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a la mode</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">al dente</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">al fresco</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a little</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 AV0/DT0 </td>
+</tr>
+<tr>
+<td valign="top">a little bit</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 AJ0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">alla breve</td>
+<td valign="top">AV0 or AJ0 or NN0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">all but</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">all of a sudden</td>
+<td valign="top">AV0</td>
+<td valign="top">DT0 PRF AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">all right</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">all the same</td>
+<td valign="top">AV0</td>
+<td valign="top">DT0 AT0 DT0 </td>
+</tr>
+<tr>
+<td valign="top">alma mater</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">along with</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP PRP </td>
+</tr>
+<tr>
+<td valign="top">a lot</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">alter ego</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">an' all</td>
+<td valign="top">AV0</td>
+<td valign="top">CJC DT0 </td>
+</tr>
+<tr>
+<td valign="top">an awful lot</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 AJ0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">ancien regime</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">and so forth</td>
+<td valign="top">AV0</td>
+<td valign="top">CJC AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">and so on</td>
+<td valign="top">AV0</td>
+<td valign="top">CJC AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">anno domini</td>
+<td valign="top">AV0 or NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">annus horribilis</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">annus mirabilis</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ante meridiem</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">any longer</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">anything but</td>
+<td valign="top">AV0</td>
+<td valign="top">PNI AV0 </td>
+</tr>
+<tr>
+<td valign="top">apart from</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">a posteriori</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a priori</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">a propos</td>
+<td valign="top">PRP or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">aqua vitae</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">art nouveau</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">as against</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">as between</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">as for</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">as from</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">aside from</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">as if</td>
+<td valign="top">CJS</td>
+<td valign="top">CJS CJS </td>
+</tr>
+<tr>
+<td valign="top">as it were</td>
+<td valign="top">AV0</td>
+<td valign="top">CJS PNP VBD </td>
+</tr>
+<tr>
+<td valign="top">as long as</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">as of</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRF </td>
+</tr>
+<tr>
+<td valign="top">as opposed to</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS VVN PRP </td>
+</tr>
+<tr>
+<td valign="top">as regards</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS VVZ </td>
+</tr>
+<tr>
+<td valign="top">as soon as</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">as though</td>
+<td valign="top">CJS</td>
+<td valign="top">CJS CJS </td>
+</tr>
+<tr>
+<td valign="top">asti spumante</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">as to</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">as usual</td>
+<td valign="top">AV0</td>
+<td valign="top">CJS AJ0 </td>
+</tr>
+<tr>
+<td valign="top">as well as</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">as well</td>
+<td valign="top">AV0</td>
+<td valign="top">CJS AV0 </td>
+</tr>
+<tr>
+<td valign="top">as yet</td>
+<td valign="top">AV0</td>
+<td valign="top">CJS AV0 </td>
+</tr>
+<tr>
+<td valign="top">at all</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP DT0 </td>
+</tr>
+<tr>
+<td valign="top">at best</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJS </td>
+</tr>
+<tr>
+<td valign="top">at first</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP ORD </td>
+</tr>
+<tr>
+<td valign="top">at large</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">at last</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP ORD </td>
+</tr>
+<tr>
+<td valign="top">at least</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">at length</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">at long length</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">at most</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP DT0 </td>
+</tr>
+<tr>
+<td valign="top">at once</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">at present</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">at random</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">at worst</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">au contraire</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">au fait</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">auf wiedersehen</td>
+<td valign="top">ITJ</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">au pair</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">au revoir</td>
+<td valign="top">ITJ</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">aurora australis</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">aurora borealis</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">avant garde</td>
+<td valign="top">NN1 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">away from</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">bar mitzvah</td>
+<td valign="top">NN1 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">basso profundo</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">beau monde</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">because of</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRF </td>
+</tr>
+<tr>
+<td valign="top">belles lettres</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bete noire</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">billet doux</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bona fides</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bona fide</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bon appetit</td>
+<td valign="top">ITJ</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bon mot</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bon vivant</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bon viveur</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">bon voyage</td>
+<td valign="top">ITJ</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">brand new</td>
+<td valign="top">AJ0</td>
+<td valign="top">NN1 AJ0 </td>
+</tr>
+<tr>
+<td valign="top">but for</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">by and by</td>
+<td valign="top">AV0</td>
+<td valign="top">AVP CJC AVP </td>
+</tr>
+<tr>
+<td valign="top">by and large</td>
+<td valign="top">AV0</td>
+<td valign="top">AVP CJC AJ0 </td>
+</tr>
+<tr>
+<td valign="top">by far</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">by means of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN0 PRF </td>
+</tr>
+<tr>
+<td valign="top">by no means</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP PRP NN0 </td>
+</tr>
+<tr>
+<td valign="top">by now</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">by reason of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">by the by</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">by way of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">cafe au lait</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">camera obscura</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">carte blanche</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">casus belli</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">cause celebre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ceteris paribus</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">chaise longue</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">charge d'affaires</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">chez moi</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">chez nous</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">chilli con carne</td>
+<td valign="top">NN1</td>
+<td valign="top">NN1 NN1 NN1 </td>
+</tr>
+<tr>
+<td valign="top">chop suey</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">chow mein</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">clamp down</td>
+<td valign="top">NN1</td>
+<td valign="top">VVB/VVI AVP </td>
+</tr>
+<tr>
+<td valign="top">close to</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0/AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">compos mentis</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">con brio</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">con fuoco</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">con moto</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">considering that</td>
+<td valign="top">CJS</td>
+<td valign="top">VVG CJT </td>
+</tr>
+<tr>
+<td valign="top">contrary to</td>
+<td valign="top">PRP</td>
+<td valign="top">JJ PRP </td>
+</tr>
+<tr>
+<td valign="top">cordon bleu</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">cordon sanitaire</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">corpus delicti</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">corpus juris</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">coup de grace</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">coup d'etat</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">coup de theatre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">creme de la creme</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">creme de menthe</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">cri de coeur</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">croix de guerre</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">cul de sac</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">danse macabre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">de facto</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">dei gratia</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">deja vu</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">de jure</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">delirium tremens</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">de luxe</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">demi monde</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">depending on</td>
+<td valign="top">PRP</td>
+<td valign="top">VVG PRP </td>
+</tr>
+<tr>
+<td valign="top">de profundis</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">de rigeur</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">de trop</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">deus ex machina</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">double entendre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">dramatis personae</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">due to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">each other</td>
+<td valign="top">PNX</td>
+<td valign="top">DT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">eminence grise</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">en bloc</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">en famille</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">enfants terribles</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">enfant terrible</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">en masse</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">en passant</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">en route</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">en suite</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">entente cordiale</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">esprit de corps</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">et al</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">et cetera</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">even if</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">even so</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">even though</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">even when</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">ever so</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">every so often</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">ex army</td>
+<td valign="top">AJ0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">ex cathedra</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">except for</td>
+<td valign="top">PRP</td>
+<td valign="top">CJS PRP </td>
+</tr>
+<tr>
+<td valign="top">excepting for</td>
+<td valign="top">PRP</td>
+<td valign="top">VVG PRP </td>
+</tr>
+<tr>
+<td valign="top">except that</td>
+<td valign="top">CJS</td>
+<td valign="top">CJS CJT </td>
+</tr>
+<tr>
+<td valign="top">ex gratia</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ex libris</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ex officio</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ex parte</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ex tempore</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">fait accompli</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">far from</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">far off</td>
+<td valign="top">AJ0</td>
+<td valign="top">AV0 AVP </td>
+</tr>
+<tr>
+<td valign="top">faux amis</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">faux ami</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">faux pas</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">fed up</td>
+<td valign="top">AJ0</td>
+<td valign="top">VVN AVP </td>
+</tr>
+<tr>
+<td valign="top">femme fatale</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">fin de siecle</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">follow up</td>
+<td valign="top">NN1</td>
+<td valign="top">VVB/VVI AVP </td>
+</tr>
+<tr>
+<td valign="top">force majeure</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">for certain</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">for ever</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">for example</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">for fear of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">for good</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">for instance</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">for keeps</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN2 </td>
+</tr>
+<tr>
+<td valign="top">for long</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">for once</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">for sure</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">for the most part</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AT0 AV0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">for the time being</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AT0 NN1 VBG </td>
+</tr>
+<tr>
+<td valign="top">fromage frais</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">from now on</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 AVP </td>
+</tr>
+<tr>
+<td valign="top">from time to time</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">getting on for</td>
+<td valign="top">AV0</td>
+<td valign="top">VVG AVP PRP </td>
+</tr>
+<tr>
+<td valign="top">grande dame</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">grand prix</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">grown ups</td>
+<td valign="top">NN2</td>
+<td valign="top">VVN NN2 </td>
+</tr>
+<tr>
+<td valign="top">grown up</td>
+<td valign="top">NN1</td>
+<td valign="top">VVN AVP </td>
+</tr>
+<tr>
+<td valign="top">gung ho</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">habeas corpus</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">half way</td>
+<td valign="top">AV0</td>
+<td valign="top">DT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">hara kiri</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">hard up</td>
+<td valign="top">AJ0</td>
+<td valign="top">AJ0 AVP </td>
+</tr>
+<tr>
+<td valign="top">hasta la vista</td>
+<td valign="top">ITJ</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">hasta luego</td>
+<td valign="top">ITJ</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">haute couture</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">haute cuisine</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">have nots</td>
+<td valign="top">NN2</td>
+<td valign="top">VHB NN2 </td>
+</tr>
+<tr>
+<td valign="top">hey presto</td>
+<td valign="top">ITJ</td>
+<td valign="top">ITJ ITJ </td>
+</tr>
+<tr>
+<td valign="top">hoi polloi</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">homo sapiens</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">hors d'oeuvres</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">hors d'oeuvre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">hysteron proteron</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">idee fixe</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in absentia</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in accordance with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in accord with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in addition</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">in addition to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in aid of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in answer to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in as much as</td>
+<td valign="top">CJS</td>
+<td valign="top">PRP AV0 DT0 CJS </td>
+</tr>
+<tr>
+<td valign="top">inasmuch as</td>
+<td valign="top">CJS</td>
+<td valign="top">UNC CJS </td>
+</tr>
+<tr>
+<td valign="top">in association with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in back of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in between</td>
+<td valign="top">PRP or AV0</td>
+<td valign="top">AVP PRP/AV0 </td>
+</tr>
+<tr>
+<td valign="top">in brief</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in camera</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in case of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in case</td>
+<td valign="top">CJS or AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">in charge of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in common</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in common with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in comparison with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in conjunction with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in connection with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in consultation with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in contact with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in cooperation with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in course with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in defence of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in defiance of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in excess of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in extremis</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in face of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in favor of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in favour of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in flagrante delicto</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in front of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in full</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in general</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in keeping with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in lieu of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP UNC PRF </td>
+</tr>
+<tr>
+<td valign="top">in light of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in line with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in loco parentis</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in medias res</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in memoriam</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in need of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in particular</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in perpetuum</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in place of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in possession of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in private</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in proportion to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in propria persona</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in public</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in pursuit of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in quest of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in receipt of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in regard to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in relation to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in reply to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in respect of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in response to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in return for</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in search of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in short</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">inside out</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">AV0 AVP </td>
+</tr>
+<tr>
+<td valign="top">in situ</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in so far as</td>
+<td valign="top">CJS</td>
+<td valign="top">PRP AV0 AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">insofar as</td>
+<td valign="top">CJS</td>
+<td valign="top">UNC CJS </td>
+</tr>
+<tr>
+<td valign="top">in spite of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">instead of</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 PRF </td>
+</tr>
+<tr>
+<td valign="top">in support of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">inter alia</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in terms of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN2 PRF </td>
+</tr>
+<tr>
+<td valign="top">in that</td>
+<td valign="top">CJS</td>
+<td valign="top">PRP CJT </td>
+</tr>
+<tr>
+<td valign="top">in the light of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP AT0 NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in the main</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AT0 AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in the order of</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AT0 NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">into line with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in toto</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in touch with</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">in vain</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">in view of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">in vitro</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">in vivo</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ipso facto</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">irrespective of</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRF </td>
+</tr>
+<tr>
+<td valign="top">je ne sais quoi</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">joie de vivre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">just about</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">just about</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">kind of</td>
+<td valign="top">AV0</td>
+<td valign="top">NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">know how</td>
+<td valign="top">NN1</td>
+<td valign="top">VVB AVQ </td>
+</tr>
+<tr>
+<td valign="top">kung fu</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">la dolce vita</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">laissez faire</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">le mot juste</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">less than</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0/DT0 CJS </td>
+</tr>
+<tr>
+<td valign="top">let alone</td>
+<td valign="top">PRP</td>
+<td valign="top">VVB AJ0 </td>
+</tr>
+<tr>
+<td valign="top">let 's</td>
+<td valign="top">VM0</td>
+<td valign="top">VVB PNP </td>
+</tr>
+<tr>
+<td valign="top">lingua franca</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">lo and behold</td>
+<td valign="top">ITJ</td>
+<td valign="top">ITJ CJC VVB </td>
+</tr>
+<tr>
+<td valign="top">loc cit</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">locum tenens</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">long-term wise</td>
+<td valign="top">AV0</td>
+<td valign="top">AJ0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">magna carta</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">magna cum laude</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">magnum opus</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">maitre d'hotel</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">mal de mer</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">matter of fact</td>
+<td valign="top">NN1 or AJ0</td>
+<td valign="top">NN1 PRF NN1 </td>
+</tr>
+<tr>
+<td valign="top">mea culpa</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">medecins sans frontieres</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">medicins sans frontieres</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">menage a trois</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">mezzo soprano</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">modus operandi</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">modus vivendi</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">more than</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0/DT0 CJS </td>
+</tr>
+<tr>
+<td valign="top">more than</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">mot juste</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">nearer to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJC/AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">nearest to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJS/AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">near to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0/AV0 PRP </td>
+</tr>
+<tr>
+<td valign="top">nem con</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">next to</td>
+<td valign="top">PRP</td>
+<td valign="top">ORD PRP </td>
+</tr>
+<tr>
+<td valign="top">nigh on</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AVP </td>
+</tr>
+<tr>
+<td valign="top">noblesse oblige</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">no doubt</td>
+<td valign="top">AV0</td>
+<td valign="top">AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">no longer</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">no matter who</td>
+<td valign="top">PNQ</td>
+<td valign="top">AT0 NN1 PNQ </td>
+</tr>
+<tr>
+<td valign="top">no matter whom</td>
+<td valign="top">PNQ</td>
+<td valign="top">AT0 NN1 PNQ </td>
+</tr>
+<tr>
+<td valign="top">no matter whose</td>
+<td valign="top">DTQ</td>
+<td valign="top">AT0 NN1 DTQ </td>
+</tr>
+<tr>
+<td valign="top">nom de guerre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">nom de plume</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">non compos mentis</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">none other</td>
+<td valign="top">PNI</td>
+<td valign="top">PNI AJ0 </td>
+</tr>
+<tr>
+<td valign="top">none the less</td>
+<td valign="top">AV0</td>
+<td valign="top">PNI AT0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">none the</td>
+<td valign="top">AV0</td>
+<td valign="top">PNI AT0 </td>
+</tr>
+<tr>
+<td valign="top">non sequitur</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">no one</td>
+<td valign="top">PNI</td>
+<td valign="top">AT0 PNI </td>
+</tr>
+<tr>
+<td valign="top">not withstanding</td>
+<td valign="top">AV0</td>
+<td valign="top">XX0 UNC </td>
+</tr>
+<tr>
+<td valign="top">nouveau riche</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">nouveaux riches</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">nouvelle cuisine</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">now that</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 CJT </td>
+</tr>
+<tr>
+<td valign="top">objet d'art</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">objets d'art</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">of course</td>
+<td valign="top">AV0</td>
+<td valign="top">PRF NN1 </td>
+</tr>
+<tr>
+<td valign="top">off guard</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">off of</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP PRF </td>
+</tr>
+<tr>
+<td valign="top">oft times</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 NN2 </td>
+</tr>
+<tr>
+<td valign="top">old fashioned</td>
+<td valign="top">AJ0</td>
+<td valign="top">AJ0 VVN </td>
+</tr>
+<tr>
+<td valign="top">on account of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">on behalf of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">on board</td>
+<td valign="top">PRP or AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">once again</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">once and for all</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 CJC PRP DT0 </td>
+</tr>
+<tr>
+<td valign="top">once more</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 AV0 </td>
+</tr>
+<tr>
+<td valign="top">one another</td>
+<td valign="top">PNX</td>
+<td valign="top">CRD DT0 </td>
+</tr>
+<tr>
+<td valign="top">one 's</td>
+<td valign="top">CRD</td>
+<td valign="top">CRD POS </td>
+</tr>
+<tr>
+<td valign="top">on the part of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP AT0 NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">on top of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">on to</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP PRP/TO0 </td>
+</tr>
+<tr>
+<td valign="top">op cit</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">other than</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 CJS </td>
+</tr>
+<tr>
+<td valign="top">out of</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP PRF </td>
+</tr>
+<tr>
+<td valign="top">out of date</td>
+<td valign="top">AJ0</td>
+<td valign="top">AVP PRF NN1 </td>
+</tr>
+<tr>
+<td valign="top">out of line with</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP PRF NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">out of touch with</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP PRF NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">outside of</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP PRF </td>
+</tr>
+<tr>
+<td valign="top">over here</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">over there</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AV0 </td>
+</tr>
+<tr>
+<td valign="top">owing to</td>
+<td valign="top">PRP</td>
+<td valign="top">VVG PRP </td>
+</tr>
+<tr>
+<td valign="top">papier mache</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">par excellence</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pas de deux</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pate de foie gras</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pax britannica</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pax romana</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">per annum</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">per capita</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">per cent</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">per diem</td>
+<td valign="top">AV0 or AJ0 or NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">per se</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">personae non gratae</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">persona non grata</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pertaining to</td>
+<td valign="top">PRP</td>
+<td valign="top">VVG PRP </td>
+</tr>
+<tr>
+<td valign="top">petit bourgeois</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">petite bougeoisie</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">petits bourgeois</td>
+<td valign="top">NN2</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">piece de resistance</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pied a terre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pina colada</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pince nez</td>
+<td valign="top">NN0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">poco a poco</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">point blank</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">NN1 AJ0 </td>
+</tr>
+<tr>
+<td valign="top">poste restante</td>
+<td valign="top">NN1 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">post hoc</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">post meridiem</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">post mortem</td>
+<td valign="top">NN1 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pot pourri</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">prima donna</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">prima facie</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">primus inter pares</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC AJ0 UNC </td>
+</tr>
+<tr>
+<td valign="top">prior to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">pro forma</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pro rata</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">pro tem</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">provided that</td>
+<td valign="top">CJS</td>
+<td valign="top">VVN CJT </td>
+</tr>
+<tr>
+<td valign="top">providing that</td>
+<td valign="top">CJS</td>
+<td valign="top">VVG CJT </td>
+</tr>
+<tr>
+<td valign="top">pursuant to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">quid pro quo</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">raison d'etre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">rather than</td>
+<td valign="top">PRP</td>
+<td valign="top">AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">relative to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">rigor mortis</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">roman a clef</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">save for</td>
+<td valign="top">PRP</td>
+<td valign="top">VVI PRP </td>
+</tr>
+<tr>
+<td valign="top">save that</td>
+<td valign="top">CJS</td>
+<td valign="top">VVI CJT </td>
+</tr>
+<tr>
+<td valign="top">savoir faire</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">savoir vivre</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">seeing as</td>
+<td valign="top">CJS</td>
+<td valign="top">VVG CJS </td>
+</tr>
+<tr>
+<td valign="top">seeing that</td>
+<td valign="top">CJS</td>
+<td valign="top">VVG CJT </td>
+</tr>
+<tr>
+<td valign="top">semper fidelis</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">shish kebab</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">sine die</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">sine qua non</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">sinn fein</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">so called</td>
+<td valign="top">AJ0</td>
+<td valign="top">AV0 VVN </td>
+</tr>
+<tr>
+<td valign="top">so long as</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 AV0 CJS </td>
+</tr>
+<tr>
+<td valign="top">some one</td>
+<td valign="top">PNI</td>
+<td valign="top">DT0 PNI </td>
+</tr>
+<tr>
+<td valign="top">something like</td>
+<td valign="top">AV0</td>
+<td valign="top">PNI PRP </td>
+</tr>
+<tr>
+<td valign="top">so much as</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 DT0 CJS </td>
+</tr>
+<tr>
+<td valign="top">son et lumiere</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">sort of</td>
+<td valign="top">AV0</td>
+<td valign="top">NN1 PRF </td>
+</tr>
+<tr>
+<td valign="top">so that</td>
+<td valign="top">CJS</td>
+<td valign="top">AV0 CJT </td>
+</tr>
+<tr>
+<td valign="top">sotto voce</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">spaghetti bolognese</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">spot on</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">NN1 AVP </td>
+</tr>
+<tr>
+<td valign="top">status quo</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">straight forward</td>
+<td valign="top">AJ0</td>
+<td valign="top">AV0 AJ0 </td>
+</tr>
+<tr>
+<td valign="top">subject to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">sub judice</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">sub poena</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">subsequent to</td>
+<td valign="top">PRP</td>
+<td valign="top">AJ0 PRP </td>
+</tr>
+<tr>
+<td valign="top">such as</td>
+<td valign="top">PRP</td>
+<td valign="top">DT0 PRP </td>
+</tr>
+<tr>
+<td valign="top">such that</td>
+<td valign="top">CJS</td>
+<td valign="top">DT0 CJT </td>
+</tr>
+<tr>
+<td valign="top">sui generis</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">sui juris</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">summa cum laude</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">super duper</td>
+<td valign="top">AJ0</td>
+<td valign="top">AJ0 XXX </td>
+</tr>
+<tr>
+<td valign="top">supposing that</td>
+<td valign="top">CJS</td>
+<td valign="top">VVG PRP </td>
+</tr>
+<tr>
+<td valign="top">table d'hote</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">tabula rasa</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">tai chi</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">tai kwan do</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">terra firma</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">terra incognita</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">thanks to</td>
+<td valign="top">PRP</td>
+<td valign="top">NN2 PRP </td>
+</tr>
+<tr>
+<td valign="top">that is</td>
+<td valign="top">AV0</td>
+<td valign="top">DT0 VBZ </td>
+</tr>
+<tr>
+<td valign="top">that is to say</td>
+<td valign="top">AV0</td>
+<td valign="top">DT0 VBZ TO0 VVI </td>
+</tr>
+<tr>
+<td valign="top">through thick and thin</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP AJ0 CJC AJ0 </td>
+</tr>
+<tr>
+<td valign="top">time and again</td>
+<td valign="top">AV0</td>
+<td valign="top">NN1 CJC AV0 </td>
+</tr>
+<tr>
+<td valign="top">to and fro</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP CJC AV0 </td>
+</tr>
+<tr>
+<td valign="top">tour de force</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">tout court</td>
+<td valign="top">AJ0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">tout de suite</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">ultra vires</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">under way</td>
+<td valign="top">AV0</td>
+<td valign="top">PRP NN1 </td>
+</tr>
+<tr>
+<td valign="top">up front</td>
+<td valign="top">AJ0 or AV0</td>
+<td valign="top">AVP AJ0 </td>
+</tr>
+<tr>
+<td valign="top">upside down</td>
+<td valign="top">AV0 or AJ0</td>
+<td valign="top">NN1 AVP </td>
+</tr>
+<tr>
+<td valign="top">up to</td>
+<td valign="top">PRP or AV0</td>
+<td valign="top">AVP PRP/TO0 </td>
+</tr>
+<tr>
+<td valign="top">up to date</td>
+<td valign="top">AJ0</td>
+<td valign="top">AVP TO0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">up to the minute</td>
+<td valign="top">AJ0</td>
+<td valign="top">AVP PRP AT0 NN1 </td>
+</tr>
+<tr>
+<td valign="top">up until</td>
+<td valign="top">PRP</td>
+<td valign="top">AVP CJS/PRP </td>
+</tr>
+<tr>
+<td valign="top">upward of</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 PRF </td>
+</tr>
+<tr>
+<td valign="top">upwards of</td>
+<td valign="top">AV0</td>
+<td valign="top">AV0 PRF </td>
+</tr>
+<tr>
+<td valign="top">vice versa</td>
+<td valign="top">AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">vin de table</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">vis a vis</td>
+<td valign="top">PRP</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">viva voce</td>
+<td valign="top">NN1 or AJ0 or AV0</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">vol au vent</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">volte face</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">vox populi</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">well off</td>
+<td valign="top">AJ0</td>
+<td valign="top">AV0 AVP </td>
+</tr>
+<tr>
+<td valign="top">whether or not</td>
+<td valign="top">CJS</td>
+<td valign="top">CJS CJC XX0 </td>
+</tr>
+<tr>
+<td valign="top">wiener schnitzel</td>
+<td valign="top">NN1</td>
+<td valign="top">UNC UNC </td>
+</tr>
+<tr>
+<td valign="top">with a view to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP AT0 NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">with reference to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">with regard to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">with relation to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+<tr>
+<td valign="top">with respect to</td>
+<td valign="top">PRP</td>
+<td valign="top">PRP NN1 PRP </td>
+</tr>
+</table></div>
+</div>
+</div>
+<div class="teidiv1" id="klettpos">
+<h3>9.8  Simplified Wordclass Tags</h3>
+<div class="p">
+<span id="id2385403"></span>This table lists, for each of the twelve simplified wordclass tags
+used by the <strong>pos</strong> attribute, the corresponding CLAWS C5
+tags of which the class consists. 
+<div class="left"><table>
+<tr class="label">
+<td valign="top">POS value</td>
+<td valign="top">significance</td>
+<td valign="top">combines</td>
+</tr>
+<tr>
+<td valign="top">ADJ</td>
+<td valign="top">adjective</td>
+<td valign="top">AJ0, AJC, AJS, CRD, DT0, ORD</td>
+</tr>
+<tr>
+<td valign="top">ADV</td>
+<td valign="top">adverb</td>
+<td valign="top">AV0, AVP, AVQ, XX0</td>
+</tr>
+<tr>
+<td valign="top">ART</td>
+<td valign="top">article</td>
+<td valign="top">AT0</td>
+</tr>
+<tr>
+<td valign="top">CONJ</td>
+<td valign="top">conjunction</td>
+<td valign="top">CJC, CJS, CJT</td>
+</tr>
+<tr>
+<td valign="top">INTERJ</td>
+<td valign="top">interjection</td>
+<td valign="top">ITJ</td>
+</tr>
+<tr>
+<td valign="top">PREP</td>
+<td valign="top">preposition</td>
+<td valign="top">PRF, PRP, TO0</td>
+</tr>
+<tr>
+<td valign="top">PRON</td>
+<td valign="top">pronoun</td>
+<td valign="top">DPS, DTQ, EX0, PNI, PNP, PNQ, PNX</td>
+</tr>
+<tr>
+<td valign="top">STOP</td>
+<td valign="top">punctuation</td>
+<td valign="top">POS, PUL, PUN, PUQ, PUR</td>
+</tr>
+<tr>
+<td valign="top">SUBST</td>
+<td valign="top">substantive</td>
+<td valign="top">NN0, NN1, NN2, NP0, ONE, ZZ0, NN1-NP0, NP0-NN1</td>
+</tr>
+<tr>
+<td valign="top">UNC</td>
+<td valign="top">unclassified, uncertain,  or non-lexical word</td>
+<td valign="top">UNC, AJ0-AV0, AV0-AJ0, AJ0-NN1, NN1-AJ0, AJ0-VVD, VVD-AJ0, AJ0-VVG, VVG-AJ0, AJ0-VVN, VVN-AJ0, AVP-PRP, PRP-AVP, AVQ-CJS, CJS-AVQ, CJS-PRP, PRP-CJS, CJT-DT0, DT0-CJT, CRD-PNI, PNI-CRD, NN1-VVB, VVB-NN1, NN1-VVG, VVG-NN1, NN2-VVZ, VVZ-NN2</td>
+</tr>
+<tr>
+<td valign="top">VERB</td>
+<td valign="top">verb</td>
+<td valign="top">VBB, VBD, VBG, VBI, VBN, VBZ, VDB, VDD, VDG, VDI, VDN, VDZ, VHB, VHD, VHG, VHI, VHN, VHZ, VM0, VVB, VVD, VVG, VVI, VVN, VVZ, VVD-VVN, VVN-VVD</td>
+</tr>
+</table></div>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="refs.html">8  References</a><i> Next: </i><a class="navigation" href="bibliog.html">10  List of Sources</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:47Z-->
+</address>
+</div>
+</div></body>
+</html>

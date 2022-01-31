@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;div&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;div&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;div&gt;</h1>
+</div>
+<div>
+<span id="div"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">div</td>
+<td colspan="2" class="wovenodd-col2">(text division) contains a subdivision of the front, body, or back of a
+text.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.rendered.html">att.rendered</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element div
+{
+   attribute n { text }?,
+   attribute decls { <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.pointers.html">data.pointers</a> }?,
+   attribute level { <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.count.html">data.count</a> }?,
+   attribute type { text }?,
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.rendered.html">att.rendered.attribute.rend</a>,
+   (
+      ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.divWrapper.html">model.divWrapper</a> | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.global.html">model.global</a> )*,
+      (
+         ( ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.divPart.html">model.divPart</a> ), ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.divPart.html">model.divPart</a> | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.global.html">model.global</a> )* )
+       | ( ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.divPart.spoken.html">model.divPart.spoken</a> ), ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.divPart.spoken.html">model.divPart.spoken</a> | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.global.html">model.global</a> )* )
+      )?,
+      <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-div.html">div</a>*
+   )
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [<a class="classlink" href="ref-att.rendered.html">att.rendered</a> ] )<table>
+<tr>
+<td class="attDef">n</td>
+<td colspan="2">supplies an additional name or number for this division, taken
+from the original source.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td class="attDef">decls</td>
+<td colspan="2">for a spoken text, identities the declarations (for setting,
+recording etc.) in the header which apply to this
+division.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.pointers.html">data.pointers</a></code>
+</td>
+</tr>
+<tr>
+<td class="attDef">level</td>
+<td colspan="2">specifies the hierarchic level of this division as a number
+between  1 (outermost or largest division) and 4
+(innermost or smallest).</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.count.html">data.count</a></code>
+</td>
+</tr>
+<tr>
+<td class="attDef">type</td>
+<td colspan="2">identifies the type or function of the division (for a written text).</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Values are:<table class="valList">
+<tr>
+<td valign="top"><b>advertisement</b></td>
+<td valign="top">advertisement section or insert.</td>
+</tr>
+<tr>
+<td valign="top"><b>appendix</b></td>
+<td valign="top">appendix.</td>
+</tr>
+<tr>
+<td valign="top"><b>article</b></td>
+<td valign="top">single article in a journal.</td>
+</tr>
+<tr>
+<td valign="top"><b>blurb</b></td>
+<td valign="top">any kind of promotional front matter.</td>
+</tr>
+<tr>
+<td valign="top"><b>cartoon</b></td>
+<td valign="top">cartoon.</td>
+</tr>
+<tr>
+<td valign="top"><b>chapter</b></td>
+<td valign="top">chapter of a novel etc.</td>
+</tr>
+<tr>
+<td valign="top"><b>column</b></td>
+<td valign="top">newspaper column, regular feature etc.</td>
+</tr>
+<tr>
+<td valign="top"><b>compo</b></td>
+<td valign="top">composite material.</td>
+</tr>
+<tr>
+<td valign="top"><b>contents</b></td>
+<td valign="top">table of contents.</td>
+</tr>
+<tr>
+<td valign="top"><b>front</b></td>
+<td valign="top">any kind of front matter.</td>
+</tr>
+<tr>
+<td valign="top"><b>leaflet</b></td>
+<td valign="top">free-standing leaflet or pamphlet.</td>
+</tr>
+<tr>
+<td valign="top"><b>paper</b></td>
+<td valign="top">an academic paper in a collection.</td>
+</tr>
+<tr>
+<td valign="top"><b>part</b></td>
+<td valign="top">subdivision of a chapter.</td>
+</tr>
+<tr>
+<td valign="top"><b>recipe</b></td>
+<td valign="top">separate recipe in a cookbook.</td>
+</tr>
+<tr>
+<td valign="top"><b>section</b></td>
+<td valign="top">any subdivision.</td>
+</tr>
+<tr>
+<td valign="top"><b>sidebar</b></td>
+<td valign="top">sidebar or displayed paragraph e.g. in a news story.</td>
+</tr>
+<tr>
+<td valign="top"><b>story</b></td>
+<td valign="top">distinct story in a periodical or collection.</td>
+</tr>
+<tr>
+<td valign="top"><b>subsection</b></td>
+<td valign="top">smaller subdivision of any kind.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;div <span class="attribute">level</span>="1" <span class="attribute">n</span>="1" <span class="attribute">type</span>="chapter"<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"&gt;</span><br/>  <span class="element">&lt;head <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="so" <span class="attribute">pos</span>="ADV"&gt;</span>So <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="want" <span class="attribute">pos</span>="VERB"&gt;</span>want <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="TO0" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VBI" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>be <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="an" <span class="attribute">pos</span>="ART"&gt;</span>an <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="actor" <span class="attribute">pos</span>="SUBST"&gt;</span>Actor<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/head&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="2"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNI" <span class="attribute">hw</span>="everyone" <span class="attribute">pos</span>="PRON"&gt;</span>Everyone <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNQ" <span class="attribute">hw</span>="who" <span class="attribute">pos</span>="PRON"&gt;</span>who <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVZ" <span class="attribute">hw</span>="want" <span class="attribute">pos</span>="VERB"&gt;</span>wants
+... <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/> <span class="element">&lt;/div&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Note</span></td>
+<td colspan="2" class="wovenodd-col2">
+<!-- --><p class="dataDesc"><span id="id2481827"></span>any sequence of low-level structural elements, possibly
+grouped into lower subdivisions.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><!--pointers--></td>
+<td colspan="2" class="wovenodd-col2">
+<a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>
+</td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">textstructure</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

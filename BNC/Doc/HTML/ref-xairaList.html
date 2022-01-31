@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;xairaList&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;xairaList&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;xairaList&gt;</h1>
+</div>
+<div>
+<span id="xairaList"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">xairaList</td>
+<td colspan="2" class="wovenodd-col2">contains a list of XAIRA parameters of a particular type.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element xairaList
+{
+   attribute type
+   {
+      "elementSpec"
+    | "keySpec"
+    | "regionSpec"
+    | "lemmaSpec"
+    | "refSpec"
+    | "indexSpec"
+    | "langSpec"
+   },
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-xairaItem.html">xairaItem</a>+
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes)<table>
+<tr>
+<td class="attDef">type</td>
+<td colspan="2">indicates the function of this part of the specification.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span><b>Required</b>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>elementSpec</b></td>
+<td valign="top">lists and glosses the elements,
+attributes, and codebooks used in a corpus .</td>
+</tr>
+<tr>
+<td valign="top"><b>keySpec</b></td>
+<td valign="top">specifies how items are to be indexed.</td>
+</tr>
+<tr>
+<td valign="top"><b>regionSpec</b></td>
+<td valign="top">specifies any predefined regions to
+be made avalable to the client.</td>
+</tr>
+<tr>
+<td valign="top"><b>lemmaSpec</b></td>
+<td valign="top">specifies any lemmatization schemes
+used.</td>
+</tr>
+<tr>
+<td valign="top"><b>refSpec</b></td>
+<td valign="top">specifies how items are to be referenced.</td>
+</tr>
+<tr>
+<td valign="top"><b>indexSpec</b></td>
+<td valign="top">specifies any special indexing
+policies.</td>
+</tr>
+<tr>
+<td valign="top"><b>langSpec</b></td>
+<td valign="top">specifies any language-specific rules.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">module-from-bncxml</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

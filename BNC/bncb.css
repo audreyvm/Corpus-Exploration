@@ -1,0 +1,64 @@
+/* DJN 21 Aug 2004 
+*/
+
+body {font-family: "times new roman", serif;
+	text-align: left;
+	font-size: 12pt;
+}
+h1.title {font-family: arial, helvetica, sans-serif;
+	color: blue;
+	font-size: 36pt;
+	text-align: center;
+}
+span.secthead {background-color: #CCF;
+	padding: 0pt;
+}
+h2.secthead {margin-top: 40pt;
+	border-bottom: 2px #339 solid;
+}
+
+.subsect {margin-top: 20pt;
+	 font-style: italic;
+	 color: #339;
+
+}
+
+.strong {font-weight: bold;
+	font-style: italic;
+}
+
+span.logocaption {font-size: 8pt;
+	
+}
+
+td.toc {text-align: left;
+	background-color: #CCF;
+}
+li {padding: 2pt;
+}
+.readit {background-color: #339;
+	text-align: center;
+	padding: 8pt;
+	margin-top: 8pt;
+	font-size: 14pt;
+	color: white;
+}
+.toctitle {font-size: 18pt;
+	text-align:center;
+	color: white;
+	padding: 8pt;
+	background-color: #339;
+}
+a.toc {text-decoration: none;
+	font-size: 14pt;
+	color: blue;
+}
+a.toc:hover {text-decoration: underline;
+}
+div.licence p,h3 {font-size: 8pt;
+	padding: 2pt;
+	margin: 2pt;
+}
+
+.footer {background-color: #CCF;
+}

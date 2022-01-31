@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>The Xaira Specification</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="The Xaira Specification">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="xairaspec">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">11  The Xaira Specification</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="bibliog.html">10  List of Sources</a><i> Next: </i><a class="navigation" href="bnctags.html">12  Formal Specification of the BNC XML schema</a></p>
+<p><span id="id2462792"></span>The <code>&lt;xairaSpecification&gt;</code> supplied in the corpus header
+determines the behaviour of the XAIRA indexer, and hence of the
+XAIRA-indexed system delivered with the BNC. In this section, we
+document that specification as it applies to the BNC only. The
+information provided here is for reference purposes only, and is of no
+interest unless you are using the XAIRA system to index the BNC or a
+similar corpus. Note however that this document is not an exhaustive
+description of the capabilities of the XAIRA system: for more
+information on that, please consult the project web site at <a class="link_ptr" href="http://www.xaira.org/" title=""><span>http://www.xaira.org/</span></a></p>
+<div class="p">
+<span id="id2462813"></span>The <code>&lt;xairaSpecification&gt;</code> element
+is as a member of the
+<span class="att">model.encodingPart</span> class, and may therefore be included
+within the <code>&lt;encodingDesc&gt;</code> element of the TEI Header for any
+corpus. It is organized as a number of
+<code>&lt;xairaList&gt;</code> elements, each of which contains a number of
+<code>&lt;xairaItem&gt;</code> elements. Both of these latter elements have a
+<span class="att">type</span> attribute which specifies more exactly the function of
+the item or list, by supplying one of a number of predefined codes, as
+further described in this section. 
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-xairaSpecification.html">xairaSpecification</a>&gt;</b> specifies additional information needed by XAIRA.</li>
+<li>
+<b>&lt;<a href="ref-xairaList.html">xairaList</a>&gt;</b> contains a list of XAIRA parameters of a particular type.<table class="attList"><tr>
+<td class="Attribute">type</td>
+<td colspan="2">indicates the function of this part of the specification.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-xairaItem.html">xairaItem</a>&gt;</b> provides data needed to define one part of a  XAIRA specification.<table class="attList">
+<tr>
+<td class="Attribute">type</td>
+<td colspan="2">indicates what is defined by this part of the specification.</td>
+</tr>
+<tr>
+<td class="Attribute">ns</td>
+<td colspan="2">supplies the namespace within which the generic identifier is to be
+found.</td>
+</tr>
+<tr>
+<td class="Attribute">ident</td>
+<td colspan="2">supplies an element's generic identifier,
+or one of the codes * (meaning all elements), or
+name() meaning that the name of the referenced element is
+to be used rather than its value.</td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+<div class="p">
+<span id="id2462867"></span>The following values are
+ defined for the <span class="att">type</span> attribute on <code>&lt;xairaList&gt;</code>:
+
+<dl>
+<dt>elementSpec</dt>
+<dd>lists and glosses the elements,
+attributes, and codebooks used in a corpus (<a class="link_ptr" href="xairaspec.html#dictspec" title="Element specification">11.1  Element specification</a>)</dd>
+<dt>keySpec</dt>
+<dd>specifies how items are to be indexed (<a class="link_ptr" href="xairaspec.html#keyspec" title="Key specification">11.2  Key specification</a>)</dd>
+<dt>regionSpec</dt>
+<dd>specifies any predefined regions to be
+made available to the client (<a class="link_ptr" href="xairaspec.html#regionspec" title="Region Specification">11.4  Region Specification</a>)</dd>
+<dt>lemmaSpec</dt>
+<dd>specifies any lemmatization schemes used  (<a class="link_ptr" href="xairaspec.html#lemmaspec" title="Lemma Scheme Specification">11.3  Lemma Scheme Specification</a>)</dd>
+<dt>refSpec</dt>
+<dd>specifies how items are to be referenced (<a class="link_ptr" href="xairaspec.html#refsys" title="Reference specification">11.5  Reference specification</a>)</dd>
+<dt>indexSpec</dt>
+<dd>specifies any special indexing policies (<a class="link_ptr" href="xairaspec.html#indexpol" title="Indexing Policies">11.6  Indexing Policies</a>)</dd>
+<dt>langSpec</dt>
+<dd>specifies any language-specific rules (<a class="link_ptr" href="xairaspec.html#langspec" title="Language specification">11.7  Language specification</a>)</dd>
+</dl>
+All of these are used in the BNC.
+</div>
+<div class="p">
+<span id="id2462961"></span>The following values are defined for the <span class="att">type</span> attribute
+on the <code>&lt;xairaItem&gt;</code> element:
+
+<dl>
+<dt>element</dt>
+<dd>an element</dd>
+<dt>form</dt>
+<dd>a lexical form for the indexer</dd>
+<dt>addKey</dt>
+<dd>an additional key for the indexer</dd>
+<dt>lemmaScheme</dt>
+<dd>a lemmatization scheme</dd>
+<dt>region</dt>
+<dd>a region</dd>
+<dt>textRef</dt>
+<dd>a reference identifying a document</dd>
+<dt>unitRef</dt>
+<dd>a reference identifying a low level unit
+within a document</dd>
+<dt>scopeRef</dt>
+<dd>a reference identifying a low level unit
+used to delimit results obtained when querying a corpus</dd>
+<dt>indexPol</dt>
+<dd>defines an index policy</dd>
+<dt>defaultLang</dt>
+<dd>specifies the default language for a corpus</dd>
+<dt>langRules</dt>
+<dd>specifies non-default tokenization or collation
+rules for a language used in a corpus</dd>
+</dl>
+All of these except the last are used in the BNC.
+</div>
+<div class="teidiv1" id="dictspec">
+<h3>11.1  Element specification</h3>
+<p><span id="id2463058"></span>A XAIRA element specification consists of a <code>&lt;xairaList&gt;</code> of
+type <tt>elementSpec</tt> containing one or more
+<code>&lt;xairaItem&gt;</code> elements, one for each element that the Xaira
+indexer or client needs to be aware of. Elements which are not
+mentioned within the Xaira element specification may however appear
+within a corpus. When the indexer finds such an element, it will index
+it using all default options; the client will not have access to any
+explanatory text or gloss for such elements. Equally, the
+specification may include definitions for elements which do not appear
+within the corpus. </p>
+<div class="p">
+<span id="id2463081"></span>The simplest form of element specification just provides a description for
+the element:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="element" <span class="attribute">ident</span>="pause"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>marks a pause in the transcription<span class="element">&lt;/desc&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2463101"></span>More usually, an element specification will also supply glosses for the
+attributes of an element. These are supplied by an <code>&lt;attList&gt;</code>
+element embedded within the <code>&lt;xairaItem&gt;</code>, consisting of one
+<code>&lt;attDef&gt;</code> element for each attribute concerned:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="element" <span class="attribute">ident</span>="w"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>a lexical token as identified by CLAWS<span class="element">&lt;/desc&gt;</span><br/>  <span class="element">&lt;attList&gt;</span><br/>   <span class="element">&lt;attDef <span class="attribute">ident</span>="c5"&gt;</span><br/>    <span class="element">&lt;desc&gt;</span>the part of speech assigned to a token by CLAWS<span class="element">&lt;/desc&gt;</span><br/>   <span class="element">&lt;/attDef&gt;</span><br/>   <span class="element">&lt;attDef <span class="attribute">ident</span>="hw"&gt;</span><br/>    <span class="element">&lt;desc&gt;</span>the base form of a word as determined by the
+		 Lancaster lemmatization scheme<span class="element">&lt;/desc&gt;</span><br/>   <span class="element">&lt;/attDef&gt;</span><br/>   <span class="element">&lt;attDef <span class="attribute">ident</span>="pos"&gt;</span><br/>    <span class="element">&lt;desc&gt;</span>a simplified part of speech code derived from
+		 the  CLAWS C5 tag<span class="element">&lt;/desc&gt;</span><br/>   <span class="element">&lt;/attDef&gt;</span><br/>  <span class="element">&lt;/attList&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2463164"></span>Descriptions may also be supplied for the values indexed for given
+attributes. This is accomplished by providing a <code>&lt;valList&gt;</code>
+element within the <code>&lt;attDef&gt;</code>, as in the following example:
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="element" <span class="attribute">ident</span>="person"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>a person whose speech is recorded in the corpus<span class="element">&lt;/desc&gt;</span><br/>  <span class="element">&lt;attList&gt;</span><br/>   <span class="element">&lt;attDef <span class="attribute">ident</span>="ageGroup"&gt;</span><br/>    <span class="element">&lt;desc&gt;</span>the age group to which a person belongs<span class="element">&lt;/desc&gt;</span><br/>    <span class="element">&lt;valList&gt;</span><br/>     <span class="element">&lt;valItem <span class="attribute">ident</span>="A0"&gt;</span>unknown age<span class="element">&lt;/valItem&gt;</span><br/>     <span class="element">&lt;valItem <span class="attribute">ident</span>="A1"&gt;</span>under 16 years old<span class="element">&lt;/valItem&gt;</span><br/>     <span class="element">&lt;valItem <span class="attribute">ident</span>="A2"&gt;</span>aged 16 to 35 years<span class="element">&lt;/valItem&gt;</span><br/>     <span class="element">&lt;valItem <span class="attribute">ident</span>="A3"&gt;</span>aged 36 to 45 years<span class="element">&lt;/valItem&gt;</span><br/>     <span class="element">&lt;valItem <span class="attribute">ident</span>="A4"&gt;</span>46 or older<span class="element">&lt;/valItem&gt;</span><br/>    <span class="element">&lt;/valList&gt;</span><br/>   <span class="element">&lt;/attDef&gt;</span><br/>  <span class="element">&lt;/attList&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<p><span id="id2463232"></span>The values A0, A1 etc. supplied by the <span class="att">ident</span> attribute
+on <code>&lt;valItem&gt;</code> need not be unique across the corpus. </p>
+<div class="p">
+<span id="id2463246"></span>A single definition may be supplied for &#8216;global&#8217;
+attributes which appear on any element by using the following syntax:
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="element" <span class="attribute">ident</span>="*"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>global attributes<span class="element">&lt;/desc&gt;</span><br/>  <span class="element">&lt;attList&gt;</span><br/>   <span class="element">&lt;attDef <span class="attribute">ident</span>="n"&gt;</span><br/>    <span class="element">&lt;desc&gt;</span>a name or number used to label any element<span class="element">&lt;/desc&gt;</span><br/>   <span class="element">&lt;/attDef&gt;</span><br/>  <span class="element">&lt;/attList&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2463304"></span>If the element or attribute to be defined is taken from some non-default
+namespace, the <span class="att">ns</span> attribute must be supplied on the
+<code>&lt;xairaItem&gt;</code> element:
+<div class="pre"> <span class="element">&lt;xairaItem<br/>   <span class="attribute">type</span>="element"<br/>   <span class="attribute">ident</span>="*"<br/>   <span class="attribute">ns</span>="http://www.w3.org/XML/1998/namespace"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>global attributes<span class="element">&lt;/desc&gt;</span><br/>  <span class="element">&lt;attList&gt;</span><br/>   <span class="element">&lt;attDef <span class="attribute">ident</span>="id"&gt;</span><br/>    <span class="element">&lt;desc&gt;</span>a name or number used to label any element<span class="element">&lt;/desc&gt;</span><br/>   <span class="element">&lt;/attDef&gt;</span><br/>  <span class="element">&lt;/attList&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>Here the globally-available <span class="att">xml:id</span> attribute is explicitly
+associated with the namespace
+<tt>http://www.w3.org/XML/1998/namespace</tt>
+</div>
+<p><span id="id2463352"></span>A <span class="att">type</span> attribute may also be specified on the
+<code>&lt;valList&gt;</code> element to indicate whether the list of values it
+contains is exhaustive or exemplary; at present Xaira does not use
+this information however.</p>
+<div class="p">
+<span id="id2463366"></span>In this section, we have introduced the following elements:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-desc.html">desc</a>&gt;</b> (description) supplies explanatory text associated with a category or other
+component defined in the corpus header.</li>
+<li>
+<b>&lt;<a href="ref-attList.html">attList</a>&gt;</b> contains documentation for all the attributes associated with this
+element, as a series of attDef elements.</li>
+<li>
+<b>&lt;<a href="ref-attDef.html">attDef</a>&gt;</b> (attribute definition) provides the definition for a single attribute.<table class="attList"><tr>
+<td class="Attribute">ident</td>
+<td colspan="2">supplies an element's generic identifier,
+or one of the codes * (meaning all elements), or
+name() meaning that the name of the referenced element is
+to be used rather than its value.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-valList.html">valList</a>&gt;</b> (value list) contains one or more valItem elements defining possible
+  values for an attribute.<table class="attList">
+<tr>
+<td class="Attribute">ident</td>
+<td colspan="2">supplies an element's generic identifier,
+or one of the codes * (meaning all elements), or
+name() meaning that the name of the referenced element is
+to be used rather than its value.</td>
+</tr>
+<tr>
+<td class="Attribute">type</td>
+<td colspan="2">specifies the extensibility of the list of attribute values
+      specified.
+      </td>
+</tr>
+<tr>
+<td class="Attribute">copyOf</td>
+<td colspan="2">supplies the identifier of a previously-defined value list to be
+used at this point.</td>
+</tr>
+</table>
+</li>
+<li>
+<b>&lt;<a href="ref-valItem.html">valItem</a>&gt;</b> (value definition) contains a single value and gloss  pair for an attribute.<table class="attList">
+<tr>
+<td class="Attribute">ident</td>
+<td colspan="2">supplies an element's generic identifier,
+or one of the codes * (meaning all elements), or
+name() meaning that the name of the referenced element is
+to be used rather than its value.</td>
+</tr>
+<tr>
+<td class="Attribute">ns</td>
+<td colspan="2">supplies the namespace within which the generic identifier is to be
+found.</td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="teidiv1" id="keyspec">
+<h3>11.2  Key specification</h3>
+<p><span id="id2463412"></span>A Xaira key specification is used to define how the indexer should
+identify which parts of the input documents are to be regarded as
+<span class="term">lexical forms</span> and what <span class="term">additional keys</span> should
+be associated with those forms. Additional keys are used to
+distinguish otherwise identical forms in the index (for example, the
+same spelling with two different POS codes); they are also used too
+build up <span class="term">lemma schemes</span> and <span class="term">regions</span> on which
+see below. </p>
+<p><span id="id2463436"></span>The key specification
+consists of a <code>&lt;xairaList&gt;</code> of type
+<span class="val">keySpec</span>. If no specification is given, the indexer will
+assume default implicit tokenization is in force and no additional
+keys are defined.
+ </p>
+<p><span id="id2463450"></span>If a key specification is supplied, it contains at least one <code>&lt;xairaItem
+type="form"&gt;</code>, optionally followed by one or more <code>&lt;xairaItem
+type="addKey"&gt;</code> elements, each of which may contain a <code>&lt;desc&gt;</code>
+element to document its purpose, and should also contain a
+<code>&lt;valSource&gt;</code> element to specify an
+element or attribute within the corpus being indexed which is to be
+used as the source for the values to be used as a key.
+</p>
+<div class="p">
+<span id="id2463474"></span>The BNC index specification begins by specifying that the elements
+<code>&lt;w&gt;</code> and <code>&lt;c&gt;</code> delimit the forms which the indexer must
+index:
+
+<div class="pre"> <span class="element">&lt;xairaList <span class="attribute">type</span>="keySpec"&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="form"&gt;</span><br/>   <span class="element">&lt;valSource <span class="attribute">type</span>="element" <span class="attribute">ident</span>="c"/&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="form"&gt;</span><br/>   <span class="element">&lt;valSource <span class="attribute">type</span>="element" <span class="attribute">ident</span>="w"/&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/> ...<br/> <span class="element">&lt;/xairaList&gt;</span></div>
+</div>
+<p><span id="id2463519"></span>The <code>&lt;valSource&gt;</code> element specifies where the
+indexer is to find the value which is to be treated as the form part
+of the index entry. In both cases, it is found as element content, of
+a <code>&lt;c&gt;</code> or <code>&lt;w&gt;</code> element. Since no further information is
+given about where such elements are to be found, this will apply to 
+ every occurrence of a <code>&lt;w&gt;</code> or <code>&lt;c&gt;</code> element, irrespective
+of its context. Since no namespace is specified, the element is
+assumed to be in the current or default namespace.</p>
+<div class="p">
+<span id="id2463547"></span>Next, the BNC index specification defines three additional keys,
+corresponding with the attributes <span class="att">c5</span>,
+<span class="att">hw</span>, and <span class="att">pos</span>. First, the CLAWS
+C5 code which is supplied as the value of a <span class="att">c5</span> attribute
+on the elements <code>&lt;w&gt;</code> and <code>&lt;c&gt;</code>:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="addKey" <span class="attribute">ident</span>="c5"&gt;</span><br/>  <span class="element">&lt;valSource <span class="attribute">type</span>="attribute" <span class="attribute">ident</span>="c5"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>w<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>c<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>   <span class="element">&lt;defaultVal&gt;</span>XXX<span class="element">&lt;/defaultVal&gt;</span><br/>  <span class="element">&lt;/valSource&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<p><span id="id2463605"></span>This defines an additional key called <span class="att">c5</span>, the
+value of which is supplied by the attribute also called <span class="att">c5</span>,
+but only when that attribute is supplied on an element called
+<code>&lt;w&gt;</code> or <code>&lt;c&gt;</code> and at any point in the document
+structure. Other attributes called <span class="att">c5</span> (such as that on
+<code>&lt;mw&gt;</code>) will not be used
+for this purpose. </p>
+<p><span id="id2463633"></span>When an additional key value is required, but no value is
+available, because the attribute or element specified does not exist
+or has no value, the literal content of the <code>&lt;defaultVal&gt;</code> element
+(<span class="val">XXX</span> in the example above) will be used instead. In the
+BNC, this should not happen, and this value should not therefore appear.
+</p>
+<div class="p">
+<span id="id2463648"></span>The remaining two additional keys are defined in much the same way,
+except that they derive from attributes specified only for the
+<code>&lt;w&gt;</code> element: 
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="addKey" <span class="attribute">ident</span>="Headword"&gt;</span><br/>  <span class="element">&lt;valSource <span class="attribute">type</span>="attribute" <span class="attribute">ident</span>="hw" <span class="attribute">caseFold</span>="true"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>w<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>  <span class="element">&lt;/valSource&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span><br/> <span class="element">&lt;xairaItem <span class="attribute">type</span>="addKey" <span class="attribute">ident</span>="pos"&gt;</span><br/>  <span class="element">&lt;valSource <span class="attribute">type</span>="attribute" <span class="attribute">ident</span>="pos"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>w<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>   <span class="element">&lt;defaultVal&gt;</span>XXX<span class="element">&lt;/defaultVal&gt;</span><br/>  <span class="element">&lt;/valSource&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+These addkeys are used in the BNC lemma scheme specification discussed
+below (<a class="link_ptr" href="xairaspec.html#lemmaspec" title="Lemma Scheme Specification">11.3  Lemma Scheme Specification</a>).</div>
+<p><span id="id2463717"></span>The <span class="att">caseFold</span> attribute
+is used to specify that forms should be case folded before indexing,
+so that forms differing only in letter case will be stored
+identically.</p>
+<div class="p">
+<span id="id2463726"></span>The last additional key defined in the BNC index specification is
+derived from a source other than an element or attribute:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">ident</span>="region" <span class="attribute">type</span>="addKey"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>defines the additional keys used to support filtering of text
+from different regions of selected texts<span class="element">&lt;/desc&gt;</span><br/>  <span class="element">&lt;valSource <span class="attribute">caseFold</span>="false" <span class="attribute">ident</span>="name()" <span class="attribute">type</span>="pseudo"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>stext<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>teiHeader<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>wtext<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>   <span class="element">&lt;defaultVal&gt;</span>nowhere<span class="element">&lt;/defaultVal&gt;</span><br/>  <span class="element">&lt;/valSource&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<p><span id="id2463775"></span>
+The effect of this is to define an additional  key called
+<span class="att">region</span>, the value of which on a given form in the
+index will be one of the strings <tt>stext, teiHeader, wtext,</tt>
+or <tt>nowhere</tt> depending on the location of the form being
+indexed.  The <tt>name()</tt> identifier here indicates that it is the name
+of the associated elements which is to be used as the value of
+the key, rather than their content. If no <code>&lt;nameList&gt;</code> were provided, then
+the key generated would contain the name of the nearest ancestor
+element. This key is used in the subsequent  region specification (see
+<a class="link_ptr" href="xairaspec.html#regionspec" title="Region Specification">11.4  Region Specification</a>).
+
+</p>
+</div>
+<div class="teidiv1" id="lemmaspec">
+<h3>11.3  Lemma Scheme Specification</h3>
+<p><span id="id2463819"></span>Any combination of additional keys may be used to form a
+<span class="term">lemma scheme</span>. This enables the values of the nominated
+keys to be treated as alternate forms for the associated index
+entries. For example, occurrences of words such as "dogs", "dogged",
+"dogging" etc in the BNC all have the value "dog"
+for an additional key called "Headword". To distinguish verbal senses
+from nominal ones, this additional key would need to be combined with
+another key giving the part of speech (noun or verb) for each
+occurrence. The resulting lemma scheme would then distinguish forms of
+"dog (noun)" from forms of "dog (verb)".</p>
+<div class="p">
+<span id="id2463836"></span>Xaira supports the definition of multiple lemma schemes, but only a
+single one is defined for the BNC. All lemma schemes are defined together
+in a single <code>&lt;xairaList type="lemmaSpec"&gt;</code> element, containing
+one <code>&lt;xairaItem type="lemmaScheme"&gt;</code> for each scheme. This
+element contains an optional <code>&lt;desc&gt;</code>, followed by a <code>&lt;nameList&gt;</code>
+containing the names of the additional keys used to constitute the
+scheme. (The name of the additional key is the name supplied by the
+<span class="att">ident</span> attribute when the key was defined.). Thus, the lemma
+scheme defined for the BNC has the following specification:
+
+<div class="pre"> <span class="element">&lt;xairaList <span class="attribute">type</span>="lemmaSpec"&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="lemmaScheme" <span class="attribute">ident</span>="BNC"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;att&gt;</span>Headword<span class="element">&lt;/att&gt;</span><br/>    <span class="element">&lt;att&gt;</span>pos<span class="element">&lt;/att&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/> <span class="element">&lt;/xairaList&gt;</span></div>
+</div>
+<p><span id="id2463892"></span>
+This defines a lemma scheme called BNC which is based on the
+combination of the values given by the additional keys
+<span class="att">Headword</span> and <span class="att">pos</span> which were defined in
+the previous section.</p>
+</div>
+<div class="teidiv1" id="regionspec">
+<h3>11.4  Region Specification</h3>
+<p><span id="id2463914"></span>A <span class="term">region</span> is a collection of possibly discontinuous
+sections of a corpus defined by the XML tagging within it. For
+example, each BNC document contains a <code>&lt;teiHeader&gt;</code> element and either a
+<code>&lt;wtext&gt;</code> or an <code>&lt;stext&gt;</code> element. We say that all the parts of
+each document contained by a <code>&lt;teiHeader&gt;</code> element constitute one
+region. All the parts contained by either a <code>&lt;wtext&gt;</code> or a
+<code>&lt;stext&gt;</code> element constitute another region. Regions (unlike
+partitions) span document boundaries, and are not made up of whole
+texts but of defined parts of them.</p>
+<p><span id="id2463950"></span>A region is defined by means of a <code>&lt;xairaItem&gt;</code> of type
+<tt>region</tt>. The <span class="att">ident</span> attribute on the
+<code>&lt;xairaItem&gt;</code> supplies a name for the region, which can be used
+by the client to limit searches to locations within the named
+region. </p>
+<p><span id="id2463971"></span>The definition of the region is contained within a
+<code>&lt;nameList&gt;</code>. It combines the name of a previously-defined
+additional key (<strong>region</strong> in the case of the BNC) which is
+tagged as an <code>&lt;ident&gt;</code> element, with a
+list of one or more values. Word occurrences whose
+<strong>region</strong> additional key has the value specified will be
+considered to fall  within the region being defined. Since these
+values are element names, they are tagged within the
+<code>&lt;nameList&gt;</code> using the <code>&lt;gi&gt;</code> element. </p>
+<div class="p">
+<span id="id2464002"></span>For example:
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="region" <span class="attribute">ident</span>="speechOnly"&gt;</span><br/>  <span class="element">&lt;nameList&gt;</span><br/>   <span class="element">&lt;ident&gt;</span>region<span class="element">&lt;/ident&gt;</span><br/>   <span class="element">&lt;gi&gt;</span>stext<span class="element">&lt;/gi&gt;</span><br/>  <span class="element">&lt;/nameList&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+
+This part of the BNC region specification defines  a region called <tt>speechOnly</tt>. Any
+word for which the additional key <tt>region</tt> has the value
+<tt>stext</tt> will fall within this region.</div>
+<div class="p">
+<span id="id2464041"></span>Two other regions are defined in a very similar way in the BNC:
+
+<div class="pre"> <span class="element">&lt;xairaList <span class="attribute">type</span>="regionSpec"&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="region" <span class="attribute">ident</span>="headerOnly"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;ident&gt;</span>region<span class="element">&lt;/ident&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>teiHeader<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="region" <span class="attribute">ident</span>="textOnly"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;ident&gt;</span>region<span class="element">&lt;/ident&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>stext<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>wtext<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/> <span class="element">&lt;/xairaList&gt;</span></div>
+</div>
+<p><span id="id2464096"></span>The first of these defines the region <tt>headerOnly</tt>, for
+words occurring within the header; the second defines the region
+<tt>textOnly</tt> for words occurring within <code>&lt;wtext&gt;</code> or
+<code>&lt;stext&gt;</code> elements, as indicated by the values supplied for their
+respective <strong>region</strong> additional key.</p>
+</div>
+<div class="teidiv1" id="refsys">
+<h3>11.5  Reference specification</h3>
+<p><span id="id2464129"></span>The index maps occurrences of index terms as defined in the
+previous section to locations in the corpus, which may be identified in a
+number of ways, additional to the internally-defined location
+system. This external <span class="term">referencing scheme</span> is used by the
+system to label the context of occurrences found by the search
+program. Occurrences themselves are precisely located by the internal
+location scheme. Although the index contains information about the
+complete xpath location of occurrences within the corpus, the internal
+location scheme is highly optimized and cannot be used to support
+access via arbitrary Xpaths or XQL queries.</p>
+<div class="p">
+<span id="id2464147"></span>The referencing scheme used to identify contexts has the following
+components:
+<ul>
+<li>a single &#8216;text&#8217; identifier: this may be derived from
+a system identifier, or specified by a nominated attribute on the
+element which contains the text, or it may calculated by the indexer
+in terms of the XML structure indexed.</li>
+<li>a single &#8216;scope&#8217; identifier: this may be derived from
+ the value of a specified attribute on any element in the text;
+calculated by the indexer in terms of the XML structure; or derived
+from the physical input structure.</li>
+<li>optionally additional  &#8216;unit&#8217; labels: these may derived
+from the value of a specified attribute on any element in the text;
+calculated by the indexer in terms of the XML structure; or derived
+from the physical input line number.</li>
+</ul>
+</div>
+<p><span id="id2464185"></span>The element from which the text identifier is derived also delimits
+a single &#8216;text&#8217; in the corpus. This effectively limits the
+kinds of value which may be used to identify it: it must be an attribute value
+or a pseudo value; element content is not permitted.</p>
+<p><span id="id2464196"></span>The referencing specification for a Xaira index is given by a <code>&lt;xairaList
+type="refSpec"&gt;</code>, containing exactly one <code>&lt;xairaItem
+type="textRef"&gt;</code>, followed by one <code>&lt;xairaItem type="scopeRef"&gt;</code> and optionally
+one or more further <code>&lt;xairaItem type="unitRef"&gt;</code> elements. Each such
+<code>&lt;xairaItem&gt;</code> element contains a <code>&lt;valSource&gt;</code> element as
+defined above, to indicate where the value for the reference is to be
+obtained in the input document. It may also contain a
+<code>&lt;labelGen&gt;</code> element which further defines the parts of the document to
+which the reference applies and its format.
+</p>
+<div class="pre"> <span class="element">&lt;xairaList <span class="attribute">type</span>="refSpec"&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="textRef"&gt;</span><br/>   <span class="element">&lt;valSource<br/>     <span class="attribute">type</span>="attribute"<br/>     <span class="attribute">ident</span>="id"<br/>     <span class="attribute">ns</span>="http://www.w3.org/XML/1998/namespace"&gt;</span><br/>    <span class="element">&lt;nameList&gt;</span><br/>     <span class="element">&lt;gi&gt;</span>bncDoc<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;/nameList&gt;</span><br/>   <span class="element">&lt;/valSource&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="scopeRef"&gt;</span><br/>   <span class="element">&lt;valSource <span class="attribute">type</span>="attribute" <span class="attribute">ident</span>="n"&gt;</span><br/>    <span class="element">&lt;nameList&gt;</span><br/>     <span class="element">&lt;gi&gt;</span>s<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;/nameList&gt;</span><br/>    <span class="element">&lt;labelGen&gt;</span>%1.%2<span class="element">&lt;/labelGen&gt;</span><br/>   <span class="element">&lt;/valSource&gt;</span><br/>  <span class="element">&lt;/xairaItem&gt;</span><br/> <span class="element">&lt;/xairaList&gt;</span></div>
+<p><span id="id2464288"></span>In the BNC, each <code>&lt;bncDoc&gt;</code> begins a new &#8216;text&#8217;, which is
+identified by the value of its <span class="att">xml:id</span> attribute, and
+the scope for each query is to be a complete 
+<code>&lt;s&gt;</code> element, identified by its
+<span class="att">n</span> attribute. The reference is to be formatted with a dot
+between the two values.</p>
+<p><span id="id2464313"></span>This specification will produce references like
+<tt>ABC.123</tt> for an  <code>&lt;s&gt;</code> element with attribute
+<span class="att">n</span> set to 123, found within a
+<code>&lt;bncDoc&gt;</code> element whose <span class="att">xml:id</span> attribute has the value
+<tt>ABC</tt>. 
+</p>
+</div>
+<div class="teidiv1" id="indexpol">
+<h3>11.6  Indexing Policies</h3>
+<p><span id="id2464349"></span>In addition to index terms derived from the lexical content of a
+     corpus, a Xaira index also contains information about the
+     occurrence of XML start- and end-tags within the corpus. This
+     information is used to facilitate a number of search options:
+     searching for non-lexical features, searching for lexical
+     features within a given structural context, scoping
+     co-occurrences of lexical or non-lexical features, etc.</p>
+<p><span id="id2464359"></span>By default an entry is made in the index for each occurrence of each tag,
+     both start and end. This entry may also distinguish start-tag
+     occurrences depending on the values of specified attributes
+     supplied with them. (Note that this is independent of the use of
+     such  attribute values in the creation of index terms as described in the previous section).</p>
+<div class="p">
+<span id="id2464369"></span>For example:
+<div class="pre"> <span class="element">&lt;head&gt;</span>The heading<span class="element">&lt;/head&gt;</span></div>will create index entries for the tags <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code><div class="pre"> <span class="element">&lt;head <span class="attribute">type</span>="sub"&gt;</span>The subheading<span class="element">&lt;/head&gt;</span></div>will create index entries for the tags <code>&lt;head&gt;</code>, <code>&lt;head type="sub"&gt;</code> and <code>&lt;/head&gt;</code>
+</div>
+<p><span id="id2464406"></span>The content of every element found in a corpus is indexed by
+default, as are all of the tags, and all of their attributes. This
+behaviour may be modified by specifying explicit indexing policies for
+elements to which this default policy does not apply. An indexing
+policy may not be specified for elements or attributes which have been
+nominated as the sources for an additional key or reference, since
+these are indexed in a different way. Any indexing policy
+specified for such elements or attributes will be ignored by the indexer.
+</p>
+<div class="p">
+<span id="id2464419"></span>The following indexing policies are used in the BNC:
+<dl>
+<dt>none</dt>
+<dd>No part of the specified element  or attribute will be
+     indexed. In the case of an element, this means that none of its start and
+end tags, its attributes,  its child elements, and its character data content
+will be included in  the index. In the case of an attribute, its
+value will be omitted.</dd>
+<dt>markup</dt>
+<dd>This policy applies only to elements. Only start-and end-tags and attributes for the specified element
+and for any child elements will be indexed; no content of the element or its children will be indexed. 
+</dd>
+<dt>jointo</dt>
+<dd>This policy applies only to attributes. The specified attribute
+is available for use as the target of an attribute indexed with the
+<tt>joinfrom</tt> policy.</dd>
+<dt>joinfrom</dt>
+<dd>This policy applies only to attributes. The attribute specified
+has values which correspond with those on an attribuite of some other
+element which has been indexed with the
+jointo policy, or (if no jointo attribute has been defined) which uses
+the <span class="att">xml:id</span> attribute</dd>
+<dt>taxonomy</dt>
+<dd>This policy applies only to attributes. The attribute specified
+has values which correspond with the xml:id attribute on some
+<code>&lt;category&gt;</code> element within a TEI-conformant <code>&lt;taxonomy&gt;</code>
+element.</dd>
+</dl>
+</div>
+<p><span id="id2464500"></span>For every element or attribute to which a non-default indexing
+policy applies, a <code>&lt;xairaItem type="indexPol"&gt;</code> appears within
+the <code>&lt;xairaList type="indexSpec"&gt;</code> element. This may contain
+either an <code>&lt;elementPolicy&gt;</code> or an <code>&lt;attributePolicy&gt;</code>,
+element depending on whether it relates to elements or attributes.</p>
+<div class="teidiv2" id="body.1_div.11_div.6_div.1">
+<h4>11.6.1  Index policies NONE and MARKUP</h4>
+<div class="p">
+<span id="id2464527"></span>Within the BNC, an attribute policy of <tt>none</tt> is applied
+to the element <code>&lt;revisionDesc&gt;</code>:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="indexPol"&gt;</span><br/>  <span class="element">&lt;elementPolicy <span class="attribute">type</span>="none" <span class="attribute">ident</span>="revisionDesc"/&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+
+The effect of this is that, although <code>&lt;revisionDesc&gt;</code> elements
+will be visible in search results, they cannot be searched for and a query
+for one or for anything contained by of one, will return no hits</div>
+<div class="p">
+<span id="id2464560"></span>The indexing policy <tt>markup</tt> is applied to the element
+<code>&lt;bibliography&gt;</code>. One occurrence of this element, declared in its
+own name space, is necessary for a XAIRA system: it holds metadata
+relating to each text constituting the corpus. In the BNC this
+bibliographic information is copied from the text headers, which are
+also indexed in their own right. To avoid duplication of this content,
+the indexer is instructed to index only the structure of the
+bibliography but not its content:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="indexPol"&gt;</span><br/>  <span class="element">&lt;elementPolicy<br/>    <span class="attribute">type</span>="markup"<br/>    <span class="attribute">ident</span>="bibliography"<br/>    <span class="attribute">ns</span>="http://xaira.org/ns/1.0/bibliography"/&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+</div>
+<div class="teidiv2" id="body.1_div.11_div.6_div.2">
+<h4>11.6.2  Index policies JOINFROM and JOINTO</h4>
+<div class="p">
+<span id="id2464602"></span>The purpose of <tt>joinfrom</tt> and <tt>jointo</tt> indexing policies is
+to support <span class="term">join queries</span>. A join query is one in which 
+attributes are effectively  transferred from one element to another.
+For example, in the BNC, each text header contains detailed data about individual
+speakers within the <code>&lt;person&gt;</code> element, and
+also uses the attribute <span class="att">who</span> to identify the
+speaker or speakers of each speech in the
+transcribed part of the corpus: 
+<div class="pre_eg">&lt;person xml:id="ABC" age="A" soc="B1"&gt; ... &lt;/person&gt;
+&lt;person xml:id="DEF" age="Z" soc="A1"&gt; ... &lt;/person&gt;
+...
+&lt;u who="ABC"&gt;....&lt;/u&gt;
+&lt;u who="DEF"&gt; .... &lt;/u&gt;</div>
+</div>
+<div class="p">
+<span id="id2464635"></span>Since the values for <span class="att">who</span> all correspond with the value of
+an  <span class="att">xml:id</span> attribute on some <code>&lt;person&gt;</code> element,  a join query can be
+effected. The XAIRA client can  be configured to
+support queries in which the attributes <span class="att">age</span> and <span class="att">soc</span> appear to be
+attributes of the <code>&lt;u&gt;</code> element, their values being transferred
+from the <code>&lt;person&gt;</code> element whose <span class="att">xml:id</span> value is equal to that
+given by the <span class="att">who</span> attribute on <code>&lt;u&gt;</code>. The effect is
+as it would be if  the <code>&lt;u&gt;</code> elements above looked like this:
+
+<div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="ABC" <span class="attribute">who.age</span>="A" <span class="attribute">who.soc</span>="B1"&gt;</span>....<span class="element">&lt;/u&gt;</span><br/> <span class="element">&lt;u <span class="attribute">who</span>="DEF" <span class="attribute">who.age</span>="Z" <span class="attribute">who.soc</span>="A1"&gt;</span> .... <span class="element">&lt;/u&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2464707"></span> This is accomplished by the following set of indexing policies:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="indexPol"&gt;</span><br/>  <span class="element">&lt;attributePolicy<br/>    <span class="attribute">ident</span>="id"<br/>    <span class="attribute">type</span>="jointo"<br/>    <span class="attribute">ns</span>="http://www.w3.org/XML/1998/namespace"/&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span><br/> <span class="element">&lt;xairaItem <span class="attribute">type</span>="indexPol"&gt;</span><br/>  <span class="element">&lt;attributePolicy <span class="attribute">type</span>="joinfrom" <span class="attribute">ident</span>="who"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>u<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>   <span class="element">&lt;joinTo&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>person<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/joinTo&gt;</span><br/>  <span class="element">&lt;/attributePolicy&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+<p><span id="id2464757"></span>First, we declare a join-to policy for any <span class="att">xml:id</span>
+attribute. Next we declare the join-from policy for the <span class="att">who</span>
+attribute on the <code>&lt;u&gt;</code> element. As well as specifying which
+attribute carries the value required (who), we need additionally to
+supply the name of the element on which the corresponding join-to
+attribute should be found (<code>&lt;u&gt;</code>). Values are transferred when a
+match is found between the value for the <span class="att">who</span> attribute and
+that of whichever attribute of the nominated element has been indexed
+with the join-to policy. Note that only one attribute of a given
+element may be indexed with the join-to policy and that the values of
+attributes indexed with the join-to policy must be unique within the
+specified element and attribute combination. Thus, there may be only
+<code>&lt;person&gt;</code> element with the value ABC for its <span class="att">xml:id</span>
+attribute, though the same value may appear on other attributes. If
+the value appears on the <span class="att">xml:id</span> attribute of some other
+element, it will not be found with this join-to policy. Note that,
+since the globally-available <span class="att">xml:id</span> attribute is used to
+hold the joint-to attribute, its values must be unique across the
+whole corpus.</p>
+</div>
+<div class="teidiv2" id="body.1_div.11_div.6_div.3">
+<h4>11.6.3  Index policy taxonomy</h4>
+<p><span id="id2464818"></span>A <span class="term">taxonomy</span> is a special kind of codebook, the purpose
+of which is to provide a set of defined codes to classify the texts
+making up a corpus. The BNC defines several different taxonomies as
+means of classifying its constituent texts, as further described in
+<a class="link_ptr" href="cdifhd.html#hdeccd" title="The reference and classification declarations">5.2.3  The reference and classification declarations</a>.  The element or attribute within a particular
+text which identifies its classification, by referencing one or more
+codes within a taxonomy, is called its <span class="term">classifier</span>. </p>
+<p><span id="id2464840"></span>Each distinct taxonomy for a corpus is defined by a TEI
+<code>&lt;taxonomy&gt;</code> element, within the corpus header. This defines the
+codes available for use and gives a gloss to them.  Where, as is
+usual, the texts in a corpus are classified along more than one
+dimension (for example, by text type, by medium of distribution, by
+audience type etc.), a <code>&lt;taxonomy&gt;</code> must be defined for each
+dimension, rather than defining a single taxonomy with disjoint sets
+of children. Note that the classification codes used must be unique
+across the whole corpus, irrespective of the taxonomy to which they
+belong.  This approach also enables the client to regard each taxonomy
+as defining a partition of the corpus. </p>
+<div class="p">
+<span id="id2464861"></span>To use a taxonomy defined in this way, the relevant attribute must be defined
+with the <tt>taxonomy</tt> indexing policy. In the case of the
+BNC, classification information is carried by two attributes:
+<ul>
+<li>the
+<span class="att">targets</span>  attribute on the <code>&lt;catRef&gt;</code> element in each
+text header supplies a list of values for all the original selection
+and descriptive criteria, described in <a class="link_ptr" href="BNCdes.html" title="Design of the corpus">1  Design of the corpus</a>
+</li>
+<li>the <span class="att">type</span> attribute on <code>&lt;wtext&gt;</code> and
+<code>&lt;stext&gt;</code> elements carries a broadbrush text-type categorization,
+derived from the other classification codes, see further <a class="link_ptr" href="codes.html#tagcounts" title="XML tag usage by text type">9.1  XML tag usage by text type</a>
+</li>
+</ul>
+The following declarations achieve this effect:
+
+<div class="pre"> <span class="element">&lt;xairaItem <span class="attribute">type</span>="indexPol"&gt;</span><br/>  <span class="element">&lt;attributePolicy <span class="attribute">ident</span>="targets" <span class="attribute">type</span>="taxonomy"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>catRef<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>  <span class="element">&lt;/attributePolicy&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span><br/> <span class="element">&lt;xairaItem <span class="attribute">type</span>="indexPol"&gt;</span><br/>  <span class="element">&lt;attributePolicy <span class="attribute">ident</span>="type" <span class="attribute">type</span>="taxonomy"&gt;</span><br/>   <span class="element">&lt;nameList&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>wtext<span class="element">&lt;/gi&gt;</span><br/>    <span class="element">&lt;gi&gt;</span>stext<span class="element">&lt;/gi&gt;</span><br/>   <span class="element">&lt;/nameList&gt;</span><br/>  <span class="element">&lt;/attributePolicy&gt;</span><br/> <span class="element">&lt;/xairaItem&gt;</span></div>
+</div>
+</div>
+</div>
+<div class="teidiv1" id="langspec">
+<h3>11.7  Language specification</h3>
+<p><span id="id2464970"></span>As a Unicode system, XAIRA is able to handle data in any natural
+language or writing system. However, it is still necessary to
+specify the language or languages used in the corpus being
+indexed. This specification is performed by a <code>&lt;xairaList&gt;</code> of
+type <tt>langspec</tt>. This contains at least one
+<code>&lt;xairaItem type="defaultLang"&gt;</code>, and optionally other
+<code>&lt;xairaItem type="langRules"&gt;</code> elements. 
+</p>
+<div class="p">
+<span id="id2464993"></span>The BNC uses only standard English and thus contains only a default
+language specification, which looks like this:
+
+<div class="pre"> <span class="element">&lt;xairaList <span class="attribute">type</span>="langSpec"&gt;</span><br/>  <span class="element">&lt;xairaItem <span class="attribute">type</span>="defaultLang" <span class="attribute">ident</span>="en-GB"/&gt;</span><br/> <span class="element">&lt;/xairaList&gt;</span></div>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="bibliog.html">10  List of Sources</a><i> Next: </i><a class="navigation" href="bnctags.html">12  Formal Specification of the BNC XML schema</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:47Z-->
+</address>
+</div>
+</div></body>
+</html>

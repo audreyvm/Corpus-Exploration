@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;w&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;w&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;w&gt;</h1>
+</div>
+<div>
+<span id="w"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">w</td>
+<td colspan="2" class="wovenodd-col2">(word) represents a grammatical (not necessarily orthographic) word.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.c5coded.html">att.c5coded</a> <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.segLike.html">model.segLike</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element w
+{
+   attribute pos
+   {
+      "ADJ"
+    | "ADV"
+    | "ART"
+    | "CONJ"
+    | "INTERJ"
+    | "PREP"
+    | "PRON"
+    | "STOP"
+    | "SUBST"
+    | "UNC"
+    | "VERB"
+   },
+   attribute hw { text },
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.c5coded.html">att.c5coded.attribute.c5</a>,
+   text
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [<a class="classlink" href="ref-att.c5coded.html">att.c5coded</a> ] )<table>
+<tr>
+<td class="attDef">pos</td>
+<td colspan="2">supplies a simplified  part-of-speech code.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span><b>Required</b>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>ADJ</b></td>
+<td valign="top">adjective.</td>
+</tr>
+<tr>
+<td valign="top"><b>ADV</b></td>
+<td valign="top">adverb.</td>
+</tr>
+<tr>
+<td valign="top"><b>ART</b></td>
+<td valign="top">article.</td>
+</tr>
+<tr>
+<td valign="top"><b>CONJ</b></td>
+<td valign="top">conjunction.</td>
+</tr>
+<tr>
+<td valign="top"><b>INTERJ</b></td>
+<td valign="top">interjection.</td>
+</tr>
+<tr>
+<td valign="top"><b>PREP</b></td>
+<td valign="top">preposition.</td>
+</tr>
+<tr>
+<td valign="top"><b>PRON</b></td>
+<td valign="top">pronoun.</td>
+</tr>
+<tr>
+<td valign="top"><b>STOP</b></td>
+<td valign="top">punctuation.</td>
+</tr>
+<tr>
+<td valign="top"><b>SUBST</b></td>
+<td valign="top">substantive.</td>
+</tr>
+<tr>
+<td valign="top"><b>UNC</b></td>
+<td valign="top">unclassified or non-lexical word.</td>
+</tr>
+<tr>
+<td valign="top"><b>VERB</b></td>
+<td valign="top">verb.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">hw</td>
+<td colspan="2">specifies the headword under which this lexical unit is
+      conventionally grouped, where known.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span><b>Required</b>
+</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+text</code>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Values: </span>a lower-case only normalised form of a word</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"&gt;</span>I <span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;w <span class="attribute">c5</span>="VDB" <span class="attribute">hw</span>="do" <span class="attribute">pos</span>="VERB"&gt;</span>do<span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;w <span class="attribute">c5</span>="XX0" <span class="attribute">hw</span>="not" <span class="attribute">pos</span>="ADV"&gt;</span>n't <span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="care" <span class="attribute">pos</span>="VERB"&gt;</span>care <span class="element">&lt;/w&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><!--pointers--></td>
+<td colspan="2" class="wovenodd-col2"><a class="link_ptr" href=""></a></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">analysis</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

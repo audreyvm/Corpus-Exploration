@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>The header</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="The header">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="cdifhd">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">5  The header</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="cdifsp.html">4  Spoken texts</a><i> Next: </i><a class="navigation" href="posguide.html">6   Wordclass Tagging in BNC XML</a></p>
+<p><span id="id2353429"></span>The <span class="term">header</span> of a TEI-conformant text provides a
+structured description of its contents, analogous to the title page
+and front matter of a book. The component elements of a TEI header are
+intended to provide in machine-processable form all the information
+needed to make sensible use of the Corpus.</p>
+<p><span id="id2353441"></span>Every separate text in the British National Corpus (i.e. each
+<code>&lt;bncDoc&gt;</code> element) has its own header, referred to below as a
+<span class="term">text header</span>.  In addition, the corpus itself has a header,
+referred to below as the <span class="term">corpus header</span>, containing
+information which is applicable to the whole corpus. Both
+corpus and text headers are represented by <code>&lt;teiHeader&gt;</code>
+elements. </p>
+<div class="p">
+<span id="id2353463"></span>The corpus header is supplied in a separate file called
+<span class="att">bncHdr.xml</span>, whereas text headers are prefixed to each
+file in the Texts directory. In the remainder of this section, we describe the components of the
+<code>&lt;teiHeader&gt;</code> element, as used within the BNC. 
+A TEI header contains  a <span class="term">file description</span>
+(section <a class="link_ptr" href="cdifhd.html#hdfd" title="The file description">5.1  The file description </a>), an <span class="term">encoding description</span>
+(section
+<a class="link_ptr" href="cdifhd.html#hdenc" title="The encoding description">5.2  The encoding description</a>), a <span class="term">profile description</span> (section
+<a class="link_ptr" href="cdifhd.html#hdpro" title="The profile description">5.3  The profile description </a>) and a <span class="term">revision description</span> (section
+<a class="link_ptr" href="cdifhd.html#hdrev" title="The revision description">5.4  The revision description</a>), represented by the following four elements: 
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-fileDesc.html">fileDesc</a>&gt;</b> (File Description) contains a full bibliographic description of an electronic
+file.</li>
+<li>
+<b>&lt;<a href="ref-encodingDesc.html">encodingDesc</a>&gt;</b> (Encoding description) documents the relationship between an electronic text and the
+source or sources from which it was derived.</li>
+<li>
+<b>&lt;<a href="ref-profileDesc.html">profileDesc</a>&gt;</b> (text-profile description) provides a detailed description of non-bibliographic aspects of a
+text, specifically the languages and sublanguages used, the situation in
+which it was produced, the participants and their setting.</li>
+<li>
+<b>&lt;<a href="ref-revisionDesc.html">revisionDesc</a>&gt;</b> (revision description) summarizes the revision history for a file.</li>
+</ul>
+</div>
+<div class="teidiv1" id="hdfd">
+<h3>5.1  The file description </h3>
+<div class="p">
+<span id="id2353543"></span>The file description (<code>&lt;fileDesc&gt;</code>) is the first of the four
+main constituents of the header. It is intended to document an electronic file
+i.e. (in the case of a corpus header) the whole corpus, or (in
+the case of a text header) any characteristics peculiar to an
+individual file within it. In each case, it contains the following
+five subdivisions:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-titleStmt.html">titleStmt</a>&gt;</b> (title statement) groups information about the title of a work and those
+responsible for its intellectual content.</li>
+<li>
+<b>&lt;<a href="ref-editionStmt.html">editionStmt</a>&gt;</b> (edition statement) groups information relating to one edition of a text.</li>
+<li>
+<b>&lt;<a href="ref-extent.html">extent</a>&gt;</b> specifies the approximate size of the text, in orthographic
+words, w elements, and s elements .</li>
+<li>
+<b>&lt;<a href="ref-publicationStmt.html">publicationStmt</a>&gt;</b> (publication statement) groups information concerning the publication or distribution
+of an electronic or other text. </li>
+<li>
+<b>&lt;<a href="ref-sourceDesc.html">sourceDesc</a>&gt;</b> supplies a description of the source text(s) from
+which an electronic text was derived or generated.</li>
+</ul>
+</div>
+<p><span id="id2353581"></span>Further detail for each of these is given in the following
+subsections. </p>
+<div class="teidiv2" id="hdfdts">
+<h4>5.1.1  The title statement</h4>
+<p><span id="id2353598"></span>The title statement (<code>&lt;titleStmt&gt;</code>) element of a BNC text
+contains one or more <code>&lt;title&gt;</code> elements, optionally followed by
+<code>&lt;author&gt;</code>, <code>&lt;editor&gt;</code>, or <code>&lt;respStmt&gt;</code> elements. These
+sub-elements are used throughout the header, wherever the title of a
+work or a statement of responsibility are required.</p>
+<div class="p">
+<span id="id2353623"></span>For the corpus header, the title statement looks like this:
+<div class="pre"> <span class="element">&lt;titleStmt&gt;</span><br/>  <span class="element">&lt;title&gt;</span>The British National Corpus: XML Edition<span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;respStmt&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>Lead partner in consortium<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Oxford University Press<span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;/respStmt&gt;</span><br/>  <span class="element">&lt;respStmt&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>Text selection for miscellaneous and unpublished written materials<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>W R Chambers<span class="element">&lt;/name&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>Text selection, data capture and transcription for spoken texts and for 14% of
+published written texts<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Longman ELT<span class="element">&lt;/name&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>Text selection for 86% published written texts<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Oxford University Press<span class="element">&lt;/name&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>Data capture and transcription for all miscellaneous and unpublished written
+texts and for 86% of published written texts<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Oxford University Press<span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;/respStmt&gt;</span><br/>  <span class="element">&lt;respStmt&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>XML conversion, encoding, storage and distribution<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Oxford University Computing Services<span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;/respStmt&gt;</span><br/>  <span class="element">&lt;respStmt&gt;</span><br/>   <span class="element">&lt;resp&gt;</span>Text enrichment<span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Unit for Computer Research into the English Language,
+University of Lancaster<span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;/respStmt&gt;</span><br/> <span class="element">&lt;/titleStmt&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2353706"></span>In individual corpus texts, the title statement follows a pattern
+like the following:
+
+<div class="pre"> <span class="element">&lt;titleStmt&gt;</span><br/>  <span class="element">&lt;title&gt;</span>The National Trust Magazine. Sample containing
+about 21015 words from a periodical (domain: arts)
+<span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;respStmt&gt;</span><br/>   <span class="element">&lt;resp&gt;</span> Data capture and transcription <span class="element">&lt;/resp&gt;</span><br/>   <span class="element">&lt;name&gt;</span>Oxford University Press <span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;/respStmt&gt;</span><br/> <span class="element">&lt;/titleStmt&gt;</span></div>
+</div>
+<p><span id="id2353729"></span>The content of the <code>&lt;title&gt;</code> element includes the title of the
+source, followed by the phrase "Sample containing about", the
+approximate word count for the sample, and further information about
+the text type and domain, all extracted from other parts of the
+header. This is followed by responsibility statements showing which
+of the BNC Consortium members was responsible for capturing the
+text originally.
+</p>
+<div class="p">
+<span id="id2353741"></span>Here are some typical examples:
+<div class="pre"> <span class="element">&lt;title&gt;</span>  How we won the open: the caddies' stories. Sample containing
+about 36083 words from a book (domain: leisure) <span class="element">&lt;/title&gt;</span><br/>&lt;!-- ASA--&gt;<br/> <span class="element">&lt;title&gt;</span> Harlow Women's Institute committee meeting. 
+  Sample containing about 246 words speech recorded 
+  in public context<span class="element">&lt;/title&gt;</span><br/> <span class="element">&lt;title&gt;</span> The Scotsman: Arts section. Sample containing 
+  about 48246 words from a periodical (domain: arts)
+<span class="element">&lt;/title&gt;</span><br/> <span class="element">&lt;title&gt;</span>32 conversations recorded by `Frank' (PS09E) 
+  between 21 and 28 February 1992 with 9 interlocutors, 
+  totalling 3193 s-units, 20607 words, and 3 hours 
+  22 minutes 23 seconds of recordings.<span class="element">&lt;/title&gt;</span><br/> <span class="element">&lt;title&gt;</span>[Leaflets advertising goods and 
+  products]. Sample containing about 23409 words 
+  of miscellanea (domain: commerce)<span class="element">&lt;/title&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2353779"></span>A <code>&lt;respStmt&gt;</code> element is used to indicate
+each agency responsible for any significant effort in the creation of
+the text. Since responsibilities for data encoding and storage, and for
+enrichment, are the same for all texts, they are not repeated in each
+text header. The responsibility for
+original data capture and transcription varies text by text, and is
+therefore stated in each text header, in the following manner:
+<div class="pre"> <span class="element">&lt;respStmt&gt;</span><br/>  <span class="element">&lt;resp&gt;</span>
+Data capture and transcription
+<span class="element">&lt;/resp&gt;</span><br/>  <span class="element">&lt;name&gt;</span>
+Longman ELT
+<span class="element">&lt;/name&gt;</span><br/> <span class="element">&lt;/respStmt&gt;</span></div>
+</div>
+<p><span id="id2353815"></span>Author and editor information for the source from which a text is derived (e.g.
+the author of a book) is not included in the <code>&lt;filedesc&gt;</code> element but in the <code>&lt;sourceDesc&gt;</code> element discussed below (<a class="link_ptr" href="cdifhd.html#hdfdsd" title="The source description">5.1.5  The source description </a>).</p>
+</div>
+<div class="teidiv2" id="hdfdes">
+<h4>5.1.2  The edition statement</h4>
+<div class="p">
+<span id="id2353842"></span>The <code>&lt;editionStmt&gt;</code> element is used to specify an
+edition for each file making up the corpus. It takes the same form in
+both the corpus header and individual text headers:
+<div class="pre"> <span class="element">&lt;editionStmt&gt;</span><br/>  <span class="element">&lt;edition&gt;</span>BNC XML Edition, January 2007<span class="element">&lt;/edition&gt;</span><br/> <span class="element">&lt;/editionStmt&gt;</span></div>
+</div>
+</div>
+<div class="teidiv2" id="hdfdex">
+<h4>5.1.3  The extent statement</h4>
+<div class="p">
+<span id="id2353870"></span>The <code>&lt;extent&gt;</code>
+element is used in each text header to specify the size of the text to
+which it is attached, as in the following example:
+<div class="pre"> <span class="element">&lt;extent&gt;</span> 21015 tokens; 21247 w-units; 957 s-units <span class="element">&lt;/extent&gt;</span></div> These counts do not include the size of the header
+itself. The number of &#8216;tokens&#8217;  is generated by the Unix
+<tt>wc</tt> utility, which simply counts blank delimited
+strings; the other figures give the number of <code>&lt;w&gt;</code> and
+<code>&lt;s&gt;</code> elements  respectively.</div>
+</div>
+<div class="teidiv2" id="hdfdps">
+<h4>5.1.4  The publication statement</h4>
+<div class="p">
+<span id="id2353913"></span>The <code>&lt;publicationStmt&gt;</code> element is used
+to specify publication and
+availability information for an electronic text.  It contains the
+following three elements:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-distributor.html">distributor</a>&gt;</b> supplies the name of a person or other agency responsible for the
+distribution of a text.</li>
+<li>
+<b>&lt;<a href="ref-availability.html">availability</a>&gt;</b> supplies information about the availability of a text, for
+  example any restrictions on its use or distribution, its copyright
+  status, etc.</li>
+<li>
+<b>&lt;<a href="ref-idno.html">idno</a>&gt;</b> (identifying number) supplies an identifying code for a text.</li>
+</ul>
+</div>
+<div class="p">
+<span id="id2353939"></span>Individual text headers contains the following fixed text for the
+first two of these:
+<div class="pre"> <span class="element">&lt;distributor&gt;</span>Distributed under licence by Oxford University Computing
+Services on behalf of the BNC Consortium.<span class="element">&lt;/distributor&gt;</span><br/> <span class="element">&lt;availability&gt;</span> This material is protected by international copyright
+laws and may not be copied or redistributed in any way. 
+Consult the BNC Web Site at http://www.natcorp.ox.ac.uk for full 
+licencing and distribution conditions.<span class="element">&lt;/availability&gt;</span></div>
+For contractual reasons, the corpus header includes a somewhat longer  rehearsal of 
+the terms and conditions under which the BNC is made available. 
+</div>
+<div class="p">
+<span id="id2353963"></span>For individual text headers, two identification numbers are
+supplied, distinguished by the value of their <span class="att">type</span>
+attribute.
+
+<div class="pre"> <span class="element">&lt;idno <span class="attribute">type</span>="bnc"&gt;</span>A0A<span class="element">&lt;/idno&gt;</span><br/> <span class="element">&lt;idno <span class="attribute">type</span>="old"&gt;</span>CAMfct<span class="element">&lt;/idno&gt;</span></div>
+</div>
+<p><span id="id2353987"></span>The second identifier (of type <tt>old</tt>) is the old-style
+mnemonic or numeric code attached to BNC texts during the  production of
+the corpus, and is still used to label the original printed source materials in the
+BNC Archive. The first three character code (of type <tt>bnc</tt>)
+is the standard BNC identifier. It is also used both for the filename in
+which the text is stored and as the value supplied for the
+<span class="att">xml:id</span> attribute on the <code>&lt;bncDoc&gt;</code> element containing
+the whole text, and should always be used to cite the text. The code
+is a completely arbitrary identifier, and does not indicate anything
+about the nature of the text. 
+</p>
+</div>
+<div class="teidiv2" id="hdfdsd">
+<h4>5.1.5  The source description </h4>
+<div class="p">
+<span id="id2354035"></span>The <code>&lt;sourceDesc&gt;</code> element is used to supply
+bibliographic details for the original source material from which an
+electronic text derives. In the case of a BNC text, this might be a
+book, pamphlet, newspaper etc., or a recording. One of the following
+elements available within the <code>&lt;sourceDesc&gt;</code> will be used, as
+appropriate: 
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-recordingStmt.html">recordingStmt</a>&gt;</b> (recording statement) describes a set of recordings used in transcription of a
+spoken text.</li>
+<li>
+<b>&lt;<a href="ref-bibl.html">bibl</a>&gt;</b> (bibliographic citation) contains any bibliographic reference, occurring either within
+the header of a written corpus text in which case it has a fixed
+substructure, or within the body of a corpus text, in which case it
+contains only s elements.</li>
+</ul>
+</div>
+<p><span id="id2354062"></span>These elements are not used within the corpus header, which simply
+contains a note about the sources from which the corpus was derived,
+tagged as a <code>&lt;para&gt;</code> (paragraph). The headers of individual texts
+each contain one of the above elements to specify their source. </p>
+<p><span id="id2354073"></span>Context-governed spoken texts derived from broadcast or similar
+&#8216;published&#8217; material may have either a  recording statement or a
+bibliographic record as their source.
+</p>
+<p><span id="id2354083"></span>All bibliographic data supplied in the individual text headers is
+collected together and reproduced in section <a class="link_ptr" href="bibliog.html" title="List of Sources">10  List of Sources</a> below.</p>
+<div class="teidiv3" id="hdrecst">
+<h5>5.1.5.1  The recording statement </h5>
+<div class="p">
+<span id="id2354101"></span>The recording statement (<code>&lt;recordingStmt&gt;</code>) element 
+contains one or more <code>&lt;recording&gt;</code> elements:
+
+<ul class="specList"><li>
+<b>&lt;<a href="ref-recording.html">recording</a>&gt;</b> (recording event) details of an audio or video recording event
+used as the source of a spoken text, either directly or from
+a public broadcast. <table class="attList">
+<tr>
+<td class="Attribute">n</td>
+<td colspan="2">tape number.</td>
+</tr>
+<tr>
+<td class="Attribute">date</td>
+<td colspan="2">date of the recording in standardized form.</td>
+</tr>
+<tr>
+<td class="Attribute">time</td>
+<td colspan="2">time of day the recording was made.</td>
+</tr>
+<tr>
+<td class="Attribute">type</td>
+<td colspan="2">kind of recording.</td>
+</tr>
+<tr>
+<td class="Attribute">dur</td>
+<td colspan="2">duration of the recording in seconds.</td>
+</tr>
+</table>
+</li></ul>
+</div>
+<p><span id="id2354126"></span>The value of the <span class="att">n</span> attribute here provides the
+number of the audio tape holding the original recording, as deposited
+with the British Library's Sound Archive in London. </p>
+<div class="p">
+<span id="id2354136"></span>In the following simple example, typical of most
+of the &#8216;context-governed&#8217; parts of the BNC, the
+<code>&lt;recording&gt;</code> element has no content at all:
+
+<div class="pre"> <span class="element">&lt;recordingStmt&gt;</span><br/>  <span class="element">&lt;recording<br/>    <span class="attribute">n</span>="121101"<br/>    <span class="attribute">date</span>="1994-02-09"<br/>    <span class="attribute">time</span>="11:00"<br/>    <span class="attribute">type</span>="DAT"/&gt;</span><br/> <span class="element">&lt;/recordingStmt&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2354167"></span>When, as is often the case for the spoken demographic parts of the
+BNC, a text has been made up by transcribing several different
+recordings made by a single respondent over a period of time, each
+such recording will have its own <code>&lt;recording&gt;</code> element, as in the
+following example:
+
+<div class="pre"> <span class="element">&lt;recordingStmt&gt;</span><br/>  <span class="element">&lt;recording<br/>    <span class="attribute">n</span>="018201"<br/>    <span class="attribute">dur</span>="322"<br/>    <span class="attribute">date</span>="1991-11-28"<br/>    <span class="attribute">time</span>="18:15+"<br/>    <span class="attribute">type</span>="Walkman"<br/>    <span class="attribute">xml:id</span>="KB7RE000"/&gt;</span><br/>  <span class="element">&lt;recording<br/>    <span class="attribute">n</span>="018202"<br/>    <span class="attribute">dur</span>="253"<br/>    <span class="attribute">date</span>="1991-11-28"<br/>    <span class="attribute">time</span>="18:15+"<br/>    <span class="attribute">type</span>="Walkman"<br/>    <span class="attribute">xml:id</span>="KB7RE001"/&gt;</span><br/>&lt;!-- ... --&gt;<br/>  <span class="element">&lt;recording<br/>    <span class="attribute">n</span>="018207"<br/>    <span class="attribute">dur</span>="630"<br/>    <span class="attribute">date</span>="1991-11-29"<br/>    <span class="attribute">time</span>="10:15+"<br/>    <span class="attribute">type</span>="Walkman"<br/>    <span class="attribute">xml:id</span>="KB7RE006"/&gt;</span><br/>  <span class="element">&lt;recording<br/>    <span class="attribute">n</span>="018301"<br/>    <span class="attribute">dur</span>="75"<br/>    <span class="attribute">date</span>="1991-11-29"<br/>    <span class="attribute">time</span>="12:15+"<br/>    <span class="attribute">type</span>="Walkman"<br/>    <span class="attribute">xml:id</span>="KB7RE007"/&gt;</span><br/>&lt;!-- ... --&gt;<br/> <span class="element">&lt;/recordingStmt&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2354258"></span>Note the presence of an <span class="att">xml:id</span> attribute on each of the
+above recordings. The value given here is used to indicate the
+recording from which a given part of the text was transcribed. Each
+recording is transcribed as a distinct <code>&lt;div&gt;</code> (division) element
+within an <code>&lt;stext&gt;</code>. In that element, the  identifier of the
+source recording is supplied as the value of
+a <span class="att">decls</span> attribute. Thus, in the spoken text derived
+from the above mentioned recordings, there will be a <code>&lt;div&gt;</code>
+element starting as follows:
+<div class="pre"> <span class="element">&lt;div <span class="attribute">decls</span>="KB7RE0077"&gt;</span>
+...<span class="element">&lt;/div&gt;</span></div>
+which will contain the part of text transcribed from that recording. As noted
+above the identifier supplied on the <span class="att">n</span> attribute is quite
+distinct, and identifies the tape on which the original recording was
+made, and by which it is referenced in the British Library's Sound Archive.
+</div>
+</div>
+<div class="teidiv3" id="hdbib">
+<h5>5.1.5.2  Structured bibliographic record</h5>
+<div class="p">
+<span id="id2354312"></span>In addition to its usage within the corpus texts (see <a class="link_ptr" href="cdifwr.html#cdifbib" title="Bibliographic references">3.2.7  Bibliographic references</a>), the <code>&lt;bibl&gt;</code> element is also used to record
+bibliographic information for each non-spoken component of the BNC.
+In this case, its structure is constrained to contain only the
+following elements in the order specified:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-title.html">title</a>&gt;</b> contains the full title of a work of any kind.</li>
+<li>
+<b>&lt;<a href="ref-editor.html">editor</a>&gt;</b> secondary statement of responsibility for a
+bibliographic item, for example the name of an individual, institution
+or organization, (or of several such) acting as editor, compiler,
+translator, etc. </li>
+<li>
+<b>&lt;<a href="ref-author.html">author</a>&gt;</b> in a bibliographic reference, contains the name of the author(s),
+personal or corporate,
+of a work; the primary statement of responsibility for any
+bibliographic item. </li>
+<li>
+<b>&lt;<a href="ref-imprint.html">imprint</a>&gt;</b> groups information relating to the publication or distribution
+  of a bibliographic item.</li>
+<li>
+<b>&lt;<a href="ref-pp.html">pp</a>&gt;</b> supplies page numbers for a bibliographic citation.</li>
+</ul>
+</div>
+<p><span id="id2354353"></span>During production of the BNC, the <span class="att">n</span> attribute was
+used with both <code>&lt;author&gt;</code> and <code>&lt;imprint&gt;</code> elements to supply
+a six-letter code identifying the author or imprint concerned. The
+values used should be unique across the corpus, but this is not
+validated in the current release of the DTD.
+</p>
+<div class="p">
+<span id="id2354372"></span>The <code>&lt;imprint&gt;</code> element is
+supplied for published texts only and contains the following elements in the order given:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-pubPlace.html">pubPlace</a>&gt;</b> contains the name of the place where a bibliographic item was
+published.</li>
+<li>
+<b>&lt;<a href="ref-publisher.html">publisher</a>&gt;</b> provides the name of the organization responsible for
+the publication or distribution of a bibliographic item.</li>
+<li>
+<b>&lt;<a href="ref-date.html">date</a>&gt;</b> contains a date in any format.</li>
+</ul>
+</div>
+<div class="p">
+<span id="id2354397"></span>The following example demonstrates how these elements are used to
+record bibliographic details for a typical book:
+
+<div class="pre"> <span class="element">&lt;bibl&gt;</span><br/>  <span class="element">&lt;title&gt;</span>It might have been Jerusalem. <span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;author <span class="attribute">n</span>="HealyT1" <span class="attribute">domicile</span>="Scotland"&gt;</span>Healy, Thomas<span class="element">&lt;/author&gt;</span><br/>  <span class="element">&lt;imprint <span class="attribute">n</span>="POLYGO1"&gt;</span><br/>   <span class="element">&lt;publisher&gt;</span>Polygon Books<span class="element">&lt;/publisher&gt;</span><br/>   <span class="element">&lt;pubPlace&gt;</span>Edinburgh<span class="element">&lt;/pubPlace&gt;</span><br/>   <span class="element">&lt;date <span class="attribute">value</span>="1991"&gt;</span>1991<span class="element">&lt;/date&gt;</span><br/>  <span class="element">&lt;/imprint&gt;</span><br/>  <span class="element">&lt;pp&gt;</span>1-81<span class="element">&lt;/pp&gt;</span><br/> <span class="element">&lt;/bibl&gt;</span><br/>&lt;!-- BNC --&gt;</div>
+</div>
+<div class="p">
+<span id="id2354443"></span>The following example is typical of the case where a collection of
+leaflets or newsletters has been treated as a single text: 
+<div class="pre"> <span class="element">&lt;bibl&gt;</span><br/>  <span class="element">&lt;title&gt;</span>[Potato Marketing Board leaflets]<span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;imprint <span class="attribute">n</span>="POTATO1"&gt;</span><br/>   <span class="element">&lt;publisher&gt;</span>Potato Marketing Board<span class="element">&lt;/publisher&gt;</span><br/>   <span class="element">&lt;pubPlace&gt;</span>London<span class="element">&lt;/pubPlace&gt;</span><br/>   <span class="element">&lt;date <span class="attribute">value</span>="1991"&gt;</span>1991<span class="element">&lt;/date&gt;</span><br/>  <span class="element">&lt;/imprint&gt;</span><br/> <span class="element">&lt;/bibl&gt;</span><br/>&lt;!-- EEA --&gt;</div>
+</div>
+<div class="p">
+<span id="id2354478"></span>Occasionally, a bibliographic item has two titles, for
+example a series title as well as an individual title, or multiple
+authors. In the BNC such cases are treated simply by repeating the
+element concerned, sometimes using the <span class="att">level</span> attribute
+to distinguish the bibliographic &#8216;level&#8217; of the
+title:
+<div class="pre"> <span class="element">&lt;bibl&gt;</span><br/>  <span class="element">&lt;title&gt;</span>Damages for personal injury and death: <span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;title <span class="attribute">level</span>="a"&gt;</span>Damages on death<span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;author <span class="attribute">n</span>="SauntT1"&gt;</span>Saunt,
+Thomas<span class="element">&lt;/author&gt;</span><br/>  <span class="element">&lt;editor&gt;</span>Kemp, David<span class="element">&lt;/editor&gt;</span><br/>  <span class="element">&lt;imprint <span class="attribute">n</span>="LONGMA1"&gt;</span><br/>   <span class="element">&lt;publisher&gt;</span>Longman Group UK Ltd<span class="element">&lt;/publisher&gt;</span><br/>   <span class="element">&lt;pubPlace&gt;</span>Harlow<span class="element">&lt;/pubPlace&gt;</span><br/>   <span class="element">&lt;date <span class="attribute">value</span>="1993"&gt;</span>1993<span class="element">&lt;/date&gt;</span><br/>  <span class="element">&lt;/imprint&gt;</span><br/>  <span class="element">&lt;pp&gt;</span>52-68<span class="element">&lt;/pp&gt;</span><br/> <span class="element">&lt;/bibl&gt;</span><br/>&lt;!-- J6W --&gt;</div>
+</div>
+<p><span id="id2354547"></span>Where &#8216;series&#8217; information is available for a
+given title, this is not normally tagged distinctly. Instead the
+series title is given as part of the monographic title, usually
+preceded by a colon. </p>
+<p><span id="id2354558"></span>This level of bibliographic description has not been carried out with complete
+consistency across the current release of the corpus.</p>
+</div>
+</div>
+</div>
+<div class="teidiv1" id="hdenc">
+<h3>5.2  The encoding description</h3>
+<p><span id="id2354572"></span>The second major component of the TEI header is the encoding
+description (<code>&lt;encodingDesc&gt;</code>). This contains
+information about the relationship between an encoded text and its
+original source and describes the editorial and other principles
+employed throughout the corpus.  It also contains reference information
+used throughout the corpus. 
+</p>
+<div class="p">
+<span id="id2354585"></span>The BNC  <code>&lt;encodingDesc&gt;</code> element has the following six
+components: 
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-projectDesc.html">projectDesc</a>&gt;</b> (project description) describes in detail the aim or purpose for which an electronic
+file was encoded, together with any other relevant information
+concerning the process by which it was assembled or collected.</li>
+<li>
+<b>&lt;<a href="ref-samplingDecl.html">samplingDecl</a>&gt;</b> (sampling declaration) contains a prose description of the rationale and methods used
+in sampling texts in the creation of a corpus or collection.</li>
+<li>
+<b>&lt;<a href="ref-editorialDecl.html">editorialDecl</a>&gt;</b> (editorial practice declaration) provides details of editorial principles and practices applied
+during the encoding of a text.</li>
+<li>
+<b>&lt;<a href="ref-tagsDecl.html">tagsDecl</a>&gt;</b> (tagging declaration) provides information about the XML elements actually used within
+a BNC text.</li>
+<li>
+<b>&lt;<a href="ref-refsDecl.html">refsDecl</a>&gt;</b> (references declaration) provides documentation for the reference system applicable to
+the corpus.</li>
+<li>
+<b>&lt;<a href="ref-classDecl.html">classDecl</a>&gt;</b> (classification declarations) contains one or more taxonomies defining any classificatory
+codes used elsewhere in the text.</li>
+<li>
+<b>&lt;<a href="ref-xairaSpecification.html">xairaSpecification</a>&gt;</b> specifies additional information needed by XAIRA.</li>
+</ul>
+</div>
+<p><span id="id2354627"></span>In the BNC, one of each of these elements appears in the corpus
+header. Only  the <code>&lt;tagsDecl&gt;</code> element appears
+in the individual text headers. 
+</p>
+<div class="teidiv2" id="hdecdoc">
+<h4>5.2.1  Documentary components of the encoding
+description</h4>
+<p><span id="id2354645"></span>The <code>&lt;projectDesc&gt;</code> element for the corpus gives a brief
+description of the goals, organization and results of the BNC project.
+The <code>&lt;samplingDecl&gt;</code>, <code>&lt;editorialDecl&gt;</code> and
+<code>&lt;refsDecl&gt;</code> elements similarly supply brief prose descriptions
+describing the sampling procedures used in the project and the
+referencing system applied. This information is also summarized elsewhere
+in this documentation.
+</p>
+</div>
+<div class="teidiv2" id="hdectd">
+<h4>5.2.2  The tagging declaration </h4>
+<div class="p">
+<span id="id2354678"></span>The  tagging declaration (<code>&lt;tagsDecl&gt;</code>) element is
+used slightly differently in corpus and in text headers. In the corpus
+header, it is used to list every element name actually used within the
+corpus, together with a brief description of its function. In text
+headers, it is used to specify the number of elements actually tagged
+within each text. In either case it consists of a <code>&lt;namespace&gt;</code>
+element, containing a number of
+<code>&lt;tagUsage&gt;</code> elements, defined as follows:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-namespace.html">namespace</a>&gt;</b> supplies the formal name of the namespace to which the elements
+documented by its children belong. </li>
+<li>
+<b>&lt;<a href="ref-tagUsage.html">tagUsage</a>&gt;</b> (tag usage) supplies information about the usage of a specific element
+within a text. <table class="attList">
+<tr>
+<td class="Attribute">gi</td>
+<td colspan="2">the name (generic identifier)
+of the element indicated by the tag.</td>
+</tr>
+<tr>
+<td class="Attribute">occurs</td>
+<td colspan="2">specifies the number of occurrences of this element within the text.
+ </td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+<div class="p">
+<span id="id2354713"></span>In the corpus header, each <code>&lt;tagUsage&gt;</code> element contains a
+brief description of the element specified by its <code>&lt;gi&gt;</code> element;
+the <span class="att">occurs</span> attribute is not supplied, as in the following
+extract: <div class="pre"> <span class="element">&lt;tagUsage <span class="attribute">gi</span>="event"&gt;</span>
+Non-verbal event in spoken text
+<span class="element">&lt;/tagUsage&gt;</span><br/> <span class="element">&lt;tagUsage <span class="attribute">gi</span>="gap"&gt;</span>
+Point where source material has omitted
+<span class="element">&lt;/tagUsage&gt;</span><br/> <span class="element">&lt;tagUsage <span class="attribute">gi</span>="head"&gt;</span>
+Header or headline in written text 
+<span class="element">&lt;/tagUsage&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2354752"></span>In text headers, the <code>&lt;tagUsage&gt;</code> elements are empty, but the
+<span class="att">occurs</span> attribute is always supplied, and indicates the
+number of such elements which appear within the text, as in the following
+example, taken from a typical written text:
+<div class="pre"> <span class="element">&lt;tagsDecl&gt;</span><br/>  <span class="element">&lt;namespace <span class="attribute">name</span>=""&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="c" <span class="attribute">occurs</span>="5750"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="corr" <span class="attribute">occurs</span>="1"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="div" <span class="attribute">occurs</span>="115"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="gap" <span class="attribute">occurs</span>="3"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="head" <span class="attribute">occurs</span>="156"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="hi" <span class="attribute">occurs</span>="147"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="l" <span class="attribute">occurs</span>="2"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="lg" <span class="attribute">occurs</span>="1"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="mw" <span class="attribute">occurs</span>="256"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="p" <span class="attribute">occurs</span>="680"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="quote" <span class="attribute">occurs</span>="3"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="s" <span class="attribute">occurs</span>="2415"/&gt;</span><br/>   <span class="element">&lt;tagUsage <span class="attribute">gi</span>="w" <span class="attribute">occurs</span>="41799"/&gt;</span><br/>  <span class="element">&lt;/namespace&gt;</span><br/> <span class="element">&lt;/tagsDecl&gt;</span></div>
+</div>
+</div>
+<div class="teidiv2" id="hdeccd">
+<h4>5.2.3  The reference and classification declarations</h4>
+<div class="p">
+<span id="id2354852"></span>The <code>&lt;refsDecl&gt;</code> element for the corpus header defines the
+approved format for references to the corpus. It takes the following form
+<div class="pre"> <span class="element">&lt;refsDecl&gt;</span><br/>  <span class="element">&lt;para&gt;</span>Canonical references in the British National Corpus
+are to text segment (s) elements, and
+are constructed by taking the value of the xml:id attribute
+of the bncDoc element containing the target text,
+and concatenating a dot separator, followed by the value
+of the n attribute of the target s element.
+<span class="element">&lt;/para&gt;</span><br/> <span class="element">&lt;/refsDecl&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2354879"></span>The standard TEI <code>&lt;classDecl&gt;</code> element is used in the BNC Corpus Header
+to formally define several text classication
+schemes which are used in the corpus. Each scheme or <span class="term">taxonomy</span>
+defines a number of code/description pairs, applicable to a text in
+the corpus. For example, the written domain taxonomy defines twelve
+subject domains ("Imagination", "Informative: natural science",
+"Informative: applied science" etc.) and each
+written text is assigned to one of them. Each
+taxonomy is defined in the corpus header, using the following elements:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-taxonomy.html">taxonomy</a>&gt;</b> (taxonomy) defines a typology used to classify texts either implicitly, by
+means of a bibliographic citation, or explicitly by a structured
+taxonomy.</li>
+<li>
+<b>&lt;<a href="ref-desc.html">desc</a>&gt;</b> (description) supplies explanatory text associated with a category or other
+component defined in the corpus header.</li>
+<li>
+<b>&lt;<a href="ref-category.html">category</a>&gt;</b> (category) defines a single category within a taxonomy of texts.</li>
+<li>
+<b>&lt;<a href="ref-bibl.html">bibl</a>&gt;</b> (bibliographic citation) contains any bibliographic reference, occurring either within
+the header of a written corpus text in which case it has a fixed
+substructure, or within the body of a corpus text, in which case it
+contains only s elements.</li>
+</ul>
+</div>
+<div class="p">
+<span id="id2354919"></span>Here, for example, is the start of the <code>&lt;taxonomy&gt;</code> element
+defining the <span class="term">Written domain</span> classification system as it appears in
+the corpus header:
+<div class="pre"> <span class="element">&lt;taxonomy <span class="attribute">xml:id</span>="WRIDOM"&gt;</span><br/>  <span class="element">&lt;desc&gt;</span>Written Domain<span class="element">&lt;/desc&gt;</span><br/>  <span class="element">&lt;category <span class="attribute">xml:id</span>="WRIDOM1"&gt;</span><br/>   <span class="element">&lt;catDesc&gt;</span>Imaginative<span class="element">&lt;/catDesc&gt;</span><br/>  <span class="element">&lt;/category&gt;</span><br/>  <span class="element">&lt;category <span class="attribute">xml:id</span>="WRIDOM2"&gt;</span><br/>   <span class="element">&lt;catDesc&gt;</span>Informative: natural &amp; pure science<span class="element">&lt;/catDesc&gt;</span><br/>  <span class="element">&lt;/category&gt;</span><br/>  <span class="element">&lt;category <span class="attribute">xml:id</span>="WRIDOM3"&gt;</span><br/>   <span class="element">&lt;catDesc&gt;</span>Informative: applied science<span class="element">&lt;/catDesc&gt;</span><br/>  <span class="element">&lt;/category&gt;</span><br/> ...<br/> <span class="element">&lt;/taxonomy&gt;</span></div>
+</div>
+<p><span id="id2354975"></span>For a complete list of the taxonomies used in the BNC and the
+number of texts etc. classified according to them, refer to the corpus
+header and to chapter <a class="link_ptr" href="BNCdes.html" title="Design of the corpus">1  Design of the corpus</a>.</p>
+<div class="p">
+<span id="id2354985"></span>The classification categories applicable to a given text are specified
+by the <code>&lt;catRef&gt;</code> element within the associated text header. Its
+<span class="att">target</span> lists the identifiers of all <code>&lt;category&gt;</code>
+elements applicable to that text. For example, the header of a written text
+assigned to the social science domain which has a corporate author will
+include a <code>&lt;catRef&gt;</code> element like the following:
+<div class="pre"> <span class="element">&lt;catRef <span class="attribute">target</span>="... WRIATY1 WRIDOM4..."/&gt;</span></div> (The
+dots above represent the identifiers of all other category codes applicable to this text).
+</div>
+<p><span id="id2355019"></span>A full list of all category codes, and the numbers of texts so
+classified in the current release of the corpus is provided in section
+<a class="link_ptr" href="codes.html#classcodes" title="Text and genre classification codes">9.6  Text and genre classification codes</a>.  
+</p>
+<p><span id="id2355029"></span>Further information about the classification and categorization of an
+individual texts is provided within the <code>&lt;textClass&gt;</code> element
+discussed below (<a class="link_ptr" href="cdifhd.html#hdpdtc" title="Text classification">5.3.5  Text classification </a>)
+</p>
+</div>
+<div class="teidiv2" id="body.1_div.5_div.2_div.4">
+<h4>5.2.4  The Xaira Specification</h4>
+<p><span id="id2355049"></span>The Xaira Specification
+element is used by the XAIRA indexing software to index the BNC. A
+brief description of its components is provided in <a class="link_ptr" href="xairaspec.html" title="The Xaira Specification">11  The Xaira Specification</a> below; for full information, consult the Xaira
+documentation available from
+<a class="link_ref" href="http://www.xaira.org/" title="http://www.xaira.org/">http://www.xaira.org/</a></p>
+</div>
+</div>
+<div class="teidiv1" id="hdpro">
+<h3>5.3  The profile description </h3>
+<div class="p">
+<span id="id2355075"></span>The third component of a TEI header is the profile description. In
+the BNC this is used to provide the following elements:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-creation.html">creation</a>&gt;</b> contains information about the creation of a text.</li>
+<li>
+<b>&lt;<a href="ref-langUsage.html">langUsage</a>&gt;</b> (language usage) describes the languages, sublanguages, registers, dialects etc.
+represented within a text.</li>
+<li>
+<b>&lt;<a href="ref-particDesc.html">particDesc</a>&gt;</b> (participation description) describes the identifiable speakers, voices, or other participants
+in a linguistic interaction. <table class="attList"><tr>
+<td class="Attribute">n</td>
+<td colspan="2">in demographic texts, supplies the respondent number used
+to identify the batch of tapes.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-settingDesc.html">settingDesc</a>&gt;</b> (setting description) describes the setting or settings within which a language
+interaction takes place, either as a prose description or as a
+series of setting elements.</li>
+<li>
+<b>&lt;<a href="ref-textClass.html">textClass</a>&gt;</b> (text classification) groups information which describes the nature or topic of a text
+in terms of a standard classification scheme, thesaurus, etc.</li>
+</ul>
+</div>
+<div class="teidiv2" id="hdpdcr">
+<h4>5.3.1  The creation element</h4>
+<p><span id="id2355115"></span>This element is provided to record the date of publication for
+texts originally published separately, and any details concerning the origination
+of any spoken or written texts, whether or not covered elsewhere. It
+is supplied in every text header, although the details provided
+vary. As a minimum, a date (tagged with the standard <code>&lt;date&gt;</code>
+element) will be included; this gives the date the content of this
+text was first created. For a spoken text, this will be the same as
+the date of the recording; for a written text, it will normally be the
+date of first publication of the edition, which may not be the same as
+the date of publication of the copy used. </p>
+<div class="p">
+<span id="id2355132"></span>Here are two typical examples:
+<div class="pre"> <span class="element">&lt;creation&gt;</span><br/>  <span class="element">&lt;date&gt;</span>1992-02-11<span class="element">&lt;/date&gt;</span>: <br/> <span class="element">&lt;/creation&gt;</span><br/> <span class="element">&lt;creation&gt;</span><br/>  <span class="element">&lt;date&gt;</span>1971<span class="element">&lt;/date&gt;</span>: originally published by Jonathan Cape.<br/> <span class="element">&lt;/creation&gt;</span></div>
+</div>
+<p><span id="id2355151"></span>Note that the BNC contains modernized editions of some classic texts
+such as Defoe's <i>Robinson Crusoe</i> (FRX); the creation
+date specified here is that of the creation of the modernized version
+rather than the 17th c. original.</p>
+<p><span id="id2355161"></span>For imaginative works, the creation date is also the date used to
+classify the text (by means of the <tt>WRITIM</tt> category). For
+other written works, such as textbooks, which are likely to have been
+extensively revised since their first publication, the date used to
+classify the text will be that of the edition described in the
+<code>&lt;sourceDesc&gt;</code>, but the original date will also be recorded
+within the <code>&lt;creation&gt;</code> element.
+</p>
+</div>
+<div class="teidiv2" id="hdpdpd">
+<h4>5.3.2  The &lt;langUsage&gt; element</h4>
+<div class="p">
+<span id="id2355194"></span>Unlike the other elements of the profile description, the language
+usage element occurs only in the corpus header.
+It contains the following text:
+<div class="pre"> <span class="element">&lt;langUsage&gt;</span>
+The language of the British National Corpus is modern
+British English.  Words, fragments, and passages from many
+other languages, both ancient and modern, occur within the
+corpus where these may be represented using a Latin
+alphabet.  Long passages in these languages, and material
+in other languages, are generally silently deleted.  In no
+case is the lang attribute used to indicate the language
+of a word, phrase or passage, nor are alternate writing
+system definitions used.
+<span class="element">&lt;/langUsage&gt;</span></div>
+</div>
+</div>
+<div class="teidiv2" id="hdpdpx">
+<h4>5.3.3  The participant description </h4>
+<p><span id="id2355227"></span>The participant description (<code>&lt;particDesc&gt;</code>) element is used
+to provide information about speakers of texts transcribed for the
+BNC.  It appears only within individual spoken text headers to define
+the participants specific to those texts.
+</p>
+<p><span id="id2355238"></span>It contains a series of <code>&lt;person&gt;</code> elements describing the
+participants whose speech is transcribed in this text.
+</p>
+<div class="teidiv3" id="persdis">
+<h5>5.3.3.1  The person element</h5>
+<div class="p">
+<span id="id2355255"></span>Each <code>&lt;person&gt;</code> element describes a single participant in a
+language interaction. It carries a number of attributes which are used
+to provide encoded values for some key aspects of the person concerned:
+
+<ul class="specList"><li>
+<b>&lt;<a href="ref-person.html">person</a>&gt;</b> provides information about an identifiable individual, for
+example a participant in a language interaction, or a person referred
+to in a historical source.<table class="attList">
+<tr>
+<td class="Attribute">ageGroup</td>
+<td colspan="2">specifies the age group to which the participant belongs.</td>
+</tr>
+<tr>
+<td class="Attribute">dialect</td>
+<td colspan="2">specifies the dialect or accent of a participant's speech, as identified
+by the respondent.</td>
+</tr>
+<tr>
+<td class="Attribute">firstLang</td>
+<td colspan="2">specifies the country of origin  of the 
+participant, as identified
+by the respondent.</td>
+</tr>
+<tr>
+<td class="Attribute">n</td>
+<td colspan="2">internal identifier.</td>
+</tr>
+<tr>
+<td class="Attribute">educ</td>
+<td colspan="2">specifies the age at which the participant ceased full-time 
+education.</td>
+</tr>
+<tr>
+<td class="Attribute">soc</td>
+<td colspan="2">specifies the social class of the participant.</td>
+</tr>
+<tr>
+<td class="Attribute">sex</td>
+<td colspan="2">specifies the sex of the participant.</td>
+</tr>
+<tr>
+<td class="Attribute">role</td>
+<td colspan="2">describes the relationship or role of this participant with respect to the
+respondent.</td>
+</tr>
+<tr>
+<td class="Attribute">xml:id</td>
+<td colspan="2">provides the unique identifier for this element.</td>
+</tr>
+</table>
+</li></ul>
+</div>
+<p><span id="id2355274"></span> The  <span class="att">xml:id</span> attribute is required for each
+participant whose speech is included in a text, and its value is unique
+within the corpus. Although a given individual will always have the same
+identifier within a single text, there is no way of identifying the same
+individual should they appear in different texts.  Since all
+demographically sampled conversations collected by a single respondent
+are treated together as a single text, and respondents were recruited from
+many different social contexts, the probability of the same person
+being recorded by different respondents is rather low, though not
+completely impossible. 
+</p>
+<p><span id="id2355292"></span>On many occasions the speaker of a given utterance cannot be
+identified. A special code is used to indicate an unknown speaker,
+but, for consistency, this is also made unique to each text. Thus, an
+"unknown speaker" in one text will have different identifying code
+from an "unknown speaker" in another. As far as possible, different
+speakers are given different identifying codes, even where they cannot
+be identified with any confidence; thus there may be more than one
+"unidentified" speaker in the same text. </p>
+<p><span id="id2355304"></span>Where several speakers speak together, if they are identified, then
+all of the relevant codes are given; if however they are not, then a
+special "unknown speaker group" code is used.</p>
+<div class="p">
+<span id="id2355310"></span>Where it is available, additional information about a participant
+is provided by one or more of the following elements, appearing
+within the <code>&lt;person&gt;</code> element:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-persName.html">persName</a>&gt;</b> (personal name) contains a proper noun or proper-noun phrase referring to a
+  person, possibly including any or all of the person's forenames,
+  surnames, honorifics, added names, etc.</li>
+<li>
+<b>&lt;<a href="ref-age.html">age</a>&gt;</b> specifies the age in years of a recorded participant at the time of the
+  recording in which they participate.</li>
+<li>
+<b>&lt;<a href="ref-occupation.html">occupation</a>&gt;</b> contains an informal description of a person's trade,
+profession or occupation.</li>
+<li>
+<b>&lt;<a href="ref-dialect.html">dialect</a>&gt;</b> contains an informal description of the regional variety of
+English used by a participant in a spoken text.</li>
+<li>
+<b>&lt;<a href="ref-persNote.html">persNote</a>&gt;</b> contains any additional information supplied about a participant in a spoken text.</li>
+</ul>
+</div>
+<p><span id="id2355344"></span>In each case, the information provided is that given by the respondent
+and is taken from the log books issued to all participants in the
+demographic part of the corpus. It has not been normalized.</p>
+<div class="p">
+<span id="id2355350"></span>Here is a typical example from the demographic part of the corpus:
+<div class="pre"> <span class="element">&lt;person<br/>   <span class="attribute">age</span>="Ag0"<br/>   <span class="attribute">dialect</span>="XLO"<br/>   <span class="attribute">xml:id</span>="PS5A1"<br/>   <span class="attribute">role</span>="self"<br/>   <span class="attribute">sex</span>="m"<br/>   <span class="attribute">soc</span>="C2"&gt;</span><br/>  <span class="element">&lt;name&gt;</span>Terry<span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;age&gt;</span>14<span class="element">&lt;/age&gt;</span><br/>  <span class="element">&lt;occupation&gt;</span>student<span class="element">&lt;/occupation&gt;</span><br/>  <span class="element">&lt;dialect&gt;</span>London<span class="element">&lt;/dialect&gt;</span><br/> <span class="element">&lt;/person&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2355390"></span>Here is a typical example from the context-governed part of the corpus:
+<div class="pre"> <span class="element">&lt;person<br/>   <span class="attribute">ageGroup</span>="X"<br/>   <span class="attribute">xml:id</span>="PS2AY"<br/>   <span class="attribute">role</span>="unspecified"<br/>   <span class="attribute">sex</span>="m"<br/>   <span class="attribute">soc</span>="UU"<br/>   <span class="attribute">dialect</span>="NONE"<br/>   <span class="attribute">educ</span>="X"&gt;</span><br/>  <span class="element">&lt;persName&gt;</span>frank harasikwa<span class="element">&lt;/persName&gt;</span><br/>  <span class="element">&lt;occupation&gt;</span>politician<span class="element">&lt;/occupation&gt;</span><br/>  <span class="element">&lt;persNote&gt;</span>Euro candidate presenting self for selection<span class="element">&lt;/persNote&gt;</span><br/> <span class="element">&lt;/person&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2355427"></span>Any recorded relationship between speakers in the demographically
+sampled part of the corpus is specified by means of the
+<span class="att">role</span> attribute, which indicates how the speaker
+concerned is related to the respondent, for example as a friend,
+colleague, brother, wife, etc. For example, the participant information recorded in
+the header for a text (KSU) comprising conversations between four
+participants: Michael and Steve (who are brothers), their mother
+Christine and their aunt Leslie is as follows:
+
+<div class="pre"> <span class="element">&lt;particDesc <span class="attribute">n</span>="708"&gt;</span><br/>  <span class="element">&lt;person<br/>    <span class="attribute">ageGroup</span>="Ag0"<br/>    <span class="attribute">xml:id</span>="PS6RM"<br/>    <span class="attribute">role</span>="self"<br/>    <span class="attribute">sex</span>="m"<br/>    <span class="attribute">soc</span>="C2"<br/>    <span class="attribute">dialect</span>="XOT"&gt;</span><br/>   <span class="element">&lt;age&gt;</span>13<span class="element">&lt;/age&gt;</span><br/>   <span class="element">&lt;persName&gt;</span>Michael<span class="element">&lt;/persName&gt;</span><br/>   <span class="element">&lt;occupation&gt;</span>student<span class="element">&lt;/occupation&gt;</span><br/>  <span class="element">&lt;/person&gt;</span><br/>  <span class="element">&lt;person<br/>    <span class="attribute">ageGroup</span>="Ag4"<br/>    <span class="attribute">xml:id</span>="PS6RN"<br/>    <span class="attribute">role</span>="mother"<br/>    <span class="attribute">sex</span>="f"<br/>    <span class="attribute">soc</span>="C2"<br/>    <span class="attribute">dialect</span>="XOT"&gt;</span><br/>   <span class="element">&lt;age&gt;</span>45<span class="element">&lt;/age&gt;</span><br/>   <span class="element">&lt;persName&gt;</span>Christine<span class="element">&lt;/persName&gt;</span><br/>   <span class="element">&lt;occupation&gt;</span>credit controller<span class="element">&lt;/occupation&gt;</span><br/>  <span class="element">&lt;/person&gt;</span><br/>  <span class="element">&lt;person<br/>    <span class="attribute">ageGroup</span>="Ag4"<br/>    <span class="attribute">xml:id</span>="PS6RP"<br/>    <span class="attribute">role</span>="aunt"<br/>    <span class="attribute">sex</span>="f"<br/>    <span class="attribute">soc</span>="UU"<br/>    <span class="attribute">dialect</span>="XOT"&gt;</span><br/>   <span class="element">&lt;age&gt;</span>45<span class="element">&lt;/age&gt;</span><br/>   <span class="element">&lt;persName&gt;</span>Leslie<span class="element">&lt;/persName&gt;</span><br/>   <span class="element">&lt;occupation&gt;</span>unemployed<span class="element">&lt;/occupation&gt;</span><br/>  <span class="element">&lt;/person&gt;</span><br/>  <span class="element">&lt;person<br/>    <span class="attribute">ageGroup</span>="Ag1"<br/>    <span class="attribute">xml:id</span>="PS6RR"<br/>    <span class="attribute">role</span>="brother"<br/>    <span class="attribute">sex</span>="m"<br/>    <span class="attribute">soc</span>="C2"<br/>    <span class="attribute">dialect</span>="XOT"&gt;</span><br/>   <span class="element">&lt;age&gt;</span>21<span class="element">&lt;/age&gt;</span><br/>   <span class="element">&lt;persName&gt;</span>Steve<span class="element">&lt;/persName&gt;</span><br/>   <span class="element">&lt;occupation&gt;</span>unemployed<span class="element">&lt;/occupation&gt;</span><br/>  <span class="element">&lt;/person&gt;</span><br/> <span class="element">&lt;/particDesc&gt;</span></div>
+</div>
+<p><span id="id2355556"></span>In the context-governed part of the corpus however, there is no
+respondent and relationship information must be deduced from the other
+information provided. The <span class="att">role</span> attribute  for
+<code>&lt;person&gt;</code> elements in these texts will usually have the value
+<tt>unspecified</tt>.
+</p>
+</div>
+</div>
+<div class="teidiv2" id="hdpdse">
+<h4>5.3.4  The setting description </h4>
+<div class="p">
+<span id="id2355584"></span>The <code>&lt;settingDesc&gt;</code> element is used to describe the context
+within which a spoken text takes place. It appears once in the header
+of each spoken text, and contains one or more <code>&lt;setting&gt;</code>
+elements for each distinct recording.
+
+<ul class="specList"><li>
+<b>&lt;<a href="ref-setting.html">setting</a>&gt;</b> (setting) describes one particular setting in which a language
+  interaction takes place.<table class="attList">
+<tr>
+<td class="Attribute">who</td>
+<td colspan="2">indicates the person, or group of
+	people, to whom the element content is ascribed.</td>
+</tr>
+<tr>
+<td class="Attribute">n</td>
+<td colspan="2">an internal identifier for a setting.</td>
+</tr>
+<tr>
+<td class="Attribute">xml:id</td>
+<td colspan="2">provides the unique identifier for this element.</td>
+</tr>
+</table>
+</li></ul>
+</div>
+<div class="p">
+<span id="id2355607"></span>The content of each <code>&lt;setting&gt;</code> element supplies additional
+details about the place, time of day, and other activities going on,
+using the following additional elements:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-date.html">date</a>&gt;</b> contains a date in any format.</li>
+<li>
+<b>&lt;<a href="ref-locale.html">locale</a>&gt;</b> contains a brief informal description of the nature of a
+place for example a room, a restaurant, a park bench etc.</li>
+<li>
+<b>&lt;<a href="ref-activity.html">activity</a>&gt;</b> contains a brief informal description of what a participant in a
+language interaction is doing other than speaking, if anything.<table class="attList"><tr>
+<td class="Attribute">spont</td>
+<td colspan="2">level of spontaneity or informality of the context as assessed by transcriber.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-placeName.html">placeName</a>&gt;</b> contains an absolute or relative place name. </li>
+</ul>
+</div>
+<div class="p">
+<span id="id2355639"></span>Some typical examples  follow: 
+<div class="pre"> <span class="element">&lt;setting <span class="attribute">n</span>="020901" <span class="attribute">who</span>="PS000 DCJPS000 DCJPS001"&gt;</span><br/>  <span class="element">&lt;name&gt;</span>Essex:  Harlow <span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;locale&gt;</span> Harlow College<span class="element">&lt;/locale&gt;</span><br/>  <span class="element">&lt;activity <span class="attribute">spont</span>="M"&gt;</span> A'level lecture <span class="element">&lt;/activity&gt;</span><br/> <span class="element">&lt;/setting&gt;</span><br/> <span class="element">&lt;setting <span class="attribute">xml:id</span>="KDFSE002" <span class="attribute">n</span>="063505" <span class="attribute">who</span>="PS0M6"&gt;</span><br/>  <span class="element">&lt;name&gt;</span>Lancashire:  Morecambe <span class="element">&lt;/name&gt;</span><br/>  <span class="element">&lt;locale&gt;</span> at home <span class="element">&lt;/locale&gt;</span><br/>  <span class="element">&lt;activity <span class="attribute">spont</span>="H"&gt;</span> watching television <span class="element">&lt;/activity&gt;</span><br/> <span class="element">&lt;/setting&gt;</span></div>
+</div>
+</div>
+<div class="teidiv2" id="hdpdtc">
+<h4>5.3.5  Text classification </h4>
+<div class="p">
+<span id="id2355703"></span>The TEI provides a number of ways in which classification or
+text-type information may be specified for a text, grouped together
+within a <code>&lt;textClass&gt;</code> element, which appears once in the header
+of each text. Classifications may be represented using references to
+internally defined classications provided in the <code>&lt;classCode&gt;</code>
+element (such as the BNC classification scheme described
+in section <a class="link_ptr" href="cdifhd.html#hdeccd" title="The reference and classification declarations">5.2.3  The reference and classification declarations</a>), by reference to some other
+predefined classification system, or by an open set of keywords. All
+three methods are used in the BNC, using the following elements:
+ 
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-catRef.html">catRef</a>&gt;</b> (category reference) provides a list of codes identifying the categories to which
+this text has been assigned, each code referencing a category element
+declared in the corpus header.<table class="attList"></table>
+</li>
+<li>
+<b>&lt;<a href="ref-classCode.html">classCode</a>&gt;</b> contains the classification code used for this text in some
+standard classification system.<table class="attList"><tr>
+<td class="Attribute">scheme</td>
+<td colspan="2">identifies the classification system or taxonomy in use.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-keywords.html">keywords</a>&gt;</b> contains a list of keywords or phrases identifying the topic or
+nature of a text.</li>
+</ul>
+</div>
+<p><span id="id2355748"></span>A <code>&lt;catRef&gt;</code> element is provided in the header of each
+text. Its <span class="att">target</span> attribute contains values for each of the
+classification codes defined in the corpus header. In each case, the
+classification code consists of a code used as the identifier of a
+<code>&lt;category&gt;</code> element within a <code>&lt;taxonomy&gt;</code> element defined
+in the corpus header. For example: <tt>ALLTIM1</tt> indicates
+&#8216;dated 1960-1974&#8217;. A list of the values used is given in section
+<a class="link_ptr" href="codes.html#classcodes" title="Text and genre classification codes">9.6  Text and genre classification codes</a> below.
+</p>
+<p><span id="id2355783"></span>This taxonomy is that originally defined for selection and
+description of texts during the design of the corpus, as further
+discussed elsewhere. It is of course possible to classify the texts in
+many other ways, and no claim is made that this method is universally
+applicable or even generally useful, though it does serve to identify
+broadly distinct sub-parts of the corpus for investigation. The reader
+is also cautioned that, although an attempt has been made in the
+current edition of the corpus to correct the more egregious
+classification errors noted in the first edition, unquestionably many
+errors and inconsistencies remain. In particular, the categories <tt>WRILEV</tt>
+(perceived level of difficulty) and <tt>WRISTA</tt> (estimated circulation 
+size) were incorrectly differentiated during the preparation of the corpus
+and cannot be relied on.</p>
+<p><span id="id2355807"></span>A <code>&lt;classCode&gt;</code> element is also provided for every text in the
+corpus. This contains the code assigned to the text in a genre-based
+analysis carried out at Lancaster University by David Lee since
+publication of the first edition of the BNC. Lee's scheme classes the
+texts more delicately in most cases, since it takes into account their
+topic or subject matter (see further <a class="link_ptr" href="codes.html#classcodes" title="Text and genre classification codes">9.6  Text and genre classification codes</a>
+below).
+</p>
+<p><span id="id2355824"></span>Lee's scheme is also used as the basis of a very simple
+categorization for each text, which is provided by means of the
+<span class="att">type</span> attribute on its <code>&lt;text&gt;</code> or <code>&lt;stext&gt;</code>
+element. This categorization distinguishes six categories for written
+text (fiction, academic prose, non-academic prose, newspapers, other
+published, unpublished), and two for spoken text (conversation,
+other); It may be found a convenient way of distinguishing the major
+text types represented in the corpus: see further <a class="link_ptr" href="codes.html#tagcounts" title="XML tag usage by text type">9.1  XML tag usage by text type</a>.</p>
+<p><span id="id2355851"></span>In the first release of the BNC, most texts were assigned a set of
+descriptive keywords, tagged as <code>&lt;term&gt;</code> elements within the
+<code>&lt;keywords&gt;</code> element. These terms were not taken from any
+particular descriptive thesaurus or closed vocabulary; the words or
+phrases used are those which seemed useful to the data preparation
+agency concerned, and are thus often inconsistent or even
+misleading. They have been retained unchanged in the present version
+of the BNC, pending a more thorough revision. In the World (second)
+Edition this set of keywords was complemented for most written texts
+by a second set, also tagged using a <code>&lt;keywords&gt;</code> element, but
+with a value for its <span class="att">source</span> attribute of
+<tt>COPAC</tt>, indicating that the terms so tagged are derived
+from a different source. The source used was a major online library
+catalogue service (see <a class="link_ptr" href="http://www.copac.ac.uk" title=""><span>http://www.copac.ac.uk</span></a>).  Like
+other public access catalogue systems, COPAC uses a well-defined
+controlled list of keywords for its subject indexing, details of which
+are not further given here.
+</p>
+<div class="p">
+<span id="id2355893"></span>Here is an example showing how one text (BND) is classified in each
+of these ways:
+<div class="pre"> <span class="element">&lt;teiHeader&gt;</span>... <span class="element">&lt;textClass&gt;</span><br/>   <span class="element">&lt;catRef<br/>     <span class="attribute">targets</span>="WRI ALLTIM3 ALLAVA2 ALLTYP3 WRIAAG0 WRIAD0  WRIASE3 WRIATY2 WRIAUD3 WRIDOM8 WRILEV2 WRIMED1  WRIPP5 WRISAM1 WRISTA2 WRITAS3"/&gt;</span><br/>   <span class="element">&lt;classCode <span class="attribute">scheme</span>="DLee"&gt;</span>W_religion<span class="element">&lt;/classCode&gt;</span><br/>   <span class="element">&lt;keywords <span class="attribute">scheme</span>="COPAC"&gt;</span><br/>    <span class="element">&lt;term&gt;</span>Marriage - Religious aspects - Christianity<span class="element">&lt;/term&gt;</span><br/>    <span class="element">&lt;term&gt;</span>Marriage - Christian viewpoints<span class="element">&lt;/term&gt;</span><br/>   <span class="element">&lt;/keywords&gt;</span><br/>   <span class="element">&lt;keywords&gt;</span><br/>    <span class="element">&lt;term&gt;</span>Christian guide to marriage<span class="element">&lt;/term&gt;</span><br/>   <span class="element">&lt;/keywords&gt;</span><br/>  <span class="element">&lt;/textClass&gt;</span>...<span class="element">&lt;/teiHeader&gt;</span><br/> <span class="element">&lt;wtext <span class="attribute">type</span>="NONAC"&gt;</span>...<span class="element">&lt;/wtext&gt;</span></div>
+</div>
+</div>
+</div>
+<div class="teidiv1" id="hdrev">
+<h3>5.4  The revision description</h3>
+<div class="p">
+<span id="id2355951"></span>The revision description (<code>&lt;revisionDesc&gt;</code>) element
+is the fourth and final element of a standard TEI header. 
+In the BNC, it consists of a series of <code>&lt;change&gt;</code> elements. 
+<ul class="specList"><li>
+<b>&lt;<a href="ref-change.html">change</a>&gt;</b> summarizes a particular change or correction made
+to a particular version of an electronic text which is
+shared between several researchers.<table class="attList">
+<tr>
+<td class="Attribute">date</td>
+<td colspan="2">supplies the date of the change in standard form,  i.e. yyyy-mm-dd.</td>
+</tr>
+<tr>
+<td class="Attribute">who</td>
+<td colspan="2">indicates the person, or group of
+	people, to whom the element content is ascribed.</td>
+</tr>
+</table>
+</li></ul>
+</div>
+<div class="p">
+<span id="id2355973"></span>Here is part of a typical  example: 
+<div class="pre"> <span class="element">&lt;revisionDesc&gt;</span><br/>  <span class="element">&lt;change <span class="attribute">date</span>="2006-10-21" <span class="attribute">who</span>="#OUCS"&gt;</span>Tag usage updated for BNC-XML<span class="element">&lt;/change&gt;</span><br/>  <span class="element">&lt;change <span class="attribute">date</span>="2000-12-13" <span class="attribute">who</span>="#OUCS"&gt;</span>Last check for BNC World first
+release<span class="element">&lt;/change&gt;</span><br/> ...<br/> <span class="element">&lt;change <span class="attribute">date</span>="1999-12-25" <span class="attribute">who</span>="#OUCS"&gt;</span>corrected tagUsage<span class="element">&lt;/change&gt;</span><br/>  <span class="element">&lt;change <span class="attribute">date</span>="1999-09-13" <span class="attribute">who</span>="#UCREL"&gt;</span>POS codes revised for BNC-2; header
+updated<span class="element">&lt;/change&gt;</span><br/>  <span class="element">&lt;change <span class="attribute">date</span>="1994-11-24" <span class="attribute">who</span>="#dominic"&gt;</span>Initial accession to
+corpus<span class="element">&lt;/change&gt;</span><br/> <span class="element">&lt;/revisionDesc&gt;</span></div>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="cdifsp.html">4  Spoken texts</a><i> Next: </i><a class="navigation" href="posguide.html">6   Wordclass Tagging in BNC XML</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:46Z-->
+</address>
+</div>
+</div></body>
+</html>

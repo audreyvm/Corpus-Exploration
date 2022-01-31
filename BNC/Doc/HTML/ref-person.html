@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;person&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;person&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;person&gt;</h1>
+</div>
+<div>
+<span id="person"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">person</td>
+<td colspan="2" class="wovenodd-col2">provides information about an identifiable individual, for
+example a participant in a language interaction, or a person referred
+to in a historical source.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.uniqueId.html">att.uniqueId</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element person
+{
+   attribute ageGroup { text }?,
+   attribute dialect { text }?,
+   attribute firstLang
+   {
+      "XX-XXX" | "DE-DEU" | "FR-FRA" | "EN-GBR" | "EN-USA" | "XX-IND"
+   }?,
+   attribute n { text }?,
+   attribute educ { "Ed0" | "Ed1" | "Ed4" | "X" }?,
+   attribute soc { "AB" | "C1" | "C2" | "DE" | "UU" }?,
+   attribute sex { "m" | "f" | "u" }?,
+   attribute role { text }?,
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.uniqueId.html">att.uniqueId.attribute.xmlid</a>,
+   ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.pLike.html">model.pLike</a>+ | ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.personPart.html">model.personPart</a> | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.global.html">model.global</a> )* )
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [<a class="classlink" href="ref-att.uniqueId.html">att.uniqueId</a> ] )<table>
+<tr>
+<td class="attDef">ageGroup</td>
+<td colspan="2">specifies the age group to which the participant belongs.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Values are:<table class="valList">
+<tr>
+<td valign="top"><b>Ag0</b></td>
+<td valign="top">Under 15 years.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ag1</b></td>
+<td valign="top">15 to 24 years.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ag2</b></td>
+<td valign="top">25 to 34 years.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ag3</b></td>
+<td valign="top">35 to 44 years.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ag4</b></td>
+<td valign="top">45 to 59 years.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ag5</b></td>
+<td valign="top">Over 59 years.</td>
+</tr>
+<tr>
+<td valign="top"><b>X</b></td>
+<td valign="top">Unknown.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">dialect</td>
+<td colspan="2">specifies the dialect or accent of a participant's speech, as identified
+by the respondent.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Values are:<table class="valList">
+<tr>
+<td valign="top"><b>CAN</b></td>
+<td valign="top">Canadian.</td>
+</tr>
+<tr>
+<td valign="top"><b>NONE</b></td>
+<td valign="top">No accent recorded.</td>
+</tr>
+<tr>
+<td valign="top"><b>XDE</b></td>
+<td valign="top">German.</td>
+</tr>
+<tr>
+<td valign="top"><b>XEA</b></td>
+<td valign="top">East Anglian.</td>
+</tr>
+<tr>
+<td valign="top"><b>XFR</b></td>
+<td valign="top">French.</td>
+</tr>
+<tr>
+<td valign="top"><b>XHC</b></td>
+<td valign="top">Home Counties .</td>
+</tr>
+<tr>
+<td valign="top"><b>XHM</b></td>
+<td valign="top">Humberside.</td>
+</tr>
+<tr>
+<td valign="top"><b>XIR</b></td>
+<td valign="top">Irish.</td>
+</tr>
+<tr>
+<td valign="top"><b>XIS</b></td>
+<td valign="top">Indian subcontinent.</td>
+</tr>
+<tr>
+<td valign="top"><b>XLC</b></td>
+<td valign="top">Lancashire.</td>
+</tr>
+<tr>
+<td valign="top"><b>XLO</b></td>
+<td valign="top">London.</td>
+</tr>
+<tr>
+<td valign="top"><b>XMC</b></td>
+<td valign="top">Central Midlands.</td>
+</tr>
+<tr>
+<td valign="top"><b>XMD</b></td>
+<td valign="top">Merseyside.</td>
+</tr>
+<tr>
+<td valign="top"><b>XME</b></td>
+<td valign="top">North-east Midlands.</td>
+</tr>
+<tr>
+<td valign="top"><b>XMI</b></td>
+<td valign="top">Midlands.</td>
+</tr>
+<tr>
+<td valign="top"><b>XMS</b></td>
+<td valign="top">South Midlands.</td>
+</tr>
+<tr>
+<td valign="top"><b>XMW</b></td>
+<td valign="top">North-west Midlands.</td>
+</tr>
+<tr>
+<td valign="top"><b>XNC</b></td>
+<td valign="top">Central Northern England.</td>
+</tr>
+<tr>
+<td valign="top"><b>XNE</b></td>
+<td valign="top">North-east England.</td>
+</tr>
+<tr>
+<td valign="top"><b>XNO</b></td>
+<td valign="top">Northern England.</td>
+</tr>
+<tr>
+<td valign="top"><b>XOT</b></td>
+<td valign="top">Other or unidentifiable.</td>
+</tr>
+<tr>
+<td valign="top"><b>XSD</b></td>
+<td valign="top">Scottish.</td>
+</tr>
+<tr>
+<td valign="top"><b>XSL</b></td>
+<td valign="top">Lower south-west England.</td>
+</tr>
+<tr>
+<td valign="top"><b>XSS</b></td>
+<td valign="top">Central south-west England.</td>
+</tr>
+<tr>
+<td valign="top"><b>XSU</b></td>
+<td valign="top">Upper south-west England.</td>
+</tr>
+<tr>
+<td valign="top"><b>XUR</b></td>
+<td valign="top">European.</td>
+</tr>
+<tr>
+<td valign="top"><b>XUS</b></td>
+<td valign="top">American (US).</td>
+</tr>
+<tr>
+<td valign="top"><b>XWA</b></td>
+<td valign="top">Welsh.</td>
+</tr>
+<tr>
+<td valign="top"><b>XWE</b></td>
+<td valign="top">West Indian.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">firstLang</td>
+<td colspan="2">specifies the country of origin  of the 
+participant, as identified
+by the respondent.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.enumerated.html">data.enumerated</a></code>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>XX-XXX</b></td>
+<td valign="top">Unknown.</td>
+</tr>
+<tr>
+<td valign="top"><b>DE-DEU</b></td>
+<td valign="top">German.</td>
+</tr>
+<tr>
+<td valign="top"><b>FR-FRA</b></td>
+<td valign="top">French.</td>
+</tr>
+<tr>
+<td valign="top"><b>EN-GBR</b></td>
+<td valign="top">British English.</td>
+</tr>
+<tr>
+<td valign="top"><b>EN-USA</b></td>
+<td valign="top">North American English.</td>
+</tr>
+<tr>
+<td valign="top"><b>XX-IND</b></td>
+<td valign="top">Unknown Indian language.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">n</td>
+<td colspan="2">internal identifier.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+text</code>
+</td>
+</tr>
+<tr>
+<td class="attDef">educ</td>
+<td colspan="2">specifies the age at which the participant ceased full-time 
+education.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.enumerated.html">data.enumerated</a></code>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>Ed0</b></td>
+<td valign="top">Still in education.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ed1</b></td>
+<td valign="top">Left school aged 14 or under.</td>
+</tr>
+<tr>
+<td valign="top"><b>Ed4</b></td>
+<td valign="top">Education continued until age 19 or over.</td>
+</tr>
+<tr>
+<td valign="top"><b>X</b></td>
+<td valign="top">Unknown.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">soc</td>
+<td colspan="2">specifies the social class of the participant.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.enumerated.html">data.enumerated</a></code>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>AB</b></td>
+<td valign="top">Higher management: administrative or  professional.</td>
+</tr>
+<tr>
+<td valign="top"><b>C1</b></td>
+<td valign="top">Lower management: supervisory or clerical.</td>
+</tr>
+<tr>
+<td valign="top"><b>C2</b></td>
+<td valign="top">Skilled manual.</td>
+</tr>
+<tr>
+<td valign="top"><b>DE</b></td>
+<td valign="top">Semi-skilled or unskilled.</td>
+</tr>
+<tr>
+<td valign="top"><b>UU</b></td>
+<td valign="top">Social class unknown.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">sex</td>
+<td colspan="2">specifies the sex of the participant.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.enumerated.html">data.enumerated</a></code>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>m</b></td>
+<td valign="top">male.</td>
+</tr>
+<tr>
+<td valign="top"><b>f</b></td>
+<td valign="top">female.</td>
+</tr>
+<tr>
+<td valign="top"><b>u</b></td>
+<td valign="top">unknown.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">role</td>
+<td colspan="2">describes the relationship or role of this participant with respect to the
+respondent.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Values: </span>77 discrete values are used</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;person<br/>   <span class="attribute">ageGroup</span>="4"<br/>   <span class="attribute">xml:id</span>="PS1V0"<br/>   <span class="attribute">role</span>="unspecified"<br/>   <span class="attribute">sex</span>="f"<br/>   <span class="attribute">soc</span>="UU"<br/>   <span class="attribute">dialect</span>="NONE"<br/>   <span class="attribute">educ</span>="X"<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"&gt;</span><br/>  <span class="element">&lt;age&gt;</span>55<span class="element">&lt;/age&gt;</span><br/>  <span class="element">&lt;persName&gt;</span>Nola<span class="element">&lt;/persName&gt;</span><br/>  <span class="element">&lt;occupation&gt;</span>british rail employee<span class="element">&lt;/occupation&gt;</span><br/> <span class="element">&lt;/person&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Note</span></td>
+<td colspan="2" class="wovenodd-col2">
+<!-- --><p class="dataDesc"><span id="id2479742"></span>May contain either a prose description organized as paragraphs, or
+a sequence of more specific demographic elements drawn from the <span class="ident-class">model.personPart</span> class.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><!--pointers--></td>
+<td colspan="2" class="wovenodd-col2"><a class="link_ptr" href=""></a></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">namesdates</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

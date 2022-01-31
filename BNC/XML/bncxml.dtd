@@ -1,0 +1,964 @@
+
+<!--
+DTD Generated 2007-03-06T16:38:41Z. 
+Distributed freely as part of the BNC World Edition
+-->
+
+<!-- start datatypes -->
+
+<!ENTITY % data.count ' CDATA' >
+
+<!ENTITY % data.temporal ' CDATA' >
+
+<!ENTITY % data.language ' CDATA' >
+
+<!ENTITY % data.namespace ' CDATA' >
+
+<!ENTITY % data.pointer ' CDATA' >
+
+<!ENTITY % data.pointers ' CDATA' >
+
+<!ENTITY % data.enumerated ' CDATA' >
+
+<!ENTITY % data.word ' CDATA' >
+
+<!ENTITY % data.name ' CDATA' >
+
+<!-- end datatypes -->
+
+<!--predeclared classes -->
+
+<!ENTITY % model.datePart ""> 
+<!ENTITY % model.datePart_sequence ""> 
+<!ENTITY % model.datePart_sequenceOptional ""> 
+<!ENTITY % model.datePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.datePart_sequenceRepeatable ""> 
+<!ENTITY % model.placeNamePart ""> 
+<!ENTITY % model.placeNamePart_sequence ""> 
+<!ENTITY % model.placeNamePart_sequenceOptional ""> 
+<!ENTITY % model.placeNamePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.placeNamePart_sequenceRepeatable ""> 
+<!ENTITY % model.persNamePart ""> 
+<!ENTITY % model.persNamePart_sequence ""> 
+<!ENTITY % model.persNamePart_sequenceOptional ""> 
+<!ENTITY % model.persNamePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.persNamePart_sequenceRepeatable ""> 
+<!ENTITY % att.personal.attributes ''>
+<!--end of predeclared classes -->
+
+<!ENTITY % att.ascribed.attribute.who '
+who %data.pointers;  #IMPLIED'>
+
+<!ENTITY % att.authorialIntervention.attribute.hand '
+hand %data.pointer;  #IMPLIED'>
+
+<!ENTITY % att.authorialIntervention.attribute.status '
+status %data.enumerated;  "unremarkable" '>
+
+<!ENTITY % att.authorialIntervention.attribute.type '
+type %data.enumerated;  #IMPLIED'>
+
+<!ENTITY % att.datePart.attribute.value '
+value %data.temporal;  #IMPLIED'>
+
+<!ENTITY % att.datePart.attribute.dur '
+dur CDATA #IMPLIED'>
+
+<!ENTITY % att.interpLike.attribute.resp '
+resp %data.pointer;  #IMPLIED'>
+
+<!ENTITY % att.interpLike.attribute.type '
+type %data.enumerated;  #IMPLIED'>
+
+<!ENTITY % att.interpLike.attribute.inst '
+inst %data.pointers;  #IMPLIED'>
+
+<!ENTITY % att.editLike.attribute.resp '
+resp %data.pointer;  #IMPLIED'>
+
+<!ENTITY % att.spanning.attribute.spanTo '
+spanTo %data.pointer;  #IMPLIED'>
+
+<!ENTITY % att.tableDecoration.attribute.role '
+role %data.enumerated;  "data" '>
+
+<!ENTITY % att.tableDecoration.attribute.rows '
+rows %data.count;  "1" '>
+
+<!ENTITY % att.tableDecoration.attribute.cols '
+cols %data.count;  "1" '>
+
+<!ENTITY % att.timed.attribute.dur '
+dur %data.count;  #IMPLIED'>
+
+<!ENTITY % att.typed.attribute.type '
+type %data.word;  #IMPLIED'>
+
+<!ENTITY % model.nameLike.agent "name"> 
+<!ENTITY % model.nameLike.agent_sequence "name"> 
+<!ENTITY % model.nameLike.agent_sequenceOptional "name?"> 
+<!ENTITY % model.nameLike.agent_sequenceOptionalRepeatable "name*"> 
+<!ENTITY % model.nameLike.agent_sequenceRepeatable "name+"> 
+<!ENTITY % model.segLike "s | w | c | mw"> 
+<!ENTITY % model.segLike_sequence "s, w, c, mw"> 
+<!ENTITY % model.segLike_sequenceOptional "s?, w?, c?, mw?"> 
+<!ENTITY % model.segLike_sequenceOptionalRepeatable "s*, w*, c*, mw*"> 
+<!ENTITY % model.segLike_sequenceRepeatable "s+, w+, c+, mw+"> 
+<!ENTITY % model.hiLike "hi"> 
+<!ENTITY % model.hiLike_sequence "hi"> 
+<!ENTITY % model.hiLike_sequenceOptional "hi?"> 
+<!ENTITY % model.hiLike_sequenceOptionalRepeatable "hi*"> 
+<!ENTITY % model.hiLike_sequenceRepeatable "hi+"> 
+<!ENTITY % model.dateLike "date"> 
+<!ENTITY % model.dateLike_sequence "date"> 
+<!ENTITY % model.dateLike_sequenceOptional "date?"> 
+<!ENTITY % model.dateLike_sequenceOptionalRepeatable "date*"> 
+<!ENTITY % model.dateLike_sequenceRepeatable "date+"> 
+<!ENTITY % model.pPart.edit "corr | unclear"> 
+<!ENTITY % model.pPart.edit_sequence "corr, unclear"> 
+<!ENTITY % model.pPart.edit_sequenceOptional "corr?, unclear?"> 
+<!ENTITY % model.pPart.edit_sequenceOptionalRepeatable "corr*, unclear*"> 
+<!ENTITY % model.pPart.edit_sequenceRepeatable "corr+, unclear+"> 
+<!ENTITY % model.ptrLike "align"> 
+<!ENTITY % model.ptrLike_sequence "align"> 
+<!ENTITY % model.ptrLike_sequenceOptional "align?"> 
+<!ENTITY % model.ptrLike_sequenceOptionalRepeatable "align*"> 
+<!ENTITY % model.ptrLike_sequenceRepeatable "align+"> 
+<!ENTITY % model.milestoneLike "pb"> 
+<!ENTITY % model.milestoneLike_sequence "pb"> 
+<!ENTITY % model.milestoneLike_sequenceOptional "pb?"> 
+<!ENTITY % model.milestoneLike_sequenceOptionalRepeatable "pb*"> 
+<!ENTITY % model.milestoneLike_sequenceRepeatable "pb+"> 
+<!ENTITY % model.gLike ""> 
+<!ENTITY % model.gLike_sequence ""> 
+<!ENTITY % model.gLike_sequenceOptional ""> 
+<!ENTITY % model.gLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.gLike_sequenceRepeatable ""> 
+<!ENTITY % model.oddRef ""> 
+<!ENTITY % model.oddRef_sequence ""> 
+<!ENTITY % model.oddRef_sequenceOptional ""> 
+<!ENTITY % model.oddRef_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.oddRef_sequenceRepeatable ""> 
+<!ENTITY % model.qLike "quote | lg"> 
+<!ENTITY % model.qLike_sequence "quote, lg"> 
+<!ENTITY % model.qLike_sequenceOptional "quote?, lg?"> 
+<!ENTITY % model.qLike_sequenceOptionalRepeatable "quote*, lg*"> 
+<!ENTITY % model.qLike_sequenceRepeatable "quote+, lg+"> 
+<!ENTITY % model.biblLike "bibl"> 
+<!ENTITY % model.biblLike_sequence "bibl"> 
+<!ENTITY % model.biblLike_sequenceOptional "bibl?"> 
+<!ENTITY % model.biblLike_sequenceOptionalRepeatable "bibl*"> 
+<!ENTITY % model.biblLike_sequenceRepeatable "bibl+"> 
+<!ENTITY % model.listLike "list"> 
+<!ENTITY % model.listLike_sequence "list"> 
+<!ENTITY % model.listLike_sequenceOptional "list?"> 
+<!ENTITY % model.listLike_sequenceOptionalRepeatable "list*"> 
+<!ENTITY % model.listLike_sequenceRepeatable "list+"> 
+<!ENTITY % model.noteLike ""> 
+<!ENTITY % model.noteLike_sequence ""> 
+<!ENTITY % model.noteLike_sequenceOptional ""> 
+<!ENTITY % model.noteLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.noteLike_sequenceRepeatable ""> 
+<!ENTITY % model.stageLike "stage"> 
+<!ENTITY % model.stageLike_sequence "stage"> 
+<!ENTITY % model.stageLike_sequenceOptional "stage?"> 
+<!ENTITY % model.stageLike_sequenceOptionalRepeatable "stage*"> 
+<!ENTITY % model.stageLike_sequenceRepeatable "stage+"> 
+<!ENTITY % model.complexVal ""> 
+<!ENTITY % model.complexVal_sequence ""> 
+<!ENTITY % model.complexVal_sequenceOptional ""> 
+<!ENTITY % model.complexVal_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.complexVal_sequenceRepeatable ""> 
+<!ENTITY % model.singleVal ""> 
+<!ENTITY % model.singleVal_sequence ""> 
+<!ENTITY % model.singleVal_sequenceOptional ""> 
+<!ENTITY % model.singleVal_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.singleVal_sequenceRepeatable ""> 
+<!ENTITY % model.global.edit "gap"> 
+<!ENTITY % model.global.edit_sequence "gap"> 
+<!ENTITY % model.global.edit_sequenceOptional "gap?"> 
+<!ENTITY % model.global.edit_sequenceOptionalRepeatable "gap*"> 
+<!ENTITY % model.global.edit_sequenceRepeatable "gap+"> 
+<!ENTITY % model.divPart "p | quote | list | note | l | lg | sp"> 
+<!ENTITY % model.divPart_sequence "p, quote, list, note, l, lg, sp"> 
+<!ENTITY % model.divPart_sequenceOptional "p?, quote?, list?, note?, l?, lg?, sp?"> 
+<!ENTITY % model.divPart_sequenceOptionalRepeatable "p*, quote*, list*, note*, l*, lg*, sp*"> 
+<!ENTITY % model.divPart_sequenceRepeatable "p+, quote+, list+, note+, l+, lg+, sp+"> 
+<!ENTITY % model.blockLike ""> 
+<!ENTITY % model.blockLike_sequence ""> 
+<!ENTITY % model.blockLike_sequenceOptional ""> 
+<!ENTITY % model.blockLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.blockLike_sequenceRepeatable ""> 
+<!ENTITY % model.pLike "p"> 
+<!ENTITY % model.pLike_sequence "p"> 
+<!ENTITY % model.pLike_sequenceOptional "p?"> 
+<!ENTITY % model.pLike_sequenceOptionalRepeatable "p*"> 
+<!ENTITY % model.pLike_sequenceRepeatable "p+"> 
+<!ENTITY % model.persStateLike "persName | age | occupation | dialect | persNote"> 
+<!ENTITY % model.persStateLike_sequence "persName, age, occupation, dialect, persNote"> 
+<!ENTITY % model.persStateLike_sequenceOptional "persName?, age?, occupation?, dialect?, persNote?"> 
+<!ENTITY % model.persStateLike_sequenceOptionalRepeatable "persName*, age*, occupation*, dialect*, persNote*"> 
+<!ENTITY % model.persStateLike_sequenceRepeatable "persName+, age+, occupation+, dialect+, persNote+"> 
+<!ENTITY % model.assertLike "%model.persStateLike;"> 
+<!ENTITY % model.assertLike_sequence "%model.persStateLike;"> 
+<!ENTITY % model.assertLike_sequenceOptional "%model.persStateLike;?"> 
+<!ENTITY % model.assertLike_sequenceOptionalRepeatable "%model.persStateLike;*"> 
+<!ENTITY % model.assertLike_sequenceRepeatable "%model.persStateLike;+"> 
+<!ENTITY % model.personLike ""> 
+<!ENTITY % model.personLike_sequence ""> 
+<!ENTITY % model.personLike_sequenceOptional ""> 
+<!ENTITY % model.personLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.personLike_sequenceRepeatable ""> 
+<!ENTITY % model.personPart "%model.assertLike;"> 
+<!ENTITY % model.personPart_sequence "%model.assertLike;"> 
+<!ENTITY % model.personPart_sequenceOptional "%model.assertLike;?"> 
+<!ENTITY % model.personPart_sequenceOptionalRepeatable "%model.assertLike;*"> 
+<!ENTITY % model.personPart_sequenceRepeatable "%model.assertLike;+"> 
+<!ENTITY % model.publicationStmtPart "address | date | publisher | pubPlace | distributor | idno | availability"> 
+<!ENTITY % model.publicationStmtPart_sequence "address, date, publisher, pubPlace, distributor, idno, availability"> 
+<!ENTITY % model.publicationStmtPart_sequenceOptional "address?, date?, publisher?, pubPlace?, distributor?, idno?, availability?"> 
+<!ENTITY % model.publicationStmtPart_sequenceOptionalRepeatable "address*, date*, publisher*, pubPlace*, distributor*, idno*, availability*"> 
+<!ENTITY % model.publicationStmtPart_sequenceRepeatable "address+, date+, publisher+, pubPlace+, distributor+, idno+, availability+"> 
+<!ENTITY % model.glossLike "desc"> 
+<!ENTITY % model.glossLike_sequence "desc"> 
+<!ENTITY % model.glossLike_sequenceOptional "desc?"> 
+<!ENTITY % model.glossLike_sequenceOptionalRepeatable "desc*"> 
+<!ENTITY % model.glossLike_sequenceRepeatable "desc+"> 
+<!ENTITY % model.quoteLike ""> 
+<!ENTITY % model.quoteLike_sequence ""> 
+<!ENTITY % model.quoteLike_sequenceOptional ""> 
+<!ENTITY % model.quoteLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.quoteLike_sequenceRepeatable ""> 
+<!ENTITY % model.respLike "author | editor"> 
+<!ENTITY % model.respLike_sequence "author, editor"> 
+<!ENTITY % model.respLike_sequenceOptional "author?, editor?"> 
+<!ENTITY % model.respLike_sequenceOptionalRepeatable "author*, editor*"> 
+<!ENTITY % model.respLike_sequenceRepeatable "author+, editor+"> 
+<!ENTITY % model.divWrapper.bottom ""> 
+<!ENTITY % model.divWrapper.bottom_sequence ""> 
+<!ENTITY % model.divWrapper.bottom_sequenceOptional ""> 
+<!ENTITY % model.divWrapper.bottom_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.divWrapper.bottom_sequenceRepeatable ""> 
+<!ENTITY % model.divWrapper "head"> 
+<!ENTITY % model.divWrapper_sequence "head"> 
+<!ENTITY % model.divWrapper_sequenceOptional "head?"> 
+<!ENTITY % model.divWrapper_sequenceOptionalRepeatable "head*"> 
+<!ENTITY % model.divWrapper_sequenceRepeatable "head+"> 
+<!ENTITY % model.frontPart.drama ""> 
+<!ENTITY % model.frontPart.drama_sequence ""> 
+<!ENTITY % model.frontPart.drama_sequenceOptional ""> 
+<!ENTITY % model.frontPart.drama_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.frontPart.drama_sequenceRepeatable ""> 
+<!ENTITY % model.pLike.front ""> 
+<!ENTITY % model.pLike.front_sequence ""> 
+<!ENTITY % model.pLike.front_sequenceOptional ""> 
+<!ENTITY % model.pLike.front_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.pLike.front_sequenceRepeatable ""> 
+<!ENTITY % model.titlepagePart ""> 
+<!ENTITY % model.titlepagePart_sequence ""> 
+<!ENTITY % model.titlepagePart_sequenceOptional ""> 
+<!ENTITY % model.titlepagePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.titlepagePart_sequenceRepeatable ""> 
+<!ENTITY % model.lLike "l"> 
+<!ENTITY % model.lLike_sequence "l"> 
+<!ENTITY % model.lLike_sequenceOptional "l?"> 
+<!ENTITY % model.lLike_sequenceOptionalRepeatable "l*"> 
+<!ENTITY % model.lLike_sequenceRepeatable "l+"> 
+<!ENTITY % model.recordingPart "%model.dateLike;"> 
+<!ENTITY % model.recordingPart_sequence "%model.dateLike;"> 
+<!ENTITY % model.recordingPart_sequenceOptional "%model.dateLike;?"> 
+<!ENTITY % model.recordingPart_sequenceOptionalRepeatable "%model.dateLike;*"> 
+<!ENTITY % model.recordingPart_sequenceRepeatable "%model.dateLike;+"> 
+<!ENTITY % model.imprintPart "publisher | pubPlace"> 
+<!ENTITY % model.imprintPart_sequence "publisher, pubPlace"> 
+<!ENTITY % model.imprintPart_sequenceOptional "publisher?, pubPlace?"> 
+<!ENTITY % model.imprintPart_sequenceOptionalRepeatable "publisher*, pubPlace*"> 
+<!ENTITY % model.imprintPart_sequenceRepeatable "publisher+, pubPlace+"> 
+<!ENTITY % model.catDescPart ""> 
+<!ENTITY % model.catDescPart_sequence ""> 
+<!ENTITY % model.catDescPart_sequenceOptional ""> 
+<!ENTITY % model.catDescPart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.catDescPart_sequenceRepeatable ""> 
+<!ENTITY % model.settingPart "locale | activity | placeName"> 
+<!ENTITY % model.settingPart_sequence "locale, activity, placeName"> 
+<!ENTITY % model.settingPart_sequenceOptional "locale?, activity?, placeName?"> 
+<!ENTITY % model.settingPart_sequenceOptionalRepeatable "locale*, activity*, placeName*"> 
+<!ENTITY % model.settingPart_sequenceRepeatable "locale+, activity+, placeName+"> 
+<!ENTITY % model.textDescPart_sequence ""> 
+<!ENTITY % model.castItemPart ""> 
+<!ENTITY % model.castItemPart_sequence ""> 
+<!ENTITY % model.castItemPart_sequenceOptional ""> 
+<!ENTITY % model.castItemPart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.castItemPart_sequenceRepeatable ""> 
+<!ENTITY % model.physDescPart_sequenceOptional ""> 
+<!ENTITY % model.addressLike "email | address"> 
+<!ENTITY % model.addressLike_sequence "email, address"> 
+<!ENTITY % model.addressLike_sequenceOptional "email?, address?"> 
+<!ENTITY % model.addressLike_sequenceOptionalRepeatable "email*, address*"> 
+<!ENTITY % model.addressLike_sequenceRepeatable "email+, address+"> 
+<!ENTITY % model.nameLike "%model.nameLike.agent;"> 
+<!ENTITY % model.nameLike_sequence "%model.nameLike.agent;"> 
+<!ENTITY % model.nameLike_sequenceOptional "%model.nameLike.agent;?"> 
+<!ENTITY % model.nameLike_sequenceOptionalRepeatable "%model.nameLike.agent;*"> 
+<!ENTITY % model.nameLike_sequenceRepeatable "%model.nameLike.agent;+"> 
+<!ENTITY % model.global "%model.milestoneLike; | %model.global.edit;"> 
+<!ENTITY % model.global_sequence "%model.milestoneLike;, %model.global.edit;"> 
+<!ENTITY % model.global_sequenceOptional "%model.milestoneLike;?, %model.global.edit;?"> 
+<!ENTITY % model.global_sequenceOptionalRepeatable "%model.milestoneLike;*, %model.global.edit;*"> 
+<!ENTITY % model.global_sequenceRepeatable "%model.milestoneLike;+, %model.global.edit;+"> 
+<!ENTITY % model.datePart ""> 
+<!ENTITY % model.datePart_sequence ""> 
+<!ENTITY % model.datePart_sequenceOptional ""> 
+<!ENTITY % model.datePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.datePart_sequenceRepeatable ""> 
+<!ENTITY % model.pPart.data "%model.dateLike; | %model.addressLike; | %model.nameLike;"> 
+<!ENTITY % model.pPart.data_sequence "%model.dateLike;, %model.addressLike;, %model.nameLike;"> 
+<!ENTITY % model.pPart.data_sequenceOptional "%model.dateLike;?, %model.addressLike;?, %model.nameLike;?"> 
+<!ENTITY % model.pPart.data_sequenceOptionalRepeatable "%model.dateLike;*, %model.addressLike;*, %model.nameLike;*"> 
+<!ENTITY % model.pPart.data_sequenceRepeatable "%model.dateLike;+, %model.addressLike;+, %model.nameLike;+"> 
+<!ENTITY % model.inter "%model.qLike; | %model.biblLike; | %model.listLike; | %model.stageLike;"> 
+<!ENTITY % model.inter_sequence "%model.qLike;, %model.biblLike;, %model.listLike;, %model.stageLike;"> 
+<!ENTITY % model.inter_sequenceOptional "%model.qLike;?, %model.biblLike;?, %model.listLike;?, %model.stageLike;?"> 
+<!ENTITY % model.inter_sequenceOptionalRepeatable "%model.qLike;*, %model.biblLike;*, %model.listLike;*, %model.stageLike;*"> 
+<!ENTITY % model.inter_sequenceRepeatable "%model.qLike;+, %model.biblLike;+, %model.listLike;+, %model.stageLike;+"> 
+<!ENTITY % model.phrase "%model.segLike; | %model.hiLike; | %model.pPart.edit; | %model.ptrLike; | %model.pPart.data;"> 
+<!ENTITY % model.phrase_sequence "%model.segLike;, %model.hiLike;, %model.pPart.edit;, %model.ptrLike;, %model.pPart.data;"> 
+<!ENTITY % model.phrase_sequenceOptional "%model.segLike;?, %model.hiLike;?, %model.pPart.edit;?, %model.ptrLike;?, %model.pPart.data;?"> 
+<!ENTITY % model.phrase_sequenceOptionalRepeatable "%model.segLike;*, %model.hiLike;*, %model.pPart.edit;*, %model.ptrLike;*, %model.pPart.data;*"> 
+<!ENTITY % model.phrase_sequenceRepeatable "%model.segLike;+, %model.hiLike;+, %model.pPart.edit;+, %model.ptrLike;+, %model.pPart.data;+"> 
+<!ENTITY % model.divLike ""> 
+<!ENTITY % model.divLike_sequence ""> 
+<!ENTITY % model.divLike_sequenceOptional ""> 
+<!ENTITY % model.divLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.divLike_sequenceRepeatable ""> 
+<!ENTITY % model.divGenLike ""> 
+<!ENTITY % model.divGenLike_sequence ""> 
+<!ENTITY % model.divGenLike_sequenceOptional ""> 
+<!ENTITY % model.divGenLike_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.divGenLike_sequenceRepeatable ""> 
+<!ENTITY % model.div1Like ""> 
+<!ENTITY % model.div1Like_sequence ""> 
+<!ENTITY % model.div1Like_sequenceOptional ""> 
+<!ENTITY % model.div1Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div1Like_sequenceRepeatable ""> 
+<!ENTITY % model.div2Like ""> 
+<!ENTITY % model.div2Like_sequence ""> 
+<!ENTITY % model.div2Like_sequenceOptional ""> 
+<!ENTITY % model.div2Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div2Like_sequenceRepeatable ""> 
+<!ENTITY % model.div3Like ""> 
+<!ENTITY % model.div3Like_sequence ""> 
+<!ENTITY % model.div3Like_sequenceOptional ""> 
+<!ENTITY % model.div3Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div3Like_sequenceRepeatable ""> 
+<!ENTITY % model.div4Like ""> 
+<!ENTITY % model.div4Like_sequence ""> 
+<!ENTITY % model.div4Like_sequenceOptional ""> 
+<!ENTITY % model.div4Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div4Like_sequenceRepeatable ""> 
+<!ENTITY % model.div5Like ""> 
+<!ENTITY % model.div5Like_sequence ""> 
+<!ENTITY % model.div5Like_sequenceOptional ""> 
+<!ENTITY % model.div5Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div5Like_sequenceRepeatable ""> 
+<!ENTITY % model.div6Like ""> 
+<!ENTITY % model.div6Like_sequence ""> 
+<!ENTITY % model.div6Like_sequenceOptional ""> 
+<!ENTITY % model.div6Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div6Like_sequenceRepeatable ""> 
+<!ENTITY % model.div7Like ""> 
+<!ENTITY % model.div7Like_sequence ""> 
+<!ENTITY % model.div7Like_sequenceOptional ""> 
+<!ENTITY % model.div7Like_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.div7Like_sequenceRepeatable ""> 
+<!ENTITY % model.placeNamePart ""> 
+<!ENTITY % model.placeNamePart_sequence ""> 
+<!ENTITY % model.placeNamePart_sequenceOptional ""> 
+<!ENTITY % model.placeNamePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.placeNamePart_sequenceRepeatable ""> 
+<!ENTITY % model.headerPart "encodingDesc | profileDesc"> 
+<!ENTITY % model.headerPart_sequence "encodingDesc, profileDesc"> 
+<!ENTITY % model.headerPart_sequenceOptional "encodingDesc?, profileDesc?"> 
+<!ENTITY % model.headerPart_sequenceOptionalRepeatable "encodingDesc*, profileDesc*"> 
+<!ENTITY % model.headerPart_sequenceRepeatable "encodingDesc+, profileDesc+"> 
+<!ENTITY % model.sourceDescPart "recordingStmt"> 
+<!ENTITY % model.sourceDescPart_sequence "recordingStmt"> 
+<!ENTITY % model.sourceDescPart_sequenceOptional "recordingStmt?"> 
+<!ENTITY % model.sourceDescPart_sequenceOptionalRepeatable "recordingStmt*"> 
+<!ENTITY % model.sourceDescPart_sequenceRepeatable "recordingStmt+"> 
+<!ENTITY % model.encodingPart "projectDesc | samplingDecl | editorialDecl | tagsDecl | refsDecl | classDecl | xairaSpecification"> 
+<!ENTITY % model.encodingPart_sequence "projectDesc, samplingDecl, editorialDecl, tagsDecl, refsDecl, classDecl, xairaSpecification"> 
+<!ENTITY % model.encodingPart_sequenceOptional "projectDesc?, samplingDecl?, editorialDecl?, tagsDecl?, refsDecl?, classDecl?, xairaSpecification?"> 
+<!ENTITY % model.encodingPart_sequenceOptionalRepeatable "projectDesc*, samplingDecl*, editorialDecl*, tagsDecl*, refsDecl*, classDecl*, xairaSpecification*"> 
+<!ENTITY % model.encodingPart_sequenceRepeatable "projectDesc+, samplingDecl+, editorialDecl+, tagsDecl+, refsDecl+, classDecl+, xairaSpecification+"> 
+<!ENTITY % model.editorialDeclPart ""> 
+<!ENTITY % model.editorialDeclPart_sequence ""> 
+<!ENTITY % model.editorialDeclPart_sequenceOptional ""> 
+<!ENTITY % model.editorialDeclPart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.editorialDeclPart_sequenceRepeatable ""> 
+<!ENTITY % model.profileDescPart "particDesc | settingDesc | langUsage | textClass"> 
+<!ENTITY % model.profileDescPart_sequence "particDesc, settingDesc, langUsage, textClass"> 
+<!ENTITY % model.profileDescPart_sequenceOptional "particDesc?, settingDesc?, langUsage?, textClass?"> 
+<!ENTITY % model.profileDescPart_sequenceOptionalRepeatable "particDesc*, settingDesc*, langUsage*, textClass*"> 
+<!ENTITY % model.profileDescPart_sequenceRepeatable "particDesc+, settingDesc+, langUsage+, textClass+"> 
+<!ENTITY % model.persNamePart ""> 
+<!ENTITY % model.persNamePart_sequence ""> 
+<!ENTITY % model.persNamePart_sequenceOptional ""> 
+<!ENTITY % model.persNamePart_sequenceOptionalRepeatable ""> 
+<!ENTITY % model.persNamePart_sequenceRepeatable ""> 
+<!ENTITY % att.personal.attribute.type '
+type %data.enumerated;  #IMPLIED'>
+
+<!ENTITY % att.personal.attribute.full '
+full (yes|abb|init) "yes" '>
+
+<!ENTITY % att.personal.attribute.sort '
+sort CDATA #IMPLIED'>
+
+<!ENTITY % model.divPart.spoken "u | pause | vocal | event | shift | trunc"> 
+<!ENTITY % model.divPart.spoken_sequence "u, pause, vocal, event, shift, trunc"> 
+<!ENTITY % model.divPart.spoken_sequenceOptional "u?, pause?, vocal?, event?, shift?, trunc?"> 
+<!ENTITY % model.divPart.spoken_sequenceOptionalRepeatable "u*, pause*, vocal*, event*, shift*, trunc*"> 
+<!ENTITY % model.divPart.spoken_sequenceRepeatable "u+, pause+, vocal+, event+, shift+, trunc+"> 
+<!ENTITY % att.uniqueId.attribute.xmlid '
+xml:id ID #IMPLIED'>
+
+<!ENTITY % att.identifiable.attribute.ident '
+ident %data.name;  #IMPLIED'>
+
+<!ENTITY % att.identifiable.attribute.ns '
+ns %data.namespace;  #IMPLIED'>
+
+<!ENTITY % att.rendered.attribute.rend '
+rend (bo|bx|hi|ib|ih|il|it|iu|lo|qc|ro|st|ub|ul|xx) #IMPLIED'>
+
+<!ENTITY % att.c5coded.attribute.c5 '
+c5 (AJ0|AJC|AJS|AT0|AV0|AVP|AVQ|CJC|CJS|CJT|CRD|DPS|DT0|DTQ|EX0|ITJ|NN0|NN1|NN2|NP0|ORD|PNI|PNP|PNQ|PNX|POS|PRF|PRP|TO0|UNC|VBB|VBD|VBG|VBI|VBN|VBZ|VDB|VDD|VDG|VDI|VDN|VDZ|VHB|VHD|VHG|VHI|VHN|VHZ|VM0|VVB|VVD|VVG|VVI|VVN|VVZ|XX0|ZZ0|AJ0-AV0|AJ0-NN1|AJ0-VVD|AJ0-VVG|AJ0-VVN|AV0-AJ0|AVP-PRP|AVQ-CJS|CJS-AVQ|CJS-PRP|CJT-DT0|CRD-PNI|DT0-CJT|NN1-AJ0|NN1-NP0|NN1-VVB|NN1-VVG|NN2-VVZ|NP0-NN1|PNI-CRD|PRP-AVP|PRP-CJS|VVB-NN1|VVD-AJ0|VVD-VVN|VVG-AJ0|VVG-NN1|VVN-AJ0|VVN-VVD|VVZ-NN2) #REQUIRED'>
+
+<!-- start predeclared patterns -->
+
+<!ENTITY % mix.spoken '|%model.divPart.spoken;' >
+
+<!-- start rest of patterns -->
+
+<!ENTITY % macro.paraContent '(%model.phrase; | %model.inter; | %model.global;)+' >
+
+<!ENTITY % macro.phraseSeq '( #PCDATA)' >
+
+<!ENTITY % macro.fileDescPart '(titleStmt,editionStmt?,extent?,publicationStmt)' >
+
+<!-- end patterns -->
+
+<!-- start elements -->
+
+<!--doc:contains a brief informal description of what a participant in a
+language interaction is doing other than speaking, if anything. -->
+<!ELEMENT activity %macro.phraseSeq;>
+<!ATTLIST activity
+spont CDATA  #IMPLIED >
+<!--doc:contains a postal  address, for example of a
+publisher, an organization, or an individual. -->
+<!ELEMENT address %macro.phraseSeq;>
+<!--doc:specifies the age in years of a recorded participant at the time of the
+  recording in which they participate. -->
+<!ELEMENT age %macro.phraseSeq;>
+<!--doc:marks an temporal alignment point within transcribed speech. -->
+<!ELEMENT align EMPTY>
+<!ATTLIST align
+with %data.pointer;  #REQUIRED >
+<!--doc:(attribute definition) provides the definition for a single attribute. -->
+<!ELEMENT attDef (desc*,valList?)>
+<!ATTLIST attDef
+ %att.identifiable.attribute.ident; >
+<!--doc:contains documentation for all the attributes associated with this
+element, as a series of attDef elements. -->
+<!ELEMENT attList (attDef)+>
+<!--doc:specifies the indexing policy to be used for one or more
+attributes. -->
+<!ELEMENT attributePolicy (nameList?,joinTo?)>
+<!ATTLIST attributePolicy
+ident %data.name;  #IMPLIED
+ %att.identifiable.attribute.ns;
+type (none|jointo|joinfrom|taxonomy) #IMPLIED >
+<!--doc:in a bibliographic reference, contains the name of the author(s),
+personal or corporate,
+of a work; the primary statement of responsibility for any
+bibliographic item.  -->
+<!ELEMENT author %macro.phraseSeq;>
+<!ATTLIST author
+domicile CDATA #IMPLIED
+n CDATA #IMPLIED
+born CDATA #IMPLIED >
+<!--doc:supplies information about the availability of a text, for
+  example any restrictions on its use or distribution, its copyright
+  status, etc. -->
+<!ELEMENT availability ( #PCDATA | para)*>
+<!--doc:(bibliographic citation) contains any bibliographic reference, occurring either within
+the header of a written corpus text in which case it has a fixed
+substructure, or within the body of a corpus text, in which case it
+contains only s elements. -->
+<!ELEMENT bibl (s+ | (title+,(editor | author)*,imprint,pp?))>
+<!ATTLIST bibl
+ %att.rendered.attribute.rend; >
+<!--doc:contains a distinct document within the corpus, either spoken
+ or written. -->
+<!ELEMENT bncDoc (teiHeader,(wtext | stext))>
+<!ATTLIST bncDoc
+ %att.uniqueId.attribute.xmlid; >
+<!--doc:(character) contains a significant punctuation mark as identified by the CLAWS tagger. -->
+<!ELEMENT c  (#PCDATA)>
+<!ATTLIST c
+c5 (PUN|PUL|PUR|PUQ) #REQUIRED >
+<!--doc:(category description) provides a description for one category within the text taxonomies
+provided in the corpus header. -->
+<!ELEMENT catDesc %macro.phraseSeq;>
+<!--doc:(category reference) provides a list of codes identifying the categories to which
+this text has been assigned, each code referencing a category element
+declared in the corpus header. -->
+<!ELEMENT catRef EMPTY>
+<!ATTLIST catRef
+targets %data.pointers;  #REQUIRED >
+<!--doc:(category) defines a single category within a taxonomy of texts. -->
+<!ELEMENT category (catDesc)>
+<!ATTLIST category
+ %att.uniqueId.attribute.xmlid; >
+<!--doc:summarizes a particular change or correction made
+to a particular version of an electronic text which is
+shared between several researchers. -->
+<!ELEMENT change %macro.phraseSeq;>
+<!ATTLIST change
+date %data.temporal;  #IMPLIED
+ %att.ascribed.attribute.who; >
+<!--doc:contains the classification code used for this text in some
+standard classification system. -->
+<!ELEMENT classCode %macro.phraseSeq;>
+<!ATTLIST classCode
+scheme %data.pointer;  #REQUIRED >
+<!--doc:(classification declarations) contains one or more taxonomies defining any classificatory
+codes used elsewhere in the text. -->
+<!ELEMENT classDecl (taxonomy)+>
+<!--doc:supplies any additional ICU-conformant collating rules to be used when sorting
+words in the corpus. -->
+<!ELEMENT collate  (#PCDATA)>
+<!--doc:(correction) contains the correct form of a passage apparently erroneous in the copy text. -->
+<!ELEMENT corr (w | c | mw | gap)*>
+<!ATTLIST corr
+sic CDATA #IMPLIED
+ %att.rendered.attribute.rend;
+resp %data.pointer;  #IMPLIED >
+<!--doc:contains information about the creation of a text. -->
+<!ELEMENT creation %macro.phraseSeq;>
+<!ATTLIST creation
+date %data.temporal;  #IMPLIED >
+<!--doc:contains a date in any format. -->
+<!ELEMENT date %macro.phraseSeq;>
+<!ATTLIST date
+value %data.temporal;  #IMPLIED >
+<!--doc:specifies the default declared value for an attribute. -->
+<!ELEMENT defaultVal  (#PCDATA)>
+<!--doc:(description) supplies explanatory text associated with a category or other
+component defined in the corpus header. -->
+<!ELEMENT desc %macro.phraseSeq;>
+<!--doc:contains an informal description of the regional variety of
+English used by a participant in a spoken text. -->
+<!ELEMENT dialect %macro.phraseSeq;>
+<!--doc:supplies the name of a person or other agency responsible for the
+distribution of a text. -->
+<!ELEMENT distributor %macro.phraseSeq;>
+<!--doc:(text division) contains a subdivision of the front, body, or back of a
+text. -->
+<!ELEMENT div ((%model.divWrapper; | %model.global;)*,(((%model.divPart;),(%model.divPart; | %model.global;)*) | ((%model.divPart.spoken;),(%model.divPart.spoken; | %model.global;)*))?,div*)>
+<!ATTLIST div
+n CDATA  #IMPLIED
+decls %data.pointers;  #IMPLIED
+level %data.count;  #IMPLIED
+type CDATA  #IMPLIED
+ %att.rendered.attribute.rend; >
+<!--doc:(Edition) describes the particularities of one edition of a text. -->
+<!ELEMENT edition %macro.phraseSeq;>
+<!ATTLIST edition
+n %data.count;  #IMPLIED >
+<!--doc:(edition statement) groups information relating to one edition of a text. -->
+<!ELEMENT editionStmt (edition)>
+<!--doc:secondary statement of responsibility for a
+bibliographic item, for example the name of an individual, institution
+or organization, (or of several such) acting as editor, compiler,
+translator, etc.  -->
+<!ELEMENT editor %macro.phraseSeq;>
+<!ATTLIST editor
+n CDATA  #IMPLIED >
+<!--doc:(editorial practice declaration) provides details of editorial principles and practices applied
+during the encoding of a text. -->
+<!ELEMENT editorialDecl ( #PCDATA | para)*>
+<!--doc:specifies the XAIRA indexing policy to be used for one or more
+elements. -->
+<!ELEMENT elementPolicy (nameList)?>
+<!ATTLIST elementPolicy
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns;
+type (none|children|content|markup) #IMPLIED >
+<!--doc:contains an e-mail address identifying a location to which
+e-mail messages can be delivered.
+		 -->
+<!ELEMENT email %macro.phraseSeq;>
+<!--doc:(Encoding description) documents the relationship between an electronic text and the
+source or sources from which it was derived. -->
+<!ELEMENT encodingDesc (%model.encodingPart;)*>
+<!--doc:any phenomenon or occurrence, not necessarily vocalized or
+communicative, for example incidental noises or other events affecting
+communication. -->
+<!ELEMENT event EMPTY>
+<!ATTLIST event
+desc CDATA #IMPLIED
+ %att.timed.attribute.dur; >
+<!--doc:specifies the approximate size of the text, in orthographic
+words, w elements, and s elements . -->
+<!ELEMENT extent %macro.phraseSeq;>
+<!--doc:(File Description) contains a full bibliographic description of an electronic
+file. -->
+<!ELEMENT fileDesc (%macro.fileDescPart;,sourceDesc+)>
+<!--doc:(omitted material) indicates a point where material has been omitted from the
+transcription. -->
+<!ELEMENT gap EMPTY>
+<!ATTLIST gap
+desc CDATA #IMPLIED
+reason CDATA  #IMPLIED
+ %att.editLike.attribute.resp; >
+<!--doc:(generic identifier) contains the name (generic identifier) of an element. -->
+<!ELEMENT gi  (#PCDATA)>
+<!ATTLIST gi
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns; >
+<!--doc:(heading) contains any type of heading, for example the title of a section
+or a poem. -->
+<!ELEMENT head (s | gap | pb)+>
+<!ATTLIST head
+type (MAIN|SUB|BYLINE) #IMPLIED
+ %att.rendered.attribute.rend; >
+<!--doc:(highlighted) marks a word or phrase as graphically distinct from the
+surrounding text, for reasons concerning which no claim is
+made.  -->
+<!ELEMENT hi %macro.paraContent;>
+<!ATTLIST hi
+ %att.rendered.attribute.rend; >
+<!--doc:contains an identifier or name for an object of some kind in a formal language -->
+<!ELEMENT ident  (#PCDATA)>
+<!ATTLIST ident
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns; >
+<!--doc:(identifying number) supplies an identifying code for a text. -->
+<!ELEMENT idno  (#PCDATA)>
+<!ATTLIST idno
+type %data.enumerated;  #IMPLIED >
+<!--doc:groups information relating to the publication or distribution
+  of a bibliographic item. -->
+<!ELEMENT imprint (pubPlace | publisher | date | pp)*>
+<!ATTLIST imprint
+n CDATA #IMPLIED >
+<!--doc:contains one
+component of a list. -->
+<!ELEMENT item (%model.pLike; | %model.qLike; | %model.listLike; | s | %model.global;)+>
+<!ATTLIST item
+ %att.rendered.attribute.rend; >
+<!--doc:supplies a list of element names carrying an attribute which has
+been specified with the XAIRA "joinTo" indexing policy. -->
+<!ELEMENT joinTo (gi)+>
+<!--doc:contains a list of keywords or phrases identifying the topic or
+nature of a text. -->
+<!ELEMENT keywords (term)+>
+<!ATTLIST keywords
+scheme %data.pointer;  #IMPLIED >
+<!--doc:(verse line) contains a single, possibly incomplete, line of verse. -->
+<!ELEMENT l (s | gap | pb)+>
+<!ATTLIST l
+ %att.rendered.attribute.rend; >
+<!--doc:contains the label associated with an item in a list; in
+glossaries, marks the term being defined. -->
+<!ELEMENT label (s | gap | pb)+>
+<!ATTLIST label
+ %att.rendered.attribute.rend; >
+<!--doc:specifies the label to be generated for the parent reference. -->
+<!ELEMENT labelGen  (#PCDATA)>
+<!ATTLIST labelGen
+change (onStart|within) #IMPLIED >
+<!--doc:(language usage) describes the languages, sublanguages, registers, dialects etc.
+represented within a text. -->
+<!ELEMENT langUsage (language)+>
+<!--doc:characterizes a single language or sublanguage used within a
+  text. -->
+<!ELEMENT language %macro.phraseSeq;>
+<!ATTLIST language
+ident %data.language;  #REQUIRED >
+<!--doc:(line group) contains a group of verse lines functioning as a formal unit,
+e.g. a stanza, refrain, verse paragraph, etc. -->
+<!ELEMENT lg ((%model.divWrapper; | %model.global;)*,(%model.lLike; | lg),(%model.lLike; | lg | %model.global;)*,_DUMMY_model.divWrapper.bottom*)>
+<!--doc:contains any sequence of items organized as a list. -->
+<!ELEMENT list ((%model.divWrapper; | %model.global;)*,((item,(%model.global;)*)+ | (label,(%model.global;)*,item,(%model.global;)*)+),_DUMMY_model.divWrapper.bottom*)>
+<!ATTLIST list
+ %att.rendered.attribute.rend; >
+<!--doc:contains a brief informal description of the nature of a
+place for example a room, a restaurant, a park bench etc. -->
+<!ELEMENT locale %macro.phraseSeq;>
+<!--doc:contains a multi-word unit as identified by CLAWS, that is, a
+sequence of individual tokens which function as a single
+unit and can be given a single part of speech code. -->
+<!ELEMENT mw (w)+>
+<!ATTLIST mw
+ %att.c5coded.attribute.c5; >
+<!--doc:(name, proper noun) contains a proper noun or noun phrase. -->
+<!ELEMENT name %macro.phraseSeq;>
+<!--doc:supplies a list of element names or attribute identifiers. -->
+<!ELEMENT nameList (gi | ident)+>
+<!--doc:supplies the formal name of the namespace to which the elements
+documented by its children belong.  -->
+<!ELEMENT namespace (tagUsage)+>
+<!ATTLIST namespace
+name %data.namespace;  #REQUIRED >
+<!--doc:contains a note or annotation. -->
+<!ELEMENT note (s)+>
+<!ATTLIST note
+place CDATA  #IMPLIED
+n CDATA #IMPLIED >
+<!--doc:contains an informal description of a person's trade,
+profession or occupation. -->
+<!ELEMENT occupation %macro.phraseSeq;>
+<!ATTLIST occupation
+ %att.editLike.attribute.resp; >
+<!--doc:(paragraph) marks paragraphs in prose. -->
+<!ELEMENT p %macro.paraContent;>
+<!ATTLIST p
+type CDATA  #IMPLIED
+ %att.rendered.attribute.rend; >
+<!--doc:contains descriptive text appearing within components of a TEI header. -->
+<!ELEMENT para ( #PCDATA | hi | list)*>
+<!--doc:(participation description) describes the identifiable speakers, voices, or other participants
+in a linguistic interaction.  -->
+<!ELEMENT particDesc (person)+>
+<!ATTLIST particDesc
+n CDATA #IMPLIED >
+<!--doc:a pause either between or within utterances. -->
+<!ELEMENT pause EMPTY>
+<!ATTLIST pause
+ %att.timed.attribute.dur; >
+<!--doc:(page break) marks the boundary between one page of a text and the next
+in a standard reference system. -->
+<!ELEMENT pb EMPTY>
+<!ATTLIST pb
+n CDATA #IMPLIED >
+<!--doc:(personal name) contains a proper noun or proper-noun phrase referring to a
+  person, possibly including any or all of the person's forenames,
+  surnames, honorifics, added names, etc. -->
+<!ELEMENT persName %macro.phraseSeq;>
+<!--doc:contains any additional information supplied about a participant in a spoken text. -->
+<!ELEMENT persNote %macro.phraseSeq;>
+<!--doc:provides information about an identifiable individual, for
+example a participant in a language interaction, or a person referred
+to in a historical source. -->
+<!ELEMENT person ((%model.pLike;)+ | (%model.personPart; | %model.global;)*)>
+<!ATTLIST person
+ageGroup CDATA  #IMPLIED
+dialect CDATA  #IMPLIED
+firstLang (XX-XXX|DE-DEU|FR-FRA|EN-GBR|EN-USA|XX-IND) #IMPLIED
+n CDATA #IMPLIED
+educ (Ed0|Ed1|Ed4|X) #IMPLIED
+soc (AB|C1|C2|DE|UU) #IMPLIED
+sex (m|f|u) #IMPLIED
+role CDATA  #IMPLIED
+ %att.uniqueId.attribute.xmlid; >
+<!--doc:contains an absolute or relative place name.  -->
+<!ELEMENT placeName %macro.phraseSeq;>
+<!--doc:supplies page numbers for a bibliographic citation. -->
+<!ELEMENT pp %macro.phraseSeq;>
+<!--doc:(text-profile description) provides a detailed description of non-bibliographic aspects of a
+text, specifically the languages and sublanguages used, the situation in
+which it was produced, the participants and their setting. -->
+<!ELEMENT profileDesc (creation?,(%model.profileDescPart;)*)>
+<!--doc:(project description) describes in detail the aim or purpose for which an electronic
+file was encoded, together with any other relevant information
+concerning the process by which it was assembled or collected. -->
+<!ELEMENT projectDesc (para)+>
+<!--doc:contains the name of the place where a bibliographic item was
+published. -->
+<!ELEMENT pubPlace %macro.phraseSeq;>
+<!--doc:(publication statement) groups information concerning the publication or distribution
+of an electronic or other text.  -->
+<!ELEMENT publicationStmt ((%model.pLike;)+ | (%model.publicationStmtPart;)+)>
+<!--doc:provides the name of the organization responsible for
+the publication or distribution of a bibliographic item. -->
+<!ELEMENT publisher %macro.phraseSeq;>
+<!--doc:(quotation) contains a phrase or passage attributed by the narrator or
+  author to some agency external to the text. -->
+<!ELEMENT quote (bibl?,(%model.divPart;)+,bibl?)>
+<!ATTLIST quote
+ %att.rendered.attribute.rend; >
+<!--doc:(recording event) details of an audio or video recording event
+used as the source of a spoken text, either directly or from
+a public broadcast.  -->
+<!ELEMENT recording %macro.phraseSeq;>
+<!ATTLIST recording
+date %data.temporal;  #IMPLIED
+n CDATA #IMPLIED
+time CDATA  #IMPLIED
+type CDATA  "audio" 
+dur %data.count;  #IMPLIED
+ %att.uniqueId.attribute.xmlid; >
+<!--doc:(recording statement) describes a set of recordings used in transcription of a
+spoken text. -->
+<!ELEMENT recordingStmt ((%model.pLike;)+ | recording+)>
+<!--doc:(references declaration) provides documentation for the reference system applicable to
+the corpus. -->
+<!ELEMENT refsDecl (para)+>
+<!--doc:contains a phrase describing the nature of a person's
+  intellectual responsibility. -->
+<!ELEMENT resp %macro.phraseSeq;>
+<!--doc:(statement of responsibility) supplies a statement of responsibility for someone responsible
+  for the intellectual content of a text, edition, recording, or
+  series, where the specialized elements for authors, editors, etc. do
+  not suffice or do not apply. -->
+<!ELEMENT respStmt (name | resp)+>
+<!--doc:(revision description) summarizes the revision history for a file. -->
+<!ELEMENT revisionDesc (change)+>
+<!--doc:(s-unit) contains a sentence-like division of a text. -->
+<!ELEMENT s (%model.global; | %model.phrase; | %model.divPart.spoken;)+>
+<!ATTLIST s
+n CDATA #REQUIRED >
+<!--doc:(sampling declaration) contains a prose description of the rationale and methods used
+in sampling texts in the creation of a corpus or collection. -->
+<!ELEMENT samplingDecl ( #PCDATA | para)*>
+<!--doc:(setting) describes one particular setting in which a language
+  interaction takes place. -->
+<!ELEMENT setting (date | %model.settingPart;)*>
+<!ATTLIST setting
+n CDATA  #IMPLIED
+ %att.uniqueId.attribute.xmlid;
+ %att.ascribed.attribute.who; >
+<!--doc:(setting description) describes the setting or settings within which a language
+interaction takes place, either as a prose description or as a
+series of setting elements. -->
+<!ELEMENT settingDesc (setting)+>
+<!--doc:marks the point at which some paralinguistic feature of a series of
+utterances by any one speaker changes. -->
+<!ELEMENT shift EMPTY>
+<!ATTLIST shift
+new %data.enumerated;  "normal"  >
+<!--doc:supplies a description of the source text(s) from
+which an electronic text was derived or generated. -->
+<!ELEMENT sourceDesc (bibl | recordingStmt | para+)>
+<!--doc:(speech) An individual speech in a performance text, or a passage
+	  presented as such in a prose or verse text. -->
+<!ELEMENT sp ((%model.global;)*,(speaker,(%model.global;)*)?,((%model.lLike; | lg | %model.pLike; | _DUMMY_model.blockLike | %model.stageLike;),(%model.global;)*)+)>
+<!ATTLIST sp
+ %att.ascribed.attribute.who; >
+<!--doc:A specialized form of heading or label, giving the name of
+one or more speakers in a dramatic text or fragment. -->
+<!ELEMENT speaker (s | gap | pb)+>
+<!--doc:(stage direction) contains any kind of stage direction within a dramatic text or
+fragment. -->
+<!ELEMENT stage %macro.paraContent;>
+<!ATTLIST stage
+ %att.rendered.attribute.rend; >
+<!--doc:contains a single spoken text, i.e. a transcription or
+collection of transcriptions from a single source. -->
+<!ELEMENT stext ((%model.divPart.spoken;)*,div*)>
+<!ATTLIST stext
+type (CONVRSN|OTHERSP) #REQUIRED >
+<!--doc:(tag usage) supplies information about the usage of a specific element
+within a text.  -->
+<!ELEMENT tagUsage %macro.phraseSeq;>
+<!ATTLIST tagUsage
+gi %data.name;  #REQUIRED
+occurs %data.count;  #IMPLIED >
+<!--doc:(tagging declaration) provides information about the XML elements actually used within
+a BNC text. -->
+<!ELEMENT tagsDecl (namespace*)>
+<!--doc:(taxonomy) defines a typology used to classify texts either implicitly, by
+means of a bibliographic citation, or explicitly by a structured
+taxonomy. -->
+<!ELEMENT taxonomy (desc?,(category+ | %model.biblLike;))>
+<!ATTLIST taxonomy
+ %att.uniqueId.attribute.xmlid; >
+<!--doc:(TEI corpus) contains the whole of a TEI encoded corpus, comprising a
+single corpus header and one or more TEI elements, each containing
+a single text header and a text. -->
+<!ELEMENT bnc (teiHeader,bncDoc+)>
+<!--doc:(TEI Header) supplies the descriptive and declarative information making
+	up an electronic title page prefixed to every TEI-conformant
+	text. -->
+<!ELEMENT teiHeader (fileDesc,(%model.headerPart;)*,revisionDesc?)>
+<!--doc:contains a word or phrase used to describe the topic or nature of a text. -->
+<!ELEMENT term %macro.phraseSeq;>
+<!--doc:(text classification) groups information which describes the nature or topic of a text
+in terms of a standard classification scheme, thesaurus, etc. -->
+<!ELEMENT textClass (catRef,classCode*,keywords*)>
+<!--doc:contains the full title of a work of any kind. -->
+<!ELEMENT title %macro.phraseSeq;>
+<!ATTLIST title
+level CDATA  #IMPLIED >
+<!--doc:(title statement) groups information about the title of a work and those
+responsible for its intellectual content. -->
+<!ELEMENT titleStmt (title+,(author | editor | respStmt)*)>
+<!--doc:supplies any additional ICU-conformant rules to be used
+when tokenization is performed by XAIRA rather than by explicit XML markup. -->
+<!ELEMENT tokenize  (#PCDATA)>
+<!--doc:contains one or more truncated words in transcribed speech. -->
+<!ELEMENT trunc (w | mw | gap | unclear)+>
+<!--doc:(utterance) a stretch of speech usually preceded and followed by
+silence or by a change of speaker. -->
+<!ELEMENT u ( #PCDATA | _DUMMY_model.gLike | %model.phrase; | %model.divPart.spoken; | %model.global;)*>
+<!ATTLIST u
+ %att.ascribed.attribute.who; >
+<!--doc:contains a word, phrase, or passage which cannot be transcribed
+with certainty because it is illegible or inaudible in the source. -->
+<!ELEMENT unclear EMPTY>
+<!ATTLIST unclear
+ %att.timed.attribute.dur; >
+<!--doc:(value definition) contains a single value and gloss  pair for an attribute. -->
+<!ELEMENT valItem (desc)>
+<!ATTLIST valItem
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns; >
+<!--doc:(value list) contains one or more valItem elements defining possible
+  values for an attribute. -->
+<!ELEMENT valList (valItem)+>
+<!ATTLIST valList
+copyOf %data.pointer;  #IMPLIED
+type (closed|semi|open) "open" 
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns; >
+<!--doc:specifies where the XAIRA indexer is to find a value. -->
+<!ELEMENT valSource (nameList?,(defaultVal | labelGen)?)>
+<!ATTLIST valSource
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns;
+type (element|attribute|pseudo) #REQUIRED
+caseFold CDATA  "false"  >
+<!--doc:(Vocalized semi-lexical) any vocalized but not necessarily lexical phenomenon, for example
+voiced pauses, non-lexical backchannels, etc. -->
+<!ELEMENT vocal EMPTY>
+<!ATTLIST vocal
+desc CDATA #IMPLIED
+ %att.timed.attribute.dur;
+ %att.ascribed.attribute.who; >
+<!--doc:(word) represents a grammatical (not necessarily orthographic) word. -->
+<!ELEMENT w  (#PCDATA)>
+<!ATTLIST w
+pos (ADJ|ADV|ART|CONJ|INTERJ|PREP|PRON|STOP|SUBST|UNC|VERB) #REQUIRED
+hw CDATA #REQUIRED
+ %att.c5coded.attribute.c5; >
+<!--doc:contains a single written text. -->
+<!ELEMENT wtext ((%model.divPart; | %model.global;)*,(div,(div | %model.global;)*)?)>
+<!ATTLIST wtext
+type (ACPROSE|FICTION|NEWS|NONAC|OTHERPUB|UNPUB) #REQUIRED >
+<!--doc:provides data needed to define one part of a  XAIRA specification. -->
+<!ELEMENT xairaItem (desc*,((valSource,labelGen?) | attList | nameList | elementPolicy | attributePolicy | tokenize | collate)?)>
+<!ATTLIST xairaItem
+ %att.identifiable.attribute.ident;
+ %att.identifiable.attribute.ns;
+type (element|form|addKey|lemmaScheme|region|textRef|scopeRef|unitRef|indexPol|defaultLang|langRules) #REQUIRED >
+<!--doc:contains a list of XAIRA parameters of a particular type. -->
+<!ELEMENT xairaList (xairaItem)+>
+<!ATTLIST xairaList
+type (elementSpec|keySpec|regionSpec|lemmaSpec|refSpec|indexSpec|langSpec) #REQUIRED >
+<!--doc:specifies additional information needed by XAIRA. -->
+<!ELEMENT xairaSpecification (xairaList)+>
+<!-- end elements -->

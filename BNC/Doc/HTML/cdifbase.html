@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Basic structure</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Basic structure">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="cdifbase">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">2  Basic structure</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="BNCdes.html">1  Design of the corpus</a><i> Next: </i><a class="navigation" href="cdifwr.html">3  Written texts</a></p>
+<p><span id="id2346093"></span>The original British National Corpus was provided as an
+application of ISO 8879, the Standard Generalized Mark-Up Language
+(SGML). This international standard provides, amongst other things, a
+method of specifying an application-independent document grammar, in
+terms of the elements which may appear in a document, their
+attributes, and the ways in which they may legally be combined.  SGML
+was a predecessor of XML, the extensible markup language defined by
+the World Wide Web Consortium and now in general use on the World Wide
+Web. XML was originally designed as a means of distributing SGML
+documents on the web.
+</p>
+<p><span id="id2346125"></span>This XML edition of the BNC is delivered in an XML format which is
+documented in this manual in section <a class="link_ptr" href="cdifbase.html#cdifsgml" title="Markup conventions">2.1  Markup conventions</a> below;
+more detailed information about XML itself is readily available in
+many places.<a class="notelink" href="index-notes.html#Note1"><sup>1</sup></a></p>
+<p><span id="id2346152"></span>The original BNC encoding format was also strongly influenced by the
+proposals of the Text Encoding Initiative (TEI). This
+international research project resulted in the development of a set of
+comprehensive guidelines for the encoding and interchange of a wide
+range of electronic texts amongst researchers. An initial report
+appeared in 1991, and a substantially revised and expanded version in
+early 1994. A conscious attempt was made to conform to
+TEI recommendations, where these had already been
+formulated, but in the first version of the BNC there were a number of
+differences in tag names, and models. In the second edition of the BNC
+(BNC World), the tagging scheme was changed to conform as far as
+possible with the published <i>Recommendations</i> of the TEI
+(<a class="link_ptr" href="refs.html#TEI94" title="Sperberg-McQueen, C.M. and Burnard, L (eds) (1994).">[25]</a>). In the XML edition, this process has continued,
+and the corpus schema is now supplied in the form of  a TEI customization: see
+further <a class="link_ptr" href="bnctags.html" title="Formal Specification of the BNC XML schema">12  Formal Specification of the BNC XML schema</a>.
+</p>
+<div class="teidiv1" id="cdifsgml">
+<h3>2.1  Markup conventions</h3>
+<p><span id="id2346198"></span>The BNC XML edition is marked up in XML and encoded in
+Unicode. These formats are now so pervasive as to need little
+explication here; for the sake of completeness however, we give a
+brief summary of their chief characteristics. We strongly recommend
+the use of XML-aware processing tools to process the corpus; see
+further <a class="link_ptr" href="cdifsmop.html" title="Software for the BNC">7  Software for the BNC</a>. </p>
+<p><span id="id2346211"></span>An XML document, such as the BNC consists of a single <span class="term">root
+element</span>, within which are nested occurrences of other element
+types. All element occurrences are delimited by
+<span class="term">tags</span>. There are two forms of tag, a
+<span class="term">start-tag</span>, marking the beginning of an
+<span class="term">element</span>, and an <span class="term">end-tag</span> marking its end (in
+the case of &#8216;empty elements&#8217;, the two may be
+combined; see below).
+Tags are delimited by the characters &lt; and &gt;, and contain the
+name of the element (its <span class="term">gi</span>, for <span class="term">generic
+identifier</span>), preceded by a solidus (/) in the case of an
+end-tag.
+</p>
+<p><span id="id2346252"></span>For example, a heading or title in a written text will be preceded
+by a tag of the form <code>&lt;head&gt;</code> and followed by a tag in the form
+<code>&lt;/head&gt;</code>. Everything between these two tags is regarded as the
+<span class="term">content</span> of an <span class="term">element</span> of type <code>&lt;head&gt;</code>.
+</p>
+<p><span id="id2346276"></span><span class="term">Attributes</span> applicable to element instances, if
+present, are also indicated within the start-tag, and take the form of
+an attribute name, an equals sign and the attribute value, in the form
+of a quoted literal. Attribute values are used
+for a variety of purposes, notably to represent the part of speech codes
+allocated to particular words by the CLAWS tagging scheme. 
+</p>
+<p><span id="id2346288"></span>For example, the <code>&lt;head&gt;</code> element may take an attribute
+<span class="att">type</span> which categorizes it in some way. A main heading
+will thus appear with a start tag <code>&lt;head type="MAIN"&gt;</code>, and a
+subheading with a start tag <code>&lt;head type="SUB"&gt;</code>. 
+</p>
+<p><span id="id2346309"></span>The names of elements and attributes are case-significant, as are
+attribute values. The style adopted throughout the BNC scheme is to
+use lower-case letters for identifiers, unless they are derived from
+more than one word, in which case the first letter of the second and
+any subsequent word is capitalized: examples include
+<code>&lt;teiHeader&gt;</code> or <code>&lt;particDesc&gt;</code> (for &#8216;participant description&#8217;). </p>
+<p><span id="id2346330"></span>Unless it is empty, every occurrence of an element
+must have both a start-tag and an end-tag. Empty elements may use a
+special syntax in which start and end-tags are combined together: for
+example, the point at which a page break occurs in an original source
+is marked <code>&lt;pb/&gt;</code> rather than <code>&lt;pb&gt;&lt;/pb&gt;</code></p>
+<p><span id="id2346344"></span>The BNC  is delivered in UTF-8 encoding: this means that almost
+all characters in the corpus are represented directly by the
+appropriate Unicode character. The chief exceptions are the ampersand
+(&amp;) which is always represented by the special string
+<tt>&amp;amp;</tt>, the double quotation mark, which is sometimes
+represented by the special string <tt>&amp;quot;</tt>, and the
+arithmetic less-than sign, which always appears as
+<tt>&amp;lt;</tt>. These &#8216;named entity
+references&#8217; use a syntactic convention of XML which is
+followed by this version of the corpus. All other characters,
+including accented letters such as é or special characters such as &#8212;,
+are represented directly.
+</p>
+<div class="p">
+<span id="id2346378"></span>The number of linebreaks in the corpus has been reduced to a
+minimum in order to simplify processing by non-XML aware utilities. In particular:
+<ul>
+<li>XML tags are never broken across linebreaks; </li>
+<li>the TEI Header prefixed to each text contains no
+linebreaks</li>
+<li>each <code>&lt;s&gt;</code> element begins on a new line</li>
+</ul>. Many XML aware utilities are available to convert this representation as required.</div>
+</div>
+<div class="teidiv1" id="xml-eg">
+<h3>2.2  An example</h3>
+<div class="p">
+<span id="id2346481"></span>Here is the opening of text J10 (a novel by Michael Pearce). In
+this example, as elsewhere, we have placed each element on a separate
+line for clarity; this is not a requirement of XML however.
+<div class="pre"> <span class="element">&lt;wtext <span class="attribute">type</span>="FICTION"&gt;</span><br/>  <span class="element">&lt;pb <span class="attribute">n</span>="5"/&gt;</span><br/>  <span class="element">&lt;div <span class="attribute">level</span>="1"&gt;</span><br/>   <span class="element">&lt;head&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="1"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="chapter" <span class="attribute">pos</span>="SUBST"&gt;</span>CHAPTER <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="1" <span class="attribute">pos</span>="ADJ"&gt;</span>1<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/head&gt;</span><br/>   <span class="element">&lt;p&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="2"&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUQ"&gt;</span>&#8216;<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="but" <span class="attribute">pos</span>="CONJ"&gt;</span>But<span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>,<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUQ"&gt;</span>&#8217; <span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="say" <span class="attribute">pos</span>="VERB"&gt;</span>said <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="owen" <span class="attribute">pos</span>="SUBST"&gt;</span>Owen<span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>,<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUQ"&gt;</span>&#8216;<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="AVQ" <span class="attribute">hw</span>="where" <span class="attribute">pos</span>="ADV"&gt;</span>where <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="body" <span class="attribute">pos</span>="SUBST"&gt;</span>body<span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUQ"&gt;</span>&#8217;<span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/p&gt;</span><br/>      ....<br/>   <span class="element">&lt;/div&gt;</span><br/> <span class="element">&lt;/wtext&gt;</span></div>
+This example has been reformatted to make its structure more apparent:
+as noted above, in the actual corpus texts, newlines appear only at
+the start of each <code>&lt;s&gt;</code> element, rather than (as here) at the
+start of each element. The original files also lack the extra white
+space at the start of each line, used in the above example to indicate
+how the XML elements nest within one another.</div>
+<p><span id="id2346894"></span>The example begins with the start tag for a <code>&lt;wtext&gt;</code>
+(written text) element,
+which bears a <span class="att">type</span> attribute, the value of which is
+<tt>FICTION</tt>, the code used for texts derived from published
+fiction. The start tag is followed by an empty <code>&lt;pb&gt;</code> element,
+which provides the page number in the original source text. This in
+turn is followed by the start of a <code>&lt;div&gt;</code> element, which
+contains the first subdivision (chapter) of this text. This first
+chapter begins with a heading (marked by a <code>&lt;head&gt;</code> element)
+followed by a paragraph (marked by the <code>&lt;p&gt;</code> element). Further
+details and examples are provided for all of these elements and their
+functions elsewhere in this documentation. </p>
+<p><span id="id2346933"></span>Each distinct word and punctuation mark in the text, as identified
+by the CLAWS tagger, has been separately tagged with a <code>&lt;w&gt;</code> or
+<code>&lt;c&gt;</code> element as appropriate. These elements both bear a
+<span class="att">c5</span> attribute, which indicates the code from the CLAWS
+C5 tagset allocated to that word by the CLAWS POS-tagger; <code>&lt;w&gt;</code>
+elements also bear a <span class="att">pos</span> attribute, which provides a less
+fine-grained part of speech classification for the word, and an
+<span class="att">hw</span> attribute, which indicates the root form of the
+word. For example, the word &#8216;said&#8217; in this example has the CLAWS
+5 code <span class="val">VVD</span>, the simplified POS tag <span class="val">VERB</span>, and the
+headword <span class="val">say</span>.  The sequence of words and punctuation marks
+making up a complete segment is tagged as an <code>&lt;s&gt;</code> element, and
+bears an <span class="att">n</span> attribute, which supplies its sequence
+number within the text. A combination of text identifier (the three
+letter code) and <code>&lt;s&gt;</code> number may be used to reference any part
+of the corpus: the example above contains J10 1 and J10 2. </p>
+<p><span id="id2346995"></span>This is not, of course, a complete text: in particular, it lacks
+the TEI header which is prefixed to each text file making up the
+corpus. Its purpose is to indicate how the corpus is encoded. Any XML
+aware processing software, including common Web browsers, should be
+able to operate directly on BNC texts in XML format. </p>
+<p><span id="id2347003"></span>The remainder of this manual describes in more detail the intended
+semantics for each of the XML elements used in the corpus, with
+examples of their use. 
+</p>
+</div>
+<div class="teidiv1" id="cdif2">
+<h3>2.3  Corpus and text elements</h3>
+<p><span id="id2347018"></span>The BNC  contains a large number of
+<span class="term">text samples</span>, some spoken and some written. Each such
+sample has some associated descriptive or bibliographic information
+particular to it, and there is also a large body of descriptive
+information which applies to the whole corpus.
+</p>
+<p><span id="id2347029"></span>In XML terms, the corpus  consists of a single 
+element, tagged <code>&lt;bnc&gt;</code>.  This element contains a single
+<code>&lt;teiHeader&gt;</code> element, containing metadata which relates to the
+whole corpus, followed by a sequence of <code>&lt;bncDoc&gt;</code>
+elements. Each such <code>&lt;bncDoc&gt;</code> element contains its own
+<code>&lt;teiHeader&gt;</code>, containing metadata relating to that specific
+text, followed by either a <code>&lt;wtext&gt;</code> element (for
+written texts) or an <code>&lt;stext&gt;</code> element (for spoken texts). </p>
+<div class="p">
+<span id="id2347063"></span>Each bncDoc element also carries an <span class="att">xml:id</span> attribute, which
+supplies its standard three-character identifier.
+
+<div class="pre"> <span class="element">&lt;bncDoc <span class="attribute">xml:id</span>="ABC"&gt;</span><br/>  <span class="element">&lt;teiHeader&gt;</span><br/>&lt;!-- header for document ABC here --&gt;<br/>  <span class="element">&lt;/teiHeader&gt;</span><br/>  <span class="element">&lt;wtext <span class="attribute">type</span>="FICTION"&gt;</span><br/>&lt;!-- sentences from ABC (a written text classified as fiction) here --&gt;<br/>  <span class="element">&lt;/wtext&gt;</span><br/> <span class="element">&lt;/bncDoc&gt;</span></div>
+</div>
+<p><span id="id2347099"></span>The components of the TEI header are fully documented in section <a class="link_ptr" href="cdifhd.html" title="The header">5  The header</a>. </p>
+<p><span id="id2347111"></span>Note that different elements are used for spoken and written texts
+because each has a different substructure; this represents a departure
+from TEI recommended practice.   
+</p>
+<div class="p">
+<span id="id2347120"></span>The function of these elements and their attributes may be summarized as follows:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-wtext.html">wtext</a>&gt;</b> contains a single written text.<table class="attList"><tr>
+<td class="Attribute">type</td>
+<td colspan="2">specifies the type of written text.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-stext.html">stext</a>&gt;</b> contains a single spoken text, i.e. a transcription or
+collection of transcriptions from a single source.<table class="attList"><tr>
+<td class="Attribute">type</td>
+<td colspan="2">specifies the type of spoken  text.</td>
+</tr></table>
+</li>
+</ul>
+</div>
+</div>
+<div class="teidiv1" id="cdifcomp">
+<h3>2.4  Segments and words</h3>
+<p><span id="id2347146"></span>The <code>&lt;s&gt;</code> element is the basic organizational principle for
+the whole corpus: every text, spoken or written, is represented as a
+sequence of <code>&lt;s&gt;</code> elements, possibly grouped into
+higher-level constructs, such as paragraphs or utterances. Each
+<code>&lt;s&gt;</code> element in turn contains <code>&lt;w&gt;</code> or <code>&lt;c&gt;</code> elements
+representing words and punctuation marks.</p>
+<p><span id="id2347171"></span>The <span class="att">n</span> attribute is used to provide a sequential
+number for the <code>&lt;s&gt;</code> element to which it is attached. To identify any part of the corpus
+uniquely therefore, all that is needed is the three character text
+identifier (given as the value of the attribute <span class="att">xml:id</span>
+on the <code>&lt;bncDoc&gt;</code> containing the text, followed by the value of
+the <span class="att">n</span> attribute of the <code>&lt;s&gt;</code> element containing
+the passage to be identified.</p>
+<p><span id="id2347201"></span>These numbers are, as far as possible, preserved across versions of
+the corpus, to facilitate referencing. This implies that the sequence
+numbering may have gaps, where duplicate sequences or segmentation
+errors have been identified and removed from the corpus. In a few
+(about 700) cases, sequences formerly regarded as a single <code>&lt;s&gt;</code>
+have subsequently been split into two or more <code>&lt;s&gt;</code> units. For
+compatibility with previous versions of the corpus, the same number is
+retained for each new <code>&lt;s&gt;</code>, but it is suffixed by a fragment
+number. For example, in text A18, the <code>&lt;s&gt;</code> formerly numbered
+1307, has now been replaced by two <code>&lt;s&gt;</code> elements, numbered
+1307_1 and 1307_2 respectively. </p>
+<div class="p">
+<span id="id2347232"></span> Fragmentary sentences such as headings or labels in lists are
+also encoded as <code>&lt;s&gt;</code> elements, as in the following example from
+text CBE:
+<div class="pre"> <span class="element">&lt;div <span class="attribute">type</span>="u"&gt;</span><br/>  <span class="element">&lt;head <span class="attribute">type</span>="MAIN"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="835"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="serious" <span class="attribute">pos</span>="ADJ"&gt;</span>Serious <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="fit" <span class="attribute">pos</span>="SUBST"&gt;</span>fit <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>of <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="giggle" <span class="attribute">pos</span>="SUBST"&gt;</span>giggles<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/head&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="836"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>A <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN0" <span class="attribute">hw</span>="pair" <span class="attribute">pos</span>="SUBST"&gt;</span>PAIR <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>of <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="tv" <span class="attribute">pos</span>="SUBST"&gt;</span>TV <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="newsreader" <span class="attribute">pos</span>="SUBST"&gt;</span>newsreaders <span class="element">&lt;/w&gt;</span><br/>   ... <br/>   <span class="element">&lt;/s&gt;</span>...<span class="element">&lt;/p&gt;</span> ... <span class="element">&lt;/div&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2347353"></span>As noted above, at the lowest level, the corpus consists of
+<code>&lt;w&gt;</code> (word) and <code>&lt;c&gt;</code> (punctuation) elements, grouped into
+<code>&lt;s&gt;</code> (segment) elements. Each <code>&lt;w&gt;</code> element contains three
+attributes to indicate its morphological class or part of speech, as
+determined by the CLAWS tagger, a simplified form of that POS code,
+and an automatically-derived root form or lemma. Each <code>&lt;c&gt;</code>
+element also carries codes for part of speech, but not for lemma. For
+example, the word &#8216;corpora&#8217; wherever it appears in
+the BNC is presented like this: <div class="pre"> <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">pos</span>="SUBST" <span class="attribute">hw</span>="corpus"&gt;</span>corpora <span class="element">&lt;/w&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2347396"></span>Any white space following a word in the original source is
+preserved within the <code>&lt;w&gt;</code> tag, as in the previous example. White
+space is not added if no space is present in the source, as in the
+following example:
+
+ <div class="pre"> <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">pos</span>="SUBST" <span class="attribute">hw</span>="corpus"&gt;</span>corpora<span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;c <span class="attribute">c5</span>="PUN" <span class="attribute">pos</span>="PUN"&gt;</span>. <span class="element">&lt;/c&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2347423"></span>The <code>&lt;w&gt;</code> element encloses a single token as identified by
+ the CLAWS tagger. Usually this willl correspond with a word as
+ conventionally spelled; there are however two important
+ exceptions. Firstly, CLAWS regards certain common abbreviated or
+ enclitic forms such as &#8216;'s&#8217; in
+ &#8216;he's&#8217; or &#8216;dog's&#8217; as distinct tokens, thus
+ enabling it to distinguish them as being an auxiliary verb in the
+ first case, and a genitive marker in the second.  For example,
+ &#8216;It's&#8217; is encoded as follows:
+<div class="pre"> <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="it" <span class="attribute">pos</span>="PRON"&gt;</span>It<span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>'s <span class="element">&lt;/w&gt;</span></div>while &#8216;dog's&#8217; is encoded:
+<div class="pre"> <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="dog" <span class="attribute">pos</span>="SUBST"&gt;</span>dog<span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;w <span class="attribute">c5</span>="POS" <span class="attribute">hw</span>="'s" <span class="attribute">pos</span>="UNK"&gt;</span>'s <span class="element">&lt;/w&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2347498"></span> Secondly, CLAWS treats certain common multi-word units as if they
+were single tokens, giving the whole of a sequence such as
+&#8216;in spite of&#8217; a single POS code. These multiword
+sequences were not distinguished from individual <code>&lt;w&gt;</code> elements
+in earlier versions of the corpus; in the present version however a
+new element <code>&lt;mw&gt;</code> (for multiword) has been introduced to mark
+them explicitly. The individual components of a <code>&lt;mw&gt;</code> sequence
+are also tagged as <code>&lt;w&gt;</code> elements in the same way as
+elsewhere. Thus, the phrase &#8216;in terms of&#8217;, which
+in earlier editions of the BNC would have been encoded as a single
+<code>&lt;w&gt;</code> element, is now encoded as follows:
+<div class="pre"> <span class="element">&lt;mw <span class="attribute">c5</span>="PRP"&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="in" <span class="attribute">pos</span>="PREP"&gt;</span>in <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="term" <span class="attribute">pos</span>="SUBST"&gt;</span>terms <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>of
+<span class="element">&lt;/w&gt;</span><br/> <span class="element">&lt;/mw&gt;</span></div>
+</div>
+<div class="p">
+<span id="id2347570"></span>Detailed information about the procedures by which the part of
+speech and lemmatization information was added to the corpus is
+provided in section <a class="link_ptr" href="posguide.html" title="Wordclass Tagging in BNC XML">6   Wordclass Tagging in BNC XML</a>, which is derived from 
+the <i>Manual to accompany The British National Corpus
+(Version 2) with Improved Word-class Tagging</i> by Geoffrey Leech
+and Nicholas Smith, as distributed along with the BNC World
+edition of the corpus. 
+A brief summary of the codes used and their significance is also
+provided in the reference section below
+(<a class="link_ptr" href="bnctags.html" title="Formal Specification of the BNC XML schema">12  Formal Specification of the BNC XML schema</a>).
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-s.html">s</a>&gt;</b> (s-unit) contains a sentence-like division of a text.<table class="attList"><tr>
+<td class="Attribute">n</td>
+<td colspan="2">sequence number .</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-w.html">w</a>&gt;</b> (word) represents a grammatical (not necessarily orthographic) word.<table class="attList">
+<tr>
+<td class="Attribute">pos</td>
+<td colspan="2">supplies a simplified  part-of-speech code.</td>
+</tr>
+<tr>
+<td class="Attribute">c5</td>
+<td colspan="2">supplies the CLAWS 5 code associated with this word.</td>
+</tr>
+<tr>
+<td class="Attribute">hw</td>
+<td colspan="2">specifies the headword under which this lexical unit is
+      conventionally grouped, where known.</td>
+</tr>
+</table>
+</li>
+<li>
+<b>&lt;<a href="ref-c.html">c</a>&gt;</b> (character) contains a significant punctuation mark as identified by the CLAWS tagger.<table class="attList"><tr>
+<td class="Attribute">c5</td>
+<td colspan="2">the CLAWS 5 code associated with this punctuation
+   mark.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-mw.html">mw</a>&gt;</b> contains a multi-word unit as identified by CLAWS, that is, a
+sequence of individual tokens which function as a single
+unit and can be given a single part of speech code.<table class="attList"><tr>
+<td class="Attribute">c5</td>
+<td colspan="2">supplies the CLAWS 5 code associated with this word.</td>
+</tr></table>
+</li>
+</ul>
+</div>
+</div>
+<div class="teidiv1" id="cdifed">
+<h3>2.5  Editorial indications</h3>
+<p><span id="id2347632"></span>Despite the best efforts of its creators, any corpus as large as
+the BNC will inevitably contain many errors, both in transcription and
+encoding.  Every attempt has been made to reduce the incidence of such
+errors to an acceptable level, using a number of automatic and
+semi-automatic validation and correction procedures, but exhaustive
+proof-reading of a corpus of this size remains economically
+infeasible. Editorial interventions in the marked up texts take three forms. On a
+few occasions, where markup or commentary introduced by transcribers
+during the process of creating the corpus may be helpful to subsequent
+users, it has been retained in the form of an XML comment. On some
+occasions, encoders have decided to correct material evidently wrong
+in their copy text: such corrections are marked using the
+<code>&lt;corr&gt;</code> element. And on several occasions, sampling,
+anonymization or other concerns, have led to the omission of
+significant parts of the original source; such omissions are marked by
+means of the <code>&lt;gap&gt;</code> element. </p>
+<p><span id="id2347658"></span>The transcription and editorial policies defined for the corpus may
+not have been applied uniformly by different transcribers and
+consequently the usage of these elements is not consistent across all
+texts. The <code>&lt;tagsDecl&gt;</code> element in each text's header may be
+consulted for an indication of the usage of these and other elements
+within it (see further section <a class="link_ptr" href="cdifhd.html#hdenc" title="The encoding description">5.2  The encoding description</a>). Their absence
+should not be taken to imply that the text is either complete or
+perfectly transcribed.
+</p>
+<div class="p">
+<span id="id2347677"></span>In the following example, the first three chapters have been omitted
+for sampling reasons:
+<div class="pre"> <span class="element">&lt;wtext <span class="attribute">type</span>="FICTION"&gt;</span><br/>  <span class="element">&lt;div <span class="attribute">level</span>="1" <span class="attribute">n</span>="1"&gt;</span><br/>   <span class="element">&lt;head&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="1"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="friday" <span class="attribute">pos</span>="SUBST"&gt;</span>Friday <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="16" <span class="attribute">pos</span>="ADJ"&gt;</span>16 <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="september" <span class="attribute">pos</span>="SUBST"&gt;</span>September <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="tuesday" <span class="attribute">pos</span>="SUBST"&gt;</span>Tuesday <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="20" <span class="attribute">pos</span>="ADJ"&gt;</span>20 <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="september" <span class="attribute">pos</span>="SUBST"&gt;</span>September<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/head&gt;</span><br/>   <span class="element">&lt;gap <span class="attribute">desc</span>="chapters 1&#8211;3 of book 1" <span class="attribute">reason</span>="sampling strategy"/&gt;</span><br/>   <span class="element">&lt;pb <span class="attribute">n</span>="17"/&gt;</span><br/>   <span class="element">&lt;div <span class="attribute">level</span>="2" <span class="attribute">n</span>="4"&gt;</span><br/>    <span class="element">&lt;p&gt;</span><br/>     <span class="element">&lt;s <span class="attribute">n</span>="2"&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="once" <span class="attribute">pos</span>="ADV"&gt;</span>Once <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="free" <span class="attribute">pos</span>="ADJ"&gt;</span>free <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>of <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="knotted" <span class="attribute">pos</span>="ADJ"&gt;</span>knotted <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="tentacle" <span class="attribute">pos</span>="SUBST"&gt;</span>tentacles <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>of <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the
+<span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="eastern" <span class="attribute">pos</span>="ADJ"&gt;</span>eastern <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="suburb" <span class="attribute">pos</span>="SUBST"&gt;</span>suburbs<span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="dalgliesh" <span class="attribute">pos</span>="SUBST"&gt;</span>Dalgliesh <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="make" <span class="attribute">pos</span>="VERB"&gt;</span>made <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="good" <span class="attribute">pos</span>="ADJ"&gt;</span>good <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="time" <span class="attribute">pos</span>="SUBST"&gt;</span>time <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="by" <span class="attribute">pos</span>="PREP"&gt;</span>by <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="three" <span class="attribute">pos</span>="ADJ"&gt;</span>three <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="he" <span class="attribute">pos</span>="PRON"&gt;</span>he
+<span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="VBD" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>was <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="VVG" <span class="attribute">hw</span>="drive" <span class="attribute">pos</span>="VERB"&gt;</span>driving <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="through" <span class="attribute">pos</span>="PREP"&gt;</span>through
+<span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="lydsett" <span class="attribute">pos</span>="SUBST"&gt;</span>Lydsett <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="village" <span class="attribute">pos</span>="SUBST"&gt;</span>village<span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;/s&gt;</span><br/>    <span class="element">&lt;/p&gt;</span>... <span class="element">&lt;/div&gt;</span>...<span class="element">&lt;/div&gt;</span><br/> <span class="element">&lt;/wtext&gt;</span><br/>&lt;!-- C8T --&gt;</div>
+</div>
+<div class="p">
+<span id="id2348004"></span>In the following example, a proper name has been omitted: 
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="547"&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>I <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="ask" <span class="attribute">pos</span>="VERB"&gt;</span>asked <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="mr" <span class="attribute">pos</span>="SUBST"&gt;</span>Mr  <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;gap <span class="attribute">desc</span>="name" <span class="attribute">reason</span>="anonymization"/&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and   <span class="element">&lt;/w&gt;</span><br/> ...<span class="element">&lt;/s&gt;</span><br/>&lt;!-- KBC --&gt;</div>
+</div>
+<div class="p">
+<span id="id2348063"></span>In the following example, a telephone number has been omitted:
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="762"&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="he" <span class="attribute">pos</span>="PRON"&gt;</span>He <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="appeal" <span class="attribute">pos</span>="VERB"&gt;</span>appealed <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="for" <span class="attribute">pos</span>="PREP"&gt;</span>for <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNI" <span class="attribute">hw</span>="anyone" <span class="attribute">pos</span>="PRON"&gt;</span>anyone <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="with" <span class="attribute">pos</span>="PREP"&gt;</span>with <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="information" <span class="attribute">pos</span>="SUBST"&gt;</span>information <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="TO0" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="contact" <span class="attribute">pos</span>="VERB"&gt;</span>contact <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="he" <span class="attribute">pos</span>="PRON"&gt;</span>him <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AVP" <span class="attribute">hw</span>="on" <span class="attribute">pos</span>="ADV"&gt;</span>on <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;gap <span class="attribute">desc</span>="telephone number"/&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/> <span class="element">&lt;/s&gt;</span><br/>&lt;!-- K3C --&gt;</div>
+</div>
+<div class="p">
+<span id="id2348172"></span>In the following example, a typographic error in the original has been
+corrected:
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="48"&gt;</span>...
+<span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="good" <span class="attribute">pos</span>="ADJ"&gt;</span>good <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="or" <span class="attribute">pos</span>="CONJ"&gt;</span>or <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;corr <span class="attribute">sic</span>="herioc"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="heroic" <span class="attribute">pos</span>="ADJ"&gt;</span>heroic <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/corr&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="behaviour" <span class="attribute">pos</span>="SUBST"&gt;</span>behaviour<span class="element">&lt;/w&gt;</span><br/> ...<span class="element">&lt;/s&gt;</span><br/>&lt;!-- B17 --&gt;</div>
+</div>
+<div class="p">
+<span id="id2348232"></span>In the following example, a word ommitted in the original has been
+supplied as correction:
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="1838"&gt;</span><br/>  <span class="element">&lt;mw <span class="attribute">c5</span>="PRP"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="apart" <span class="attribute">pos</span>="ADV"&gt;</span>Apart <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="from" <span class="attribute">pos</span>="PREP"&gt;</span>from <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/mw&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="some" <span class="attribute">pos</span>="ADJ"&gt;</span>some <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="eye-liner" <span class="attribute">pos</span>="SUBST"&gt;</span>eye-liner <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="aberration" <span class="attribute">pos</span>="SUBST"&gt;</span>aberrations <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="as" <span class="attribute">pos</span>="PREP"&gt;</span>as <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="teenager" <span class="attribute">pos</span>="SUBST"&gt;</span>teenager<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="mr" <span class="attribute">pos</span>="SUBST"&gt;</span>Mr <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="punch" <span class="attribute">pos</span>="SUBST"&gt;</span>Punch<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="it" <span class="attribute">pos</span>="PRON"&gt;</span>it <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="must" <span class="attribute">pos</span>="VERB"&gt;</span>must <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;corr <span class="attribute">sic</span>=""&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VBI" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>be <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/corr&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VVN" <span class="attribute">hw</span>="say" <span class="attribute">pos</span>="VERB"&gt;</span>said<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="absolutely" <span class="attribute">pos</span>="ADV"&gt;</span>absolutely <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="straight" <span class="attribute">pos</span>="ADJ"&gt;</span>straight <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP-CJS" <span class="attribute">hw</span>="as" <span class="attribute">pos</span>="PREP"&gt;</span>as <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1-VVB" <span class="attribute">hw</span>="die" <span class="attribute">pos</span>="SUBST"&gt;</span>die<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/> <span class="element">&lt;/s&gt;</span><br/>&lt;!-- BNT --&gt;</div>
+</div>
+<div class="p">
+<span id="id2348443"></span>The usage of these elements may be summarized as follows:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-gap.html">gap</a>&gt;</b> (omitted material) indicates a point where material has been omitted from the
+transcription.<table class="attList">
+<tr>
+<td class="Attribute">desc</td>
+<td colspan="2">briefly describes the material which has been omitted.</td>
+</tr>
+<tr>
+<td class="Attribute">reason</td>
+<td colspan="2">gives further details of the reason for omission.</td>
+</tr>
+<tr>
+<td class="Attribute">resp</td>
+<td colspan="2">indicates the agency responsible for the
+	intervention or interpretation, for example an editor or transcriber.</td>
+</tr>
+</table>
+</li>
+<li>
+<b>&lt;<a href="ref-corr.html">corr</a>&gt;</b> (correction) contains the correct form of a passage apparently erroneous in the copy text.<table class="attList">
+<tr>
+<td class="Attribute">sic</td>
+<td colspan="2">contains verbatim text which has been corrected, or an empty string if
+the correction consists of an addition.</td>
+</tr>
+<tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr>
+<tr>
+<td class="Attribute">resp</td>
+<td colspan="2">a code identifying the agency responsible for making the
+correction.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+Note that the <code>&lt;sic&gt;</code> element used in preceding editions of the
+BNC is no longer used.</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="BNCdes.html">1  Design of the corpus</a><i> Next: </i><a class="navigation" href="cdifwr.html">3  Written texts</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:46Z-->
+</address>
+</div>
+</div></body>
+</html>

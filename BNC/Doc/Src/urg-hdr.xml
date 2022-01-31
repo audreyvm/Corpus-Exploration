@@ -1,0 +1,907 @@
+<div xml:id="cdifhd"><head>The header</head> 
+<p>The <term>header</term> of a TEI-conformant text provides a
+structured description of its contents, analogous to the title page
+and front matter of a book. The component elements of a TEI header are
+intended to provide in machine-processable form all the information
+needed to make sensible use of the Corpus.</p>
+
+<p>Every separate text in the British National Corpus (i.e. each
+<gi>bncDoc</gi> element) has its own header, referred to below as a
+<term>text header</term>.  In addition, the corpus itself has a header,
+referred to below as the <term>corpus header</term>, containing
+information which is applicable to the whole corpus. Both
+corpus and text headers are represented by <gi>teiHeader</gi>
+elements. </p>
+
+<p>The corpus header is supplied in a separate file called
+<att>bncHdr.xml</att>, whereas text headers are prefixed to each
+file in the Texts directory. In the remainder of this section, we describe the components of the
+<gi>teiHeader</gi> element, as used within the BNC. 
+A TEI header contains  a <term>file description</term>
+(section <ptr target="#hdfd"/>), an <term>encoding description</term>
+(section
+<ptr target="#hdenc"/>), a <term>profile description</term> (section
+<ptr target="#hdpro"/>) and a <term>revision description</term> (section
+<ptr target="#hdrev"/>), represented by the following four elements: 
+<specList>
+<specDesc key="fileDesc"/>
+<specDesc key="encodingDesc"/>
+<specDesc key="profileDesc"/>
+<specDesc key="revisionDesc"/>
+</specList>
+</p>
+
+<div xml:id="hdfd"><head>The file description </head>
+
+<p>The file description (<gi>fileDesc</gi>) is the first of the four
+main constituents of the header. It is intended to document an electronic file
+i.e. (in the case of a corpus header) the whole corpus, or (in
+the case of a text header) any characteristics peculiar to an
+individual file within it. In each case, it contains the following
+five subdivisions:
+
+<specList>
+<specDesc key="titleStmt"/>
+<specDesc key="editionStmt"/>
+<specDesc key="extent"/>
+<specDesc key="publicationStmt"/>
+<specDesc key="sourceDesc"/>
+</specList>
+</p>
+<p>Further detail for each of these is given in the following
+subsections. <!-- Note that all except the source description relate only to
+the electronic file (the corpus text itself). -->
+</p>
+
+<div xml:id="hdfdts"><head>The title statement</head>
+
+<p>The title statement (<gi>titleStmt</gi>) element of a BNC text
+contains one or more <gi>title</gi> elements, optionally followed by
+<gi>author</gi>, <gi>editor</gi>, or <gi>respStmt</gi> elements. These
+sub-elements are used throughout the header, wherever the title of a
+work or a statement of responsibility are required.</p>
+
+<p>For the corpus header, the title statement looks like this:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><titleStmt>
+      <title>The British National Corpus: XML Edition</title>
+      <respStmt>
+        <resp>Lead partner in consortium</resp>
+        <name>Oxford University Press</name>
+      </respStmt>
+      <respStmt>
+        <resp>Text selection for miscellaneous and unpublished written materials</resp>
+        <name>W R Chambers</name>
+        <resp>Text selection, data capture and transcription for spoken texts and for 14% of
+published written texts</resp>
+        <name>Longman ELT</name>
+        <resp>Text selection for 86% published written texts</resp>
+        <name>Oxford University Press</name>
+        <resp>Data capture and transcription for all miscellaneous and unpublished written
+texts and for 86% of published written texts</resp>
+        <name>Oxford University Press</name>
+      </respStmt>
+      <respStmt>
+        <resp>XML conversion, encoding, storage and distribution</resp>
+        <name>Oxford University Computing Services</name>
+      </respStmt>
+      <respStmt>
+        <resp>Text enrichment</resp>
+        <name>Unit for Computer Research into the English Language,
+University of Lancaster</name>
+      </respStmt>
+    </titleStmt></egXML></p>
+
+<p>In individual corpus texts, the title statement follows a pattern
+like the following:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><titleStmt><title>The National Trust Magazine. Sample containing
+about 21015 words from a periodical (domain: arts)
+</title><respStmt><resp> Data capture and transcription </resp>
+<name>Oxford University Press </name> </respStmt></titleStmt></egXML>
+</p>
+
+<p>The content of the <gi>title</gi> element includes the title of the
+source, followed by the phrase "Sample containing about", the
+approximate word count for the sample, and further information about
+the text type and domain, all extracted from other parts of the
+header. This is followed by responsibility statements showing which
+of the BNC Consortium members was responsible for capturing the
+text originally.
+</p>
+
+
+
+
+<p>Here are some typical examples:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<title>  How we won the open: the caddies' stories. Sample containing
+about 36083 words from a book (domain: leisure) </title> <!-- ASA-->
+<title> Harlow Women's Institute committee meeting. 
+  Sample containing about 246 words speech recorded 
+  in public context</title>
+<title> The Scotsman: Arts section. Sample containing 
+  about 48246 words from a periodical (domain: arts)
+</title>
+<title>32 conversations recorded by `Frank' (PS09E) 
+  between 21 and 28 February 1992 with 9 interlocutors, 
+  totalling 3193 s-units, 20607 words, and 3 hours 
+  22 minutes 23 seconds of recordings.</title>
+<title>[Leaflets advertising goods and 
+  products]. Sample containing about 23409 words 
+  of miscellanea (domain: commerce)</title>
+</egXML>
+</p><p>A <gi>respStmt</gi> element is used to indicate
+each agency responsible for any significant effort in the creation of
+the text. Since responsibilities for data encoding and storage, and for
+enrichment, are the same for all texts, they are not repeated in each
+text header. The responsibility for
+original data capture and transcription varies text by text, and is
+therefore stated in each text header, in the following manner:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><respStmt>
+<resp>
+Data capture and transcription
+</resp>
+<name>
+Longman ELT
+</name>
+</respStmt>      
+</egXML><!-- check this -->
+
+</p>
+<p>Author and editor information for the source from which a text is derived (e.g.
+the author of a book) is not included in the <gi>filedesc</gi> element but in the <gi>sourceDesc</gi> element discussed below (<ptr target="#hdfdsd" />).</p>
+</div>
+
+<div xml:id="hdfdes"><head>The edition statement</head> 
+
+<p>The <gi>editionStmt</gi> element is used to specify an
+edition for each file making up the corpus. It takes the same form in
+both the corpus header and individual text headers:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><editionStmt>
+      <edition>BNC XML Edition, January 2007</edition>
+    </editionStmt>
+</egXML>
+</p></div>
+
+<div xml:id="hdfdex"><head>The extent statement</head> 
+<p>The <gi>extent</gi>
+element is used in each text header to specify the size of the text to
+which it is attached, as in the following example:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<extent> 21015 tokens; 21247 w-units; 957 s-units </extent>
+</egXML> These counts do not include the size of the header
+itself. The number of <q>tokens</q>  is generated by the Unix
+<code>wc</code> utility, which simply counts blank delimited
+strings; the other figures give the number of <gi>w</gi> and
+<gi>s</gi> elements  respectively.</p>
+
+</div>
+
+<div xml:id="hdfdps"><head>The publication statement</head> 
+
+<p>The <gi>publicationStmt</gi> element is used
+to specify publication and
+availability information for an electronic text.  It contains the
+following three elements:
+<specList>
+<specDesc key="distributor"/>
+<specDesc key="availability"/>
+<specDesc key="idno"/>
+</specList>
+</p>
+
+<p>Individual text headers contains the following fixed text for the
+first two of these:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<distributor>Distributed under licence by Oxford University Computing
+Services on behalf of the BNC Consortium.</distributor>
+<availability> This material is protected by international copyright
+laws and may not be copied or redistributed in any way. 
+Consult the BNC Web Site at http://www.natcorp.ox.ac.uk for full 
+licencing and distribution conditions.</availability></egXML>
+For contractual reasons, the corpus header includes a somewhat longer  rehearsal of 
+the terms and conditions under which the BNC is made available. 
+</p>
+
+<p>For individual text headers, two identification numbers are
+supplied, distinguished by the value of their <att>type</att>
+attribute.
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<idno type="bnc">A0A</idno>
+<idno type="old">CAMfct</idno>
+</egXML>
+</p>
+
+<p>The second identifier (of type <code>old</code>) is the old-style
+mnemonic or numeric code attached to BNC texts during the  production of
+the corpus, and is still used to label the original printed source materials in the
+BNC Archive. The first three character code (of type <code>bnc</code>)
+is the standard BNC identifier. It is also used both for the filename in
+which the text is stored and as the value supplied for the
+<att>xml:id</att> attribute on the <gi>bncDoc</gi> element containing
+the whole text, and should always be used to cite the text. The code
+is a completely arbitrary identifier, and does not indicate anything
+about the nature of the text. 
+</p>
+<!--Note the inclusion at the end of the notice of the name and address of
+the agency owning rights in the text concerned, which has granted
+permission for its inclusion in the corpus. If no such agency is
+named, permission for rights additional to those explicitly given by
+the licencing arrangements in place should be sought from the BNC
+Consortium in the first instance.  Note that the BNC world edition
+includes only texts for which world rights have been cleared by the
+BNC Consortium.
+eg
+Permissions grantor for World:
+CAMRA (imprint) of St Albans
+-->
+
+</div>
+<div xml:id="hdfdsd"><head>The source description </head> 
+
+<p>The <gi>sourceDesc</gi> element is used to supply
+bibliographic details for the original source material from which an
+electronic text derives. In the case of a BNC text, this might be a
+book, pamphlet, newspaper etc., or a recording. One of the following
+elements available within the <gi>sourceDesc</gi> will be used, as
+appropriate: 
+
+<specList>
+<specDesc key="recordingStmt"/>
+<specDesc key="bibl"/>
+</specList>
+</p>
+
+<p>These elements are not used within the corpus header, which simply
+contains a note about the sources from which the corpus was derived,
+tagged as a <gi>para</gi> (paragraph). The headers of individual texts
+each contain one of the above elements to specify their source. </p>
+
+<p>Context-governed spoken texts derived from broadcast or similar
+<soCalled>published</soCalled> material may have either a  recording statement or a
+bibliographic record as their source.
+</p>
+<p>All bibliographic data supplied in the individual text headers is
+collected together and reproduced in section <ptr target="#bibliog"/> below.</p>
+
+<div xml:id="hdrecst"><head>The recording statement </head>
+<p>The recording statement (<gi>recordingStmt</gi>) element 
+contains one or more <gi>recording</gi> elements:
+
+<specList>
+<specDesc key="recording" atts="n date time type dur"/>
+</specList>
+<!-- are all these attribs used? -->
+
+</p>
+
+<p>The value of the <att>n</att> attribute here provides the
+number of the audio tape holding the original recording, as deposited
+with the British Library's Sound Archive in London. </p>
+
+<p>In the following simple example, typical of most
+of the <soCalled>context-governed</soCalled> parts of the BNC, the
+<gi>recording</gi> element has no content at all:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<recordingStmt>
+  <recording n="121101" date="1994-02-09" 
+      time="11:00" type="DAT"></recording>
+</recordingStmt>
+</egXML>
+</p>
+
+<p>When, as is often the case for the spoken demographic parts of the
+BNC, a text has been made up by transcribing several different
+recordings made by a single respondent over a period of time, each
+such recording will have its own <gi>recording</gi> element, as in the
+following example:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<recordingStmt>
+  <recording n="018201" dur="322" date="1991-11-28" 
+        time="18:15+" type="Walkman" xml:id="KB7RE000"/>
+  <recording n="018202" dur="253" date="1991-11-28" 
+        time="18:15+" type="Walkman" xml:id="KB7RE001"/>
+  <!-- ... -->
+  <recording n="018207" dur="630" date="1991-11-29" 
+        time="10:15+" type="Walkman" xml:id="KB7RE006"/>
+  <recording n="018301" dur="75" date="1991-11-29" 
+        time="12:15+" type="Walkman" xml:id="KB7RE007"/>
+  <!-- ... -->
+</recordingStmt></egXML>
+</p>
+<p>Note the presence of an <att>xml:id</att> attribute on each of the
+above recordings. The value given here is used to indicate the
+recording from which a given part of the text was transcribed. Each
+recording is transcribed as a distinct <gi>div</gi> (division) element
+within an <gi>stext</gi>. In that element, the  identifier of the
+source recording is supplied as the value of
+a <att>decls</att> attribute. Thus, in the spoken text derived
+from the above mentioned recordings, there will be a <gi>div</gi>
+element starting as follows:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><div decls="KB7RE0077">
+...</div></egXML>
+which will contain the part of text transcribed from that recording. As noted
+above the identifier supplied on the <att>n</att> attribute is quite
+distinct, and identifies the tape on which the original recording was
+made, and by which it is referenced in the British Library's Sound Archive.
+</p>
+</div>
+
+<div xml:id="hdbib"><head>Structured bibliographic record</head>
+
+<p>In addition to its usage within the corpus texts (see <ptr
+target="#cdifbib"/>), the <gi>bibl</gi> element is also used to record
+bibliographic information for each non-spoken component of the BNC.
+In this case, its structure is constrained to contain only the
+following elements in the order specified:
+
+<specList>
+<specDesc key="title"/>
+<specDesc key="editor"/>
+<specDesc key="author"/>
+<specDesc key="imprint"/>
+<specDesc key="pp"/>
+</specList>
+</p>
+<p>During production of the BNC, the <att>n</att> attribute was
+used with both <gi>author</gi> and <gi>imprint</gi> elements to supply
+a six-letter code identifying the author or imprint concerned. The
+values used should be unique across the corpus, but this is not
+validated in the current release of the DTD.
+</p>
+
+<p>The <gi>imprint</gi> element is
+supplied for published texts only and contains the following elements in the order given:
+
+<specList>
+<specDesc key="pubPlace"/>
+<specDesc key="publisher"/>
+<specDesc key="date"/>
+</specList>
+
+</p>
+
+<p>The following example demonstrates how these elements are used to
+record bibliographic details for a typical book:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">      
+<bibl><title>It might have been Jerusalem. </title> <author
+n="HealyT1" domicile="Scotland">Healy, Thomas</author> <imprint
+n="POLYGO1"><publisher>Polygon Books</publisher>
+<pubPlace>Edinburgh</pubPlace> <date value="1991">1991</date>
+</imprint> <pp>1-81</pp> </bibl><!-- BNC --></egXML>
+
+</p>
+<p>The following example is typical of the case where a collection of
+leaflets or newsletters has been treated as a single text: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<bibl><title>[Potato Marketing Board leaflets]</title> <imprint n="POTATO1"><publisher>Potato Marketing Board</publisher> <pubPlace>London</pubPlace> <date value="1991">1991</date> </imprint> </bibl><!-- EEA --></egXML> 
+</p>
+<!--   when multiple
+monographic records are grouped together into single items. When the
+item described by a bibliographic citation forms a part of some other
+bibliographic item (as, for example, a newspaper article within a
+newspaper, or a journal article within a collection), a monographic
+description like that above is given for the newspaper or collection,
+prefixed by an analytic description for the individual component,
+enclosed within an <gi>analytic</gi> element. This contains a mixture
+of the elements <gi>author</gi>
+<gi>respStmt</gi> and <gi>title</gi> in any order and repeated as
+necessary. -->
+<p>Occasionally, a bibliographic item has two titles, for
+example a series title as well as an individual title, or multiple
+authors. In the BNC such cases are treated simply by repeating the
+element concerned, sometimes using the <att>level</att> attribute
+to distinguish the bibliographic <soCalled>level</soCalled> of the
+title:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<bibl><title>Damages for personal injury and death: </title><title
+level="a">Damages on death</title><author n="SauntT1">Saunt,
+Thomas</author><editor>Kemp, David</editor><imprint
+n="LONGMA1"><publisher>Longman Group UK Ltd</publisher>
+<pubPlace>Harlow</pubPlace> <date value="1993">1993</date>
+</imprint><pp>52-68</pp></bibl><!-- J6W --></egXML>
+</p>
+<!-- check the foregoing -->
+
+<p>Where <soCalled>series</soCalled> information is available for a
+given title, this is not normally tagged distinctly. Instead the
+series title is given as part of the monographic title, usually
+preceded by a colon. </p>
+
+<p>This level of bibliographic description has not been carried out with complete
+consistency across the current release of the corpus.</p></div></div>
+       </div>
+
+<div xml:id="hdenc"><head>The encoding description</head> 
+
+<p>The second major component of the TEI header is the encoding
+description (<gi>encodingDesc</gi>). This contains
+information about the relationship between an encoded text and its
+original source and describes the editorial and other principles
+employed throughout the corpus.  It also contains reference information
+used throughout the corpus. 
+</p>
+<p>The BNC  <gi>encodingDesc</gi> element has the following six
+components: 
+<specList>
+<specDesc key="projectDesc"/>
+<specDesc key="samplingDecl"/>
+<specDesc key="editorialDecl"/>
+<specDesc key="tagsDecl"/>
+<specDesc key="refsDecl"/>
+<specDesc key="classDecl"/>
+<specDesc key="xairaSpecification"/>
+</specList>
+</p>
+
+<p>In the BNC, one of each of these elements appears in the corpus
+header. Only  the <gi>tagsDecl</gi> element appears
+in the individual text headers. 
+</p>
+
+<div xml:id="hdecdoc"><head>Documentary components of the encoding
+description</head> 
+<p>The <gi>projectDesc</gi> element for the corpus gives a brief
+description of the goals, organization and results of the BNC project.
+The <gi>samplingDecl</gi>, <gi>editorialDecl</gi> and
+<gi>refsDecl</gi> elements similarly supply brief prose descriptions
+describing the sampling procedures used in the project and the
+referencing system applied. This information is also summarized elsewhere
+in this documentation.
+</p>
+</div>
+
+<div xml:id="hdectd"><head>The tagging declaration </head>
+
+<p>The  tagging declaration (<gi>tagsDecl</gi>) element is
+used slightly differently in corpus and in text headers. In the corpus
+header, it is used to list every element name actually used within the
+corpus, together with a brief description of its function. In text
+headers, it is used to specify the number of elements actually tagged
+within each text. In either case it consists of a <gi>namespace</gi>
+element, containing a number of
+<gi>tagUsage</gi> elements, defined as follows:
+
+<specList>
+<specDesc key="namespace"/>
+<specDesc key="tagUsage" atts="gi occurs"/>
+</specList>
+</p>
+<p>In the corpus header, each <gi>tagUsage</gi> element contains a
+brief description of the element specified by its <gi>gi</gi> element;
+the <att>occurs</att> attribute is not supplied, as in the following
+extract: <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<tagUsage gi="event">
+Non-verbal event in spoken text
+</tagUsage>
+<tagUsage gi="gap">
+Point where source material has omitted
+</tagUsage>
+<tagUsage gi="head">
+Header or headline in written text 
+</tagUsage>
+</egXML></p>
+<p>In text headers, the <gi>tagUsage</gi> elements are empty, but the
+<att>occurs</att> attribute is always supplied, and indicates the
+number of such elements which appear within the text, as in the following
+example, taken from a typical written text:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><tagsDecl><namespace name=""><tagUsage gi="c" occurs="5750"/><tagUsage gi="corr" occurs="1"/><tagUsage gi="div" occurs="115"/><tagUsage gi="gap" occurs="3"/><tagUsage gi="head" occurs="156"/><tagUsage gi="hi" occurs="147"/><tagUsage gi="l" occurs="2"/><tagUsage gi="lg" occurs="1"/><tagUsage gi="mw" occurs="256"/><tagUsage gi="p" occurs="680"/><tagUsage gi="quote" occurs="3"/><tagUsage gi="s" occurs="2415"/><tagUsage gi="w" occurs="41799"/></namespace></tagsDecl></egXML><!-- a7d --></p></div>
+
+<div xml:id="hdeccd"><head>The reference and classification declarations</head>
+
+<p>The <gi>refsDecl</gi> element for the corpus header defines the
+approved format for references to the corpus. It takes the following form
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<refsDecl>
+<para>Canonical references in the British National Corpus
+are to text segment (s) elements, and
+are constructed by taking the value of the xml:id attribute
+of the bncDoc element containing the target text,
+and concatenating a dot separator, followed by the value
+of the n attribute of the target s element.
+</para></refsDecl>
+</egXML></p>
+<!-- not yet checked -->
+<p>The standard TEI <gi>classDecl</gi> element is used in the BNC Corpus Header
+to formally define several text classication
+schemes which are used in the corpus. Each scheme or <term>taxonomy</term>
+defines a number of code/description pairs, applicable to a text in
+the corpus. For example, the written domain taxonomy defines twelve
+subject domains ("Imagination", "Informative: natural science",
+"Informative: applied science" etc.) and each
+written text is assigned to one of them. Each
+taxonomy is defined in the corpus header, using the following elements:
+<specList>
+<specDesc key="taxonomy"/>
+<specDesc key="desc"/>
+<specDesc key="category"/>
+<specDesc key="bibl"/>
+</specList>
+</p>
+<p>Here, for example, is the start of the <gi>taxonomy</gi> element
+defining the <term>Written domain</term> classification system as it appears in
+the corpus header:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><taxonomy xml:id="WRIDOM">
+        <desc>Written Domain</desc>
+        <category xml:id="WRIDOM1">
+          <catDesc>Imaginative</catDesc>
+        </category>
+        <category xml:id="WRIDOM2">
+          <catDesc>Informative: natural &amp; pure science</catDesc>
+        </category>
+        <category xml:id="WRIDOM3">
+          <catDesc>Informative: applied science</catDesc>
+        </category>
+...
+</taxonomy></egXML>  
+</p>
+
+<p>For a complete list of the taxonomies used in the BNC and the
+number of texts etc. classified according to them, refer to the corpus
+header and to chapter <ptr target="#BNCdes"/>.</p>
+
+
+<p>The classification categories applicable to a given text are specified
+by the <gi>catRef</gi> element within the associated text header. Its
+<att>target</att> lists the identifiers of all <gi>category</gi>
+elements applicable to that text. For example, the header of a written text
+assigned to the social science domain which has a corporate author will
+include a <gi>catRef</gi> element like the following:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><catRef target='... WRIATY1 WRIDOM4...'/> </egXML> (The
+dots above represent the identifiers of all other category codes applicable to this text).
+</p>
+<p>A full list of all category codes, and the numbers of texts so
+classified in the current release of the corpus is provided in section
+<ptr target="#classcodes"/>.  
+</p>
+
+<p>Further information about the classification and categorization of an
+individual texts is provided within the <gi>textClass</gi> element
+discussed below (<ptr target="#hdpdtc"/>)
+</p>
+</div>
+
+<div><head>The Xaira Specification</head> <p>The Xaira Specification
+element is used by the XAIRA indexing software to index the BNC. A
+brief description of its components is provided in <ptr
+target="#xairaspec"/> below; for full information, consult the Xaira
+documentation available from
+<ref target="http://www.xaira.org/">http://www.xaira.org/</ref></p></div>
+</div>
+
+<div xml:id="hdpro"><head>The profile description </head> 
+
+<p>The third component of a TEI header is the profile description. In
+the BNC this is used to provide the following elements:
+<specList>
+<specDesc key="creation"/>
+<specDesc key="langUsage"/>
+<specDesc key="particDesc" atts="n"/>
+<specDesc key="settingDesc"/>
+<specDesc key="textClass"/>
+</specList>
+</p>
+
+<div xml:id="hdpdcr"><head>The creation element</head>
+
+<p>This element is provided to record the date of publication for
+texts originally published separately, and any details concerning the origination
+of any spoken or written texts, whether or not covered elsewhere. It
+is supplied in every text header, although the details provided
+vary. As a minimum, a date (tagged with the standard <gi>date</gi>
+element) will be included; this gives the date the content of this
+text was first created. For a spoken text, this will be the same as
+the date of the recording; for a written text, it will normally be the
+date of first publication of the edition, which may not be the same as
+the date of publication of the copy used. </p>
+<p>Here are two typical examples:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><creation><date>1992-02-11</date>: 
+</creation> 
+
+<creation><date>1971</date>: originally published by Jonathan Cape.
+</creation>
+</egXML>
+</p>
+<p>Note that the BNC contains modernized editions of some classic texts
+such as Defoe's <title>Robinson Crusoe</title> (FRX); the creation
+date specified here is that of the creation of the modernized version
+rather than the 17th c. original.</p>
+<p>For imaginative works, the creation date is also the date used to
+classify the text (by means of the <code>WRITIM</code> category). For
+other written works, such as textbooks, which are likely to have been
+extensively revised since their first publication, the date used to
+classify the text will be that of the edition described in the
+<gi>sourceDesc</gi>, but the original date will also be recorded
+within the <gi>creation</gi> element.
+</p></div>
+<div xml:id="hdpdpd"><head>The <gi>langUsage</gi> element</head>
+<p>Unlike the other elements of the profile description, the language
+usage element occurs only in the corpus header.
+It contains the following text:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><langUsage>
+The language of the British National Corpus is modern
+British English.  Words, fragments, and passages from many
+other languages, both ancient and modern, occur within the
+corpus where these may be represented using a Latin
+alphabet.  Long passages in these languages, and material
+in other languages, are generally silently deleted.  In no
+case is the lang attribute used to indicate the language
+of a word, phrase or passage, nor are alternate writing
+system definitions used.
+</langUsage>
+</egXML> 
+<!-- should add britishness test -->  
+</p></div>
+<div xml:id="hdpdpx"><head>The participant description </head>
+
+<p>The participant description (<gi>particDesc</gi>) element is used
+to provide information about speakers of texts transcribed for the
+BNC.  It appears only within individual spoken text headers to define
+the participants specific to those texts.
+</p>
+
+<p>It contains a series of <gi>person</gi> elements describing the
+participants whose speech is transcribed in this text.
+</p>
+
+<div xml:id="persdis"><head>The person element</head>
+
+<p>Each <gi>person</gi> element describes a single participant in a
+language interaction. It carries a number of attributes which are used
+to provide encoded values for some key aspects of the person concerned:
+
+<specList>
+<specDesc key="person" atts="ageGroup dialect firstLang n educ soc sex
+  role xml:id"/>
+</specList></p>
+<p> The  <att>xml:id</att> attribute is required for each
+participant whose speech is included in a text, and its value is unique
+within the corpus. Although a given individual will always have the same
+identifier within a single text, there is no way of identifying the same
+individual should they appear in different texts.  Since all
+demographically sampled conversations collected by a single respondent
+are treated together as a single text, and respondents were recruited from
+many different social contexts, the probability of the same person
+being recorded by different respondents is rather low, though not
+completely impossible. 
+</p>
+<p>On many occasions the speaker of a given utterance cannot be
+identified. A special code is used to indicate an unknown speaker,
+but, for consistency, this is also made unique to each text. Thus, an
+"unknown speaker" in one text will have different identifying code
+from an "unknown speaker" in another. As far as possible, different
+speakers are given different identifying codes, even where they cannot
+be identified with any confidence; thus there may be more than one
+"unidentified" speaker in the same text. </p>
+<p>Where several speakers speak together, if they are identified, then
+all of the relevant codes are given; if however they are not, then a
+special "unknown speaker group" code is used.</p>
+<p>Where it is available, additional information about a participant
+is provided by one or more of the following elements, appearing
+within the <gi>person</gi> element:
+<specList>
+<specDesc key="persName"/>
+<specDesc key="age"/>
+<specDesc key="occupation"/>
+<specDesc key="dialect"/>
+<specDesc key="persNote"/>
+</specList>
+</p>
+<p>In each case, the information provided is that given by the respondent
+and is taken from the log books issued to all participants in the
+demographic part of the corpus. It has not been normalized.</p>
+<p>Here is a typical example from the demographic part of the corpus:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<person age="Ag0" dialect="XLO" xml:id="PS5A1" 
+  role="self" sex="m" soc="C2">
+<name>Terry</name>
+<age>14</age>
+<occupation>student</occupation>
+<dialect>London</dialect></person>
+</egXML>
+</p>
+<p>Here is a typical example from the context-governed part of the corpus:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><person ageGroup="X" xml:id="PS2AY" role="unspecified"
+sex="m" soc="UU" dialect="NONE" educ="X"> 
+<persName>frank harasikwa</persName> <occupation>politician</occupation>
+<persNote>Euro candidate presenting self for selection</persNote></person></egXML>
+</p>
+
+<p>Any recorded relationship between speakers in the demographically
+sampled part of the corpus is specified by means of the
+<att>role</att> attribute, which indicates how the speaker
+concerned is related to the respondent, for example as a friend,
+colleague, brother, wife, etc. For example, the participant information recorded in
+the header for a text (KSU) comprising conversations between four
+participants: Michael and Steve (who are brothers), their mother
+Christine and their aunt Leslie is as follows:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><particDesc n="708">
+ <person ageGroup="Ag0" xml:id="PS6RM" role="self" sex="m" soc="C2"
+ dialect="XOT">
+   <age>13</age> <persName>Michael</persName>
+   <occupation>student</occupation> </person>
+<person ageGroup="Ag4" xml:id="PS6RN" role="mother" sex="f" soc="C2"
+dialect="XOT"><age>45</age> <persName>Christine</persName>
+<occupation>credit controller</occupation> </person>
+<person ageGroup="Ag4" xml:id="PS6RP" role="aunt" sex="f" soc="UU"
+dialect="XOT"><age>45</age> <persName>Leslie</persName>
+<occupation>unemployed</occupation> </person>
+<person ageGroup="Ag1" xml:id="PS6RR" role="brother" sex="m" soc="C2"
+dialect="XOT"><age>21</age> <persName>Steve</persName>
+<occupation>unemployed</occupation> </person>
+</particDesc></egXML>
+</p>
+<p>In the context-governed part of the corpus however, there is no
+respondent and relationship information must be deduced from the other
+information provided. The <att>role</att> attribute  for
+<gi>person</gi> elements in these texts will usually have the value
+<code>unspecified</code>.
+</p>
+</div>
+</div>
+
+<div xml:id="hdpdse"><head>The setting description </head>
+
+<p>The <gi>settingDesc</gi> element is used to describe the context
+within which a spoken text takes place. It appears once in the header
+of each spoken text, and contains one or more <gi>setting</gi>
+elements for each distinct recording.
+
+<specList>
+<specDesc key="setting" atts="who n xml:id"/>
+</specList>
+</p>
+<p>The content of each <gi>setting</gi> element supplies additional
+details about the place, time of day, and other activities going on,
+using the following additional elements:
+
+<specList>
+<specDesc key="date"/>
+<specDesc key="locale"/>
+<specDesc key="activity" atts="spont"/>
+<specDesc key="placeName"/>
+</specList>
+</p>
+
+<p>Some typical examples  follow: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<setting n="020901" who='PS000 DCJPS000 DCJPS001'>
+   <name>Essex:  Harlow </name>
+   <locale> Harlow College</locale>
+   <activity spont="M"> A'level lecture </activity>
+</setting> 
+
+<setting xml:id="KDFSE002" n="063505" who='PS0M6'>
+  <name>Lancashire:  Morecambe </name>
+  <locale> at home </locale>
+  <activity spont="H"> watching television </activity>
+</setting> 
+</egXML> 
+</p></div>
+
+<div xml:id="hdpdtc"><head>Text classification </head>
+
+<p>The TEI provides a number of ways in which classification or
+text-type information may be specified for a text, grouped together
+within a <gi>textClass</gi> element, which appears once in the header
+of each text. Classifications may be represented using references to
+internally defined classications provided in the <gi>classCode</gi>
+element (such as the BNC classification scheme described
+in section <ptr target="#hdeccd"/>), by reference to some other
+predefined classification system, or by an open set of keywords. All
+three methods are used in the BNC, using the following elements:
+ 
+<specList>
+<specDesc key="catRef" atts="targets"/>
+<specDesc key="classCode" atts="scheme"/>
+<specDesc key="keywords"/>
+</specList>
+</p>
+
+<p>A <gi>catRef</gi> element is provided in the header of each
+text. Its <att>target</att> attribute contains values for each of the
+classification codes defined in the corpus header. In each case, the
+classification code consists of a code used as the identifier of a
+<gi>category</gi> element within a <gi>taxonomy</gi> element defined
+in the corpus header. For example: <code>ALLTIM1</code> indicates
+<q>dated 1960-1974</q>. A list of the values used is given in section
+<ptr target="#classcodes"/> below.
+</p>
+
+<p>This taxonomy is that originally defined for selection and
+description of texts during the design of the corpus, as further
+discussed elsewhere. It is of course possible to classify the texts in
+many other ways, and no claim is made that this method is universally
+applicable or even generally useful, though it does serve to identify
+broadly distinct sub-parts of the corpus for investigation. The reader
+is also cautioned that, although an attempt has been made in the
+current edition of the corpus to correct the more egregious
+classification errors noted in the first edition, unquestionably many
+errors and inconsistencies remain. In particular, the categories <code>WRILEV</code>
+(perceived level of difficulty) and <code>WRISTA</code> (estimated circulation 
+size) were incorrectly differentiated during the preparation of the corpus
+and cannot be relied on.</p>
+
+<p>A <gi>classCode</gi> element is also provided for every text in the
+corpus. This contains the code assigned to the text in a genre-based
+analysis carried out at Lancaster University by David Lee since
+publication of the first edition of the BNC. Lee's scheme classes the
+texts more delicately in most cases, since it takes into account their
+topic or subject matter (see further <ptr target="#classcodes"/>
+below).
+</p>
+
+<p>Lee's scheme is also used as the basis of a very simple
+categorization for each text, which is provided by means of the
+<att>type</att> attribute on its <gi>text</gi> or <gi>stext</gi>
+element. This categorization distinguishes six categories for written
+text (fiction, academic prose, non-academic prose, newspapers, other
+published, unpublished), and two for spoken text (conversation,
+other); It may be found a convenient way of distinguishing the major
+text types represented in the corpus: see further <ptr
+target="#tagcounts"/>.</p>
+
+
+<p>In the first release of the BNC, most texts were assigned a set of
+descriptive keywords, tagged as <gi>term</gi> elements within the
+<gi>keywords</gi> element. These terms were not taken from any
+particular descriptive thesaurus or closed vocabulary; the words or
+phrases used are those which seemed useful to the data preparation
+agency concerned, and are thus often inconsistent or even
+misleading. They have been retained unchanged in the present version
+of the BNC, pending a more thorough revision. In the World (second)
+Edition this set of keywords was complemented for most written texts
+by a second set, also tagged using a <gi>keywords</gi> element, but
+with a value for its <att>source</att> attribute of
+<code>COPAC</code>, indicating that the terms so tagged are derived
+from a different source. The source used was a major online library
+catalogue service (see <ptr url="http://www.copac.ac.uk"/>).  Like
+other public access catalogue systems, COPAC uses a well-defined
+controlled list of keywords for its subject indexing, details of which
+are not further given here.
+</p>
+
+<p>Here is an example showing how one text (BND) is classified in each
+of these ways:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><teiHeader>... <textClass>
+<catRef targets="WRI ALLTIM3 ALLAVA2 ALLTYP3 WRIAAG0 WRIAD0 
+WRIASE3 WRIATY2 WRIAUD3 WRIDOM8 WRILEV2 WRIMED1 
+WRIPP5 WRISAM1 WRISTA2 WRITAS3"/>
+<classCode scheme="DLee">W_religion</classCode>
+<keywords scheme="COPAC">
+  <term>Marriage - Religious aspects - Christianity</term>
+  <term>Marriage - Christian viewpoints</term></keywords>
+<keywords>
+<term>Christian guide to marriage</term>
+</keywords>
+</textClass>...</teiHeader><wtext type="NONAC">...</wtext></egXML>
+</p></div></div>
+<div xml:id="hdrev"><head>The revision description</head>
+<p>The revision description (<gi>revisionDesc</gi>) element
+is the fourth and final element of a standard TEI header. 
+In the BNC, it consists of a series of <gi>change</gi> elements. 
+<specList>
+<specDesc key="change" atts="date who"/>
+</specList>
+</p>
+
+<p>Here is part of a typical  example: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><revisionDesc>
+<change date="2006-10-21" who="#OUCS">Tag usage updated for BNC-XML</change>
+<change date="2000-12-13" who="#OUCS">Last check for BNC World first
+release</change>
+...
+<change date="1999-12-25" who="#OUCS">corrected tagUsage</change>
+<change date="1999-09-13" who="#UCREL">POS codes revised for BNC-2; header
+updated</change>
+<change date="1994-11-24" who="#dominic">Initial accession to
+corpus</change>
+</revisionDesc>
+</egXML>  
+</p>
+</div></div>

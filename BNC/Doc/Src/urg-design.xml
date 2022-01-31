@@ -1,0 +1,1380 @@
+
+<div xml:id="BNCdes" type="foo"><head>Design of the corpus</head>
+<p>This section discusses some of the basic design issues underlying
+the creation of the BNC. It summarizes the kinds of uses for which the
+corpus is intended, and the principles upon which it was created. Some
+summary information about the composition of the corpus is also
+included. 
+</p>
+
+<!-- text class table is in file classtab.xml -->
+<div xml:id="BNCpurp" type="bar"><head>Purpose</head> 
+<p> The   uses originally  envisaged for the British National Corpus
+were set out in a working document called <title>Planned Uses of the
+British National Corpus</title> BNCW02 (11 April 91). This document
+identified the following as likely application areas for the corpus: 
+<list><item>reference book publishing</item>
+<item>academic linguistic research</item>
+<item>language teaching</item>
+<item>artificial intelligence</item>
+<item>natural language processing</item>
+<item>speech processing</item>
+<item>information retrieval</item></list></p>
+<p>The  same document identified the following categories of linguistic
+information derivable from the corpus:
+<list><item>lexical</item>
+<item>semantic/pragmatic</item>
+<item>syntactic</item>
+<item>morphological</item>
+<item>graphological/written form/orthographical</item>
+</list></p>
+<p>In the 15 or more years since that document was published, it has
+become apparent that the corpus, and corpus methods in general, have
+had a far wider impact than anticipated, notably in the field of
+language  teaching. </p>
+</div>
+<div xml:id="BNCdefn">
+<head>General definitions</head> 
+<p> The British National Corpus is:
+<list>
+<item>	 a <hi rend="bold">sample</hi> corpus: composed of text samples
+generally no longer than 45,000 words.</item>
+<item> a <hi rend="bold">synchronic</hi> corpus: the corpus includes
+imaginative texts from 1960, informative texts from 1975.</item>
+<item>	a <hi rend="bold">general</hi> corpus: not specifically
+restricted to any particular subject field, register or genre.</item>
+<item> a <hi rend="bold">monolingual</hi> British English corpus: it
+comprises text samples which are substantially the product of speakers
+of British English.</item>
+<item> a <hi rend="bold">mixed</hi> corpus: it contains examples of
+both spoken and written language.</item></list></p>
+</div> 
+
+<div xml:id="BNCcompo">
+<head>Composition</head> 
+<p>There is a broad consensus among the participants in the project and
+among corpus linguists that a general-purpose corpus of the English
+language would ideally contain a high proportion of spoken language in
+relation to written texts. However, it is significantly more expensive
+to record and transcribe natural speech than to acquire written text in
+computer-readable form. Consequently the spoken component of the BNC
+constitutes approximately 10 per cent (10 million words) of the total
+and the written component 90 per cent (90 million words). These were
+agreed to be realistic targets, given the constraints of time and
+budget, yet large enough to yield valuable empirical statistical data
+about spoken English. In the BNC sampler,
+<!--, or <soCalled>core</soCalled>corpus, -->
+a two per cent sample taken from the whole of the BNC, spoken and
+written language are present in approximately equal proportions, but
+other criteria are not equally balanced.
+</p> 
+<p>From the start, a decision was taken to select material for
+inclusion in the corpus according to an overt methodology, with specific
+target quantities of clearly defined types of language. This approach
+makes it possible for other researchers and corpus compilers to review,
+emulate or adapt concrete design goals. This section outlines these
+design considerations, and reports on the final make-up of the BNC.
+</p>
+<p>This and the other tables in this section show the actual make-up
+of the second version of the British National Corpus (the BNC World
+Edition) in terms of
+<list>
+<item>texts : number of distinct samples not exceeding 45,000 words
+</item>
+<item>S-units: number of <gi>s</gi> elements identified by the CLAWS system
+(more or less  equivalent to sentences)
+</item>
+<item>W-units: number of <gi>w</gi> elements identified by the CLAWS system
+(more or less  equivalent to words)
+</item> </list></p>
+<p>For further explanation of <gi>s</gi> and <gi>w</gi> elements, see
+section <ptr target="#cdifcomp"/>.
+</p>
+
+
+<p>The XML Edition of the BNC contains 4049 texts and occupies
+(including all markup) 5,228,040 Kb, or about 5.2 Gb. In total, it
+comprises just under 100 million orthographic words (specifically,
+96986707), but the number of w-units (POS-tagged items) is slightly
+higher at 98363783. The tagging distinguishes a further
+13614425 punctuation strings, giving a total content count of
+110691482 strings. The total number of s-units tagged is about
+6 million (6026284). Counts for these and all the other elements
+tagged in the corpus are provided in the corpus header. </p>
+
+<p>In the following tables both an absolute count and a percentage are
+given for all the counts. The percentage is calculated with reference
+to the relevant portion of the corpus, for example, in the table for
+    "written text domain", with reference to the total number of w-units
+in written texts. Note that punctuation strings are <emph>not</emph> included
+in these totals. The reference totals used are given in the first table
+below.  </p>
+
+
+
+<!--<p>The BNC World Edition contains 4054 texts and occupies (including
+SGML markup) 1,508,392 Kbytes, or about 1.5 Gb. In total, it comprises
+just over 100 million orthographic words (specifically, 100,467,090),
+but the number of w-units (POS-tagged items) is slightly less:
+97,619,934. The total number of s-units identified by CLAWS is just
+over 6 million (6,053,093). Counts for these and all the other
+elements tagged in the corpus are provided below in <ptr
+target="#bnctags"/></p>
+-->
+
+
+<!-- <eg><![CDATA[ Texts Kbytes S-units W-units
+================================================== Written 3209 77.81
+1362074 88.03 5188373 89740544 89.64 Spoken ContGov 762 18.47 100172
+6.47 430348 6154248 6.14 Spoken Demog 153 3.70 84952 5.49 612049
+4211216 4.20 ]]> </eg> -->
+
+<!--
+<table xml:id="alltyp" rend="inline">
+<head>Composition of the BNC World Edition</head>
+<row>
+<cell>Text type</cell>
+<cell>Texts</cell>
+<cell>Kbytes</cell>
+<cell>W-units</cell>
+<cell>S-units</cell>
+<cell>percent</cell>
+</row>
+<row><cell>Spoken demographic</cell><cell>153</cell><cell>4206058</cell><cell>4.30</cell><cell>610563</cell><cell>10.08</cell></row>
+<row><cell>Spoken context-governed</cell><cell>757</cell><cell>6135671</cell><cell>6.28</cell><cell>428558</cell><cell>7.07</cell></row>
+<row><cell>All Spoken</cell><cell>910</cell><cell>10341729</cell><cell>10.58</cell><cell>1039121</cell><cell>17.78</cell></row>
+<row><cell>Written books and periodicals</cell><cell>2688</cell><cell>78580018</cell><cell>80.49</cell><cell>4403803</cell><cell>72.75</cell></row>
+<row><cell>Written-to-be-spoken</cell><cell>35</cell><cell>1324480</cell><cell>1.35</cell><cell>120153</cell><cell>1.98</cell></row>
+<row><cell>Written miscellaneous</cell><cell>421</cell><cell>7373707</cell><cell>7.55</cell><cell>490016</cell><cell>8.09</cell></row>
+<row><cell>All Written</cell><cell>3144</cell><cell>87278205</cell><cell>89.39</cell><cell>5013972</cell><cell>82.82</cell></row>
+</table>
+-->
+
+<table xml:id="alltyp" rend="center">
+<head>Text type</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Spoken demographic</cell><cell>153</cell><cell>4233955</cell><cell>4.30</cell><cell>610557</cell><cell>10.13</cell></row>
+<row><cell role="label">Spoken context-governed</cell><cell>755</cell><cell>6175896</cell><cell>6.27</cell><cell>427523</cell><cell>7.09</cell></row>
+<row><cell role="label">Written books and periodicals</cell><cell>2685</cell><cell>79238146</cell><cell>80.55</cell><cell>4395581</cell><cell>72.94</cell></row>
+<row><cell role="label">Written-to-be-spoken</cell><cell>35</cell><cell>1278618</cell><cell>1.29</cell><cell>104665</cell><cell>1.73</cell></row>
+<row><cell role="label">Written miscellaneous</cell><cell>421</cell><cell>7437168</cell><cell>7.56</cell><cell>487958</cell><cell>8.09</cell></row>
+</table>
+
+
+
+<p>All texts are also classified according to their date of
+production. For spoken texts, the date was that of the recording. For
+written texts, the date used for classification was the date of
+publication of the source edition used, for the most part; in
+the case of imaginative works, however, the date of first publication
+of the work was used. Informative texts were selected only from 1975 onwards,
+imaginative ones from 1960, reflecting their longer <q>shelf-life</q>,
+though most (75 per cent ) of the latter were published no earlier
+than 1975.  <!--<eg><![CDATA[ Texts Kbytes S-units W-units =========
+============ ======== ============== 1960-1974 53 1.65 30598 2.24
+133217 2036939 2.26 1975-1993 2596 80.89 1213487 89.09 4626639
+80077473 89.23 Unclassified 560 17.45 117989 8.66 428517 7626132 8.49
+]]> </eg>-->
+ 
+<table xml:id="alltim" rend="center">
+<head>Publication date</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>162</cell><cell>1831585</cell><cell>1.86</cell><cell>126416</cell><cell>2.09</cell></row>
+<row><cell role="label">1960-1974</cell><cell>46</cell><cell>1718449</cell><cell>1.74</cell><cell>119510</cell><cell>1.98</cell></row>
+<row><cell role="label">1975-1984</cell><cell>169</cell><cell>4730889</cell><cell>4.80</cell><cell>257962</cell><cell>4.28</cell></row>
+<row><cell role="label">1985-1993</cell><cell>3672</cell><cell>90082860</cell><cell>91.58</cell><cell>5522396</cell><cell>91.63</cell></row>
+</table>
+
+<!--<table xml:id="alltim" rend="inline">
+<head>Date of production</head>
+<row><cell>Creation date</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>162</cell><cell>1814051</cell><cell>1.85</cell><cell>127132</cell><cell>2.10</cell></row>
+<row><cell>Before 1974</cell><cell>47</cell><cell>1741624</cell><cell>1.78</cell><cell>121323</cell><cell>2.00</cell></row>
+<row><cell>1974 to 1983</cell><cell>156</cell><cell>4621950</cell><cell>4.73</cell><cell>255057</cell><cell>4.21</cell></row>
+<row><cell>1984 to 1994</cell><cell>3689</cell><cell>89442309</cell><cell>91.62</cell><cell>5549581</cell><cell>91.68</cell></row>
+</table>
+-->
+
+</p>
+<p>Spoken and written components of the corpus are discussed separately in
+the next two sections.</p></div>
+
+
+
+<div xml:id="wrides"><head>Design of the written component</head> 
+
+<div><head>Sampling basis: production and reception</head> 
+
+<p>While it is sometimes useful to distinguish in theory between
+language which is <term>received</term> (read and heard) and that which
+is <term>produced</term> (written and spoken), it was agreed that the
+selection of samples for a general-purpose corpus must take account of
+both perspectives.</p>
+<p>Text that is published in the form of books, magazines, etc., is
+not representative of the totality of written language that is produced,
+as writing for publication is a comparatively specialized activity in
+which few people engage. However, it is much more representative of
+written language that is received, and is also easier to obtain in
+useful quantities, and thus forms the greater part of the written
+component of the corpus.</p>
+<p>There was no single source of information about published material
+that could provide a satisfactory basis for a sampling frame, but a
+combination of various sources furnished useful information about the
+totality of written text produced and, particularly, received, some
+sources being more significant than others. They are principally
+statistics about books and periodicals that are published, bought or
+borrowed.</p>
+<p>Catalogues of <hi>books published per annum</hi> tell us something
+about production but little about reception as many books are published
+but hardly read. 
+</p>
+<p>A list of <hi>books in print</hi> provides somewhat more
+information about reception as time will weed out the books that nobody
+bought (or read): such a list will contain a higher proportion of books
+that have continued to find a readership.
+</p>
+<p>The books that have the widest reception are presumably those that
+figure in <hi>bestseller lists,</hi> particularly <hi>prize
+winners</hi> of competitions such as the Booker or Whitbread. Such
+works were certainly candidates for inclusion in the corpus, but the
+statistics of book-buying are such that very few texts achieve high
+sales while a vast number sell only a few or in modest numbers. If
+texts had been selected in strict arithmetical proportion to their
+sales, their range would have been severely limited. However, where a
+text from one particular subject domain was required, it was
+appropriate to prefer a book which had achieved high sales to one
+which had not. </p> 
+
+<p><hi>Library lending statistics,</hi> where these are available,
+also indicate which books enjoy a wide reception and, like lists of
+books in print, show which books <emph>continue</emph> to be read.
+</p>
+
+<p>Similar observations hold for magazines and periodicals. lists of
+<hi>current magazines and periodicals</hi> are similar to catalogues of
+published books, but perhaps more informative about language reception,
+as it may be that periodicals are bought and read by a wider
+cross-section of the community than books. Also, a periodical that fails
+to find a readership will not continue to be published for long.
+</p>
+<p><hi>Periodical circulation figures</hi> have to be treated with the
+same caution as bestseller lists, as a few titles dominate the market
+with a very high circulation. To concentrate too exclusively on these
+would reduce the range of text types in the corpus and make contrastive
+analysis difficult.
+</p>
+<p>Published written texts were selected partly at
+random from Whitaker's <title>Books in Print</title> for 1992 and
+partly systematically, according to the selection features outlined in
+section <ptr target="#SEL"/> below.
+</p>
+<p>Available sources are concerned almost exclusively with published
+books and periodicals. It is much more difficult to obtain data
+concerning the production or reception of unpublished writing. Intuitive
+estimates were therefore made in order to establish some guidelines for
+text sampling in the latter area.
+</p></div>
+<div xml:id="SEL"><head>Selection features </head> 
+<p>Texts were chosen for inclusion according to three
+<term>selection features</term>: domain (subject field), time (within
+certain dates) and medium (book, periodical, etc.). 
+</p>
+<p>The purpose of these selection features was to ensure that the
+corpus contained a broad range of different language styles, for two
+reasons. The first was so that the corpus could be regarded as a
+microcosm of current British English in its entirety, not just of
+particular types. The second was so that different types of text could
+be compared and contrasted with each other.
+</p>
+<div type="zxz"><head>Selection Procedure</head>
+<p>Each selection feature was divided into classes (e.g. <q>Medium</q>
+into books, periodicals, unpublished etc.; <q>Domain</q> into
+imaginative,  informative, etc.) and target percentages were set for
+each class. These percentages are quite independent of each other: there
+was no attempt, for example, to make 25 per cent  of the selected
+periodicals imaginative.
+</p>
+<p>The design proposed that seventy-five per cent of the samples be drawn from
+informative texts, and the remaining 25 per cent from imaginative texts.
+It further proposed that titles be taken from a variety of media, in the following
+proportions: 60 per cent from books, 30 per cent from periodicals, 10
+per cent from miscellaneous sources (published, unpublished, and written
+to be spoken). </p>
+<p>Half of the books in the <q>Books and Periodicals</q> class were
+selected at random from Whitaker's <title>Books in Print 1992</title>.
+This was to provide a control group to validate the categories used in
+the other method of selection: the random selection disregarded Domain
+and Time, but texts selected by this method were classified according to
+these other features after selection. </p>
+</div>
+<div><head>Sample size and method</head> 
+<p>For books, a target sample size of 40,000 words was chosen.  No
+extract included in the corpus exceeds 45,000 words. For the most
+part, texts which in their entirety were shorter than 40,000 words
+were further reduced by ten per cent for copyright reasons; a few
+texts longer than the target size were however included in their
+entirety.  Text samples normally consist of a continuous stretch of
+discourse from within the whole. A convenient breakpoint (e.g. the end
+of a section or chapter) was chosen as far as possible to begin and
+end the sample so that high-level discourse units were not
+fragmented. Where possible, no more than one sample was taken from any
+one text; for newspaper texts and large encyclopaedic works, no sample
+greater than 40,000 words was taken. Samples were taken randomly from
+the beginning, middle or end of longer texts. (In cases where a
+publication included essays or articles by a variety of authors of
+different nationalities, the work of non-UK authors was omitted.)
+</p>
+<p>Some types of written material are composite in structure: that is,
+the physical object in written form is composed of more than one text
+unit. Important examples are issues of a newspaper or magazine which,
+though editorially shaped as a document, contain discrete texts, each
+with its specific authorship, stylistic characteristics, register and
+domain. The BNC attempts to separate these discrete texts where
+appropriate and to classify them individually according to the selection
+and classification features. As far as possible, the individual stories
+in one issue of a newspaper were grouped according to domain, for
+example as <q>Business</q> articles, <q>Leisure</q> articles, etc.</p>
+<p>The following subsections discuss each selection criterion, and
+indicate the actual numbers of words in each category included.
+</p></div>
+
+<div ><head>Domain</head> 
+
+<p>Classification according to subject field seems hardly appropriate
+to texts which are fictional or which are generally perceived to be
+literary or creative. Consequently, these texts are all labelled
+<term>imaginative</term> and are not assigned to particular subject
+areas. All other texts are treated as <term>informative</term> and are
+assigned to one of the eight domains listed below.
+
+<!-- <eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Imaginative          625 19.47  301422 22.12   1580771  19664309 21.91
+Arts                 259  8.07  109923  8.07    369762   7253846  8.08
+Belief and thought   146  4.54   45472  3.33    154628   3053672  3.40
+Commerce             284  8.85  108150  7.94    374830   7118321  7.93
+Leisure              374 11.65  151946 11.15    588010   9990080 11.13
+Natural science      144  4.48   57075  4.19    181005   3752659  4.18
+Applied science      364 11.34  112264  8.24    368723   7369290  8.21
+Social science       510 15.89  201313 14.77    661897  13290441 14.80
+World affairs        453 14.11  246718 18.11    764867  16507399 18.39
+Unclassified          50  1.55   27791  2.04    143880   1740527  1.93
+]]></eg> 
+-->
+<table xml:id="wridom" rend="center">
+<head>Written Domain</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Imaginative</cell><cell>476</cell><cell>16496420</cell><cell>18.75</cell><cell>1352150</cell><cell>27.10</cell></row>
+<row><cell role="label">Informative: natural &amp; pure science</cell><cell>146</cell><cell>3821902</cell><cell>4.34</cell><cell>183384</cell><cell>3.67</cell></row>
+<row><cell role="label">Informative: applied science</cell><cell>370</cell><cell>7174152</cell><cell>8.15</cell><cell>356662</cell><cell>7.15</cell></row>
+<row><cell role="label">Informative: social science</cell><cell>526</cell><cell>14025537</cell><cell>15.94</cell><cell>698218</cell><cell>13.99</cell></row>
+<row><cell role="label">Informative: world affairs</cell><cell>483</cell><cell>17244534</cell><cell>19.60</cell><cell>798503</cell><cell>16.00</cell></row>
+<row><cell role="label">Informative: commerce &amp; finance</cell><cell>295</cell><cell>7341163</cell><cell>8.34</cell><cell>382374</cell><cell>7.66</cell></row>
+<row><cell role="label">Informative: arts</cell><cell>261</cell><cell>6574857</cell><cell>7.47</cell><cell>321140</cell><cell>6.43</cell></row>
+<row><cell role="label">Informative: belief &amp; thought</cell><cell>146</cell><cell>3037533</cell><cell>3.45</cell><cell>151283</cell><cell>3.03</cell></row>
+<row><cell role="label">Informative: leisure</cell><cell>438</cell><cell>12237834</cell><cell>13.91</cell><cell>744490</cell><cell>14.92</cell></row>
+</table>
+
+<!--
+<table xml:id="wridom" rend="inline">
+<head>Written domain</head>
+<row><cell>Domain</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Applied science</cell><cell>370</cell><cell>7104635</cell><cell>8.14</cell><cell>357067</cell><cell>7.12</cell></row>
+<row><cell>Arts</cell><cell>261</cell><cell>6520634</cell><cell>7.47</cell><cell>321442</cell><cell>6.41</cell></row>
+<row><cell>Belief and thought</cell><cell>146</cell><cell>3007244</cell><cell>3.44</cell><cell>151418</cell><cell>3.01</cell></row>
+<row><cell>Commerce and finance</cell><cell>295</cell><cell>7257542</cell><cell>8.31</cell><cell>382717</cell><cell>7.63</cell></row>
+<row><cell>Imaginative</cell><cell>477</cell><cell>16377726</cell><cell>18.76</cell><cell>1356458</cell><cell>27.05</cell></row>
+<row><cell>Leisure</cell><cell>438</cell><cell>12187946</cell><cell>13.96</cell><cell>760722</cell><cell>15.17</cell></row>
+<row><cell>Natural and pure science</cell><cell>146</cell><cell>3784273</cell><cell>4.33</cell><cell>183466</cell><cell>3.65</cell></row>
+<row><cell>Social science</cell><cell>527</cell><cell>13906182</cell><cell>15.93</cell><cell>700122</cell><cell>13.96</cell></row>
+<row><cell>World affairs</cell><cell>484</cell><cell>17132023</cell><cell>19.62</cell><cell>800560</cell><cell>15.96</cell></row>
+</table>
+-->
+
+</p>
+<p>The evidence from catalogues of books and periodicals suggests that
+imaginative texts account for significantly less than 25 per cent  of
+published output, and unpublished reports, correspondence, reference
+works and so on would seem to add further to the bulk of informative
+text which is produced and consumed. However, the overall distribution
+between informative and imaginative text samples is set to reflect the
+influential cultural role of literature and creative writing. The target
+percentages for the eight informative domains were arrived at by
+consensus within the project, based loosely upon the pattern of book
+publishing in the UK during the past 20 years or so, as reflected in the
+categorized figures for new publications that appear annually in
+Whitaker's <title>Book list</title>.</p>
+</div>
+<div><head>Medium</head>
+<p>This categorisation is broad, since a detailed taxonomy or feature
+classification of text medium could have led to such a proliferation of
+subcategories as to make it impossible for the BNC adequately to
+represent all of them. The labels used here are intended to be
+comprehensive in the sense that any text can be assigned with reasonable
+confidence to these macro categories. The labels we have adopted
+represent the highest levels of a fuller taxonomy of text medium. 
+
+<table xml:id="wrimed" rend="center">
+<head>Written Medium</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Book</cell><cell>1411</cell><cell>50293803</cell><cell>57.18</cell><cell>2887523</cell><cell>57.88</cell></row>
+<row><cell role="label">Periodical</cell><cell>1208</cell><cell>28609494</cell><cell>32.52</cell><cell>1487644</cell><cell>29.82</cell></row>
+<row><cell role="label">Miscellaneous published</cell><cell>238</cell><cell>4233135</cell><cell>4.81</cell><cell>287700</cell><cell>5.76</cell></row>
+<row><cell role="label">Miscellaneous unpublished</cell><cell>249</cell><cell>3538882</cell><cell>4.02</cell><cell>220672</cell><cell>4.42</cell></row>
+<row><cell role="label">To-be-spoken</cell><cell>35</cell><cell>1278618</cell><cell>1.45</cell><cell>104665</cell><cell>2.09</cell></row>
+</table>
+
+<!--
+<table xml:id="wrimed" rend="inline">
+<head>Written medium</head>
+<row><cell>Medium</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Book</cell><cell>1414</cell><cell>49891770</cell><cell>57.16</cell><cell>2895652</cell><cell>57.75</cell></row>
+<row><cell>Periodical</cell><cell>1208</cell><cell>28356005</cell><cell>32.48</cell><cell>1487725</cell><cell>29.67</cell></row>
+<row><cell>Published miscellanea </cell><cell>238</cell><cell>4197450</cell><cell>4.80</cell><cell>288004</cell><cell>5.74</cell></row>
+<row><cell>Unpublished miscellanea </cell><cell>249</cell><cell>3508500</cell><cell>4.01</cell><cell>222438</cell><cell>4.43</cell></row>
+<row><cell>To-be-spoken</cell><cell>35</cell><cell>1324480</cell><cell>1.51</cell><cell>120153</cell><cell>2.39</cell></row>
+</table>
+-->
+<!--
+<eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Book                1488 46.36  789896 57.99   3085865  52574506 58.58
+Periodical          1167 36.36  425434 31.23   1459694  27897931 31.08
+Misc. published      181  5.64   62262  4.57    272431   3936637  4.38
+Misc. unpublished    245  7.63   56447  4.14    226174   3595620  4.00
+To-be-spoken          49  1.52   22188  1.62    122453   1370870  1.52
+Unclassified          79  2.46    5847  0.42     21756    364980  0.40
+]]></eg>-->
+
+</p>
+<p>The <soCalled>Miscellaneous published</soCalled> category includes
+brochures, leaflets, manuals, advertisements. The
+<soCalled>Miscellaneous unpublished</soCalled> category includes
+letters, memos, reports, minutes, essays. The
+<soCalled>written-to-be-spoken</soCalled> category includes scripted television
+material, play scripts etc.</p> </div></div>
+<div>
+<head>Descriptive features</head>
+<p>Written texts may be further classified according to sets of
+<term>descriptive features</term>. These features <emph>describe</emph>
+the sample texts; they did not determine their selection. This
+information is recorded to allow more delicate contrastive analysis of
+particular sets of texts. As a simple example, the gross division into
+two time periods in the selection features can, of course, be refined
+and subcorpora defined over the BNC for more specific dates. However,
+the relative sizes of such subcorpora are undefined by the BNC design
+specification.
+</p> 
+<p>These descriptive features were monitored during the course of the
+data gathering, and text selection, in cases where a free choice of
+texts was available, took account of the relative balance of these
+features.  Thus although no relative proportions were defined  for
+different target age groups (for example), we ensured that the corpus
+does contain texts intended for children as well as for adults.</p>  
+<p>The following tables summarize the results for the first release of
+the corpus. Note that many texts remain unclassified. 
+</p>
+<div><head>Author information</head> 
+
+<p>Information about authors of written texts was included only where
+it was readily available, for example from the dust-wrapper of a book.
+Consequently, the coverage of such information is very patchy. The
+authorship of a written text was characterized as
+<soCalled>corporate</soCalled> where it was produced by an
+organization and no specific author was given, and as
+<soCalled>multiple</soCalled> in cases where several authors were
+named.  Author sex was classified as <q>mixed</q> where more than one
+author of either sex was specified, and <q>unknown</q> where it could
+not reliably be determined from the author's name. Note that
+<soCalled>author age</soCalled> means the author's age at the time of
+creation of the work concerned.
+</p>
+
+<p>
+
+<table xml:id="wriaty" rend="center">
+<head>Author type</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>211</cell><cell>3786835</cell><cell>4.30</cell><cell>174371</cell><cell>3.49</cell></row>
+<row><cell role="label">Corporate author</cell><cell>347</cell><cell>6497144</cell><cell>7.38</cell><cell>455649</cell><cell>9.13</cell></row>
+<row><cell role="label">Multiple author</cell><cell>1322</cell><cell>34563219</cell><cell>39.29</cell><cell>1810901</cell><cell>36.30</cell></row>
+<row><cell role="label">Sole author</cell><cell>1261</cell><cell>43106734</cell><cell>49.01</cell><cell>2547283</cell><cell>51.06</cell></row>
+</table>
+
+<!--
+<table xml:id="wriaty" rend="inline">
+<head>Type of author</head> 
+<row><cell>Author type</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>211</cell><cell>3750668</cell><cell>4.29</cell><cell>175027</cell><cell>3.49</cell></row>
+<row><cell>Corporate</cell><cell>347</cell><cell>6497415</cell><cell>7.44</cell><cell>471152</cell><cell>9.39</cell></row>
+<row><cell>Multiple</cell><cell>1323</cell><cell>34284025</cell><cell>39.28</cell><cell>1813636</cell><cell>36.17</cell></row>
+<row><cell>Sole</cell><cell>1263</cell><cell>42746097</cell><cell>48.97</cell><cell>2554157</cell><cell>50.94</cell></row>
+</table>-->
+
+<!--
+<eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Corporate            397 12.37   94395  6.93    382939   5921328  6.59
+Multiple            1357 42.28  541876 39.78   1930170  35612151 39.68
+Sole                1331 41.47  680653 49.97   2737747  45296858 50.47
+Unknown              122  3.80   43810  3.21    131295   2822572  3.14
+Unclassified           2  0.06    1340  0.09      6222     87635  0.09
+]]></eg>-->
+</p> 
+
+<p>
+
+<table xml:id="wriase" rend="center">
+<head>Sex of author</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>1573</cell><cell>36161115</cell><cell>41.11</cell><cell>1968162</cell><cell>39.45</cell></row>
+<row><cell role="label">Author sex Male</cell><cell>920</cell><cell>30665582</cell><cell>34.86</cell><cell>1671420</cell><cell>33.50</cell></row>
+<row><cell role="label">Author sex Female</cell><cell>414</cell><cell>14588260</cell><cell>16.58</cell><cell>967522</cell><cell>19.39</cell></row>
+<row><cell role="label">Author sex Mixed</cell><cell>234</cell><cell>6538975</cell><cell>7.43</cell><cell>381100</cell><cell>7.64</cell></row>
+</table>
+
+<!--
+<table xml:id="wriase" rend="inline">
+<head>Author sex</head>
+<row><cell>Author sex</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>1573</cell><cell>35825335</cell><cell>41.04</cell><cell>1970482</cell><cell>39.29</cell></row>
+<row><cell>Male</cell><cell>922</cell><cell>30434132</cell><cell>34.87</cell><cell>1675236</cell><cell>33.41</cell></row>
+<row><cell>Female</cell><cell>415</cell><cell>14480939</cell><cell>16.59</cell><cell>972106</cell><cell>19.38</cell></row>
+<row><cell>Mixed</cell><cell>234</cell><cell>6537799</cell><cell>7.49</cell><cell>396148</cell><cell>7.90</cell></row>
+</table>
+--><!--
+<eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Male                 948 29.54  473329 34.75   1762987  31586324 35.19
+Female               445 13.86  234167 17.19   1048883  15497994 17.26
+Mixed                208  6.48   79248  5.81    278881   5268444  5.87
+Unknown              117  3.64   38627  2.83    137804   2594892  2.89
+Unclassified        1491 46.46  536703 39.40   1959818  34792890 38.77
+]]></eg>-->
+ </p>
+
+<p>
+
+<table xml:id="wriaag" rend="center">
+<head>Author age-group</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>2518</cell><cell>66000719</cell><cell>75.04</cell><cell>3687586</cell><cell>73.92</cell></row>
+<row><cell role="label">Author age 0-14</cell><cell>3</cell><cell>59559</cell><cell>0.06</cell><cell>3443</cell><cell>0.06</cell></row>
+<row><cell role="label">Author age 15-24</cell><cell>19</cell><cell>542578</cell><cell>0.61</cell><cell>29810</cell><cell>0.59</cell></row>
+<row><cell role="label">Author age 25-34</cell><cell>66</cell><cell>2267139</cell><cell>2.57</cell><cell>159455</cell><cell>3.19</cell></row>
+<row><cell role="label">Author age 35-44</cell><cell>191</cell><cell>6726926</cell><cell>7.64</cell><cell>410143</cell><cell>8.22</cell></row>
+<row><cell role="label">Author age 45-59</cell><cell>205</cell><cell>7230714</cell><cell>8.22</cell><cell>410644</cell><cell>8.23</cell></row>
+<row><cell role="label">Author age 60+</cell><cell>139</cell><cell>5126297</cell><cell>5.82</cell><cell>287123</cell><cell>5.75</cell></row>
+</table>
+<!--
+<table xml:id="wriag" rend="inline">
+<head>Author age group </head>
+<row><cell>Author age</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>2519</cell><cell>65457159</cell><cell>74.99</cell><cell>3707600</cell><cell>73.94</cell></row>
+<row><cell>0-14</cell><cell>3</cell><cell>59071</cell><cell>0.06</cell><cell>3447</cell><cell>0.06</cell></row>
+<row><cell>15-24</cell><cell>19</cell><cell>537251</cell><cell>0.61</cell><cell>29862</cell><cell>0.59</cell></row>
+<row><cell>25-34</cell><cell>67</cell><cell>2286936</cell><cell>2.62</cell><cell>163079</cell><cell>3.25</cell></row>
+<row><cell>35-44</cell><cell>191</cell><cell>6660606</cell><cell>7.63</cell><cell>410324</cell><cell>8.18</cell></row>
+<row><cell>45-59</cell><cell>205</cell><cell>7157985</cell><cell>8.20</cell><cell>410717</cell><cell>8.19</cell></row>
+<row><cell>60+</cell><cell>140</cell><cell>5119197</cell><cell>5.86</cell><cell>288943</cell><cell>5.76</cell></row>
+</table>
+-->
+
+</p>
+
+<!--<eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+0-14                  22  0.68    8846  0.64     40993    581962  0.64
+15-24                 15  0.46    6552  0.48     27713    437149  0.48
+25-34                 38  1.18   20171  1.48     88760   1325516  1.47
+35-44                 80  2.49   42093  3.09    173586   2813226  3.13
+45-59                 85  2.64   42506  3.12    170326   2847335  3.17
+60+                   70  2.18   36392  2.67    141045   2451519  2.73
+Unclassified        2899 90.33 1205514 88.50   4545950  79283837 88.34
+]]></eg> </p> -->
+
+
+<table xml:id="wriad" rend="center">
+<head>Domicile</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>2272</cell><cell>57227155</cell><cell>65.06</cell><cell>3133068</cell><cell>62.80</cell></row>
+<row><cell role="label">Author domicile UK and Ireland</cell><cell>841</cell><cell>29760000</cell><cell>33.83</cell><cell>1798301</cell><cell>36.05</cell></row>
+<row><cell role="label">Author domicile Commonwealth</cell><cell>12</cell><cell>411207</cell><cell>0.46</cell><cell>25759</cell><cell>0.51</cell></row>
+<row><cell role="label">Author domicile Continental Europe</cell><cell>6</cell><cell>234402</cell><cell>0.26</cell><cell>12466</cell><cell>0.24</cell></row>
+<row><cell role="label">Author domicile USA</cell><cell>8</cell><cell>245604</cell><cell>0.27</cell><cell>15675</cell><cell>0.31</cell></row>
+<row><cell role="label">Author domicile Elsewhere</cell><cell>2</cell><cell>75564</cell><cell>0.08</cell><cell>2935</cell><cell>0.05</cell></row>
+</table>
+<!--
+<table xml:id="wriado" rend="inline">
+<head>Author domicile </head>
+<row><cell>Author domicile</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>2273</cell><cell>56750777</cell><cell>65.02</cell><cell>3144578</cell><cell>62.71</cell></row>
+<row><cell>UK and Ireland</cell><cell>843</cell><cell>29570097</cell><cell>33.88</cell><cell>1812550</cell><cell>36.14</cell></row>
+<row><cell>Commonwealth</cell><cell>12</cell><cell>407076</cell><cell>0.46</cell><cell>25762</cell><cell>0.51</cell></row>
+<row><cell>Continental Europe</cell><cell>6</cell><cell>232275</cell><cell>0.26</cell><cell>12469</cell><cell>0.24</cell></row>
+<row><cell>USA</cell><cell>8</cell><cell>243177</cell><cell>0.27</cell><cell>15677</cell><cell>0.31</cell></row>
+<row><cell>Elsewhere</cell><cell>2</cell><cell>74803</cell><cell>0.08</cell><cell>2936</cell><cell>0.05</cell></row>
+</table></p>
+-->
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Australia              2  0.06    1097  0.08      3436     75251  0.08
+Canada                 4  0.12    2051  0.15      7255    140976  0.15
+France                 1  0.03     512  0.03      1746     35921  0.04
+Germany                1  0.03     564  0.04      1236     38671  0.04
+Ireland                6  0.18    3082  0.22     15123    204291  0.22
+Italy                  2  0.06    1200  0.08      6276     78988  0.08
+Lebanon                1  0.03     563  0.04      1835     38750  0.04
+Monaco                 2  0.06    1252  0.09      5896     81588  0.09
+New Zealand            2  0.06    1489  0.10      6082     98803  0.11
+Portugal               1  0.03     579  0.04      1900     39565  0.04
+Singapore              1  0.03     514  0.03      1095     35954  0.04
+Switzerland            1  0.03     584  0.04      1268     38315  0.04
+UK general           433 13.49  239777 17.60    968125  15921450 17.74
+UK North             145  4.51   69178  5.07    271744   4576077  5.09
+UK Midlands           51  1.58   27137  1.99    106463   1806221  2.01
+UK South             245  7.63  127689  9.37    536153   8464218  9.43
+United States          7  0.21    3586  0.26     16332    235761  0.26
+Unclassified        2304 71.79  881220 64.69   3236408  57829744 64.44
+]]></eg> </p>-->
+</div>
+<div><head>Target audience</head> 
+<p>Some attempt was made to characterize the kind of audience for which
+written texts were produced in terms of age, sex and 
+<soCalled>level</soCalled> (a subjective assessment of the text's
+technicality or difficulty).   The last of these proved very difficult
+to assess and was very frequently confused with circulation size or
+audience size; for that reason, no figures for it are included here. 
+</p>
+
+<table xml:id="wriaud" rend="center">
+<head>Audience age</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Child audience</cell><cell>42</cell><cell>903690</cell><cell>1.02</cell><cell>81074</cell><cell>1.62</cell></row>
+<row><cell role="label">Teenager audience</cell><cell>78</cell><cell>1831178</cell><cell>2.08</cell><cell>138098</cell><cell>2.76</cell></row>
+<row><cell role="label">Adult audience</cell><cell>2911</cell><cell>81928776</cell><cell>93.14</cell><cell>4597388</cell><cell>92.16</cell></row>
+<row><cell role="label">Any audience</cell><cell>110</cell><cell>3290288</cell><cell>3.74</cell><cell>171644</cell><cell>3.44</cell></row>
+</table>
+<!--
+<p>
+<table xml:id="wriaag" rend="inline">
+<head>Target age group</head>
+<row><cell>age group</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Child</cell><cell>42</cell><cell>895413</cell><cell>1.02</cell><cell>81085</cell><cell>1.61</cell></row>
+<row><cell>Teenager</cell><cell>77</cell><cell>1769940</cell><cell>2.02</cell><cell>135583</cell><cell>2.70</cell></row>
+<row><cell>Adult</cell><cell>2915</cell><cell>81345838</cell><cell>93.20</cell><cell>4625633</cell><cell>92.25</cell></row>
+<row><cell>Any</cell><cell>110</cell><cell>3267014</cell><cell>3.74</cell><cell>171671</cell><cell>3.42</cell></row>
+</table></p>
+-->
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Child                 45  1.40   15172  1.11     87768    969382  1.08
+Teenager              74  2.30   26192  1.92    132041   1702392  1.89
+Adult               3086 96.16 1318246 96.78   4958017  86906809 96.84
+Unclassified           4  0.12    2464  0.18     10547    161961  0.18
+]]></eg></p> -->
+
+<table xml:id="writas" rend="center">
+<head>Audience sex</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>706</cell><cell>20271270</cell><cell>23.04</cell><cell>1131254</cell><cell>22.67</cell></row>
+<row><cell role="label">Male audience</cell><cell>61</cell><cell>2396935</cell><cell>2.72</cell><cell>135950</cell><cell>2.72</cell></row>
+<row><cell role="label">Female audience</cell><cell>175</cell><cell>6904137</cell><cell>7.84</cell><cell>503629</cell><cell>10.09</cell></row>
+<row><cell role="label">Mixed audience</cell><cell>2199</cell><cell>58381590</cell><cell>66.37</cell><cell>3217371</cell><cell>64.49</cell></row>
+</table>
+<!--
+<p>
+<table xml:id="writas" rend="inline">
+<head>Target sex</head>
+<row><cell>sex</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>707</cell><cell>20113523</cell><cell>23.04</cell><cell>1135038</cell><cell>22.63</cell></row>
+<row><cell>Male</cell><cell>61</cell><cell>2366396</cell><cell>2.71</cell><cell>136564</cell><cell>2.72</cell></row>
+<row><cell>Female</cell><cell>176</cell><cell>6882659</cell><cell>7.88</cell><cell>507713</cell><cell>10.12</cell></row>
+<row><cell>Mixed</cell><cell>2200</cell><cell>57915627</cell><cell>66.35</cell><cell>3234657</cell><cell>64.51</cell></row>
+</table>
+</p>
+--><!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Male                  63  1.96   36836  2.70    142894   2451934  2.73
+Female               167  5.20   94897  6.96    453357   6235502  6.94
+Mixed               2034 63.38  825974 60.64   3042506  54523125 60.75
+Unclassified         945 29.44  404367 29.68   1549616  26529983 29.56
+]]></eg> </p></div>
+<div><head>Target audience level</head>
+
+<row><cell>Author type</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Low                  702 21.87  265807 19.51   1208664  17300636 19.27
+Medium              1674 52.16  722938 53.07   2791241  47608524 53.05
+high                 824 25.67  369822 27.15   1174730  24598066 27.41
+Unclassified           9  0.28    3507  0.25     13738    233318  0.25
+]]></eg> </p></div> -->
+</div>
+<div><head>Miscellaneous classification information</head> 
+<p>Written texts were also characterized according to their place of
+publication and the type of sampling used.
+<!-- , and their perceived "status".  -->
+</p>
+<p>
+<table xml:id="wripp" rend="center">
+<head>Publication place</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>690</cell><cell>14718827</cell><cell>16.73</cell><cell>788440</cell><cell>15.80</cell></row>
+<row><cell role="label">UK (unspecific) publication</cell><cell>263</cell><cell>7163111</cell><cell>8.14</cell><cell>380824</cell><cell>7.63</cell></row>
+<row><cell role="label">Ireland publication</cell><cell>37</cell><cell>570652</cell><cell>0.64</cell><cell>31793</cell><cell>0.63</cell></row>
+<row><cell role="label">UK: North (north of Mersey-Humber line) publication</cell><cell>191</cell><cell>3781055</cell><cell>4.29</cell><cell>228247</cell><cell>4.57</cell></row>
+<row><cell role="label">UK: Midlands (north of Bristol Channel-Wash line) publication</cell><cell>93</cell><cell>2590345</cell><cell>2.94</cell><cell>177308</cell><cell>3.55</cell></row>
+<row><cell role="label">UK: South (south of Bristol Channel-Wash line) publication</cell><cell>1853</cell><cell>58587808</cell><cell>66.61</cell><cell>3360401</cell><cell>67.36</cell></row>
+<row><cell role="label">United States publication</cell><cell>14</cell><cell>542134</cell><cell>0.61</cell><cell>21191</cell><cell>0.42</cell></row>
+</table>
+</p>
+<!--
+<table xml:id="wripp" rend="inline">
+<head>Place of publication</head>
+<row><cell>Region</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>690</cell><cell>14583761</cell><cell>16.70</cell><cell>790465</cell><cell>15.76</cell></row>
+<row><cell>UK (unspecific)</cell><cell>264</cell><cell>7124424</cell><cell>8.16</cell><cell>383046</cell><cell>7.63</cell></row>
+<row><cell>Ireland</cell><cell>37</cell><cell>567046</cell><cell>0.64</cell><cell>31825</cell><cell>0.63</cell></row>
+<row><cell>UK (North)</cell><cell>192</cell><cell>3778114</cell><cell>4.32</cell><cell>230008</cell><cell>4.58</cell></row>
+<row><cell>UK (Midlands)</cell><cell>93</cell><cell>2622554</cell><cell>3.00</cell><cell>192379</cell><cell>3.83</cell></row>
+<row><cell>UK (South)</cell><cell>1854</cell><cell>58066891</cell><cell>66.53</cell><cell>3365045</cell><cell>67.11</cell></row>
+<row><cell>United States</cell><cell>14</cell><cell>535415</cell><cell>0.61</cell><cell>21204</cell><cell>0.42</cell></row>
+</table>
+</p>-->
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Ireland                7  0.21    1973  0.14      7187    131312  0.14
+UK general           295  9.19  123244  9.04    446423   8236486  9.17
+UK North             195  6.07   59137  4.34    236104   3854333  4.29
+UK Midlands           63  1.96   20960  1.53     77238   1367306  1.52
+UK South            1956 60.95  932381 68.45   3638876  61533132 68.56
+United States         14  0.43    7899  0.57     21133    535335  0.59
+Unclassified         679 21.15  216480 15.89    761412  14082640 15.69
+]]></eg> </p></div>
+<div><head>Sample type</head>
+-->
+
+<p>
+<table xml:id="wrisam" rend="center">
+<head>Sampling type</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>1583</cell><cell>35551102</cell><cell>40.42</cell><cell>1991798</cell><cell>39.93</cell></row>
+<row><cell role="label">Whole text</cell><cell>270</cell><cell>6524975</cell><cell>7.41</cell><cell>433722</cell><cell>8.69</cell></row>
+<row><cell role="label">Beginning sample</cell><cell>584</cell><cell>21075222</cell><cell>23.96</cell><cell>1119251</cell><cell>22.43</cell></row>
+<row><cell role="label">Middle sample</cell><cell>510</cell><cell>18454807</cell><cell>20.98</cell><cell>1049692</cell><cell>21.04</cell></row>
+<row><cell role="label">End sample</cell><cell>119</cell><cell>4317326</cell><cell>4.90</cell><cell>253322</cell><cell>5.07</cell></row>
+<row><cell role="label">Composite sample</cell><cell>75</cell><cell>2030500</cell><cell>2.30</cell><cell>140419</cell><cell>2.81</cell></row>
+</table>
+<!--
+<p><table xml:id="wrisam" rend="inline">
+<head>Sampling method</head>
+<row><cell>Sample type</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>1583</cell><cell>35240809</cell><cell>40.37</cell><cell>1994357</cell><cell>39.77</cell></row>
+<row><cell>Whole text</cell><cell>270</cell><cell>6463415</cell><cell>7.40</cell><cell>433833</cell><cell>8.65</cell></row>
+<row><cell>Beginning sample</cell><cell>585</cell><cell>20890666</cell><cell>23.93</cell><cell>1121658</cell><cell>22.37</cell></row>
+<row><cell>Middle sample</cell><cell>512</cell><cell>18344188</cell><cell>21.01</cell><cell>1055383</cell><cell>21.04</cell></row>
+<row><cell>End sample</cell><cell>119</cell><cell>4271138</cell><cell>4.89</cell><cell>253413</cell><cell>5.05</cell></row>
+<row><cell>Composite</cell><cell>75</cell><cell>2067989</cell><cell>2.36</cell><cell>155328</cell><cell>3.09</cell></row>
+</table>
+--><!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Whole text           267  8.32   97239  7.13    430690   6338401  7.06
+Beginning sample     599 18.66  319805 23.47   1159389  21419253 23.86
+Middle sample        555 17.29  301257 22.11   1180007  20054472 22.34
+End sample           127  3.95   69242  5.08    273773   4590518  5.11
+Composite             18  0.56    7145  0.52     20354    473753  0.52
+Unclassified        1643 51.19  567386 41.65   2124160  36864147 41.07
+]]></eg> </p></div>
+<div><head>Reception status</head>
+
+<row><cell>Author type</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Low                  801 24.96  298266 21.89   1037985  19692882 21.94
+Medium               903 28.13  487140 35.76   1904635  32120008 35.79
+high                1059 33.00  386399 28.36   1608454  25237759 28.12
+Unclassified         446 13.89  190269 13.96    637299  12689895 14.14
+]]></eg> -->
+</p>
+<p>In addition to the above, standard bibliographic details such as
+author, title, publication details, extent, topic keywords etc. were
+recorded for the majority of texts, as further described below (see
+<ptr target="#cdifhd"/>).
+</p>
+</div></div>
+<div>
+<head>Selection procedures employed 
+</head>
+<div><head>Books</head>  
+<p>Roughly half the titles were randomly selected from available
+candidates identified in  Whitaker's <title>Books in Print</title>
+(BIP), 1992, by students of Library and Information Studies at Leeds
+City University. Each text randomly chosen was accepted only if it
+fulfilled certain criteria: it had to be published by a British
+publisher, contain sufficient pages of text to make its incorporation 
+worthwhile, consist mainly of written text, fall within the
+designated time limits, and cost less than a set price. The students
+noted the ISBN, author, title and price of each book thus selected; the
+final selection weeded out texts by non-UK authors. </p> 
+<p>Half of the books having been selected by this method, the
+remaining half were selected systematically to make up the target 
+percentages in each category. The selection proceeded as follows. </p> 
+<div> <head>Bestsellers</head>  
+<p>Because of their wide reception, bestsellers were obvious
+candidates for selection. The lists used were those that appeared in the
+<title>Bookseller</title> at the end of the years 1987 to 1993
+inclusive. Some of the books in the lists were rejected, for a variety
+of reasons. Obviously books that had already been selected by the random
+method were excluded, as were those by non-UK authors. In addition, a
+limit of 120,000  words from any one author was imposed, and books
+belonging to a domain or category whose quota had already been reached
+were not selected. Other bestseller lists were obtained from <title>The
+ Guardian,</title> the British Council, and from Blackwells Paperback
+Shop.</p>
+<p>The titles yielded by this search were mostly in the Imaginative
+category.  
+</p></div>
+<div>
+<head>Literary prizes</head>  
+<p>The criteria for inclusion were the same as for bestsellers. The
+prize winners, together with runners-up and shortlisted titles, were
+taken from several sources, principally Anne Strachan,
+<title>Prizewinning literature: UK literary award winners,</title>
+London, 1989. For 1990 onwards the sources used were: the last issue of
+the <title>Bookseller</title> for each year; <title> The Guardian
+Index, 1989–</title>, entries under the term <q>Literature</q>;
+and <title>The Times Index, 1989-,</title> entries under the term
+<q>Literature — Awards</q>. </p> 
+<p>Literary prizes are in the main awarded to works that fall into the
+Imaginative category, but there are some Informative ones also. 
+</p></div>
+<div>
+<head>Library loans</head> 
+<p>The source of statistics in this category was the record of loans
+under Public Lending Right, kindly provided by Dr J. Parker, the
+Registrar. The information comprised lists of the hundred most issued
+books and the hundred most issued children's books, in both cases for
+the years 1987 to 1993.
+</p>
+<p>The lists consist almost exclusively of imaginative literature, and
+many titles found there also appear in the lists of bestsellers and
+prize winners. 
+</p></div>
+<div><head>Additional texts</head> 
+<p>As collection proceeded, monitoring disclosed potential shortfalls
+in certain domains. A further selection was therefore made, based on the
+<q>Short Loan</q> collections of seven University libraries. (Short
+Loan collections typically contain books required for academic courses,
+which are consequently in heavy demand.)  
+</p></div></div>
+<div>
+<head>Periodicals and magazines</head> 
+<p>Periodicals, magazines and newspapers account for 30 per cent  of
+the total text in the corpus. Of these, about 250 titles were issues of
+newspapers. These were selected to cover as wide a spectrum of interests
+and language as possible. Newspapers were selected to represent as wide
+a geographic spread as possible:
+<title>The Scotsman</title> and the <title>Belfast Telegraph</title>
+are both represented, for example. 
+</p></div>
+<div><head>Other media</head> 
+<p>In addition to samples from books, periodicals, and magazines, the
+written part of the corpus contains about seven million words classified as
+<q>Miscellaneous Published</q>, <q>Miscellaneous Unpublished</q>, or
+as
+<q>Written to be spoken</q>.  The distinction between <q>published</q>
+and <q>unpublished</q> is not an easy one; the former category largely
+contains publicity leaflets, brochures, fact sheets, and similar items,
+while the latter has a substantial proportion of school and university
+essays, unpublished creative writing or letters, and internal company
+memoranda. The <q>written to be spoken</q> material includes  scripted
+material, intended to be read aloud such as television news broadcasts; 
+transcripts of more informal broadcast materials such as discussions or
+phone-ins are included in the spoken part of the corpus. 
+</p></div>
+<div>
+<head>Copyright permissions</head> 
+<p>Before a selected text could be included, permissions had to be 
+obtained from the copyright owner (publisher, agent, or author).  A
+standard Permissions Request was drafted with considerable care, but
+some requests were refused, or simply not answered even after prompting,
+so that the texts concerned had to be excluded or replaced.
+</p></div></div></div>
+<div xml:id="spodes"><head>Design of the spoken component</head> 
+<p>Lexicographers and linguists have long hoped for corpus evidence
+about spoken language, but the practical difficulties of transcribing
+sufficiently large quantities of text have prevented the construction of
+a spoken corpus of over one million words. The British National Corpus
+project undertook to produce 
+five to ten million words of orthographically transcribed speech,
+covering a wide range of speech variation. A
+large proportion of the spoken part of the corpus — over four million words
+— comprises spontaneous conversational English. The importance of
+conversational dialogue to linguistic study is unquestionable: it is the
+dominant component of general language both in terms of language
+reception and language production.  
+</p>
+<p>As with the written part of the corpus, the most important 
+considerations in constructing the spoken part were 
+sampling and representativeness. The method of transcription was also an
+important issue.
+</p>
+<p>The issues of corpus sampling and representativeness have been
+discussed at great length by many corpus linguists.  
+With  spoken language there
+are no obvious objective measures that can be used to define the target
+population or construct a sampling frame. A comprehensive list of text
+types can be drawn up but there is no accurate way of estimating the
+relative proportions of each text type other than by a priori
+linguistically motivated analysis. An alternative approach, one well
+known to sociological researchers, is <term>demographic sampling</term>,
+and this was broadly the approach adopted for approximately half of the
+spoken part of the corpus.  The sampling frame was defined in terms of
+the language production of the population of British English speakers in
+the United Kingdom. Representativeness was achieved by sampling a spread
+of language producers in terms of age, gender, social group, and region,
+and recording their language output over a set period of time.  
+</p>
+<p>We recognised, however, that many types of spoken text are produced
+only rarely in comparison with the total output of all <q>speech
+producers</q>: for example, broadcast interviews, lectures, legal
+proceedings, and other texts produced in situations where —
+broadly speaking — there are few producers and many receivers. A
+corpus constituted solely on the demographic model would thus omit
+important spoken text types. Consequently, the demographic component of
+the corpus was complemented with a separate text typology intended to
+cover the full range of linguistic variation found in spoken language;
+this is termed the <term>context-governed</term> part of the corpus. 
+</p>
+<div>
+<head>The demographically sampled part of the corpus</head> 
+<p>The approach adopted uses demographic parameters to sample the
+population of British English speakers in the United Kingdom.
+Established random location sampling procedures were used to select
+individual members of the population by personal interview from across
+the country taking into account age, gender, and social group. Selected
+individuals used a portable tape recorder to record their own speech and
+the speech of people they conversed with over a period of up to a week.
+In this way a unique record of the language people use in everyday
+conversation was constructed.
+</p>
+<div><head>Sampling procedure</head> 
+<p>124 adults (aged 15+) were recruited from across the United
+Kingdom.  Recruits were of both sexes and from all age groups and social
+classes. The intention was, as far as possible, to recruit equal numbers
+of men and women, equal numbers from each of the six age groups, and
+equal numbers from each of four social classes. 
+</p>
+<p>Additional recordings were gathered for the BNC as part of the
+University of Bergen COLT Teenager Language Project. This project used
+the same recording methods and transcription scheme as the BNC, but
+selected only respondents aged 16 or below.
+</p>
+<p>The tables below give figures for the amount of transcribed
+material collected by each respondent, classified by their age, 
+class, and sex.
+</p>
+<p>
+
+<table xml:id="sdeage" rend="center">
+<head>Age-group</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Respondent Age 0-14</cell><cell>26</cell><cell>267005</cell><cell>6.30</cell><cell>41036</cell><cell>6.72</cell></row>
+<row><cell role="label">Respondent Age 15-24</cell><cell>36</cell><cell>665358</cell><cell>15.71</cell><cell>97993</cell><cell>16.04</cell></row>
+<row><cell role="label">Respondent Age 25-34</cell><cell>29</cell><cell>853832</cell><cell>20.16</cell><cell>121752</cell><cell>19.94</cell></row>
+<row><cell role="label">Respondent Age 35-44</cell><cell>22</cell><cell>845153</cell><cell>19.96</cell><cell>126690</cell><cell>20.74</cell></row>
+<row><cell role="label">Respondent Age 45-59</cell><cell>20</cell><cell>963483</cell><cell>22.75</cell><cell>136530</cell><cell>22.36</cell></row>
+<row><cell role="label">Respondent Age 60+</cell><cell>20</cell><cell>639124</cell><cell>15.09</cell><cell>86556</cell><cell>14.17</cell></row>
+</table>
+<!--
+<table xml:id="sdeage" rend="inline">
+<head>Age group of demographic respondent</head>
+<row><cell>Age group</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>0-14</cell><cell>26</cell><cell>265382</cell><cell>6.30</cell><cell>41035</cell><cell>6.72</cell></row>
+<row><cell>15-24</cell><cell>36</cell><cell>660847</cell><cell>15.71</cell><cell>97994</cell><cell>16.04</cell></row>
+<row><cell>25-34</cell><cell>29</cell><cell>848162</cell><cell>20.16</cell><cell>121750</cell><cell>19.94</cell></row>
+<row><cell>35-44</cell><cell>22</cell><cell>839622</cell><cell>19.96</cell><cell>126688</cell><cell>20.74</cell></row>
+<row><cell>45-59</cell><cell>20</cell><cell>957382</cell><cell>22.76</cell><cell>136540</cell><cell>22.36</cell></row>
+<row><cell>60+</cell><cell>20</cell><cell>634663</cell><cell>15.08</cell><cell>86556</cell><cell>14.17</cell></row>
+</table>-->
+</p>
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+0-14                  26 16.99    5369  6.32     41113    265716  6.30
+15-24                 36 23.52   13848 16.30     99510    668947 15.88
+25-34                 29 18.95   16817 19.79    121717    847236 20.11
+35-44                 22 14.37   17158 20.19    126665    839026 19.92
+45-59                 20 13.07   19142 22.53    136506    956474 22.71
+60+                   20 13.07   12618 14.85     86538    633817 15.05
+]]></eg> 
+-->
+
+<p>
+<table xml:id="sdecla" rend="center">
+<head>Social class</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>7</cell><cell>37622</cell><cell>0.88</cell><cell>5340</cell><cell>0.87</cell></row>
+<row><cell role="label">AB respondent</cell><cell>59</cell><cell>1372933</cell><cell>32.42</cell><cell>197795</cell><cell>32.39</cell></row>
+<row><cell role="label">C1 respondent</cell><cell>36</cell><cell>1104279</cell><cell>26.08</cell><cell>169387</cell><cell>27.74</cell></row>
+<row><cell role="label">C2 respondent</cell><cell>31</cell><cell>1087808</cell><cell>25.69</cell><cell>144876</cell><cell>23.72</cell></row>
+<row><cell role="label">DE respondent</cell><cell>20</cell><cell>631313</cell><cell>14.91</cell><cell>93159</cell><cell>15.25</cell></row>
+</table>
+<!--
+<table xml:id="sdecla" rend="inline">
+<head>Social class of demographic respondent</head>
+
+<row><cell>Social class</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>7</cell><cell>37363</cell><cell>0.88</cell><cell>5339</cell><cell>0.87</cell></row>
+<row><cell>AB</cell><cell>59</cell><cell>1363571</cell><cell>32.41</cell><cell>197804</cell><cell>32.39</cell></row>
+<row><cell>C1</cell><cell>36</cell><cell>1097023</cell><cell>26.08</cell><cell>169384</cell><cell>27.74</cell></row>
+<row><cell>C2</cell><cell>31</cell><cell>1080654</cell><cell>25.69</cell><cell>144877</cell><cell>23.72</cell></row>
+<row><cell>DE</cell><cell>20</cell><cell>627447</cell><cell>14.91</cell><cell>93159</cell><cell>15.25</cell></row>
+</table>
+-->
+</p>
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+AB                    59 38.56   27612 32.50    199297   1370589 32.54
+C1                    36 23.52   22951 27.01    169349   1096111 26.02
+C2                    31 20.26   20943 24.65    144848   1079828 25.64
+DE                    20 13.07   12689 14.93     93127    626871 14.88
+Unclassified           7  4.57     757  0.89      5428     37817  0.89
+]]></eg> </p>-->
+
+<table xml:id="sdesex" rend="center">
+<head>Sex</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>5</cell><cell>16245</cell><cell>0.38</cell><cell>2407</cell><cell>0.39</cell></row>
+<row><cell role="label">Male respondent</cell><cell>73</cell><cell>1742222</cell><cell>41.14</cell><cell>248241</cell><cell>40.65</cell></row>
+<row><cell role="label">Female respondent</cell><cell>75</cell><cell>2475488</cell><cell>58.46</cell><cell>359909</cell><cell>58.94</cell></row>
+</table>
+<!--
+<p><table xml:id="sdesex" rend="inline">
+<head>Sex of demographic respondent</head><row>
+<cell>Sex</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>5</cell><cell>16151</cell><cell>0.38</cell><cell>2407</cell><cell>0.39</cell></row>
+<row><cell>Male</cell><cell>73</cell><cell>1730592</cell><cell>41.14</cell><cell>248247</cell><cell>40.65</cell></row>
+<row><cell>Female</cell><cell>75</cell><cell>2459315</cell><cell>58.47</cell><cell>359909</cell><cell>58.94</cell></row>
+</table></p>
+--><!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Male                  73 47.71   35065 41.27    248843   1732731 41.14
+Female                75 49.01   49545 58.32    360802   2462339 58.47
+Unclassified           5  3.26     342  0.40      2404     16146  0.38
+]]>
+</eg>  </p>-->
+<p>Recruits who agreed to take part in the project were asked to
+record all of their conversations over a two to seven day period. The
+number of days varied depending on how many conversations each recruit
+was involved in and was prepared to record. Results indicated that most
+people recorded nearly all of their conversations, and that the limiting
+factor was usually the number of conversations a person had per day. 
+The placement day was varied, and recruits were asked to record on the
+day after placement and on any other day or days of the week.  In this
+way a broad spread of days of the week including weekdays and weekends
+was achieved. A conversation log allowed recruits to enter details of
+every conversation recorded, and included date, time and setting, and
+brief details of other participants. 
+</p>
+</div>
+<div>
+<head>Recording procedure</head> 
+<p>All conversations were recorded as unobtrusively as possible, so
+that the material gathered approximated closely to natural, spontaneous
+speech. In many cases the only person aware that the conversation was
+being taped was the person carrying the recorder. Although an initial
+unnaturalness on the part of the recruit was not uncommon this soon
+seemed to disappear. Similarly, where non-intrusive recording was not
+possible, for example at a family gathering where everyone is aware they
+are being recorded, the same initial period of unease sometimes
+occurred, but in our experience again vanished quickly. The guarantee of
+confidentiality and complete anonymity (all references to full names and
+addresses have been removed from the corpus and the log), and the fact
+that there was an intermediary between those being recorded and those
+listening to the recordings certainly helped. </p> 
+<p>For each conversational exchange the person carrying the recorder
+told all participants they had been recorded and explained why. Whenever
+possible this happened after the conversation had taken place. If any
+participant was unhappy about being recorded the recording was erased.
+During the project  around 700 hours of recordings were gathered.
+</p> 
+</div>
+<div><head>Sample size</head> 
+<p>The number of people recruited may seem small in comparison to some
+demographic studies of the population of the United Kingdom.  As with
+any sampling method, some  compromise between what was theoretically
+desirable and what was feasible within the constraints of the BNC
+project had to be made. There is no doubt that recruiting 1000 people
+would have given greater statistical validity but the practical
+difficulties and cost implications of recruiting 1000 people and
+transcribing 50–100 million words of speech made this impossible.
+Given that we were not attempting to represent the complete range of age
+and social groups within each region we considered a sample size between
+100 and 130 would  be adequate. The
+total number of participants in all conversations was well in excess of
+a thousand. 
+</p></div>
+<div><head>Piloting the demographic sampling approach</head> 
+<p>Because this approach to spoken corpus sampling had to our
+knowledge never previously been attempted a detailed piloting project
+was carried out to investigate:
+<list><item>the likelihood that enough material would be obtained from a
+sample of around 100 respondents
+</item>
+<item>any problems that might be encountered during the recruitment and
+collection stages
+</item>
+<item>any problems or difficulties experienced by recruits during
+taping or with logging details of conversations and participants
+</item>
+<item>any areas where the documentation designed for the project could
+be improved
+</item>
+<item>whether the recording quality under a wide range of conditions
+would be good enough for accurate transcription
+</item>
+<item>whether the predicted throughput rates for tape editing,
+transcription and checking were accurate.
+</item></list></p>
+<p>The results of the pilot generally confirmed predictions and allowed
+some procedures to be refined for the full project. 
+</p></div></div>
+<div><head>The context-governed part of the corpus</head> 
+<p>As mentioned above, the spoken texts in the demographic part of
+the corpus consists mainly of conversational English. A complementary
+approach was developed to create what is termed the
+<term>context-governed</term> part of the corpus. As in other spoken
+corpora, the range of text types was selected according to <foreign>a
+priori</foreign> linguistically motivated categories. At the top layer
+of the typology is a division into four equal-sized contextually based
+categories: educational, business, public/institutional, and leisure.
+Each is divided into the subcategories monologue (40 per cent) and
+dialogue (60 per cent). Each monologue subcategory therefore totals 10
+per cent of the context-governed part of the corpus, and each dialogue
+subcategory 15 per cent.
+</p>
+<p>Within each subcategory a range of text types was defined. This
+range was not fixed, and the design was
+flexible enough to allow the inclusion of additional text types. The
+sampling methodology was different for each text type but the overall
+aim was to achieve a balanced selection within each, taking into account
+such features as region, level, gender of speakers, and topic. Other
+features, such as purpose, were applied on the basis of <foreign>post
+hoc</foreign> judgements. 
+<!--
+The channels <q>broadcast</q> and <q>telephone</q> were applied to
+appropriate text types.</p> -->
+</p>
+<div>
+<head>Sampling procedure</head> 
+<p>For the most part, a variety of text types were sampled within three
+geographic  regions. However, 
+some text types,
+such as parliamentary proceedings, and most broadcast categories, apply
+to the country as a whole and were not regionally sampled. Different
+sampling strategies were required for each text type, and these are
+outlined below.
+</p>
+<div>
+<head>Educational and informative:</head> 
+<list type="gloss"> <label>Lectures, talks, educational demonstrations</label>
+<item> Within each sampling area a university (or college of further
+education) and a school were selected. A range of lectures and talks was
+recorded, varying the topic, level, and speaker gender.</item> 
+<label>News commentaries</label>
+<item> Regional sampling was not applied, but both national and
+regional broadcasting companies were sampled.  The topic, level, and
+gender of commentator was varied.</item> 
+<label>Classroom interaction</label>
+<item> Schools were regionally sampled and the level (generally based
+on student age) and topic were varied. Home tutorials were also
+included.</item>
+</list> 
+</div>
+<div>
+<head>Business:</head> 
+<list type="gloss">
+<label>Company talks and interviews</label>
+<item> Sampling took into account company size, areas of activity, and
+gender of speakers.</item> 
+<label>Trade union talks</label>
+<item> Talks to union members, branch meetings and annual conferences
+were all sampled.</item> 
+<label>Sales demonstrations</label>
+<item> A range of topics was included.</item> 
+<label>Business meetings</label>
+<item> Companies were selected according to size, area of activity, and
+purpose of meeting.</item> 
+<label>Consultations</label>
+<item> These included medical, legal, business and professional
+consultations.</item> 
+</list> 
+<p>All categories under this heading were regionally sampled.</p>
+</div>
+<div>
+<head>Public or institutional:</head> 
+<list type="gloss"><label>Political speeches</label>
+<item> Regional sampling of local politics, plus speeches in both the
+House of Commons and the House of Lords (in the latter case,
+transcriptions were made by the project, and are not taken from the official
+Hansard report).</item> 
+<label>Sermons</label>
+<item> Different denominations were sampled.</item> 
+<label>Public/government talks</label>
+<item> Regional sampling of local inquiries and meetings, plus national
+issues at different levels.</item> 
+<label>Council meetings</label>
+<item> Regionally sampled, covering parish, town, district, and county
+councils.</item> 
+<label>Religious meetings</label>
+<item> Includes church meetings, group discussions, and so on. </item> 
+<label>Parliamentary proceedings</label>
+<item> Sampling of main sessions and committees, House of Commons and
+House of Lords.</item>
+<label>Legal proceedings</label>
+<item>Royal Courts of Justice, and local Magistrates and similar courts
+were sampled.
+</item></list> </div>
+<div>
+<head>Leisure:</head> 
+<list type="gloss"><label>Speeches</label>
+<item> Regionally sampled, covering a variety of occasions and
+speakers.</item> 
+<label>Sports commentaries</label>
+<item> Exclusively broadcast, sampling a variety of sports,
+commentators, and TV/radio channels.</item> 
+<label>Talks to clubs </label>
+<item> Regionally sampled, covering a range of topics and speakers.</item>
+<label>Broadcast chat shows and phone-ins</label>
+<item> Only those that include a significant amount of unscripted
+speech were selected from both television and radio. 
+</item> 
+<label>Club meetings</label>
+<item> Regionally sampled, covering a wide range of clubs.</item></list></div></div>
+<div>
+<head>Sample size</head> 
+<p>Each monologue text type contains up to 200,000 words of text, and
+each dialogue text type up to 300,000 words. The length of text units
+within each text type vary — for example, news commentaries may
+be only a few minutes long (several hundred words), lectures are
+typically up to one hour (10,000 words), and some business meetings
+and parliamentary proceedings may last for several hours (20,000
+words+).  For the context-governed part of the corpus an upper limit
+of 10,000 words per text unit was generally imposed, although a few
+texts are slightly above this.  </p>
+</div>
+<div><head>Composition of the spoken component</head> 
+<p>A total of 757 texts (6,153,671 words) make up the context-governed
+part of the corpus. The following contexts are distinguished: 
+<table xml:id="scgdom" rend="center">
+<head>Spoken context</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Educational/Informative</cell><cell>169</cell><cell>1646380</cell><cell>26.65</cell><cell>118987</cell><cell>27.83</cell></row>
+<row><cell role="label">Business</cell><cell>129</cell><cell>1282416</cell><cell>20.76</cell><cell>107366</cell><cell>25.11</cell></row>
+<row><cell role="label">Public/Institutional</cell><cell>262</cell><cell>1672658</cell><cell>27.08</cell><cell>96500</cell><cell>22.57</cell></row>
+<row><cell role="label">Leisure</cell><cell>195</cell><cell>1574442</cell><cell>25.49</cell><cell>104670</cell><cell>24.48</cell></row>
+</table>
+
+<!--<table xml:id="scgdom" rend="inline">
+<head>Context in which spoken text was captured</head>
+<row><cell>Context</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Educational/Informative</cell><cell>169</cell><cell>1633303</cell><cell>26.61</cell><cell>119252</cell><cell>27.82</cell></row>
+<row><cell>Business</cell><cell>131</cell><cell>1285938</cell><cell>20.95</cell><cell>108101</cell><cell>25.22</cell></row>
+<row><cell>Public/Institutional</cell><cell>262</cell><cell>1655263</cell><cell>26.97</cell><cell>96504</cell><cell>22.51</cell></row>
+<row><cell>Leisure</cell><cell>195</cell><cell>1561167</cell><cell>25.44</cell><cell>104701</cell><cell>24.43</cell></row>
+</table>
+-->
+</p>
+<!--
+<eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Educational          144 18.89   21037 21.00    100745   1265318 20.56
+Business             136 17.84   22344 22.30    110421   1321844 21.47
+Institutional        241 31.62   21878 21.84     77694   1345694 21.86
+Leisure              187 24.54   23451 23.41    101207   1459419 23.71
+Unclassified          54  7.08   11462 11.44     40281    761973 12.38
+]]></eg> </p> -->
+<p>In addition, the following classifications are applicable  to  both
+demographic and context-governed spoken texts:
+
+<table xml:id="sporeg" rend="center">
+<head>Region</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Unknown</cell><cell>35</cell><cell>448458</cell><cell>4.30</cell><cell>27496</cell><cell>2.64</cell></row>
+<row><cell role="label">South </cell><cell>311</cell><cell>4687877</cell><cell>45.03</cell><cell>457726</cell><cell>44.09</cell></row>
+<row><cell role="label">Midlands</cell><cell>213</cell><cell>2492236</cell><cell>23.94</cell><cell>240306</cell><cell>23.14</cell></row>
+<row><cell role="label">North</cell><cell>349</cell><cell>2781280</cell><cell>26.71</cell><cell>312552</cell><cell>30.10</cell></row>
+</table>
+<!--
+<table xml:id="sporeg" rend="inline"><head>Region where spoken text captured</head>
+<row><cell>Region</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Unknown</cell><cell>35</cell><cell>446584</cell><cell>4.31</cell><cell>27706</cell><cell>2.66</cell></row>
+<row><cell>South</cell><cell>312</cell><cell>4658232</cell><cell>45.04</cell><cell>458253</cell><cell>44.10</cell></row>
+<row><cell>Midlands</cell><cell>213</cell><cell>2471184</cell><cell>23.89</cell><cell>240320</cell><cell>23.12</cell></row>
+<row><cell>North</cell><cell>350</cell><cell>2765729</cell><cell>26.74</cell><cell>312842</cell><cell>30.10</cell></row>
+</table>
+-->
+
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+South                296 32.34   83425 45.06    461171   4728472 45.61
+Midlands             208 22.73   42658 23.04    234095   2418278 23.33
+North                334 36.50   49349 26.65    301875   2636312 25.43
+Unclassified          77  8.41    9692  5.23     45256    582402  5.61
+]]></eg> </p>-->
+
+<table xml:id="spolog" rend="center">
+<head>Interaction type</head>
+<row role="label"><cell/><cell>texts</cell><cell>w-units</cell><cell>%</cell><cell>s-units</cell><cell>%</cell></row><row><cell role="label">Monologue</cell><cell>207</cell><cell>1562017</cell><cell>15.00</cell><cell>92619</cell><cell>8.92</cell></row>
+<row><cell role="label">Dialogue</cell><cell>701</cell><cell>8847834</cell><cell>84.99</cell><cell>945461</cell><cell>91.07</cell></row>
+</table>
+
+</p>
+</div></div></div></div>
+<!--
+<table xml:id="spolog" rend="inline"><head>Interaction type for spoken text</head>
+
+<row><cell>Interaction type</cell><cell>texts</cell><cell>w-units</cell><cell>%</cell>
+<cell>s-units</cell><cell>%</cell></row>
+<row><cell>Monologue</cell><cell>212</cell><cell>1578614</cell><cell>15.26</cell><cell>94272</cell><cell>9.07</cell></row>
+<row><cell>Dialogue</cell><cell>698</cell><cell>8763115</cell><cell>84.73</cell><cell>944849</cell><cell>90.92</cell></row>
+</table> -->
+<!--
+<p><eg><![CDATA[
+                         Texts        Kbytes   S-units         W-units
+                     =========  ============  ========  ==============
+Monologue            218 23.82   30152 16.28    114362   1932225 18.64
+Dialogue             672 73.44  144666 78.14    888535   7760753 74.87
+Unclassified          25  2.73   10306  5.56     39500    672486  6.48
+]]></eg>
+-->

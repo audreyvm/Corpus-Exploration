@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Formal Specification of the BNC XML schema</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Formal Specification of the BNC XML schema">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="bnctags">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">12  Formal Specification of the BNC XML schema</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="xairaspec.html">11  The Xaira Specification</a></p>
+<p><span id="id2465034"></span>The structure of the XML edition of the British National Corpus is
+described by means of a single XML schema, which is however expressed in three
+different schema languages: the traditional DTD language which
+XML inherits from SGML; the more recently defined ISO schema language
+known as RELAXNG; and the W3C defined schema language. 
+The three schema files are all generated from the same TEI-conformant
+XML source file, which is also used to generate the present
+documentation.</p>
+<p><span id="id2465045"></span>This section of the document contains the TEI-conformant reference
+specification for all components of the BNC schema. These include
+definitions for attribute classses, model
+classes, and macro patterns as well as definitions
+for elements and their associated attributes and possible value
+lists. A full description of these concepts and how they are used to
+define and document  XML encoding schemes is given by the TEI Guidelines
+(in particular, in  chapter TD); the following summary
+provides only basic information about them.  </p>
+<p><span id="id2465061"></span>When several elements in a schema share  attributes of the same name, with
+values drawn from a common set, they are considered to form an
+<span class="term">attribute class</span>. The members of such a class can then
+all reference the same class definition rather then each repeat the
+same information. In the BNC, for example, the elements
+<code>&lt;bibl&gt;</code>,<code>&lt;corr&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;hi&gt;</code>,
+and half a dozen others, all have the same attribute
+<strong>rend</strong> which takes a coded value taken from the same short list of
+possibilities. Rather than repeat this definition half a dozen times
+therefore, the relevant elements are all said to be members of a class
+<strong>att.rendered</strong>, which is defined independently of those
+elements (but includes a list of its members). In the same way, 
+the <code>&lt;w&gt;</code> and <code>&lt;mw&gt;</code> elements, as members of the
+<strong>att.c5coded</strong> class, share the same definition for the
+possible CLAWS5 codes specified by their <span class="att">c5</span> attribute. Note
+however that the element <code>&lt;c&gt;</code>, although it has an attribute
+<span class="att">c5</span>, is not a member of this class because the possible
+values for this attribute on this element are entirely different.
+</p>
+<p><span id="id2465128"></span>In any reasonably large schema, and particularly one derived from
+the TEI model, several elements are likely to have very similar
+content models, since it will often be the case that at a given point
+in the document hierarchy any one of several possible elements will be
+permissible. The specific  subset of elements (<code>&lt;w&gt;</code>,
+<code>&lt;mw&gt;</code>, <code>&lt;c&gt;</code> and a few others) which may appear within an
+<code>&lt;s&gt;</code> element in the BNC, is different from the subsets of elements
+which may appear within a <code>&lt;p&gt;</code> or <code>&lt;div&gt;</code> element.
+However, there are several elements which can appear in the same
+places as a <code>&lt;p&gt;</code>. Following TEI practice, we call
+the set of elements which can appear together (in sequence or
+alternation) at a specific place in the document hierarchy a
+<span class="term">model class</span>. For example, since
+<code>&lt;l&gt;</code>, <code>&lt;lg&gt;</code>, <code>&lt;list&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;quote&gt;</code>,
+and <code>&lt;sp&gt;</code> are all permitted as immediate components of a
+<code>&lt;div&gt;</code> elements, we define a class <strong>model.divPart</strong>, of which these
+six elements are all members. Wherever convenient, content models are
+defined in terms of these model classes. 
+</p>
+<p><span id="id2465201"></span>As noted above, this usage of model classes is a distinctive and
+pervasive feature of the TEI encoding scheme. Because the BNC derives
+from the TEI scheme, it uses the same names and (as far as is
+practicable) the same model classes throughout. Although this 
+introduces an occasionally redundant degree of indirection in the
+resulting schema, it also makes clearer the relationship between
+the components defined for the BNC and their origins in the TEI
+scheme. </p>
+<p><span id="id2465212"></span>Finally, we define here a few <strong>macros</strong> for commonly
+encountered content models. These are also taken from the TEI encoding
+scheme, though in a few cases with different meanings. In the TEI for
+example, the macro <strong>macro.phraseSeq</strong> is defined as a
+mixture of various &#8216;phrase level&#8217; elements and plain
+text; in the BNC scheme, it has been redefined as plain text
+only. The places where this macro is referenced however are unchanged;
+in this respect therefore, the BNC schema is a proper subset of the
+full BNC schema. </p>
+<p><span id="id2465235"></span>The remainder of this section lists in alphabetical order all of
+the attribute classes, model classes, elements, and macros defined for
+the BNC encoding scheme, using a similar method of display as the full
+TEI Guidelines. For each component, we give a brief description and
+also a usage example. Note that many of the elements listed here
+appear only in the corpus header rather than in the texts, and may
+thus be safely disregarded by applications which operate on the texts
+alone or in isolation.
+</p>
+<div class="schemaFragment">
+<h2>Classes defined</h2> [<a href="ref-att.ascribed.html">att.ascribed</a>]  [<a href="ref-att.c5coded.html">att.c5coded</a>]  [<a href="ref-att.editLike.html">att.editLike</a>]  [<a href="ref-att.identifiable.html">att.identifiable</a>]  [<a href="ref-att.rendered.html">att.rendered</a>]  [<a href="ref-att.timed.html">att.timed</a>]  [<a href="ref-att.uniqueId.html">att.uniqueId</a>]  [<a href="ref-model.addressLike.html">model.addressLike</a>]  [<a href="ref-model.assertLike.html">model.assertLike</a>]  [<a href="ref-model.biblLike.html">model.biblLike</a>]  [<a href="ref-model.dateLike.html">model.dateLike</a>]  [<a href="ref-model.divPart.html">model.divPart</a>]  [<a href="ref-model.divPart.spoken.html">model.divPart.spoken</a>]  [<a href="ref-model.divWrapper.html">model.divWrapper</a>]  [<a href="ref-model.encodingPart.html">model.encodingPart</a>]  [<a href="ref-model.global.html">model.global</a>]  [<a href="ref-model.global.edit.html">model.global.edit</a>]  [<a href="ref-model.glossLike.html">model.glossLike</a>]  [<a href="ref-model.headerPart.html">model.headerPart</a>]  [<a href="ref-model.hiLike.html">model.hiLike</a>]  [<a href="ref-model.imprintPart.html">model.imprintPart</a>]  [<a href="ref-model.inter.html">model.inter</a>]  [<a href="ref-model.lLike.html">model.lLike</a>]  [<a href="ref-model.listLike.html">model.listLike</a>]  [<a href="ref-model.milestoneLike.html">model.milestoneLike</a>]  [<a href="ref-model.nameLike.html">model.nameLike</a>]  [<a href="ref-model.nameLike.agent.html">model.nameLike.agent</a>]  [<a href="ref-model.pLike.html">model.pLike</a>]  [<a href="ref-model.pPart.data.html">model.pPart.data</a>]  [<a href="ref-model.pPart.edit.html">model.pPart.edit</a>]  [<a href="ref-model.persStateLike.html">model.persStateLike</a>]  [<a href="ref-model.personPart.html">model.personPart</a>]  [<a href="ref-model.phrase.html">model.phrase</a>]  [<a href="ref-model.profileDescPart.html">model.profileDescPart</a>]  [<a href="ref-model.ptrLike.html">model.ptrLike</a>]  [<a href="ref-model.publicationStmtPart.html">model.publicationStmtPart</a>]  [<a href="ref-model.qLike.html">model.qLike</a>]  [<a href="ref-model.recordingPart.html">model.recordingPart</a>]  [<a href="ref-model.respLike.html">model.respLike</a>]  [<a href="ref-model.segLike.html">model.segLike</a>]  [<a href="ref-model.settingPart.html">model.settingPart</a>]  [<a href="ref-model.sourceDescPart.html">model.sourceDescPart</a>]  [<a href="ref-model.stageLike.html">model.stageLike</a>] <h2>Elements defined</h2> [<a href="ref-activity.html">&lt;activity&gt;</a>]  [<a href="ref-address.html">&lt;address&gt;</a>]  [<a href="ref-age.html">&lt;age&gt;</a>]  [<a href="ref-align.html">&lt;align&gt;</a>]  [<a href="ref-attDef.html">&lt;attDef&gt;</a>]  [<a href="ref-attList.html">&lt;attList&gt;</a>]  [<a href="ref-attributePolicy.html">&lt;attributePolicy&gt;</a>]  [<a href="ref-author.html">&lt;author&gt;</a>]  [<a href="ref-availability.html">&lt;availability&gt;</a>]  [<a href="ref-bibl.html">&lt;bibl&gt;</a>]  [<a href="ref-bncDoc.html">&lt;bncDoc&gt;</a>]  [<a href="ref-c.html">&lt;c&gt;</a>]  [<a href="ref-catDesc.html">&lt;catDesc&gt;</a>]  [<a href="ref-catRef.html">&lt;catRef&gt;</a>]  [<a href="ref-category.html">&lt;category&gt;</a>]  [<a href="ref-change.html">&lt;change&gt;</a>]  [<a href="ref-classCode.html">&lt;classCode&gt;</a>]  [<a href="ref-classDecl.html">&lt;classDecl&gt;</a>]  [<a href="ref-collate.html">&lt;collate&gt;</a>]  [<a href="ref-corr.html">&lt;corr&gt;</a>]  [<a href="ref-creation.html">&lt;creation&gt;</a>]  [<a href="ref-date.html">&lt;date&gt;</a>]  [<a href="ref-defaultVal.html">&lt;defaultVal&gt;</a>]  [<a href="ref-desc.html">&lt;desc&gt;</a>]  [<a href="ref-dialect.html">&lt;dialect&gt;</a>]  [<a href="ref-distributor.html">&lt;distributor&gt;</a>]  [<a href="ref-div.html">&lt;div&gt;</a>]  [<a href="ref-edition.html">&lt;edition&gt;</a>]  [<a href="ref-editionStmt.html">&lt;editionStmt&gt;</a>]  [<a href="ref-editor.html">&lt;editor&gt;</a>]  [<a href="ref-editorialDecl.html">&lt;editorialDecl&gt;</a>]  [<a href="ref-elementPolicy.html">&lt;elementPolicy&gt;</a>]  [<a href="ref-email.html">&lt;email&gt;</a>]  [<a href="ref-encodingDesc.html">&lt;encodingDesc&gt;</a>]  [<a href="ref-event.html">&lt;event&gt;</a>]  [<a href="ref-extent.html">&lt;extent&gt;</a>]  [<a href="ref-fileDesc.html">&lt;fileDesc&gt;</a>]  [<a href="ref-gap.html">&lt;gap&gt;</a>]  [<a href="ref-gi.html">&lt;gi&gt;</a>]  [<a href="ref-head.html">&lt;head&gt;</a>]  [<a href="ref-hi.html">&lt;hi&gt;</a>]  [<a href="ref-ident.html">&lt;ident&gt;</a>]  [<a href="ref-idno.html">&lt;idno&gt;</a>]  [<a href="ref-imprint.html">&lt;imprint&gt;</a>]  [<a href="ref-item.html">&lt;item&gt;</a>]  [<a href="ref-joinTo.html">&lt;joinTo&gt;</a>]  [<a href="ref-keywords.html">&lt;keywords&gt;</a>]  [<a href="ref-l.html">&lt;l&gt;</a>]  [<a href="ref-label.html">&lt;label&gt;</a>]  [<a href="ref-labelGen.html">&lt;labelGen&gt;</a>]  [<a href="ref-langUsage.html">&lt;langUsage&gt;</a>]  [<a href="ref-language.html">&lt;language&gt;</a>]  [<a href="ref-lg.html">&lt;lg&gt;</a>]  [<a href="ref-list.html">&lt;list&gt;</a>]  [<a href="ref-locale.html">&lt;locale&gt;</a>]  [<a href="ref-mw.html">&lt;mw&gt;</a>]  [<a href="ref-name.html">&lt;name&gt;</a>]  [<a href="ref-nameList.html">&lt;nameList&gt;</a>]  [<a href="ref-namespace.html">&lt;namespace&gt;</a>]  [<a href="ref-note.html">&lt;note&gt;</a>]  [<a href="ref-occupation.html">&lt;occupation&gt;</a>]  [<a href="ref-p.html">&lt;p&gt;</a>]  [<a href="ref-para.html">&lt;para&gt;</a>]  [<a href="ref-particDesc.html">&lt;particDesc&gt;</a>]  [<a href="ref-pause.html">&lt;pause&gt;</a>]  [<a href="ref-pb.html">&lt;pb&gt;</a>]  [<a href="ref-persName.html">&lt;persName&gt;</a>]  [<a href="ref-persNote.html">&lt;persNote&gt;</a>]  [<a href="ref-person.html">&lt;person&gt;</a>]  [<a href="ref-placeName.html">&lt;placeName&gt;</a>]  [<a href="ref-pp.html">&lt;pp&gt;</a>]  [<a href="ref-profileDesc.html">&lt;profileDesc&gt;</a>]  [<a href="ref-projectDesc.html">&lt;projectDesc&gt;</a>]  [<a href="ref-pubPlace.html">&lt;pubPlace&gt;</a>]  [<a href="ref-publicationStmt.html">&lt;publicationStmt&gt;</a>]  [<a href="ref-publisher.html">&lt;publisher&gt;</a>]  [<a href="ref-quote.html">&lt;quote&gt;</a>]  [<a href="ref-recording.html">&lt;recording&gt;</a>]  [<a href="ref-recordingStmt.html">&lt;recordingStmt&gt;</a>]  [<a href="ref-refsDecl.html">&lt;refsDecl&gt;</a>]  [<a href="ref-resp.html">&lt;resp&gt;</a>]  [<a href="ref-respStmt.html">&lt;respStmt&gt;</a>]  [<a href="ref-revisionDesc.html">&lt;revisionDesc&gt;</a>]  [<a href="ref-s.html">&lt;s&gt;</a>]  [<a href="ref-samplingDecl.html">&lt;samplingDecl&gt;</a>]  [<a href="ref-setting.html">&lt;setting&gt;</a>]  [<a href="ref-settingDesc.html">&lt;settingDesc&gt;</a>]  [<a href="ref-shift.html">&lt;shift&gt;</a>]  [<a href="ref-sourceDesc.html">&lt;sourceDesc&gt;</a>]  [<a href="ref-sp.html">&lt;sp&gt;</a>]  [<a href="ref-speaker.html">&lt;speaker&gt;</a>]  [<a href="ref-stage.html">&lt;stage&gt;</a>]  [<a href="ref-stext.html">&lt;stext&gt;</a>]  [<a href="ref-tagUsage.html">&lt;tagUsage&gt;</a>]  [<a href="ref-tagsDecl.html">&lt;tagsDecl&gt;</a>]  [<a href="ref-taxonomy.html">&lt;taxonomy&gt;</a>]  [<a href="ref-teiCorpus.html">&lt;bnc&gt;</a>]  [<a href="ref-teiHeader.html">&lt;teiHeader&gt;</a>]  [<a href="ref-term.html">&lt;term&gt;</a>]  [<a href="ref-textClass.html">&lt;textClass&gt;</a>]  [<a href="ref-title.html">&lt;title&gt;</a>]  [<a href="ref-titleStmt.html">&lt;titleStmt&gt;</a>]  [<a href="ref-tokenize.html">&lt;tokenize&gt;</a>]  [<a href="ref-trunc.html">&lt;trunc&gt;</a>]  [<a href="ref-u.html">&lt;u&gt;</a>]  [<a href="ref-unclear.html">&lt;unclear&gt;</a>]  [<a href="ref-valItem.html">&lt;valItem&gt;</a>]  [<a href="ref-valList.html">&lt;valList&gt;</a>]  [<a href="ref-valSource.html">&lt;valSource&gt;</a>]  [<a href="ref-vocal.html">&lt;vocal&gt;</a>]  [<a href="ref-w.html">&lt;w&gt;</a>]  [<a href="ref-wtext.html">&lt;wtext&gt;</a>]  [<a href="ref-xairaItem.html">&lt;xairaItem&gt;</a>]  [<a href="ref-xairaList.html">&lt;xairaList&gt;</a>]  [<a href="ref-xairaSpecification.html">&lt;xairaSpecification&gt;</a>] <h2>Macros defined</h2> [<a href="ref-data.count.html">data.count</a>]  [<a href="ref-data.enumerated.html">data.enumerated</a>]  [<a href="ref-data.language.html">data.language</a>]  [<a href="ref-data.name.html">data.name</a>]  [<a href="ref-data.namespace.html">data.namespace</a>]  [<a href="ref-data.pointer.html">data.pointer</a>]  [<a href="ref-data.pointers.html">data.pointers</a>]  [<a href="ref-data.temporal.html">data.temporal</a>]  [<a href="ref-data.word.html">data.word</a>]  [<a href="ref-macro.fileDescPart.html">macro.fileDescPart</a>]  [<a href="ref-macro.paraContent.html">macro.paraContent</a>]  [<a href="ref-macro.phraseSeq.html">macro.phraseSeq</a>]  [<a href="ref-mix.spoken.html">mix.spoken</a>] </div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="xairaspec.html">11  The Xaira Specification</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:48Z-->
+</address>
+</div>
+</div></body>
+</html>

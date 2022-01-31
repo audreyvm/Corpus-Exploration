@@ -1,0 +1,127 @@
+<div xml:id="refs">
+       <head>References</head>
+<listBibl>
+
+<bibl id="Aston">Aston, G. and Burnard, L. (1998), <title
+level="m">The BNC handbook: exploring the British National Corpus with
+SARA</title>. Edinburgh: Edinburgh University Press.</bibl>
+
+<bibl id="Atkins92">Atkins, B.T.S., Clear, J., and Ostler, N. (1992),
+<title level="a">Corpus Design Criteria</title>, <title
+level="s">Literary and Linguistic Computing,</title> 7,
+pp. 1-16.</bibl>
+
+<bibl>Beale, A.D. (1987) <title level="a">Towards a distributional
+lexicon</title> in Garside et al (1987).</bibl>
+
+<bibl>Berglund, Y. (1999) <title level="a">Exploiting a large spoken
+corpus: An end-user's way to the BNC</title>. <title>International
+Journal of Corpus Linguistics</title> 4:29-52.</bibl>
+
+
+<bibl>Biber, D., S. Johansson, G. Leech, S. Conrad and E. Finegan
+(1999) <title>The Longman grammar</title> Harlow: Pearson Education
+Limited </bibl>
+
+
+<bibl>Brill, E. (1992) <title level="a">A simple rule-based
+part-of-speech tagger</title> in <title>Proceedings of the
+3rd conference on Applied Natural Language Processing.</title> Italy:
+Trento.</bibl>
+       
+<bibl id="Burnage">Burnage, G. and Dunlop, D. (1992) <title
+level="a">Encoding the British National Corpus</title> in Aarts et al,
+eds.  <title>English language corpora: design, analysis and
+exploitation</title> Amsterdam: Rodopi, pp 79-95 </bibl>
+
+<bibl id="Burnard">Burnard, L. (1999) <title level="a">Using SGML for
+linguistic analysis: the case of the BNC</title> in <title
+level="s">Markup languages theory and practice</title>. I.2
+pp. 31-51. Cambridge, Mass: MIT Press. Also published in
+<title>Maschinelle Verarbeitung altdeutscher Texte V</title>, pp
+53-72. Tuebingen: Max Niemeyer, 2001.</bibl>
+
+<bibl>Burnard, L. (2002) <title level="a">Where did we go wrong? a
+retrospective look at the British National Corpus</title> in
+<title>Teaching and learning by doing corpus analysis</title>,
+ed. B. Kettemann and G. Markus. Amsterdam: Rodopi, pp 51-71.</bibl>
+
+<bibl id="Clear">Clear, J. H. (1993) <title level="a">The British
+National Corpus</title> in Delany, P. and Landow, G., ed. <title>The
+Digital Word : text-based computing in the
+humanities</title>. Cambridge (Mass), MIT Press, pp. 163-187. </bibl>
+
+<bibl>Crowdy, S. (1994) <title level="a">Spoken Corpus
+Transcription</title> in <title>Literary and Linguistic
+Computing</title>, 9.1 pp 25-28.</bibl>
+
+<bibl id="Crowdy95">Crowdy, S. (1995) <title level="a">The BNC spoken
+corpus</title> in Leech, G., Myers, G.  and Thomas, J.,
+eds. <title>Spoken English on computer: transcription, mark-up and
+application</title> Harlow: Longman, pp. 224-235.  </bibl>
+
+<bibl id="Dunlop">Dunlop, D. (1995) <title level="a">Practical
+considerations in the use of TEI headers in large corpora</title> in
+Ide, N. and Veronis, J. eds. <title>Text Encoding Initiative:
+background and context</title>. Dordrecht: Kluwer, pp 85-98.  </bibl>
+
+<bibl>Fligelstone, S., Rayson, P., and Smith, N. (1996). <title
+level="a">Template analysis: bridging the gap between grammar and the
+lexicon</title> in Thomas, J. and Short, M., eds. <title>Using corpora
+for language research</title> Harlow: Longman, pp 181-207. </bibl>
+
+<bibl>Fligelstone S., Pacey M., and Rayson P. (1997) <title level="a">How to
+Generalize the Task of Annotation</title>. In Garside et al. (1997)</bibl>
+
+<bibl>Garside R., Leech G. and Sampson, G. (eds.) (1987) <title>
+The Computational Analysis of English</title>. London:
+Longman.</bibl>
+
+<bibl>Garside R., Leech G. and McEnery A. (eds.) (1997) <hi
+rend="italic">Corpus Annotation: Linguistic Information from Computer
+Text Corpora</hi>. London: Longman.</bibl>
+
+<bibl>Garside R., and Smith N. (1997) <title level="a">A hybrid
+grammatical tagger: CLAWS4</title>.  In Garside et al. (1997)</bibl>
+       
+<bibl id="Hoffman">Lehmann, H., Schneider, P., Hoffmann, S. (1999)
+<title level="a">BNCweb</title> in Kirk, J. ed. <title>Corpora galore:
+analysis and techniques in describing English</title>. Amsterdam:
+Rodopi, pp. 259-266. </bibl>
+
+<bibl>Lee, D. (2001) <title level="a">Genres, registers, text types and styles:
+clarifying the concepts and navigating a path through the BNC Jungle</title>
+in <title>Language Learning and Technology</title>, vol 5 no 3,
+September 2001; available online at <ptr
+target="http://llt.msu.edu/vol5num3/lee/default.html"/></bibl>
+
+<bibl>Leech, G., Garside, R., and Bryant, M. (1994). <title
+level="a">CLAWS4: The tagging of the British National Corpus</title>
+in <title>Proceedings of the 15th International Conference on
+Computational Linguistics (COLING 94)</title>. Japan:
+Kyoto. (pp.622-628.)</bibl>
+       
+<bibl>Leech, G., Rayson, P., and Wilson, A. (2001). <title>Word
+frequencies in written and spoken English based on the British
+National Corpus</title>. London: Longman. Extracts available online at
+<ptr target="http://www.comp.lancs.ac.uk/ucrel/bncfreq/"/></bibl>
+
+<bibl>Marshall, I. (1983). <title level="a">Choice of Grammatical
+wordclass without Global Syntactic Analysis: Tagging Words in the LOB
+Corpus</title> in <title>Computers and the Humanities</title> 17,
+139-50. </bibl>
+       
+<bibl>Smith, N. (1997) <title level="a">Improving a Tagger</title> in Garside et
+al. (1997)</bibl>
+
+<bibl xml:id="TEI94">Sperberg-McQueen, C.M. and Burnard, L (eds)
+(1994). <title>Guidelines for Electronic Text Encoding and Interchange
+(TEI P3)</title>. Oxford, Virginia, Brown: Text Encoding
+Initiative. </bibl>
+
+<bibl xml:id="TEIP5">Sperberg-McQueen, C.M. and Burnard, L (eds)
+(2007). <title>TEI Guidelines, P5</title>. Oxford, Virginia, Brown:
+Text Encoding Initiative; available online at <ptr
+target="http://www.tei-c.org/P5/"/>. </bibl>
+
+</listBibl> </div>

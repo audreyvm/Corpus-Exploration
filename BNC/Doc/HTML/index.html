@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS FILE IS GENERATED FROM AN XML MASTER. DO NOT EDIT (6)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+Reference Guide for the British National Corpus (XML Edition) </title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="
+Reference Guide for the British National Corpus (XML Edition) ">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body class="simple" id="TOP" onload="startUp()">
+<!-- process front matter --><div class="titlePage">
+<div class="docTitle">
+Reference Guide for the British National Corpus (XML Edition)
+</div>
+<div class="docAuthor">edited by Lou Burnard</div>
+<div class="docImprint">
+Published for the British National Corpus Consortium
+by the Research Technologies Service at 
+Oxford University Computing Services
+</div>
+<div class="docDate">February 2007</div>
+</div>
+<h2>Contents</h2>
+<ul class="toc"><li class="toc"> <a class="toc" href="intro.html">Introduction</a><ul class="toc">
+<li class="toc"> <a class="toc" href="intro.html#front.1_div.1_div.1">Overview</a>
+</li>
+<li class="toc"> <a class="toc" href="intro.html#thanx" title="Acknowledgments">Acknowledgments</a><ul class="toc">
+<li class="toc"> <a class="toc" href="intro.html#front.1_div.1_div.2_div.1">BNC 1.0</a>
+</li>
+<li class="toc"> <a class="toc" href="intro.html#front.1_div.1_div.2_div.2">BNC World</a>
+</li>
+<li class="toc"> <a class="toc" href="intro.html#front.1_div.1_div.2_div.3">BNC XML</a>
+</li>
+</ul>
+</li>
+</ul>
+</li></ul>
+<ul class="toc">
+<li class="toc">1  <a class="toc" href="BNCdes.html">Design of the corpus</a><ul class="toc">
+<li class="toc">1.1  <a class="toc" href="BNCdes.html#BNCpurp" title="Purpose">Purpose</a>
+</li>
+<li class="toc">1.2  <a class="toc" href="BNCdes.html#BNCdefn" title="General definitions">General definitions</a>
+</li>
+<li class="toc">1.3  <a class="toc" href="BNCdes.html#BNCcompo" title="Composition">Composition</a>
+</li>
+<li class="toc">1.4  <a class="toc" href="BNCdes.html#wrides" title="Design of the written component">Design of the written component</a><ul class="toc">
+<li class="toc">1.4.1  <a class="toc" href="BNCdes.html#body.1_div.1_div.4_div.1">Sampling basis: production and reception</a>
+</li>
+<li class="toc">1.4.2  <a class="toc" href="BNCdes.html#SEL" title="Selection features">Selection features </a>
+</li>
+<li class="toc">1.4.3  <a class="toc" href="BNCdes.html#body.1_div.1_div.4_div.3">Descriptive features</a>
+</li>
+<li class="toc">1.4.4  <a class="toc" href="BNCdes.html#body.1_div.1_div.4_div.4">Selection procedures employed 
+</a>
+</li>
+</ul>
+</li>
+<li class="toc">1.5  <a class="toc" href="BNCdes.html#spodes" title="Design of the spoken component">Design of the spoken component</a><ul class="toc">
+<li class="toc">1.5.1  <a class="toc" href="BNCdes.html#body.1_div.1_div.5_div.1">The demographically sampled part of the corpus</a>
+</li>
+<li class="toc">1.5.2  <a class="toc" href="BNCdes.html#body.1_div.1_div.5_div.2">The context-governed part of the corpus</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc">2  <a class="toc" href="cdifbase.html">Basic structure</a><ul class="toc">
+<li class="toc">2.1  <a class="toc" href="cdifbase.html#cdifsgml" title="Markup conventions">Markup conventions</a>
+</li>
+<li class="toc">2.2  <a class="toc" href="cdifbase.html#xml-eg" title="An example">An example</a>
+</li>
+<li class="toc">2.3  <a class="toc" href="cdifbase.html#cdif2" title="Corpus and text elements">Corpus and text elements</a>
+</li>
+<li class="toc">2.4  <a class="toc" href="cdifbase.html#cdifcomp" title="Segments and words">Segments and words</a>
+</li>
+<li class="toc">2.5  <a class="toc" href="cdifbase.html#cdifed" title="Editorial indications">Editorial indications</a>
+</li>
+</ul>
+</li>
+<li class="toc">3  <a class="toc" href="cdifwr.html">Written texts</a><ul class="toc">
+<li class="toc">3.1  <a class="toc" href="cdifwr.html#cdif21" title="Divisions of written texts">Divisions of written texts</a>
+</li>
+<li class="toc">3.2  <a class="toc" href="cdifwr.html#cdif5" title="Paragraph-level elements and chunks">Paragraph-level elements and chunks</a><ul class="toc">
+<li class="toc">3.2.1  <a class="toc" href="cdifwr.html#cdif51" title="Headings and captions">Headings and captions</a>
+</li>
+<li class="toc">3.2.2  <a class="toc" href="cdifwr.html#cdif52" title="Quotations">Quotations</a>
+</li>
+<li class="toc">3.2.3  <a class="toc" href="cdifwr.html#cdif5x" title="Spoken paragraphs">Spoken paragraphs</a>
+</li>
+<li class="toc">3.2.4  <a class="toc" href="cdifwr.html#cdif53" title="Poetry">Poetry</a>
+</li>
+<li class="toc">3.2.5  <a class="toc" href="cdifwr.html#cdif54" title="Lists">Lists</a>
+</li>
+<li class="toc">3.2.6  <a class="toc" href="cdifwr.html#cdif55" title="Notes and citations">Notes and citations</a>
+</li>
+<li class="toc">3.2.7  <a class="toc" href="cdifwr.html#cdifbib" title="Bibliographic references">Bibliographic references</a>
+</li>
+</ul>
+</li>
+<li class="toc">3.3  <a class="toc" href="cdifwr.html#cdif6" title="Phrase-level elements">Phrase-level elements</a><ul class="toc">
+<li class="toc">3.3.1  <a class="toc" href="cdifwr.html#body.1_div.3_div.3_div.1">Page breaks</a>
+</li>
+<li class="toc">3.3.2  <a class="toc" href="cdifwr.html#cdif62" title="Highlighted phrases">Highlighted phrases</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc">4  <a class="toc" href="cdifsp.html">Spoken texts</a><ul class="toc">
+<li class="toc">4.1  <a class="toc" href="cdifsp.html#cdif22" title="Basic structure: spoken texts">Basic structure: spoken texts</a>
+</li>
+<li class="toc">4.2  <a class="toc" href="cdifsp.html#cdifspu" title="Utterances">Utterances</a>
+</li>
+<li class="toc">4.3  <a class="toc" href="cdifsp.html#cdifspp" title="Paralinguistic phenomena">Paralinguistic phenomena</a>
+</li>
+<li class="toc">4.4  <a class="toc" href="cdifsp.html#cdif632" title="Alignment of overlapping speech">Alignment of overlapping speech</a>
+</li>
+</ul>
+</li>
+<li class="toc">5  <a class="toc" href="cdifhd.html">The header</a><ul class="toc">
+<li class="toc">5.1  <a class="toc" href="cdifhd.html#hdfd" title="The file description">The file description </a><ul class="toc">
+<li class="toc">5.1.1  <a class="toc" href="cdifhd.html#hdfdts" title="The title statement">The title statement</a>
+</li>
+<li class="toc">5.1.2  <a class="toc" href="cdifhd.html#hdfdes" title="The edition statement">The edition statement</a>
+</li>
+<li class="toc">5.1.3  <a class="toc" href="cdifhd.html#hdfdex" title="The extent statement">The extent statement</a>
+</li>
+<li class="toc">5.1.4  <a class="toc" href="cdifhd.html#hdfdps" title="The publication statement">The publication statement</a>
+</li>
+<li class="toc">5.1.5  <a class="toc" href="cdifhd.html#hdfdsd" title="The source description">The source description </a>
+</li>
+</ul>
+</li>
+<li class="toc">5.2  <a class="toc" href="cdifhd.html#hdenc" title="The encoding description">The encoding description</a><ul class="toc">
+<li class="toc">5.2.1  <a class="toc" href="cdifhd.html#hdecdoc" title="Documentary components of the encoding description">Documentary components of the encoding
+description</a>
+</li>
+<li class="toc">5.2.2  <a class="toc" href="cdifhd.html#hdectd" title="The tagging declaration">The tagging declaration </a>
+</li>
+<li class="toc">5.2.3  <a class="toc" href="cdifhd.html#hdeccd" title="The reference and classification declarations">The reference and classification declarations</a>
+</li>
+<li class="toc">5.2.4  <a class="toc" href="cdifhd.html#body.1_div.5_div.2_div.4">The Xaira Specification</a>
+</li>
+</ul>
+</li>
+<li class="toc">5.3  <a class="toc" href="cdifhd.html#hdpro" title="The profile description">The profile description </a><ul class="toc">
+<li class="toc">5.3.1  <a class="toc" href="cdifhd.html#hdpdcr" title="The creation element">The creation element</a>
+</li>
+<li class="toc">5.3.2  <a class="toc" href="cdifhd.html#hdpdpd" title="The langUsage element">The &lt;langUsage&gt; element</a>
+</li>
+<li class="toc">5.3.3  <a class="toc" href="cdifhd.html#hdpdpx" title="The participant description">The participant description </a>
+</li>
+<li class="toc">5.3.4  <a class="toc" href="cdifhd.html#hdpdse" title="The setting description">The setting description </a>
+</li>
+<li class="toc">5.3.5  <a class="toc" href="cdifhd.html#hdpdtc" title="Text classification">Text classification </a>
+</li>
+</ul>
+</li>
+<li class="toc">5.4  <a class="toc" href="cdifhd.html#hdrev" title="The revision description">The revision description</a>
+</li>
+</ul>
+</li>
+<li class="toc">6  <a class="toc" href="posguide.html"> Wordclass Tagging in BNC XML</a><ul class="toc">
+<li class="toc">6.1  <a class="toc" href="posguide.html#overview" title="Introduction">Introduction</a>
+</li>
+<li class="toc">6.2  <a class="toc" href="posguide.html#tokenization" title="Tokenization: splitting the text into words">Tokenization: splitting the text into words</a>
+</li>
+<li class="toc">6.3  <a class="toc" href="posguide.html#guide" title="Tagging Guidelines and Borderline Cases">Tagging Guidelines and Borderline
+ Cases</a>
+</li>
+<li class="toc">6.4  <a class="toc" href="posguide.html#ambiguity" title="Ambiguity tags, and the principle of asymmetry">Ambiguity tags, and the principle of asymmetry</a>
+</li>
+<li class="toc">6.5  <a class="toc" href="posguide.html#guidelines" title="Guidelines to the Wordclass Tagging">Guidelines to the Wordclass Tagging</a><ul class="toc">
+<li class="toc">6.5.1  <a class="toc" href="posguide.html#section1" title="Preliminaries">Preliminaries</a>
+</li>
+<li class="toc">6.5.2  <a class="toc" href="posguide.html#m2" title="Introduction to Word Classes">Introduction to Word Classes</a>
+</li>
+<li class="toc">6.5.3  <a class="toc" href="posguide.html#m2adv" title="Adverbs">Adverbs</a>
+</li>
+<li class="toc">6.5.4  <a class="toc" href="posguide.html#m2art" title="Articles, determiners &amp; pronouns">Articles, determiners &amp; pronouns</a>
+</li>
+<li class="toc">6.5.5  <a class="toc" href="posguide.html#m2prep" title="Prepositions and prepositional adverbs">Prepositions and prepositional adverbs</a>
+</li>
+<li class="toc">6.5.6  <a class="toc" href="posguide.html#m2conj" title="Conjunctions">Conjunctions</a>
+</li>
+<li class="toc">6.5.7  <a class="toc" href="posguide.html#m2num" title="Numerals">Numerals</a>
+</li>
+<li class="toc">6.5.8  <a class="toc" href="posguide.html#m2misc" title="Miscellaneous other tags">Miscellaneous other tags</a>
+</li>
+<li class="toc">6.5.9  <a class="toc" href="posguide.html#m3" title="Disambiguation Guide">Disambiguation Guide</a>
+</li>
+<li class="toc">6.5.10  <a class="toc" href="posguide.html#m5" title="Features of spoken corpus tagging">Features of spoken corpus tagging</a>
+</li>
+</ul>
+</li>
+<li class="toc">6.6  <a class="toc" href="posguide.html#errorRates" title="POS-tagging Error Rates"> POS-tagging Error Rates</a><ul class="toc">
+<li class="toc">6.6.1  <a class="toc" href="posguide.html#body.1_div.6_div.6_div.1">Levels of estimation</a>
+</li>
+<li class="toc">6.6.2  <a class="toc" href="posguide.html#body.1_div.6_div.6_div.2">Presentation of Ambiguity Rates and Error Rates (fine-grained mode of calculation)</a>
+</li>
+<li class="toc">6.6.3  <a class="toc" href="posguide.html#body.1_div.6_div.6_div.3">A further mode of calculation: ignoring subcategories of the same part of speech</a>
+</li>
+<li class="toc">6.6.4  <a class="toc" href="posguide.html#prog" title="POS-Tagging Workflow">POS-Tagging Workflow</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc">7  <a class="toc" href="cdifsmop.html">Software for the BNC</a><ul class="toc">
+<li class="toc">7.1  <a class="toc" href="cdifsmop.html#body.1_div.7_div.1">Why XML?</a>
+</li>
+<li class="toc">7.2  <a class="toc" href="cdifsmop.html#bncfiles" title="The BNC delivery format">The BNC delivery format</a>
+</li>
+<li class="toc">7.3  <a class="toc" href="cdifsmop.html#body.1_div.7_div.3">XML components</a>
+</li>
+</ul>
+</li>
+<li class="toc">8  <a class="toc" href="refs.html">References</a>
+</li>
+<li class="toc">9  <a class="toc" href="codes.html">Miscellaneous tables</a><ul class="toc">
+<li class="toc">9.1  <a class="toc" href="codes.html#tagcounts" title="XML tag usage by text type">XML tag usage by text type</a>
+</li>
+<li class="toc">9.2  <a class="toc" href="codes.html#shiftcodes" title="Voice quality codes">Voice quality codes</a>
+</li>
+<li class="toc">9.3  <a class="toc" href="codes.html#gapcodes" title="Gap descriptions">Gap descriptions</a>
+</li>
+<li class="toc">9.4  <a class="toc" href="codes.html#eventcodes" title="Event descriptions">Event descriptions</a>
+</li>
+<li class="toc">9.5  <a class="toc" href="codes.html#reltypes" title="Speaker relationships">Speaker relationships</a>
+</li>
+<li class="toc">9.6  <a class="toc" href="codes.html#classcodes" title="Text and genre classification codes">Text and genre classification codes</a>
+</li>
+<li class="toc">9.7  <a class="toc" href="codes.html#defrobs" title="Contracted forms and multiwords">Contracted forms and multiwords</a><ul class="toc">
+<li class="toc">9.7.1  <a class="toc" href="codes.html#body.1_div.9_div.7_div.1">Contracted forms</a>
+</li>
+<li class="toc">9.7.2  <a class="toc" href="codes.html#body.1_div.9_div.7_div.2">Multiwords</a>
+</li>
+</ul>
+</li>
+<li class="toc">9.8  <a class="toc" href="codes.html#klettpos" title="Simplified Wordclass Tags">Simplified Wordclass Tags</a>
+</li>
+</ul>
+</li>
+<li class="toc">10  <a class="toc" href="bibliog.html">List of Sources</a>
+</li>
+<li class="toc">11  <a class="toc" href="xairaspec.html">The Xaira Specification</a><ul class="toc">
+<li class="toc">11.1  <a class="toc" href="xairaspec.html#dictspec" title="Element specification">Element specification</a>
+</li>
+<li class="toc">11.2  <a class="toc" href="xairaspec.html#keyspec" title="Key specification">Key specification</a>
+</li>
+<li class="toc">11.3  <a class="toc" href="xairaspec.html#lemmaspec" title="Lemma Scheme Specification">Lemma Scheme Specification</a>
+</li>
+<li class="toc">11.4  <a class="toc" href="xairaspec.html#regionspec" title="Region Specification">Region Specification</a>
+</li>
+<li class="toc">11.5  <a class="toc" href="xairaspec.html#refsys" title="Reference specification">Reference specification</a>
+</li>
+<li class="toc">11.6  <a class="toc" href="xairaspec.html#indexpol" title="Indexing Policies">Indexing Policies</a><ul class="toc">
+<li class="toc">11.6.1  <a class="toc" href="xairaspec.html#body.1_div.11_div.6_div.1">Index policies NONE and MARKUP</a>
+</li>
+<li class="toc">11.6.2  <a class="toc" href="xairaspec.html#body.1_div.11_div.6_div.2">Index policies JOINFROM and JOINTO</a>
+</li>
+<li class="toc">11.6.3  <a class="toc" href="xairaspec.html#body.1_div.11_div.6_div.3">Index policy taxonomy</a>
+</li>
+</ul>
+</li>
+<li class="toc">11.7  <a class="toc" href="xairaspec.html#langspec" title="Language specification">Language specification</a>
+</li>
+</ul>
+</li>
+<li class="toc">12  <a class="toc" href="bnctags.html">Formal Specification of the BNC XML schema</a>
+</li>
+</ul>
+<!--process body matter --><!--back matter --><div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:48Z-->
+</address>
+</div>
+</body>
+</html>

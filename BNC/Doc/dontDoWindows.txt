@@ -1,0 +1,177 @@
+BUT I DON'T DO WINDOWS!
+
+BNC-XML can also be installed on non-Windows platforms. The corpus
+itself is in a non-proprietary format, and the Xaira indexes supplied
+are platform-independent. These notes describe briefly how to install
+the corpus from the supplied media, and how to set up a Xaira server
+on a Linux or OS X platform.
+
+1. READ THE LICENCE
+
+Whatever platform you intend to install the BNC on, you are still
+required to observe the terms of the Licence you purchased when you
+obtained your copy of the Corpus. The BNC data is protected by
+United Kingdom copyright laws, international treaty provisions, and
+other applicable national laws. The owners of the copyright retain all
+rights not expressly granted. By making use of the BNC Data on your
+system you indicate your acceptance of the terms and conditions
+relating to the British National Corpus, stated below. 
+
+The BNC Licence constitutes a legal agreement between You
+("the Licensee") and the British National Corpus Consortium
+("the Licensor"), as legal owner of the British National
+Corpus, which is a UK-registered trademark. Oxford University
+Computing Services ("the Distributor") has been appointed
+sole licensed Distributor of the British National Corpus and is
+authorised to collect and enforce such agreements.
+
+The full text of the Licence Agreement is available from
+http://www.natcorp.ox.ac.uk/getting/licence.html and is also attached
+below. If you do not accept its terms and conditions, you must
+delete the Data from your system and dispose of the media.
+
+2.  UNPACK THE CORPUS
+
+The corpus is supplied as a GZIPped TAR archive on the DVD called
+texts.tar.gz on BNC-XML-1. We recommend unpacking it into a directory
+called Texts. Assuming you have mounted this disk at /media/cdrom,
+open a shell window and type:
+
+$mkdir Texts
+$cd Texts
+$gunzip -xvf /media/cdrom/texts.tar.gz
+
+This should produce 10 subdirectories, A to K (there is no I, to
+avoid confusing it with J), each of which contains a varying number of
+sub-subdirectories, within which are the actual corpus files, as
+further described in the User Reference Guide.
+
+
+3. GET THE DOCUMENTATION
+
+The directory Doc on BNC-XML-1 contains a copy of the user reference
+guide, which you will probably want to copy to your system as
+well. The directory Doc/Src contains the XML source, which will
+probably interest you less than the HTML produced from it which is in
+the directory Doc/HTML.
+
+If you plan to process the XML source of the corpus in any way,
+you'll probably want to copy the directory XML from BNC-XML-1 as
+well. This contains schema files, expressed in DTD, RelaxNG, and WSD,
+and also a folder called Scripts, which contains the sample XSLT
+scripts mentioned in the documentation.
+
+
+4. INSTALL XAIRA INDEXES
+
+If you want to set up a Xaira server you will need to install
+Xaira Indexes, and (possibly) build the Xaira server software. We
+don't describe the latter in much detail here: refer to the
+documentation on the Xaira website at http://www.xaira.org
+The recommended directory structure for a Xaira server installation
+has everything grouped together within a single hierarchy. If you make
+the root of this a directory called BNC-XML, within it you will need
+three subdirectories:
+
+Texts : contains the corpus texts you copied in step 1 above
+Etc : contains a small number of support files needed by the server
+Index : contains the Xaira  index files
+
+and (at the same level) three XML  files:
+
+corpus_parameters.xml : startup file for the server
+bncHdr.xml : the corpus header file
+bncBibl.xml : the corpus bibliography file
+
+
+You can create this structure in two steps. First, assuming you
+created the root directory BNC-XML and have already unpacked the Texts
+directory into it, unpacking the file bnc-etc.tar from the disk
+BNC-XML-1 will create the Etc directory and the three XML files for
+you:
+
+$cd /BNC-XML
+$tar -xf /media/cdrom/bnc-etc.tar
+
+Secondly, you will need to create the Index directory and populate
+it. Because of their size, the index files are spread across the two
+DVDs, so take care when copying them or you may find yourself
+with only a partial index. We recommend you proceed as follows :
+
+*  with the first DVD in the drive, create the Index directory and
+   copy files from the first DVD:
+
+   $cd /BNC-XML
+   $mkdir Index
+   $cp /media/cdrom0/Index/* Index
+
+*  unmount the first DVD and mount the second DVD: it should appear
+   as BNC-XML-2. Then copy the remaining index files from the
+   directory  Index2 on the second DVD:
+    
+    $cp /media/cdrom0/Index/* Index
+
+At the end of this process, if all goes well, your Index folder
+should contain 17 files, including four big files xdblocs, xdblocs1 and
+xdblocs2 copied from the second DVD.
+
+5.  Run XAIRA
+
+Information about the XAIRA software system is available from the
+project's website at http://www.xaira.org and the software itself may
+be downloaded from SourceForge.  We do not describe here in any detail
+how to install or run the Xaira software on non-Windows platforms, but
+the following brief notes may help you get started.
+
+
+* If you are running a Debian-based system such as Ubuntu, you should
+be able to install xaira from binaries, using the packages maintained
+at http://tei.oucs.ox.ac.uk/teideb
+
+* Alternatively, building from source is not hard: download the source
+code from SourceForge, configure, and make, as usual. But note that
+you also need to install and build ICU and xercesc (and possibly also
+some other libraries such as GNU readline and zlib)
+
+* Once you have successfully built the software, you can check your
+installation of BNC-XML by running the command-line solve client
+within your BNC-XML directory : 
+
+  $cd /BNC-XML solve -p corpus_parameters.xml
+
+expects you to type Xaira queries at the prompt and returns a stream
+of hits as XML: try for example
+
+  <cql><lemma>fishcake</lemma></cql>
+
+to see the one occurrence of "fishcake" in the BNC. Do
+not try this with a high frequency word!
+
+* If you have PHP installed, you can use the Xaira library as a back
+end to access your copy of BNC-XML over the web. Information on how to
+configure PHP and demonstration scripts are included in the source
+release and documented on the website.
+
+* Use the xaira_daemon command to start a xaira server:
+
+   $cd /BNC-XML
+   $xaira_daemon -p corpus_parameters.xml -l 20200
+
+will start a server running on port 20200. Firewalls permitting, you
+should be able to point Xaira clients, such as those provided by the
+Windows release, at it.
+
+
+There is a moderately active Xaira developers list: visit the Xaira
+website at http://www.xaira.org to sign up.
+
+
+
+
+
+
+
+
+
+
+

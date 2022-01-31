@@ -1,0 +1,222 @@
+<div xml:id="intro"><head>Introduction</head>
+
+<div><head>Overview</head>
+
+<p>The Users Reference Guide for the British
+National Corpus contains a description of the design principles
+underlying the British National Corpus (BNC), and detailed information
+about the way in which it is encoded, covering both the markup conventions
+applied and the linguistic annotation with which the corpus was
+enriched.</p>
+
+<p>This revised edition  has been slightly reorganized and considerably expanded to
+provide a complete reference work for users of the corpus in its new
+XML form. The text of the manual is available in TEI-XML and in HTML
+format, and also from the BNC website at <ptr
+target="http://www.natcorp.ox.ac.uk/XMLedition/urg.html"/>, from which
+updated versions may be obtained. </p>
+
+<p>The material presented in this manual derives originally from a
+number of BNC Project internal documents, combining contributions
+from all the participants in the project (see further <ptr
+target="#thanx"/>); any errors introduced are the responsibility of
+the editor. Please send any comments or corrections to
+<code>natcorp@oucs.ox.ac.uk</code>. </p>
+
+<p>Section <ptr target="#cdifbase"/> describes the basic structure of
+the BNC encoding scheme, in terms of the XML elements and attributes
+distinguished and the tags used to mark them. Section <ptr
+target="#cdifwr"/> describes features which are peculiar to written
+texts, and section <ptr target="#cdifsp"/> those peculiar to spoken
+texts. In each case, a distinction is made between those elements
+which are marked up in all texts and those which (for technical or
+financial reasons) are not always so distinguished, and hence appear
+in some texts only. It should be noted that by no means all of the
+features described here will be present in every text of the corpus,
+nor, if present, will they necessarily be tagged.
+</p>
+
+<p>Section <ptr target="#cdifhd"/> describes the structure of the
+detailed metadata associated with each text, in the form of the
+<gi>teiHeader</gi> element attached to each component of the corpus,
+and also to the whole corpus itself.</p>
+
+<p> This is complemented in section <ptr target="#posguide"/> by a
+detailed presentation of the linguistic annotation or wordclass
+tagging applied throughout the corpus. (This chapter is derived from
+the Tagging Guide (Smith et al) originally distributed separately with
+BNC World) </p>
+
+<p>Section <ptr target="#cdifsmop"/> discusses briefly some
+ways of exploiting the  the BNC  computationally. 
+Section <ptr target="#codes"/> complements the metadata supplied in
+the header by listing and documenting several of the coded values used
+in the markup. A brief bibliography combining significant background readings
+about the BNC with works cited elsewhere in the manual is provided in section <ptr
+target="#refs"/> and a complete list of all the original sources from which the corpus
+was compiled is given in section <ptr target="#bibliog"/>.  </p>
+
+<p>Section <ptr target="#xairaspec"/> documents suggested settings
+for those wishing to use the XAIRA system to index and query the
+BNC. The pre-built XAIRA index delivered as part of the BNC XML
+package was made using the XAIRA specification described in this
+section. This section is provided for the convenience of XAIRA users;
+it may be ignored if you are using some other software to search or
+manage the corpus. </p>
+
+<p>Finally, a reference section (<ptr target="#bnctags"/>) provides an
+alphabetical list of all XML elements and attributes used in the
+markup of the corpus, together with the model and attribute classes to
+which they belong, and macros used to simplify references to them.
+This specification conforms to the 2007 (P5) edition of the TEI
+Guidelines (<ptr target="#TEIP5"/>), with which it should be read in
+conjunction. </p>
+
+<p>The BNC was originally created by an academic-industrial consortium whose
+original members were:
+<list><item>Oxford University Press</item>
+<item>Longman Group Ltd</item>
+<item>Chambers Harrap</item>
+<item>Oxford University Computing Services</item>
+<item>Unit for Computer Research on the English Language (Lancaster University)</item>
+<item>British Library Research and Development Department</item>
+</list></p>
+
+<p>Creation of the corpus was funded by the UK Department of Trade and
+Industry and the Science and Engineering Research Council  under grant number
+IED4/1/2184  (1991-1994), within the DTI/SERC Joint Framework for
+Information Technology. Additional funding was provided by the British
+Library and the British Academy.</p>
+
+<p>Maintenance, distribution, and development of the corpus has been carried out at
+Oxford University Computing Services. There have been three major
+revisions of the corpus:
+<list>
+<item>BNC 1.0 (1995)</item>
+<item>BNC World Edition (2000)</item>
+<item>BNC XML Edition (2007)</item>
+</list>
+For a brief historical overview of the project see <ref
+target="#refs">Burnard 2002</ref>.  </p>
+
+</div>
+<div xml:id="thanx"><head>Acknowledgments</head>
+
+<div><head>BNC 1.0</head>
+
+<p>Management of the original BNC project was co-ordinated by an executive 
+committee whose members were as follows:
+<list type="gloss"><label>OUP</label>
+<item>Tim Benbow; Simon Murison-Bowie</item>
+<label>Longman</label>
+<item>Della Summers; Rob Francis</item>
+<label>Chambers Harrap</label>
+<item>John Clement</item>
+<label>OUCS</label>
+<item>Lou Burnard</item>
+<label>UCREL</label>
+<item>Geoffrey Leech</item>
+<label>British Library</label>
+<item>Terry Cannon</item>
+<label>DTI observers</label>
+<item>Gerry Gavigan; Donald Bell</item>
+</list></p>
+
+<p>An Advisory Council supervised the running of the project 1991-1994. 
+Members of this Council were:
+<list><item>Dr Michael Brady</item>
+<item>Christopher Butler</item>
+<item>Professor David Crystal</item>
+<item>Sir Antony Kenny (chair)</item>
+<item>Dr Nicholas Ostler</item>
+<item>Professor Sir Randolph Quirk</item> 
+<item>Tim Rix</item>
+<item>Dr Henry Thompson </item>
+</list></p>
+
+<p>Many people within each member organization made 
+major contributions to the success of the
+project. It is a pleasure to acknowledge their 
+hard work and dedication here. 
+<list type="gloss"> <label>OUP</label>
+<item>Lyndsay Brown; Jeremy Clear (project manager 1991-2); 
+Caroline Davis; Ginny Frewer; Frank Keenan; Tom McLean; Anita Sabin; 
+Ray Woodall (project manager 1992-4)</item>
+<label>Longman</label>
+<item>Steve Crowdy (project manager); Denise Denney; Duncan Pettigrew  </item>
+<label>Chambers Harrap</label>
+<item>Robert Allen; Ilona Morison  </item>
+<label>OUCS</label>
+<item>Glynis Baguley; Gavin Burnage;  Tony Dodd;
+Dominic Dunlop (project manager 1992-4) </item>
+<label>UCREL</label>
+<item>Tom Barney; Michael Bryant (project manager 1991-3); Elizabeth Eyes;
+Jean Forrest; Roger Garside; Mary Hodges; Mary Kinane; Nicholas Smith; 
+Xungfeng Xu. </item>
+</list></p>
+
+<p>The project also benefited greatly from the advice and support of many
+external consultants. Listing all those who have influenced our thinking
+and to whom we are indebted would be very difficult, but chief amongst them
+we would like to thank:
+<list><item>Sue Atkins </item>
+<item>Clive Bradley</item>
+<item>Ann Brumfitt</item>
+<item>Charles Clark </item>
+<item>James Clark </item>
+<item>Bruce Heywood</item>
+<item>Mark Lefanu</item>
+<item>Michael Rundle</item>
+<item>Richard Sharman </item>
+<item>Michael Sperberg-McQueen </item>
+<item>Anna-Brita Stenström</item>
+<item>Russell Sweeney  </item>
+</list></p>
+
+<!--
+<p>The printed version of this manual was produced using the LaTeX system,
+and the expert advice of Sebastian Rahtz. Conversion from SGML to LaTeX form
+was carried out using the Balise system, generously made available to the
+project by its developers AIS Berger-Levrault.</p>
+-->
+</div>
+
+<div><head>BNC World</head>
+
+<p>After the completion of the first edition of the BNC, a phase of
+tagging improvement was undertaken at Lancaster University with
+funding from the Engineering and Physical Sciences Research Council
+(Research Grant No. GR/F 99847). This tagging enhancement project was
+led by Geoffrey Leech, Roger Garside and Tony McEnery.  The main
+objective was to correct as many tagging errors as possible, using an
+enhanced version of Claws4. In addition, a new tool was developed (the
+Template Tagger) for <soCalled>patching</soCalled> the corpus in such
+a way as to eliminate further sets of errors by rule.  This tool was
+developed by Michael Pacey, building on a prototype written by Steven
+Fligelstone. The research team working on tagging improvement was
+Nicholas Smith (lead researcher), Martin Wynne and Paul Baker.</p>
+
+<p>Correction and validation of the bibliographic and contextual
+information in all the BNC Headers was carried out at OUCS by Lou
+Burnard, with assistance at various stages from Andrew Hardie and Paul
+Groves, who helped check demographic details for all spoken texts, and
+in particular from David Lee, who checked bibliographic and
+classification information for the bulk of the written texts. Thanks
+are also due to the many users of the original version of the BNC who
+took the time to notify us of errors they found.  </p>
+
+</div>
+
+<div><head>BNC XML</head>
+
+<p>Thanks are due to Martin Wynne and Ylva Berglund who first
+suggested the idea of an XML version of a subset of the BNC.
+Production of that edition (BNC Baby) provided valuable experience in
+automatic conversion of the World edition. The bulk of the technical
+work involved in producing the XML edition was carried out by Tony
+Dodd and Lou Burnard, with assistance and advice from many BNC
+users and beta-testers worldwide, in particular Guy Aston, Andrew Hardie, Paul
+Rayson, and Sebastian Rahtz. Without their input the present revision would
+have been impossible.
+</p>
+</div></div></div>

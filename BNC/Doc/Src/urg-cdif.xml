@@ -1,0 +1,738 @@
+
+<div xml:id="cdifwr" type="subsection"><head>Written texts</head> 
+
+<div xml:id="cdif21"><head>Divisions of written texts</head> 
+
+<p>Written texts exhibit a rich variety of different structural
+forms. Some have very little organization at levels higher than the
+paragraphs; others may have a complex hierarchy of parts, sections,
+chapters etc. Novels are divided into chapters, newspapers into
+sections, reference works into articles and so forth. In the BNC all
+such structural divisions are represnted uniformly by means of the
+<gi>div</gi> element.
+
+<specList>
+<specDesc key="div" atts="n level type"/>
+</specList>
+</p>
+<p>In written texts, the <att>n</att> attribute is sometimes used to supply an
+identifying name or number used within the text for a given division,
+for example, a chapter number, as in the following example: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><div type="chapter" n="three" level="1">...</div>
+</egXML>More often, however, chapter names or numbers will appear within
+the text, tagged using the <gi>head</gi> element discussed in section
+<ptr target="#cdif51"/> below. </p>
+<p>The value of the attribute <att>type</att> is used to
+characterise the function of the textual division (see the <ref
+target="./urg.html#div">reference documentation</ref> for the values used). If a value is supplied for one
+division at a given level, it may be assumed to apply to all
+subsequent divisions at the same level until the end of the enclosing
+element, although it is not always explicitly specified.
+</p>
+<p>Where <gi>div</gi> levels are nested, for example where the
+chapters of a novel are grouped into parts each of which may have its own
+title or number, the <att>level</att> attribute is used to
+indicate the depth of nesting. This is not strictly necessary (since
+an XML-aware processor retains this information) but has been added
+for the convenience of users of previous versions of the corpus, in
+which the level was explicitly coded into the name of the surrounding
+element (<gi>div1</gi>, <gi>div2</gi> etc.) </p>
+<p>In text ANY, for example, each chapter of the original novel
+corresponds with a <gi>div level="2"</gi>, because the work contains
+groups of chapters, each of which begins with a page containing
+just a date. The opening
+of the text is therefore encoded as follows:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><wtext type="FICTION">
+<div level="1" n="1">
+  <s n="1">
+    <w c5="NP0" hw="monday" pos="SUBST">Monday</w>
+    <c c5="PUN">, </c>
+    <w c5="NP0" hw="january" pos="SUBST">January </w>
+    <w c5="ORD" hw="13th" pos="ADJ">13th</w>
+    <c c5="PUN">, </c>
+     <w c5="CRD" hw="1986" pos="ADJ">1986</w>
+     <c c5="PUN">.</c>
+  </s>
+  <div level="2" n="1">
+  <p>
+  <s n="2">
+     <w c5="NP0" hw="victor" pos="SUBST">Victor </w>
+     <w c5="NP0" hw="wilcox" pos="SUBST">Wilcox </w>    
+     <w c5="VVZ" hw="lie" pos="VERB">lies </w>
+     <w c5="AJ0" hw="awake" pos="ADJ">awake</w>
+...
+  </s></p></div></div>...</wtext><!-- ANY --></egXML></p>
+<p>Note however that in some texts initial sentences (like <q>Monday, January
+13th, 1986</q> above) may have been misplaced, so that they appear at the start
+of an inner <gi>div</gi> rather than the start of its parent.</p>
+<p>A sequence of paragraph-level elements of arbitrary length may
+precede the first structural subdivision at any level. A text may have
+no structural divisions within it at all. Note that any prefatory or
+appended matter not forming part of a text will not generally be
+captured: the <abbr>tei</abbr> elements <gi>front</gi> and
+<gi>back</gi> elements are not used. <!--  by <abbr>cdif</abbr>.  -->
+</p></div>
+
+<div xml:id="cdif5"><head>Paragraph-level elements and chunks</head> 
+
+<p>Written texts may be organized into structural units containing more
+than one <gi>s</gi> element and smaller than any of the divisions
+discussed in section <ptr target="#cdif21"/> above. The most commonly
+found such element is the <gi>p</gi> (paragraph):
+
+<specList>
+<specDesc key="p"/>
+</specList>
+
+Several other elements may however appear directly within <gi>div</gi>
+or within <gi>text</gi> elements, not nested within some other element
+such as a paragraph. An list of these elements
+follows:
+
+<specList>
+<specDesc key="head"  atts="type rend"/>
+<specDesc key="quote" atts="rend"/><!-- has model macro.specialPara -->
+<specDesc key="sp" atts="who"/>
+<specDesc key="lg"/>
+<specDesc key="list"/>
+<specDesc key="note" atts="place n"/>
+<specDesc key="bibl" atts="rend"/>
+</specList>
+</p>
+
+<p>Each of these elements contains one or more <gi>s</gi> elements, as
+discussed above; in some cases enclosed by an intermediate
+element. They are used chiefly to indicate the function of sections of
+the text, as indicated in the list above. </p>
+
+<p>The following sections provide examples for the use of each of
+these elements.</p>
+
+<div xml:id="cdif51" type="bum"><head>Headings and captions</head> 
+
+<p> One or more <gi>head</gi> elements of specified types may appear in sequence at the
+start of any <gi>div</gi> element, or at the start of a <gi>list</gi> or
+<gi>poem</gi>, as in the following examples:. 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><div level="1" n="1">
+<head type="MAIN">
+  <s n="1"><w c5="NN1" hw="ageism" pos="SUBST">AGEISM</w></s>
+</head>
+<head type="SUB">
+<s n="2">
+  <w c5="AT0" hw="the" pos="ART">THE </w>
+  <w c5="NN1" hw="foundation" pos="SUBST">FOUNDATION </w>
+  <w c5="PRF" hw="of" pos="PREP">OF </w>
+  <w c5="NN1" hw="age" pos="SUBST">AGE </w>
+  <w c5="NN1" hw="discrimination" pos="SUBST">DISCRIMINATION</w></s>
+</head>
+<head type="BYLINE">
+<s n="3">
+  <w c5="NP0" hw="steve" pos="SUBST">STEVE </w>
+  <w c5="NP0-NN1" hw="scrutton" pos="SUBST">SCRUTTON</w></s>
+</head>...</div><!-- B01  --></egXML>
+</p>
+<p>As shown above, the <att>type</att> attribute is used to distinguish more
+exactly the function of a heading.</p>
+
+<p>Note that, in the BNC, captions or headings which <q>float</q> within the text,
+that is, which appear elsewhere than at the very beginning of the
+section which they name, are not encoded as <gi>head</gi> elements. A <gi>head</gi> element
+can appear only at the start of a text division and is logically
+associated with it (for example, chapter titles, newspaper headlines
+etc.). Paragraphs which provide heading or captioning information,
+but which are logically independent of
+their position within a textual division (for example,
+captions attached to pictures or figures,
+or <q>pull-quotes</q> embedded within the text) are represented in the same way as any other
+paragraph of text, using the <gi>p</gi> element, but specifying the
+value <code>caption</code> in their rend attribute.</p>
+
+<!-- update example please -->
+
+<p>In the following example, the <gi>head</gi> element is followed by
+a number of captions introducing particular parts of
+a magazine story: <egXML xmlns="http://www.tei-c.org/ns/Examples"><div level="1"><head>
+<s n="40"><w c5="NN2" hw="trousers" pos="SUBST">TROUSERS </w><w c5="VVB-NN1" hw="suit" pos="VERB">SUIT</w></s></head><p type="caption">
+<s n="41"><w c5="EX0" hw="there" pos="PRON">There </w><w c5="VBZ"
+hw="be" pos="VERB">is </w><w c5="PNI" hw="nothing" pos="PRON">nothing
+</w><w c5="AJ0" hw="masculine" pos="ADJ">masculine </w><w c5="PRP"
+hw="about" pos="PREP">about </w><w c5="DT0" hw="these" pos="ADJ">these
+</w><w c5="AJ0" hw="new" pos="ADJ">new </w><w c5="NN1" hw="trousers"
+pos="SUBST">trouser </w><w c5="VVZ-NN2" hw="suit" pos="VERB">suits
+</w><w c5="PRP" hw="in" pos="PREP">in </w><w c5="NN1" hw="summer"
+pos="SUBST">summer</w><w c5="POS" hw="'s" pos="UNC">'s </w><w c5="AJ0"
+hw="soft" pos="ADJ">soft </w><w c5="NN2" hw="pastel"
+pos="SUBST">pastels</w><c c5="PUN">.</c></s>...</p>...</div><!--C8B -->
+</egXML></p>
+
+
+</div>
+
+<div xml:id="cdif52"><head>Quotations</head> 
+
+<p>A quotation is an extract from some other work than the text itself
+which is embedded within it, for example as an epigraph or illustration.
+It is marked up using the <gi>quote</gi> element. This may contain any
+combination of other chunks (for example paragraphs, poems, lists) but
+may not directly contain <gi>w</gi> or <gi>s</gi> elements. A reference for the
+citation may also be contained within it.
+</p>
+<p>For example: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><quote><p>
+<s n="2080"><w c5="DT0" hw="this" pos="ADJ">This </w><w c5="NN1"
+hw="way" pos="SUBST">way </w><w c5="PRP" hw="for" pos="PREP">for
+</w><w c5="AT0" hw="the" pos="ART">the </w><w c5="AJ0" hw="sorrowful"
+pos="ADJ">sorrowful </w><w c5="NN1" hw="city" pos="SUBST">city</w><c
+c5="PUN">.</c></s>
+...
+<s n="2083"><w c5="VVB" hw="abandon" pos="VERB">Abandon </w><w c5="DT0" hw="all" pos="ADJ">all </w><w c5="NN1" hw="hope" pos="SUBST">hope</w><c c5="PUN">, </c><w c5="PNP" hw="you" pos="PRON">you </w><w c5="PNQ" hw="who" pos="PRON">who </w><w c5="VVB" hw="enter" pos="VERB">enter</w><c c5="PUN">…</c></s><bibl>
+<s n="2084"><w c5="NP0" hw="dante"
+pos="SUBST">Dante</w></s></bibl></p></quote><!-- C8L --></egXML>
+</p></div>
+
+<div xml:id="cdif5x"><head>Spoken paragraphs</head> 
+
+<p>As noted above, the <gi>sp</gi> element is used to mark parts of a
+written text which were or are intended to be spoken, for example the
+speeches in a dramatic text or a published interview. Such parts are
+generally readily identifiable by the use of such conventions as speaker
+prefixes (the label supplying the name of the speaker) and stage
+directions, for which the following additional elements are used:
+<!-- is @who ever used on sp? if not, delete it; if so exemplify it -->
+<specList>
+<specDesc key="speaker"/>
+<specDesc key="stage" atts="rend"/>
+</specList>
+</p>
+<p>The <gi>sp</gi> element is used only for speech which is presented
+as such in a written text, by contrast with  the element <gi>u</gi>
+discussed in section <ptr target="#cdifspu"/>, which is used <emph>only</emph>
+for speaker turns identified in a spoken text, i.e. one which has been
+transcribed from audio tape.
+</p>
+<p>If present, a <gi>speaker</gi> element will  appear only at the start of
+the
+<gi>sp</gi> element, followed by one or more <gi>p</gi> elements
+containing the actual speech. <!--Any <gi>stage</gi> element present will
+usually be relocated to the end of the paragraph in which it occurs and
+replaced by a <gi>ptr</gi> element, as  discussed in section <ptr target="#cdifptr"/>. -->
+</p>
+<p>Here is an example of a stage direction occurring within a speech:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><sp>
+<p>
+<s n="1115">
+  <w c5="CRD" hw="seven" pos="ADJ">Seven </w>
+  <w c5="NN2" hw="book" pos="SUBST">books </w>
+  <w c5="AT0" hw="a" pos="ART">a </w>
+  <w c5="NN1" hw="week" pos="SUBST">week</w>
+  <c c5="PUN">.</c>
+</s>
+</p>
+ <stage rend="it">
+  <s n="1119">
+  <w c5="PNP" hw="he" pos="PRON">He </w>
+   <w c5="VVZ" hw="dance" pos="VERB">dances</w>
+</s></stage>
+<p>
+  <s n="1122">
+   <w c5="NN1" hw="library" pos="SUBST">Library </w>
+   <w c5="NN2" hw="book" pos="SUBST">books</w>
+   <c c5="PUN">.</c>
+  </s>
+</p></sp><!-- A06 --></egXML>
+
+</p>
+
+<p>These elements appear frequently in formal transcriptions of
+written proceedings, notably those parts of the BNC which are
+extracted from Hansard:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><sp><p><s n="20468"><w c5="DT0" hw="that" pos="ADJ">That </w><w c5="NN1" hw="millionaire" pos="SUBST">millionaire </w><w c5="NN1" hw="mammy" pos="SUBST">mammy</w><w c5="POS" hw="'s" pos="UNC">'s </w><w c5="NN1" hw="boy" pos="SUBST">boy </w><c c5="PUN">—</c></s><stage>
+<s n="20469"><w c5="NN1" hw="interruption" pos="SUBST">Interruption</w></s></stage></p></sp><sp><speaker>
+<s n="20470"><w c5="NP0" hw="mr." pos="SUBST">Mr. </w><w c5="NP0" hw="speaker" pos="SUBST">Speaker</w></s></speaker><p>
+<s n="20471"><w c5="NN1-VVB" hw="order" pos="SUBST">Order</w><c c5="PUN">.</c></s>
+<s n="20472"><w c5="DT0" hw="that" pos="ADJ">That </w><w c5="VBZ" hw="be" pos="VERB">is </w><w c5="XX0" hw="not" pos="ADV">not </w><w c5="AV0" hw="wholly" pos="ADV">wholly </w><w c5="AJ0" hw="unparliamentary" pos="ADJ">unparliamentary</w><c c5="PUN">.</c></s></p></sp><!-- HHV -->
+</egXML>
+</p>
+</div>
+
+<div xml:id="cdif53"><head>Poetry</head> 
+
+<p>Poetry is distinguished from prose in the BNC where it is so
+presented in the original, for example as fragments of verse or song appearing within or
+between paragraphs of prose. The <gi>l</gi> (line) element is used to mark each
+verse line; where there are several such lines, perhaps with a
+heading, they are grouped together using the <gi>lg</gi> (linegroup) element, and any title or heading present is marked with a
+<gi>head</gi> element. </p>
+<p>For example: 
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><lg><l>
+<s n="906"><w c5="PNP" hw="i" pos="PRON">I </w><w c5="VVB" hw="send" pos="VERB">send </w><w c5="DPS" hw="i" pos="PRON">my </w><w c5="NN1" hw="soul" pos="SUBST">soul </w><w c5="PRP" hw="through" pos="PREP">through </w><w c5="NN1" hw="time" pos="SUBST">time </w><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="NN1-VVB" hw="space" pos="SUBST">space </w><w c5="TO0" hw="to" pos="PREP">to </w><w c5="VVI" hw="greet" pos="VERB">greet </w><w c5="PNP" hw="you" pos="PRON">you</w><c c5="PUN">.</c></s></l><l>
+<s n="907"><w c5="PNP" hw="you" pos="PRON">You </w><w c5="VBD" hw="be" pos="VERB">were </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="NN1" hw="poet" pos="SUBST">poet</w><c c5="PUN">.</c></s>
+<s n="908"><w c5="PNP" hw="you" pos="PRON">You </w><w c5="VM0"
+hw="will" pos="VERB">will </w><w c5="VVI" hw="understand"
+pos="VERB">understand</w><c c5="PUN">.</c></s></l></lg><!-- CCB --></egXML>  
+</p>
+<p>Note that the <gi>l</gi> element is not used to mark typographic
+lineation. Layout information is not, in general, preserved in the BNC.</p></div>
+
+<div xml:id="cdif54"><head>Lists</head> 
+<p>A list is a collection of distinct items flagged as such by special 
+layout  in written texts, often functioning as a single  syntactic unit.
+ Lists may appear within or between paragraphs. Where marked, lists are
+tagged with the <gi>list</gi> element, which may contain the following
+subelements:
+<specList>
+<specDesc key="head" />
+<specDesc key="label" atts="rend"/>
+<specDesc key="item" atts="rend"/>
+</specList>
+</p>
+
+<p>A <gi>list</gi> element consists of an optional <gi>head</gi>
+element, followed by one or more <gi>item</gi> elements, each of which
+may optionally be preceded by a <gi>label</gi> element, used to hold
+the identifier or tag sometimes attached to a list item, for example
+<q>(a)</q>.  It may also contain a word or phrase used for a similar
+purpose.
+</p>
+
+<p>The <gi>item</gi> element may appear only inside lists. It contains
+the same mixture of elements as a paragraph,  and may thus contain one
+or more nested lists. It may also contains a series of paragraphs, each
+marked with a <gi>p</gi> element.
+</p>
+<p>Here is an example of a simple list:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><list><item>
+<s n="87"><w c5="VBZ" hw="be" pos="VERB">Is </w><w c5="DPS" hw="you" pos="PRON">your </w><w c5="NN1" hw="nylon" pos="SUBST">nylon </w><hi rend="it"><w c5="NN1" hw="nightie" pos="SUBST">nightie </w></hi><w c5="AJ0" hw="fireproof" pos="ADJ">fireproof</w><c c5="PUN">?</c></s></item><item>
+<s n="88"><w c5="AT0" hw="the" pos="ART">The </w><w c5="NN1" hw="hurricane" pos="SUBST">hurricane </w><w c5="VBD" hw="be" pos="VERB">was </w><hi rend="it"><w c5="AV0" hw="mighty" pos="ADV">mighty </w></hi><w c5="AJ0" hw="fierce" pos="ADJ">fierce</w><c c5="PUN">.</c></s></item><item>
+<s n="89"><w c5="VM0" hw="will" pos="VERB">Will </w><w c5="PNP" hw="you" pos="PRON">you </w><hi rend="it"><w c5="VVI" hw="mow" pos="VERB">mow </w></hi><w c5="AT0" hw="the" pos="ART">the </w><w c5="NN1" hw="lawn" pos="SUBST">lawn</w><c c5="PUN">?</c></s></item><item>
+<s n="90"><w c5="VDD" hw="do" pos="VERB">Did </w><w c5="PNP" hw="you"
+pos="PRON">you </w><hi rend="it"><w c5="VVI" hw="know" pos="VERB">know
+</w></hi><w c5="AT0" hw="the" pos="ART">the </w><w c5="NN1" hw="time"
+pos="SUBST">time</w><c c5="PUN">?</c></s></item></list><!-- C9R -->
+</egXML>  
+</p>
+<p>Here is an example of a labelled list: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><list><label>
+<s n="424"><w c5="CRD" hw="1" pos="ADJ">1</w><c c5="PUN">.</c></s></label><item>
+<s n="425"><w c5="NN1-NP0" hw="surya" pos="SUBST">Surya </w><c c5="PUN">— </c><w c5="NN1" hw="sun" pos="SUBST">Sun </w><c c5="PUN">— </c><w c5="AJ0" hw="creative" pos="ADJ">Creative </w><w c5="NN1" hw="agent" pos="SUBST">agent</w></s></item><label>
+<s n="426"><w c5="CRD" hw="2" pos="ADJ">2</w><c c5="PUN">.</c></s></label><item><p>
+<s n="427"><w c5="NN1-NP0" hw="vayu" pos="SUBST">Vayu </w><c c5="PUN">— </c><w c5="NN1" hw="air" pos="SUBST">Air </w><c c5="PUN">— </c><w c5="VVG-AJ0" hw="preserve" pos="VERB">Preserving </w><w c5="NN1" hw="agent" pos="SUBST">agent </w><pb n="43"/></s></p></item><label>
+<s n="428"><w c5="CRD" hw="3" pos="ADJ">3</w><c c5="PUN">.</c></s></label><item><p>
+<s n="429"><w c5="NN2" hw="agni" pos="SUBST">Agni </w><c c5="PUN">—
+</c><w c5="NN1-VVB" hw="fire" pos="SUBST">Fire </w><c c5="PUN">—
+</c><w c5="AJ0" hw="destructive" pos="ADJ">Destructive </w><w c5="NN1"
+hw="agent" pos="SUBST">agent</w></s></p></item></list><!-- CB9 --></egXML>
+
+</p></div>
+
+<div xml:id="cdif55"><head>Notes and citations</head> 
+
+<p>Annotations occurring in written texts, and bibliographic citations
+or references, have been marked up in some texts, using the <gi>note</gi>
+element. </p>
+<p>Original notes may contain any mixture of other chunks, and may also
+contain paragraphs: they appear in written texts only. They may
+be relocated to the end of the section in which they appear. 
+</p>
+<p>For example: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><note place="SIDE">
+  <s n="477">
+    <w c5="AT0" hw="the" pos="ART">The </w>
+    <w c5="AJ0-NN1" hw="short" pos="ADJ">short </w>
+    <w c5="VBZ" hw="be" pos="VERB">is </w>
+    <w c5="AT0" hw="a" pos="ART">a </w>
+    <w c5="NN1" hw="film" pos="SUBST">film </w>
+    <w c5="PRP" hw="about" pos="PREP">about </w>
+    <w c5="NN1-VVG" hw="sailing" pos="SUBST">sailing</w>
+    <c c5="PUN">.</c>
+</s>...</note><!-- A6C --></egXML>
+
+Note the use of the <att>n</att> attribute to carry the
+original footnote number in the above example.</p> 
+</div>
+
+<div xml:id="cdifbib"><head>Bibliographic references</head>
+
+<p>Bibliographic citations or references within running texts may also
+be marked, using the <gi>bibl</gi> element; in the present version of
+the corpus this is done in some texts
+only.
+<!--
+<p>Bibliographic citations or references are very frequent in some kinds
+of writing, and almost entirely absent from others. It is useful to
+distinguish them from surrounding text, both because they have a very
+different linguistic structure, and for information retrieval purposes.
+The optional <gi>bibl</gi> element should contain the whole of any
+bibliographic citation distinguished in a text, including, for example,
+page and volume numbers.  <p>Some constituents of the citation may also
+be tagged in their own right, using the appropriate phrase-level tags
+(<gi>title</gi>, <gi>name</gi>, <gi>date</gi> etc.) but
+<abbr>cdif</abbr> does not require or enforce this. The <gi>bibl</gi>
+element contains any sequence of phrase-level elements.
+--> 
+</p>
+<p>For example: <!-- -->
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><quote><p rend="it">
+<s n="1943"><w c5="NN1" hw="zombie" pos="SUBST">Zombie </w><w c5="AT0" hw="no" pos="ART">no </w><w c5="NN1" hw="go" pos="SUBST">go </w><w c5="CJS" hw="unless" pos="CONJ">unless </w><w c5="PNP" hw="you" pos="PRON">you </w><w c5="VVB" hw="tell" pos="VERB">tell </w><w c5="VVB-NN1" hw="im" pos="VERB">im </w><w c5="TO0" hw="to" pos="PREP">to </w><w c5="VVI" hw="go" pos="VERB">go</w></s><bibl>
+<s n="1944"><w c5="AT0" hw="the" pos="ART">The </w><w c5="NP0"
+hw="communards" pos="SUBST">Communards</w><c
+c5="PUN">.</c></s></bibl></p></quote> <!-- A0L -->
+</egXML>
+
+
+</p>
+<p>Note that the <gi>bibl</gi> element used within corpus texts has
+none of the more detailed sub-elements described for it in <ptr
+target="#hdbib"/>. Like all the other elements described in the present
+subsection, the <gi>bibl</gi> element appearing within corpus texts
+contains only <gi>s</gi> elements. </p>
+</div>
+
+
+</div>
+<div xml:id="cdif6"><head>Phrase-level elements</head> 
+
+<p>Phrase-level elements are elements which cannot appear directly
+within a textual division, but must be contained by some other element.
+In practice, this means they will be contained within an <gi>s</gi>
+element. In addition to the <gi>w</gi>, <gi>mw</gi>, and <gi>c</gi> elements
+already discussed, only the following phrase-level elements  appear within
+<gi>s</gi> elements in written texts: 
+
+<specList>
+<specDesc key="pb" atts="n"/>
+<specDesc key="hi" atts="rend"/>
+</specList>
+</p>
+
+<div><head>Page breaks</head>
+
+<p>Wherever possible, the original pagination and page numbering of the source text
+has been preserved. The <gi>pb</gi> element is used to mark the
+approximate position in the text at which each new page starts, and
+its <att>n</att> attribute supplies the number of the page. 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><l>
+<s n="1403"><c c5="PUN">— </c><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="NN2" hw="creditor" pos="SUBST">creditors </w><w c5="VVB" hw="grow" pos="VERB">grow </w><w c5="AJ0" hw="cruel" pos="ADJ">cruel</w><c c5="PUN">,</c></s></l>
+<l>
+<s n="1404"><pb n="75"/><w c5="AV0" hw="so" pos="ADV">so </w><w c5="PNP" hw="he"
+pos="PRON">he </w><w c5="VVZ" hw="bow" pos="VERB">bows </w><w c5="CJC"
+hw="and" pos="CONJ">and </w><w c5="NN2-VVZ" hw="scrape"
+pos="SUBST">scrapes</w><c c5="PUN">,</c></s></l><!-- HNU -->
+</egXML>   
+</p>
+<p>Where several pages have been left out of a transcription, for
+example because they are blank or contain illustrations only, a
+<gi>pb</gi> element may be given for each, as in this example:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><s n="1323"><w
+								c5="PNP" hw="i" pos="PRON">I </w><w c5="VHB" hw="have" pos="VERB">have</w><w c5="XX0" hw="not" pos="ADV">n't </w><w c5="VBN" hw="be" pos="VERB">been </w><w c5="PRP" hw="to" pos="PREP">to </w><w c5="AT0" hw="an" pos="ART">an </w><w c5="AJ0" hw="organized" pos="ADJ">organized </w><w c5="NN1" hw="campsite" pos="SUBST">campsite </w><w c5="PRP" hw="for" pos="PREP">for    </w><pb n="64"/><pb n="65"/><pb n="66"/><w c5="AV0" hw="perhaps" pos="ADV">perhaps </w><w c5="CRD" hw="fifteen" pos="ADJ">fifteen </w><w c5="NN2" hw="year" pos="SUBST">years</w><c c5="PUN">, </c><w c5="AV0" hw="so" pos="ADV">so </w><w c5="DT0" hw="all" pos="ADJ">all </w><w c5="DT0" hw="this" pos="ADJ">this </w><w c5="VBZ" hw="be" pos="VERB">is </w><w c5="AJ0" hw="new" pos="ADJ">new </w><w c5="PRP" hw="to" pos="PREP">to </w><w c5="PNP" hw="i" pos="PRON">me</w><c c5="PUN">.</c></s><!-- A6T --></egXML>
+</p>
+
+</div>
+
+<div xml:id="cdif62"><head>Highlighted phrases</head> 
+<p>Typographic changes or highlighting in the original may not be marked in the
+transcript at all. Alternatively, highlighted phrases, and the kind of
+highlighting used, may be recorded in one of two ways: 
+<list>
+<item>using the <att>rend</att> (rendition) attribute on elements
+for which this is defined
+</item>
+<item>using the <gi>hi</gi> (highlighted) element
+</item> 
+</list></p>
+<p>The former is used where the whole of the content of one of the
+elements <gi>bibl</gi>, <gi>corr</gi>, <gi>div</gi>, <gi>head</gi>,
+<gi>item</gi>, <gi>l</gi>, <gi>label</gi>, <gi>list</gi>, <gi>p</gi>,
+<gi>quote</gi> or <gi>stage</gi> is highlighted. The latter is
+used on all other occasions. The values available for the <att>rend</att>
+attribute in either case and their significance are as listed in the
+<ref target="./urg.html#att.rendered">reference documentation</ref> in
+all cases.</p>
+<p>It should be noted that the purpose of the <att>rend</att>
+attribute is <emph>not</emph> to provide information adequate to the
+needs of a typesetter, but simply to record some qualitative information
+about the original. </p>
+<p>Like all other phrase-level elements, each <gi>hi</gi> element must
+be entirely contained by an <gi>s</gi> element.  This implies that
+where, for example, a bolded passage contains more than one sentence, or
+an italicised phrase begins in one verse line and ends in another, the
+<gi>hi</gi> element must be closed at the end of the enclosing element,
+and then re-opened within the next. 
+</p>
+
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<s n="2211"><hi rend="it"><w c5="NN1" hw="apple" pos="SUBST">Apple
+</w></hi><w c5="VBZ" hw="be" pos="VERB">is </w><w c5="PRP" hw="to"
+pos="PREP">to </w><hi rend="it"><w c5="NN0" hw="fruit"
+pos="SUBST">fruit </w></hi><w c5="CJS-PRP" hw="as" pos="CONJ">as
+</w><hi rend="it"><w c5="NN1" hw="dog" pos="SUBST">dog </w></hi><w
+c5="VBZ" hw="be" pos="VERB">is </w><w c5="PRP" hw="to" pos="PREP">to
+</w><hi rend="it"><w c5="ZZ0" hw="x" pos="SUBST">X </w></hi><c
+c5="PUN">.</c></s><!-- FAC  --></egXML>
+
+
+<p>For example, in the following four lines of verse, the first three
+are rendered in italics, and the <att>rend</att> attribute is
+therefore specified for each <gi>l</gi> element. In the fourth line,
+only the first few words are in italics: a <gi>hi</gi> element must be
+used within the <gi>l</gi> to carry this information.  
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><l rend="it">
+<s n="394"><w c5="PNP" hw="it" pos="PRON">It </w><w c5="VBD" hw="be" pos="VERB">was </w><w c5="CRD" hw="one" pos="ADJ">one </w><w c5="PRF" hw="of" pos="PREP">of </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="NN0" hw="pair" pos="SUBST">pair</w><c c5="PUN">.</c></s>
+<s n="395"><w c5="DPS" hw="it" pos="PRON">Its </w><w c5="AJ0" hw="precious" pos="ADJ">precious </w><w c5="NN1" hw="twin" pos="SUBST">twin</w></s></l><l rend="it">
+<s n="396"><w c5="VBD" hw="be" pos="VERB">was </w><w c5="VVN" hw="steal" pos="VERB">stolen </w><w c5="PRP" hw="by" pos="PREP">by </w><w c5="AT0" hw="the" pos="ART">the </w><w c5="NN2" hw="soldier" pos="SUBST">soldiers</w><c c5="PUN">.</c></s>
+<s n="397"><w c5="DT0" hw="all" pos="ADJ">All </w><w c5="AT0" hw="the" pos="ART">the </w><w c5="NN1" hw="time" pos="SUBST">time</w></s></l><l rend="it">
+<s n="398"><w c5="DPS" hw="she" pos="PRON">her </w><w c5="NN1" hw="uncle" pos="SUBST">uncle </w><w c5="VVD" hw="stand" pos="VERB">stood </w><w c5="AV0" hw="there" pos="ADV">there </w><w c5="VVG" hw="clutch" pos="VERB">clutching </w><w c5="DT0" hw="this" pos="ADJ">this </w><w c5="PNI" hw="one" pos="PRON">one </w><w c5="AVP-PRP" hw="in" pos="ADV">in</w></s></l><l>
+<s n="399"><hi rend="it"><w c5="DPS" hw="he" pos="PRON">his </w><w c5="AJ0" hw="big" pos="ADJ">big </w><w c5="NN1" hw="fist" pos="SUBST">fist </w></hi><c c5="PUN">— </c><w c5="AV0" hw="so" pos="ADV">so</w><c c5="PUN">!</c></s>
+<s n="400"><w c5="PNP" hw="she" pos="PRON">She </w><w c5="VDZ" hw="do"
+pos="VERB">does </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="AJ0"
+hw="little" pos="ADJ">little </w><w c5="NN1" hw="mime"
+pos="SUBST">mime</w><c c5="PUN">.</c></s></l><!-- C8X -->
+</egXML> 
+</p></div> 
+
+</div></div>
+
+
+<div xml:id="cdifsp"><head>Spoken texts</head> 
+
+<div xml:id="cdif22"><head>Basic structure: spoken texts</head> 
+
+<p>The spoken material transcribed for the BNC  is also organized into
+<soCalled>texts</soCalled>, which are subdivided into
+<soCalled>divisions</soCalled>, made up of <gi>w</gi> and <gi>mw</gi>
+elements grouped into <gi>s</gi> elements in the same way as  written
+texts. However there a number of other elements specific to spoken
+texts, and their hierarchic organization is naturally not the same as that of
+written texts. For this reason, a different element (<gi>stext</gi>)
+is used to represent a spoken text.
+</p>
+<p>In demographically sampled spoken texts, each distinct conversation
+recorded by a given respondent is treated as a distinct <gi>div</gi>
+element. All the conversations from a single respondent are then
+grouped together to form a single <gi>stext</gi>
+element. Context-governed spoken texts, however, do not use the
+<gi>div</gi> element: the <gi>stext</gi> element for a context
+governed text is composed only of <gi>u</gi> elements, not grouped
+into any unit smaller than the <gi>stext</gi> itself. </p>
+
+<p>The <gi>s</gi> elements making up a spoken text are grouped not
+into <gi>p</gi> or other similar elements, but instead into <gi>u</gi>
+elements. Each <gi>u</gi> (utterance) element marks a stretch of
+uninterrupted speech from a given speaker; (see section <ptr
+target="#cdifspu"/>). Interspersed within and between <gi>u</gi>
+elements, a variety of other
+elements indicate para-linguistic phenomena noticed
+by the transcribers (see section <ptr target="#cdifspp"/>). </p>
+
+<!-- can we put this somewhere more accessible? -->
+
+<p>The methods and principles applied in transcription and
+normalisation of speech are defined in a BNC working paper TGCW21
+<title>Spoken Corpus Transcription Guide</title>, and have also been
+described in subsequent publications (e.g. Crowdy 1994). The editorial tags
+discussed in section <ptr target="#cdifed"/> above are also used to
+represent normalisation practice when dealing with transcribed speech.
+</p>
+</div>
+
+<div xml:id="cdifspu" type="subsubsect"><head>Utterances</head> 
+
+<p>The term  <term>utterance</term> is used in the BNC to refer to a
+continuous stretch of speech produced
+by one participant in a
+conversation, or by a group of participants. Structurally, the
+corresponding element behaves in a similar way to the <gi>p</gi>
+element in a written text — it groups a sequence of <gi>s</gi>
+elements together.
+<specList>
+<specDesc key="u" atts="who"/>
+</specList>
+</p>
+
+<p>The  <att>who</att> attribute is required on every <gi>u</gi>: its function is to
+identify the person or group of people making the utterance, using the
+unique code defined for that person in the appropriate section of the
+header.  A simple example follows: 
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><u who="PS1LW">
+<s n="159"><w c5="ITJ" hw="mm" pos="INTERJ">Mm </w><w c5="ITJ" hw="mm" pos="INTERJ">mm</w><c c5="PUN">.</c></s></u><!-- F7F --></egXML> The code <code>PS1LW</code> used here will be specified as
+the value for the <att>xml:id</att> attribute of some <gi>person</gi>
+element within the header of the text from which this example is
+taken.  Where the speaker cannot be confidently identified, or where
+there is more than one aspeaker, a special
+code is used; see further discussion at <ptr target="#persdis"/>.
+
+<!--
+For example, if text <att>xyz</att> contains two different but
+unidentified speakers, one of them will be given the identifier
+<att>XYZSP001</att>, and the other <att>XYZSP002</att>. A
+group of unidenified speakers speaking together in the text will be given an
+identifier -->
+
+<!-- check and give examples -->
+</p>
+</div>
+<div xml:id="cdifspp"><head>Paralinguistic phenomena</head> 
+<p>In transcribing spoken language, it is necessary to select from the
+possibly very large set of distinct paralinguistic phenomena which might
+be of interest. In the texts transcribed for the BNC, encoders were
+instructed to mark the following such phenomena:
+<list type="gloss"><label>voice quality</label>
+<item>for example, whispering, laughing, etc., both as discrete events
+and as changes in voice quality affecting passages within an utterance.</item>
+
+<label>non-verbal but vocalised sounds</label>
+<item>for example, coughs, humming noises etc. </item> 
+<label>non-verbal and non-vocal events</label>
+<item>for example passing lorries, animal noises,  and other matters
+considered worthy of note.
+</item> 
+<label>significant pauses</label>
+<item>silence, within or between utterances, longer than  was judged
+normal for the speaker or speakers.
+</item>
+<label>unclear passages</label>
+<item>whole utterances or passages within them which were inaudible or
+incomprehensible for a variety of reasons.</item>
+<label>speech management phenomena</label>
+<item>for example truncation, false starts, and correction.</item>
+<label>overlap</label>
+<item>points at which more than one speaker was active.</item>
+</list>    Other aspects of spoken texts are not explicitly recorded in
+the encoding, although their headers contain considerable amounts of
+situational and participant information. 
+</p>
+<p>In many cases, because no standardized set of descriptions was predefined,
+transcribers gave very widely differing accounts of the same
+phenomena. An attempt has however been made to normalize the descriptions for
+some of these elements in the BNC XML editions.</p>
+
+<p>The elements used to mark these phenomena are listed below in
+alphabetical order:
+<specList>
+<specDesc key="event" atts="desc dur"/>
+<specDesc key="pause" atts="dur"/>
+<specDesc key="shift" atts="new"/>
+<specDesc key="trunc" />
+<specDesc key="unclear" atts="dur"/>
+<specDesc key="vocal" atts="desc dur who"/>
+</specList>
+</p>
+<p>The value of the <att>dur</att> attribute is normally specified
+only if it is greater than 5 seconds, and its accuracy is only
+approximate.  </p>
+<p>With the exception of the <gi>trunc</gi> element, which is a
+special case of the editorial tags discussed in section <ptr target="#cdifed"/> above, all of these elements are empty, and may appear anywhere within
+a transcription. 
+</p>
+<p>The following example shows an event, several pauses and a patch of
+unclear speech:
+
+
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><s n="5490"><event desc="radio on"/><pause dur="34"/><w c5="PNP" hw="you" pos="PRON">You </w><w c5="VVN" hw="get" pos="VERB">got</w><w c5="TO0" hw="ta" pos="PREP">ta  </w><unclear/><w c5="NN1" hw="radio" pos="SUBST">Radio </w><w c5="CRD" hw="two" pos="ADJ">Two </w><w c5="PRP" hw="with" pos="PREP">with </w><w c5="DT0" hw="that" pos="ADJ">that</w><c c5="PUN">.</c></s>
+<s n="5491"><pause dur="6"/><w c5="AJ0" hw="bloody" pos="ADJ">Bloody
+</w><w c5="NN1" hw="pirate" pos="SUBST">pirate </w><w c5="NN1"
+hw="station" pos="SUBST">station </w><w c5="VM0" hw="would"
+pos="VERB">would</w><w c5="XX0" hw="not" pos="ADV">n't </w><w c5="PNP"
+hw="you" pos="PRON">you</w><c c5="PUN">?</c></s>
+<!-- KB2 --></egXML> </p>
+<p>Where the whole of an utterance is unclear, that is, where no speech
+has actually been transcribed, the <gi>unclear</gi> element is used on
+its own, with an optional <att>who</att> attribute to indicate who
+is speaking, if this is identifiable. For example: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><u who="xx"><s>....</s></u>
+<unclear who="yy"/>
+<u who="xx"><s>... </s></u></egXML>
+Here YY's remarks, whatever they are, are too unclear to be
+transcribed, and so no <gi>u</gi> element is provided. 
+</p>
+
+<!-- update -->
+<p>The values used for the <att>desc</att> attribute of the
+<gi>event</gi> element are not constrained in the current version of
+the corpus, and more than a thousand different values exist in the
+corpus. Some common examples follow:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><event desc="laughter"/>
+<event desc="telephone noise"/>
+</egXML> 
+A list of the most frequent values is given in <ptr target="#eventcodes"/>.
+</p>
+<p>As noted above, a distinction is made between discrete vocal events,
+such as laughter, and changes in voice quality, such as words which are
+spoken in a laughing tone. The former are encoded using the
+<gi>vocal</gi> element, as in the following example: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><u who="PS09T">
+<s n="4307"><vocal desc="laugh"/><c c5="PUN">, </c><w c5="PNP" hw="you" pos="PRON">you</w><w c5="VM0" hw="will" pos="VERB">'ll </w><w c5="VHI" hw="have" pos="VERB">have </w><w c5="TO0" hw="to" pos="PREP">to </w><w c5="VVI" hw="take" pos="VERB">take </w><w c5="DT0-CJT" hw="that" pos="ADJ">that </w><w c5="AVP-PRP" hw="off" pos="ADV">off </w><w c5="AV0" hw="there" pos="ADV">there  </w><vocal desc="laugh"/><w c5="ITJ" hw="yeah" pos="INTERJ">yeah </w><w c5="PNP" hw="you" pos="PRON">you </w><w c5="VM0" hw="can" pos="VERB">can   </w><pause/><vocal desc="laugh"/><pause/></s></u><!-- KC2 --></egXML>  The <gi>shift</gi> element is used instead where the laughter
+indicates a change in voice quality, as in the following example:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><u who="PS01V">
+<s n="4188"><w c5="CJC" hw="and" pos="CONJ">And </w><w c5="UNC" hw="erm" pos="UNC">erm  </w><pause/><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="AV0" hw="then" pos="ADV">then </w><w c5="PNP" hw="we" pos="PRON">we </w><w c5="VVD" hw="go" pos="VERB">went </w><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="VVD" hw="get" pos="VERB">got </w><w c5="DPS" hw="i" pos="PRON">my </w><w c5="NN0" hw="fruit" pos="SUBST">fruit </w><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="NN1" hw="veg" pos="SUBST">veg </w><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="AV0" hw="then" pos="ADV">then </w><w c5="PNP" hw="we" pos="PRON">we </w><w c5="VVD" hw="go" pos="VERB">went </w><w c5="PRP" hw="in" pos="PREP">in </w><w c5="AJ0-NN1" hw="top" pos="ADJ">Top </w><w c5="NP0" hw="marks" pos="SUBST">Marks </w><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="VVD" hw="get" pos="VERB">got </w><w c5="PNP" hw="they" pos="PRON">them  </w><shift new="laughing"/><w c5="AV0" hw="so" pos="ADV">so </w><w c5="PNP" hw="we" pos="PRON">we </w><w c5="AV0" hw="never" pos="ADV">never </w><w c5="VVD" hw="get" pos="VERB">got  </w><shift/><w c5="PNP" hw="we" pos="PRON">we </w><w c5="VVD" hw="go" pos="VERB">went </w><w c5="AVP" hw="through" pos="ADV">through </w><w c5="PRP" hw="for" pos="PREP">for </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="NN1" hw="video" pos="SUBST">video </w><w c5="AV0" hw="really" pos="ADV">really</w><c c5="PUN">, </c><w c5="AV0" hw="never" pos="ADV">never </w><w c5="VVN-VVD" hw="get" pos="VERB">got </w><w c5="AVP" hw="round" pos="ADV">round </w><w c5="PRP" hw="to" pos="PREP">to </w><w c5="VVG" hw="look" pos="VERB">looking </w><w c5="PRP" hw="for" pos="PREP">for </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="NN1" hw="video" pos="SUBST">video </w><w c5="VDD" hw="do" pos="VERB">did </w><w c5="PNP" hw="we" pos="PRON">we</w><c c5="PUN">?</c></s></u><!-- KB2 --></egXML></p>
+<p>When no
+ <att>new</att> attribute is supplied on a
+<gi>shift</gi> element, the meaning is that the voice quality
+indicated reverts to a normal or unmarked state. Hence, in this example,
+the passage between the tags <gi>shift new="laughing"/</gi>
+and <gi>shift/</gi> is spoken with a laughing intonation
+</p>
+<p>A list of values currently used for the <att>new</att>
+attribute is given below in section <ptr target="#shiftcodes"/>.
+</p>
+<!-- examples of trunc etc needed here -->
+</div>
+
+<div xml:id="cdif632"><head>Alignment of overlapping speech</head>  
+<p>By default it is assumed that the events represented in a
+transcription are non-overlapping and that they are transcribed in
+temporal sequence.  That is, unless otherwise specified, it is implied
+that the end of one utterance precedes the start of the next following
+it in the text, perhaps with an interposed <gi>pause</gi> element.
+Where this is not the case, the following element is used: 
+
+<specList>
+<specDesc key="align" atts="with"/>
+</specList>
+</p>
+<p>The <att>with</att> attribute of an <gi>align</gi> element
+may be thought of as identifying some point in time. Where two or
+more <gi>align</gi> elements specify the same value for this
+attribute, their locations are assumed to be synchronised.
+</p>
+<p>The following example demonstrates how this mechanism is used to
+indicate that one speaker's attempt to take the floor has been
+unsuccessful: 
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><u who="PS6U5">
+<s n="485"><w c5="AJ0" hw="poor" pos="ADJ">Poor </w><w c5="AJ0" hw="old" pos="ADJ">old </w><w c5="NP0" hw="luxembourg" pos="SUBST">Luxembourg</w><w c5="VHZ" hw="have" pos="VERB">'s </w><w c5="VVN-AJ0" hw="beat" pos="VERB">beaten</w><c c5="PUN">.</c></s>
+<s n="486"><w c5="PNP" hw="you" pos="PRON">You </w><w c5="PNP" hw="you" pos="PRON">you</w><w c5="VHB" hw="have" pos="VERB">'ve </w><w c5="PNP" hw="you" pos="PRON">you</w><w c5="VHB" hw="have" pos="VERB">'ve </w><w c5="AV0" hw="absolutely" pos="ADV">absolutely </w><w c5="AV0" hw="just" pos="ADV">just </w><w c5="VVN" hw="go" pos="VERB">gone </w><w c5="AV0-AJ0" hw="straight" pos="ADV">straight </w><align with="KNYLC01D"/><w c5="PRP" hw="over" pos="PREP">over </w><w c5="PNP" hw="it" pos="PRON">it </w></s></u><u who="PS4YX">
+<s n="487"><align with="KNYLC01D"/><w c5="PNP" hw="i" pos="PRON">I </w><w c5="VHB" hw="have" pos="VERB">have</w><w c5="XX0" hw="not" pos="ADV">n't</w><c c5="PUN">.</c></s></u><u who="PS6U5">
+<s n="488"><w c5="CJC" hw="and" pos="CONJ">and </w><w c5="VVN" hw="forget" pos="VERB">forgotten </w><w c5="AT0" hw="the" pos="ART">the </w><w c5="AJ0" hw="poor" pos="ADJ">poor </w><w c5="AJ0" hw="little" pos="ADJ">little </w><w c5="NN1" hw="country" pos="SUBST">country</w><c c5="PUN">.</c></s></u><!-- KNY --></egXML> </p>
+<p>This encoding is the CDIF equivalent of what might be presented in a
+conventional playscript as follows: 
+<!-- better example would be nice - gmb -->
+<egXML xmlns="http://www.tei-c.org/ns/Examples">W0001: Poor old Luxembourg's beaten. You, you've, you've absolutely just
+gone straight over it --
+W0014: (interrupting) I haven't.
+W0001: (at the same time) and forgotten the poor little country.
+</egXML>  
+</p></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

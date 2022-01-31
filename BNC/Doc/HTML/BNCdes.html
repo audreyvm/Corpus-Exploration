@@ -1,0 +1,1792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Design of the corpus</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Design of the corpus">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="foo" id="BNCdes">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">1  Design of the corpus</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Next: </i><a class="navigation" href="cdifbase.html">2  Basic structure</a></p>
+<p><span id="id2341787"></span>This section discusses some of the basic design issues underlying
+the creation of the BNC. It summarizes the kinds of uses for which the
+corpus is intended, and the principles upon which it was created. Some
+summary information about the composition of the corpus is also
+included. 
+</p>
+<div class="bar" id="BNCpurp">
+<h3>1.1  Purpose</h3>
+<div class="p">
+<span id="id2341808"></span> The   uses originally  envisaged for the British National Corpus
+were set out in a working document called <i>Planned Uses of the
+British National Corpus</i> BNCW02 (11 April 91). This document
+identified the following as likely application areas for the corpus: 
+<ul>
+<li>reference book publishing</li>
+<li>academic linguistic research</li>
+<li>language teaching</li>
+<li>artificial intelligence</li>
+<li>natural language processing</li>
+<li>speech processing</li>
+<li>information retrieval</li>
+</ul>
+</div>
+<div class="p">
+<span id="id2341844"></span>The  same document identified the following categories of linguistic
+information derivable from the corpus:
+<ul>
+<li>lexical</li>
+<li>semantic/pragmatic</li>
+<li>syntactic</li>
+<li>morphological</li>
+<li>graphological/written form/orthographical</li>
+</ul>
+</div>
+<p><span id="id2341868"></span>In the 15 or more years since that document was published, it has
+become apparent that the corpus, and corpus methods in general, have
+had a far wider impact than anticipated, notably in the field of
+language  teaching. </p>
+</div>
+<div class="teidiv1" id="BNCdefn">
+<h3>1.2  General definitions</h3>
+<div class="p">
+<span id="id2341884"></span> The British National Corpus is:
+<ul>
+<li>	 a <b>sample</b> corpus: composed of text samples
+generally no longer than 45,000 words.</li>
+<li> a <b>synchronic</b> corpus: the corpus includes
+imaginative texts from 1960, informative texts from 1975.</li>
+<li>	a <b>general</b> corpus: not specifically
+restricted to any particular subject field, register or genre.</li>
+<li> a <b>monolingual</b> British English corpus: it
+comprises text samples which are substantially the product of speakers
+of British English.</li>
+<li> a <b>mixed</b> corpus: it contains examples of
+both spoken and written language.</li>
+</ul>
+</div>
+</div>
+<div class="teidiv1" id="BNCcompo">
+<h3>1.3  Composition</h3>
+<p><span id="id2341949"></span>There is a broad consensus among the participants in the project and
+among corpus linguists that a general-purpose corpus of the English
+language would ideally contain a high proportion of spoken language in
+relation to written texts. However, it is significantly more expensive
+to record and transcribe natural speech than to acquire written text in
+computer-readable form. Consequently the spoken component of the BNC
+constitutes approximately 10 per cent (10 million words) of the total
+and the written component 90 per cent (90 million words). These were
+agreed to be realistic targets, given the constraints of time and
+budget, yet large enough to yield valuable empirical statistical data
+about spoken English. In the BNC sampler,
+
+a two per cent sample taken from the whole of the BNC, spoken and
+written language are present in approximately equal proportions, but
+other criteria are not equally balanced.
+</p>
+<p><span id="id2341971"></span>From the start, a decision was taken to select material for
+inclusion in the corpus according to an overt methodology, with specific
+target quantities of clearly defined types of language. This approach
+makes it possible for other researchers and corpus compilers to review,
+emulate or adapt concrete design goals. This section outlines these
+design considerations, and reports on the final make-up of the BNC.
+</p>
+<div class="p">
+<span id="id2341981"></span>This and the other tables in this section show the actual make-up
+of the second version of the British National Corpus (the BNC World
+Edition) in terms of
+<ul>
+<li>texts : number of distinct samples not exceeding 45,000 words
+</li>
+<li>S-units: number of <code>&lt;s&gt;</code> elements identified by the CLAWS system
+(more or less  equivalent to sentences)
+</li>
+<li>W-units: number of <code>&lt;w&gt;</code> elements identified by the CLAWS system
+(more or less  equivalent to words)
+</li>
+</ul>
+</div>
+<p><span id="id2342011"></span>For further explanation of <code>&lt;s&gt;</code> and <code>&lt;w&gt;</code> elements, see
+section <a class="link_ptr" href="cdifbase.html#cdifcomp" title="Segments and words">2.4  Segments and words</a>.
+</p>
+<p><span id="id2342026"></span>The XML Edition of the BNC contains 4049 texts and occupies
+(including all markup) 5,228,040 Kb, or about 5.2 Gb. In total, it
+comprises just under 100 million orthographic words (specifically,
+96986707), but the number of w-units (POS-tagged items) is slightly
+higher at 98363783. The tagging distinguishes a further
+13614425 punctuation strings, giving a total content count of
+110691482 strings. The total number of s-units tagged is about
+6 million (6026284). Counts for these and all the other elements
+tagged in the corpus are provided in the corpus header. </p>
+<p><span id="id2342049"></span>In the following tables both an absolute count and a percentage are
+given for all the counts. The percentage is calculated with reference
+to the relevant portion of the corpus, for example, in the table for
+    "written text domain", with reference to the total number of w-units
+in written texts. Note that punctuation strings are <em>not</em> included
+in these totals. The reference totals used are given in the first table
+below.  </p>
+<div class="left">
+<span id="alltyp"></span><table class="center">
+<caption>Table 1. Text type</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Spoken demographic</td>
+<td valign="top">153</td>
+<td valign="top">4233955</td>
+<td valign="top">4.30</td>
+<td valign="top">610557</td>
+<td valign="top">10.13</td>
+</tr>
+<tr>
+<td valign="top" class="label">Spoken context-governed</td>
+<td valign="top">755</td>
+<td valign="top">6175896</td>
+<td valign="top">6.27</td>
+<td valign="top">427523</td>
+<td valign="top">7.09</td>
+</tr>
+<tr>
+<td valign="top" class="label">Written books and periodicals</td>
+<td valign="top">2685</td>
+<td valign="top">79238146</td>
+<td valign="top">80.55</td>
+<td valign="top">4395581</td>
+<td valign="top">72.94</td>
+</tr>
+<tr>
+<td valign="top" class="label">Written-to-be-spoken</td>
+<td valign="top">35</td>
+<td valign="top">1278618</td>
+<td valign="top">1.29</td>
+<td valign="top">104665</td>
+<td valign="top">1.73</td>
+</tr>
+<tr>
+<td valign="top" class="label">Written miscellaneous</td>
+<td valign="top">421</td>
+<td valign="top">7437168</td>
+<td valign="top">7.56</td>
+<td valign="top">487958</td>
+<td valign="top">8.09</td>
+</tr>
+</table>
+</div>
+<div class="p">
+<span id="id2342217"></span>All texts are also classified according to their date of
+production. For spoken texts, the date was that of the recording. For
+written texts, the date used for classification was the date of
+publication of the source edition used, for the most part; in
+the case of imaginative works, however, the date of first publication
+of the work was used. Informative texts were selected only from 1975 onwards,
+imaginative ones from 1960, reflecting their longer &#8216;shelf-life&#8217;,
+though most (75 per cent ) of the latter were published no earlier
+than 1975.  <div class="left">
+<span id="alltim"></span><table class="center">
+<caption>Table 2. Publication date</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">162</td>
+<td valign="top">1831585</td>
+<td valign="top">1.86</td>
+<td valign="top">126416</td>
+<td valign="top">2.09</td>
+</tr>
+<tr>
+<td valign="top" class="label">1960-1974</td>
+<td valign="top">46</td>
+<td valign="top">1718449</td>
+<td valign="top">1.74</td>
+<td valign="top">119510</td>
+<td valign="top">1.98</td>
+</tr>
+<tr>
+<td valign="top" class="label">1975-1984</td>
+<td valign="top">169</td>
+<td valign="top">4730889</td>
+<td valign="top">4.80</td>
+<td valign="top">257962</td>
+<td valign="top">4.28</td>
+</tr>
+<tr>
+<td valign="top" class="label">1985-1993</td>
+<td valign="top">3672</td>
+<td valign="top">90082860</td>
+<td valign="top">91.58</td>
+<td valign="top">5522396</td>
+<td valign="top">91.63</td>
+</tr>
+</table>
+</div>
+</div>
+<p><span id="id2342335"></span>Spoken and written components of the corpus are discussed separately in
+the next two sections.</p>
+</div>
+<div class="teidiv1" id="wrides">
+<h3>1.4  Design of the written component</h3>
+<div class="teidiv2" id="body.1_div.1_div.4_div.1">
+<h4>1.4.1  Sampling basis: production and reception</h4>
+<p><span id="id2342366"></span>While it is sometimes useful to distinguish in theory between
+language which is <span class="term">received</span> (read and heard) and that which
+is <span class="term">produced</span> (written and spoken), it was agreed that the
+selection of samples for a general-purpose corpus must take account of
+both perspectives.</p>
+<p><span id="id2342380"></span>Text that is published in the form of books, magazines, etc., is
+not representative of the totality of written language that is produced,
+as writing for publication is a comparatively specialized activity in
+which few people engage. However, it is much more representative of
+written language that is received, and is also easier to obtain in
+useful quantities, and thus forms the greater part of the written
+component of the corpus.</p>
+<p><span id="id2342391"></span>There was no single source of information about published material
+that could provide a satisfactory basis for a sampling frame, but a
+combination of various sources furnished useful information about the
+totality of written text produced and, particularly, received, some
+sources being more significant than others. They are principally
+statistics about books and periodicals that are published, bought or
+borrowed.</p>
+<p><span id="id2342401"></span>Catalogues of <strong>books published per annum</strong> tell us something
+about production but little about reception as many books are published
+but hardly read. 
+</p>
+<p><span id="id2342411"></span>A list of <strong>books in print</strong> provides somewhat more
+information about reception as time will weed out the books that nobody
+bought (or read): such a list will contain a higher proportion of books
+that have continued to find a readership.
+</p>
+<p><span id="id2342421"></span>The books that have the widest reception are presumably those that
+figure in <strong>bestseller lists,</strong> particularly <strong>prize
+winners</strong> of competitions such as the Booker or Whitbread. Such
+works were certainly candidates for inclusion in the corpus, but the
+statistics of book-buying are such that very few texts achieve high
+sales while a vast number sell only a few or in modest numbers. If
+texts had been selected in strict arithmetical proportion to their
+sales, their range would have been severely limited. However, where a
+text from one particular subject domain was required, it was
+appropriate to prefer a book which had achieved high sales to one
+which had not. </p>
+<p><span id="id2342451"></span><strong>Library lending statistics,</strong> where these are available,
+also indicate which books enjoy a wide reception and, like lists of
+books in print, show which books <em>continue</em> to be read.
+</p>
+<p><span id="id2342463"></span>Similar observations hold for magazines and periodicals. lists of
+<strong>current magazines and periodicals</strong> are similar to catalogues of
+published books, but perhaps more informative about language reception,
+as it may be that periodicals are bought and read by a wider
+cross-section of the community than books. Also, a periodical that fails
+to find a readership will not continue to be published for long.
+</p>
+<p><span id="id2342477"></span><strong>Periodical circulation figures</strong> have to be treated with the
+same caution as bestseller lists, as a few titles dominate the market
+with a very high circulation. To concentrate too exclusively on these
+would reduce the range of text types in the corpus and make contrastive
+analysis difficult.
+</p>
+<p><span id="id2342487"></span>Published written texts were selected partly at
+random from Whitaker's <i>Books in Print</i> for 1992 and
+partly systematically, according to the selection features outlined in
+section <a class="link_ptr" href="BNCdes.html#SEL" title="Selection features">1.4.2  Selection features </a> below.
+</p>
+<p><span id="id2342501"></span>Available sources are concerned almost exclusively with published
+books and periodicals. It is much more difficult to obtain data
+concerning the production or reception of unpublished writing. Intuitive
+estimates were therefore made in order to establish some guidelines for
+text sampling in the latter area.
+</p>
+</div>
+<div class="teidiv2" id="SEL">
+<h4>1.4.2  Selection features </h4>
+<p><span id="id2342517"></span>Texts were chosen for inclusion according to three
+<span class="term">selection features</span>: domain (subject field), time (within
+certain dates) and medium (book, periodical, etc.). 
+</p>
+<p><span id="id2342526"></span>The purpose of these selection features was to ensure that the
+corpus contained a broad range of different language styles, for two
+reasons. The first was so that the corpus could be regarded as a
+microcosm of current British English in its entirety, not just of
+particular types. The second was so that different types of text could
+be compared and contrasted with each other.
+</p>
+<div class="zxz" id="body.1_div.1_div.4_div.2_div.1">
+<h5>1.4.2.1  Selection Procedure</h5>
+<p><span id="id2342543"></span>Each selection feature was divided into classes (e.g. &#8216;Medium&#8217;
+into books, periodicals, unpublished etc.; &#8216;Domain&#8217; into
+imaginative,  informative, etc.) and target percentages were set for
+each class. These percentages are quite independent of each other: there
+was no attempt, for example, to make 25 per cent  of the selected
+periodicals imaginative.
+</p>
+<p><span id="id2342558"></span>The design proposed that seventy-five per cent of the samples be drawn from
+informative texts, and the remaining 25 per cent from imaginative texts.
+It further proposed that titles be taken from a variety of media, in the following
+proportions: 60 per cent from books, 30 per cent from periodicals, 10
+per cent from miscellaneous sources (published, unpublished, and written
+to be spoken). </p>
+<p><span id="id2342568"></span>Half of the books in the &#8216;Books and Periodicals&#8217; class were
+selected at random from Whitaker's <i>Books in Print 1992</i>.
+This was to provide a control group to validate the categories used in
+the other method of selection: the random selection disregarded Domain
+and Time, but texts selected by this method were classified according to
+these other features after selection. </p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.2_div.2">
+<h5>1.4.2.2  Sample size and method</h5>
+<p><span id="id2342590"></span>For books, a target sample size of 40,000 words was chosen.  No
+extract included in the corpus exceeds 45,000 words. For the most
+part, texts which in their entirety were shorter than 40,000 words
+were further reduced by ten per cent for copyright reasons; a few
+texts longer than the target size were however included in their
+entirety.  Text samples normally consist of a continuous stretch of
+discourse from within the whole. A convenient breakpoint (e.g. the end
+of a section or chapter) was chosen as far as possible to begin and
+end the sample so that high-level discourse units were not
+fragmented. Where possible, no more than one sample was taken from any
+one text; for newspaper texts and large encyclopaedic works, no sample
+greater than 40,000 words was taken. Samples were taken randomly from
+the beginning, middle or end of longer texts. (In cases where a
+publication included essays or articles by a variety of authors of
+different nationalities, the work of non-UK authors was omitted.)
+</p>
+<p><span id="id2342627"></span>Some types of written material are composite in structure: that is,
+the physical object in written form is composed of more than one text
+unit. Important examples are issues of a newspaper or magazine which,
+though editorially shaped as a document, contain discrete texts, each
+with its specific authorship, stylistic characteristics, register and
+domain. The BNC attempts to separate these discrete texts where
+appropriate and to classify them individually according to the selection
+and classification features. As far as possible, the individual stories
+in one issue of a newspaper were grouped according to domain, for
+example as &#8216;Business&#8217; articles, &#8216;Leisure&#8217; articles, etc.</p>
+<p><span id="id2342648"></span>The following subsections discuss each selection criterion, and
+indicate the actual numbers of words in each category included.
+</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.2_div.3">
+<h5>1.4.2.3  Domain</h5>
+<div class="p">
+<span id="id2342658"></span>Classification according to subject field seems hardly appropriate
+to texts which are fictional or which are generally perceived to be
+literary or creative. Consequently, these texts are all labelled
+<span class="term">imaginative</span> and are not assigned to particular subject
+areas. All other texts are treated as <span class="term">informative</span> and are
+assigned to one of the eight domains listed below.
+
+<div class="left">
+<span id="wridom"></span><table class="center">
+<caption>Table 3. Written Domain</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Imaginative</td>
+<td valign="top">476</td>
+<td valign="top">16496420</td>
+<td valign="top">18.75</td>
+<td valign="top">1352150</td>
+<td valign="top">27.10</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: natural &amp; pure science</td>
+<td valign="top">146</td>
+<td valign="top">3821902</td>
+<td valign="top">4.34</td>
+<td valign="top">183384</td>
+<td valign="top">3.67</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: applied science</td>
+<td valign="top">370</td>
+<td valign="top">7174152</td>
+<td valign="top">8.15</td>
+<td valign="top">356662</td>
+<td valign="top">7.15</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: social science</td>
+<td valign="top">526</td>
+<td valign="top">14025537</td>
+<td valign="top">15.94</td>
+<td valign="top">698218</td>
+<td valign="top">13.99</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: world affairs</td>
+<td valign="top">483</td>
+<td valign="top">17244534</td>
+<td valign="top">19.60</td>
+<td valign="top">798503</td>
+<td valign="top">16.00</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: commerce &amp; finance</td>
+<td valign="top">295</td>
+<td valign="top">7341163</td>
+<td valign="top">8.34</td>
+<td valign="top">382374</td>
+<td valign="top">7.66</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: arts</td>
+<td valign="top">261</td>
+<td valign="top">6574857</td>
+<td valign="top">7.47</td>
+<td valign="top">321140</td>
+<td valign="top">6.43</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: belief &amp; thought</td>
+<td valign="top">146</td>
+<td valign="top">3037533</td>
+<td valign="top">3.45</td>
+<td valign="top">151283</td>
+<td valign="top">3.03</td>
+</tr>
+<tr>
+<td valign="top" class="label">Informative: leisure</td>
+<td valign="top">438</td>
+<td valign="top">12237834</td>
+<td valign="top">13.91</td>
+<td valign="top">744490</td>
+<td valign="top">14.92</td>
+</tr>
+</table>
+</div>
+</div>
+<p><span id="id2342881"></span>The evidence from catalogues of books and periodicals suggests that
+imaginative texts account for significantly less than 25 per cent  of
+published output, and unpublished reports, correspondence, reference
+works and so on would seem to add further to the bulk of informative
+text which is produced and consumed. However, the overall distribution
+between informative and imaginative text samples is set to reflect the
+influential cultural role of literature and creative writing. The target
+percentages for the eight informative domains were arrived at by
+consensus within the project, based loosely upon the pattern of book
+publishing in the UK during the past 20 years or so, as reflected in the
+categorized figures for new publications that appear annually in
+Whitaker's <i>Book list</i>.</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.2_div.4">
+<h5>1.4.2.4  Medium</h5>
+<div class="p">
+<span id="id2342931"></span>This categorisation is broad, since a detailed taxonomy or feature
+classification of text medium could have led to such a proliferation of
+subcategories as to make it impossible for the BNC adequately to
+represent all of them. The labels used here are intended to be
+comprehensive in the sense that any text can be assigned with reasonable
+confidence to these macro categories. The labels we have adopted
+represent the highest levels of a fuller taxonomy of text medium. 
+
+<div class="left">
+<span id="wrimed"></span><table class="center">
+<caption>Table 4. Written Medium</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Book</td>
+<td valign="top">1411</td>
+<td valign="top">50293803</td>
+<td valign="top">57.18</td>
+<td valign="top">2887523</td>
+<td valign="top">57.88</td>
+</tr>
+<tr>
+<td valign="top" class="label">Periodical</td>
+<td valign="top">1208</td>
+<td valign="top">28609494</td>
+<td valign="top">32.52</td>
+<td valign="top">1487644</td>
+<td valign="top">29.82</td>
+</tr>
+<tr>
+<td valign="top" class="label">Miscellaneous published</td>
+<td valign="top">238</td>
+<td valign="top">4233135</td>
+<td valign="top">4.81</td>
+<td valign="top">287700</td>
+<td valign="top">5.76</td>
+</tr>
+<tr>
+<td valign="top" class="label">Miscellaneous unpublished</td>
+<td valign="top">249</td>
+<td valign="top">3538882</td>
+<td valign="top">4.02</td>
+<td valign="top">220672</td>
+<td valign="top">4.42</td>
+</tr>
+<tr>
+<td valign="top" class="label">To-be-spoken</td>
+<td valign="top">35</td>
+<td valign="top">1278618</td>
+<td valign="top">1.45</td>
+<td valign="top">104665</td>
+<td valign="top">2.09</td>
+</tr>
+</table>
+</div>
+</div>
+<p><span id="id2343069"></span>The &#8216;Miscellaneous published&#8217; category includes
+brochures, leaflets, manuals, advertisements. The
+&#8216;Miscellaneous unpublished&#8217; category includes
+letters, memos, reports, minutes, essays. The
+&#8216;written-to-be-spoken&#8217; category includes scripted television
+material, play scripts etc.</p>
+</div>
+</div>
+<div class="teidiv2" id="body.1_div.1_div.4_div.3">
+<h4>1.4.3  Descriptive features</h4>
+<p><span id="id2343108"></span>Written texts may be further classified according to sets of
+<span class="term">descriptive features</span>. These features <em>describe</em>
+the sample texts; they did not determine their selection. This
+information is recorded to allow more delicate contrastive analysis of
+particular sets of texts. As a simple example, the gross division into
+two time periods in the selection features can, of course, be refined
+and subcorpora defined over the BNC for more specific dates. However,
+the relative sizes of such subcorpora are undefined by the BNC design
+specification.
+</p>
+<p><span id="id2343127"></span>These descriptive features were monitored during the course of the
+data gathering, and text selection, in cases where a free choice of
+texts was available, took account of the relative balance of these
+features.  Thus although no relative proportions were defined  for
+different target age groups (for example), we ensured that the corpus
+does contain texts intended for children as well as for adults.</p>
+<p><span id="id2343137"></span>The following tables summarize the results for the first release of
+the corpus. Note that many texts remain unclassified. 
+</p>
+<div class="teidiv3" id="body.1_div.1_div.4_div.3_div.1">
+<h5>1.4.3.1  Author information</h5>
+<p><span id="id2343147"></span>Information about authors of written texts was included only where
+it was readily available, for example from the dust-wrapper of a book.
+Consequently, the coverage of such information is very patchy. The
+authorship of a written text was characterized as
+&#8216;corporate&#8217; where it was produced by an
+organization and no specific author was given, and as
+&#8216;multiple&#8217; in cases where several authors were
+named.  Author sex was classified as &#8216;mixed&#8217; where more than one
+author of either sex was specified, and &#8216;unknown&#8217; where it could
+not reliably be determined from the author's name. Note that
+&#8216;author age&#8217; means the author's age at the time of
+creation of the work concerned.
+</p>
+<div class="p">
+<span id="id2343178"></span><div class="left">
+<span id="wriaty"></span><table class="center">
+<caption>Table 5. Author type</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">211</td>
+<td valign="top">3786835</td>
+<td valign="top">4.30</td>
+<td valign="top">174371</td>
+<td valign="top">3.49</td>
+</tr>
+<tr>
+<td valign="top" class="label">Corporate author</td>
+<td valign="top">347</td>
+<td valign="top">6497144</td>
+<td valign="top">7.38</td>
+<td valign="top">455649</td>
+<td valign="top">9.13</td>
+</tr>
+<tr>
+<td valign="top" class="label">Multiple author</td>
+<td valign="top">1322</td>
+<td valign="top">34563219</td>
+<td valign="top">39.29</td>
+<td valign="top">1810901</td>
+<td valign="top">36.30</td>
+</tr>
+<tr>
+<td valign="top" class="label">Sole author</td>
+<td valign="top">1261</td>
+<td valign="top">43106734</td>
+<td valign="top">49.01</td>
+<td valign="top">2547283</td>
+<td valign="top">51.06</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="p">
+<span id="id2343277"></span><div class="left">
+<span id="wriase"></span><table class="center">
+<caption>Table 6. Sex of author</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">1573</td>
+<td valign="top">36161115</td>
+<td valign="top">41.11</td>
+<td valign="top">1968162</td>
+<td valign="top">39.45</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author sex Male</td>
+<td valign="top">920</td>
+<td valign="top">30665582</td>
+<td valign="top">34.86</td>
+<td valign="top">1671420</td>
+<td valign="top">33.50</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author sex Female</td>
+<td valign="top">414</td>
+<td valign="top">14588260</td>
+<td valign="top">16.58</td>
+<td valign="top">967522</td>
+<td valign="top">19.39</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author sex Mixed</td>
+<td valign="top">234</td>
+<td valign="top">6538975</td>
+<td valign="top">7.43</td>
+<td valign="top">381100</td>
+<td valign="top">7.64</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="p">
+<span id="id2343407"></span><div class="left">
+<span id="wriaag"></span><table class="center">
+<caption>Table 7. Author age-group</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">2518</td>
+<td valign="top">66000719</td>
+<td valign="top">75.04</td>
+<td valign="top">3687586</td>
+<td valign="top">73.92</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author age 0-14</td>
+<td valign="top">3</td>
+<td valign="top">59559</td>
+<td valign="top">0.06</td>
+<td valign="top">3443</td>
+<td valign="top">0.06</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author age 15-24</td>
+<td valign="top">19</td>
+<td valign="top">542578</td>
+<td valign="top">0.61</td>
+<td valign="top">29810</td>
+<td valign="top">0.59</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author age 25-34</td>
+<td valign="top">66</td>
+<td valign="top">2267139</td>
+<td valign="top">2.57</td>
+<td valign="top">159455</td>
+<td valign="top">3.19</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author age 35-44</td>
+<td valign="top">191</td>
+<td valign="top">6726926</td>
+<td valign="top">7.64</td>
+<td valign="top">410143</td>
+<td valign="top">8.22</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author age 45-59</td>
+<td valign="top">205</td>
+<td valign="top">7230714</td>
+<td valign="top">8.22</td>
+<td valign="top">410644</td>
+<td valign="top">8.23</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author age 60+</td>
+<td valign="top">139</td>
+<td valign="top">5126297</td>
+<td valign="top">5.82</td>
+<td valign="top">287123</td>
+<td valign="top">5.75</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="left">
+<span id="wriad"></span><table class="center">
+<caption>Table 8. Domicile</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">2272</td>
+<td valign="top">57227155</td>
+<td valign="top">65.06</td>
+<td valign="top">3133068</td>
+<td valign="top">62.80</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author domicile UK and Ireland</td>
+<td valign="top">841</td>
+<td valign="top">29760000</td>
+<td valign="top">33.83</td>
+<td valign="top">1798301</td>
+<td valign="top">36.05</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author domicile Commonwealth</td>
+<td valign="top">12</td>
+<td valign="top">411207</td>
+<td valign="top">0.46</td>
+<td valign="top">25759</td>
+<td valign="top">0.51</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author domicile Continental Europe</td>
+<td valign="top">6</td>
+<td valign="top">234402</td>
+<td valign="top">0.26</td>
+<td valign="top">12466</td>
+<td valign="top">0.24</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author domicile USA</td>
+<td valign="top">8</td>
+<td valign="top">245604</td>
+<td valign="top">0.27</td>
+<td valign="top">15675</td>
+<td valign="top">0.31</td>
+</tr>
+<tr>
+<td valign="top" class="label">Author domicile Elsewhere</td>
+<td valign="top">2</td>
+<td valign="top">75564</td>
+<td valign="top">0.08</td>
+<td valign="top">2935</td>
+<td valign="top">0.05</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.3_div.2">
+<h5>1.4.3.2  Target audience</h5>
+<p><span id="id2343781"></span>Some attempt was made to characterize the kind of audience for which
+written texts were produced in terms of age, sex and 
+&#8216;level&#8217; (a subjective assessment of the text's
+technicality or difficulty).   The last of these proved very difficult
+to assess and was very frequently confused with circulation size or
+audience size; for that reason, no figures for it are included here. 
+</p>
+<div class="left">
+<span id="wriaud"></span><table class="center">
+<caption>Table 9. Audience age</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Child audience</td>
+<td valign="top">42</td>
+<td valign="top">903690</td>
+<td valign="top">1.02</td>
+<td valign="top">81074</td>
+<td valign="top">1.62</td>
+</tr>
+<tr>
+<td valign="top" class="label">Teenager audience</td>
+<td valign="top">78</td>
+<td valign="top">1831178</td>
+<td valign="top">2.08</td>
+<td valign="top">138098</td>
+<td valign="top">2.76</td>
+</tr>
+<tr>
+<td valign="top" class="label">Adult audience</td>
+<td valign="top">2911</td>
+<td valign="top">81928776</td>
+<td valign="top">93.14</td>
+<td valign="top">4597388</td>
+<td valign="top">92.16</td>
+</tr>
+<tr>
+<td valign="top" class="label">Any audience</td>
+<td valign="top">110</td>
+<td valign="top">3290288</td>
+<td valign="top">3.74</td>
+<td valign="top">171644</td>
+<td valign="top">3.44</td>
+</tr>
+</table>
+</div>
+<div class="left">
+<span id="writas"></span><table class="center">
+<caption>Table 10. Audience sex</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">706</td>
+<td valign="top">20271270</td>
+<td valign="top">23.04</td>
+<td valign="top">1131254</td>
+<td valign="top">22.67</td>
+</tr>
+<tr>
+<td valign="top" class="label">Male audience</td>
+<td valign="top">61</td>
+<td valign="top">2396935</td>
+<td valign="top">2.72</td>
+<td valign="top">135950</td>
+<td valign="top">2.72</td>
+</tr>
+<tr>
+<td valign="top" class="label">Female audience</td>
+<td valign="top">175</td>
+<td valign="top">6904137</td>
+<td valign="top">7.84</td>
+<td valign="top">503629</td>
+<td valign="top">10.09</td>
+</tr>
+<tr>
+<td valign="top" class="label">Mixed audience</td>
+<td valign="top">2199</td>
+<td valign="top">58381590</td>
+<td valign="top">66.37</td>
+<td valign="top">3217371</td>
+<td valign="top">64.49</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.3_div.3">
+<h5>1.4.3.3  Miscellaneous classification information</h5>
+<p><span id="id2344077"></span>Written texts were also characterized according to their place of
+publication and the type of sampling used.
+</p>
+<div class="p">
+<span id="id2344099"></span><div class="left">
+<span id="wripp"></span><table class="center">
+<caption>Table 11. Publication place</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">690</td>
+<td valign="top">14718827</td>
+<td valign="top">16.73</td>
+<td valign="top">788440</td>
+<td valign="top">15.80</td>
+</tr>
+<tr>
+<td valign="top" class="label">UK (unspecific) publication</td>
+<td valign="top">263</td>
+<td valign="top">7163111</td>
+<td valign="top">8.14</td>
+<td valign="top">380824</td>
+<td valign="top">7.63</td>
+</tr>
+<tr>
+<td valign="top" class="label">Ireland publication</td>
+<td valign="top">37</td>
+<td valign="top">570652</td>
+<td valign="top">0.64</td>
+<td valign="top">31793</td>
+<td valign="top">0.63</td>
+</tr>
+<tr>
+<td valign="top" class="label">UK: North (north of Mersey-Humber line) publication</td>
+<td valign="top">191</td>
+<td valign="top">3781055</td>
+<td valign="top">4.29</td>
+<td valign="top">228247</td>
+<td valign="top">4.57</td>
+</tr>
+<tr>
+<td valign="top" class="label">UK: Midlands (north of Bristol Channel-Wash line) publication</td>
+<td valign="top">93</td>
+<td valign="top">2590345</td>
+<td valign="top">2.94</td>
+<td valign="top">177308</td>
+<td valign="top">3.55</td>
+</tr>
+<tr>
+<td valign="top" class="label">UK: South (south of Bristol Channel-Wash line) publication</td>
+<td valign="top">1853</td>
+<td valign="top">58587808</td>
+<td valign="top">66.61</td>
+<td valign="top">3360401</td>
+<td valign="top">67.36</td>
+</tr>
+<tr>
+<td valign="top" class="label">United States publication</td>
+<td valign="top">14</td>
+<td valign="top">542134</td>
+<td valign="top">0.61</td>
+<td valign="top">21191</td>
+<td valign="top">0.42</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="p">
+<span id="id2344303"></span><div class="left">
+<span id="wrisam"></span><table class="center">
+<caption>Table 12. Sampling type</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">1583</td>
+<td valign="top">35551102</td>
+<td valign="top">40.42</td>
+<td valign="top">1991798</td>
+<td valign="top">39.93</td>
+</tr>
+<tr>
+<td valign="top" class="label">Whole text</td>
+<td valign="top">270</td>
+<td valign="top">6524975</td>
+<td valign="top">7.41</td>
+<td valign="top">433722</td>
+<td valign="top">8.69</td>
+</tr>
+<tr>
+<td valign="top" class="label">Beginning sample</td>
+<td valign="top">584</td>
+<td valign="top">21075222</td>
+<td valign="top">23.96</td>
+<td valign="top">1119251</td>
+<td valign="top">22.43</td>
+</tr>
+<tr>
+<td valign="top" class="label">Middle sample</td>
+<td valign="top">510</td>
+<td valign="top">18454807</td>
+<td valign="top">20.98</td>
+<td valign="top">1049692</td>
+<td valign="top">21.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">End sample</td>
+<td valign="top">119</td>
+<td valign="top">4317326</td>
+<td valign="top">4.90</td>
+<td valign="top">253322</td>
+<td valign="top">5.07</td>
+</tr>
+<tr>
+<td valign="top" class="label">Composite sample</td>
+<td valign="top">75</td>
+<td valign="top">2030500</td>
+<td valign="top">2.30</td>
+<td valign="top">140419</td>
+<td valign="top">2.81</td>
+</tr>
+</table>
+</div>
+</div>
+<p><span id="id2344485"></span>In addition to the above, standard bibliographic details such as
+author, title, publication details, extent, topic keywords etc. were
+recorded for the majority of texts, as further described below (see
+<a class="link_ptr" href="cdifhd.html" title="The header">5  The header</a>).
+</p>
+</div>
+</div>
+<div class="teidiv2" id="body.1_div.1_div.4_div.4">
+<h4>1.4.4  Selection procedures employed 
+</h4>
+<div class="teidiv3" id="body.1_div.1_div.4_div.4_div.1">
+<h5>1.4.4.1  Books</h5>
+<p><span id="id2344525"></span>Roughly half the titles were randomly selected from available
+candidates identified in  Whitaker's <i>Books in Print</i>
+(BIP), 1992, by students of Library and Information Studies at Leeds
+City University. Each text randomly chosen was accepted only if it
+fulfilled certain criteria: it had to be published by a British
+publisher, contain sufficient pages of text to make its incorporation 
+worthwhile, consist mainly of written text, fall within the
+designated time limits, and cost less than a set price. The students
+noted the ISBN, author, title and price of each book thus selected; the
+final selection weeded out texts by non-UK authors. </p>
+<p><span id="id2344542"></span>Half of the books having been selected by this method, the
+remaining half were selected systematically to make up the target 
+percentages in each category. The selection proceeded as follows. </p>
+<div class="teidiv4" id="body.1_div.1_div.4_div.4_div.1_div.1">
+<h6> Bestsellers</h6>
+<p><span id="id2344555"></span>Because of their wide reception, bestsellers were obvious
+candidates for selection. The lists used were those that appeared in the
+<i>Bookseller</i> at the end of the years 1987 to 1993
+inclusive. Some of the books in the lists were rejected, for a variety
+of reasons. Obviously books that had already been selected by the random
+method were excluded, as were those by non-UK authors. In addition, a
+limit of 120,000  words from any one author was imposed, and books
+belonging to a domain or category whose quota had already been reached
+were not selected. Other bestseller lists were obtained from <i>The
+ Guardian,</i> the British Council, and from Blackwells Paperback
+Shop.</p>
+<p><span id="id2344576"></span>The titles yielded by this search were mostly in the Imaginative
+category.  
+</p>
+</div>
+<div class="teidiv4" id="body.1_div.1_div.4_div.4_div.1_div.2">
+<h6> Literary prizes</h6>
+<p><span id="id2344586"></span>The criteria for inclusion were the same as for bestsellers. The
+prize winners, together with runners-up and shortlisted titles, were
+taken from several sources, principally Anne Strachan,
+<i>Prizewinning literature: UK literary award winners,</i>
+London, 1989. For 1990 onwards the sources used were: the last issue of
+the <i>Bookseller</i> for each year; <i> The Guardian
+Index, 1989&#8211;</i>, entries under the term &#8216;Literature&#8217;;
+and <i>The Times Index, 1989-,</i> entries under the term
+&#8216;Literature &#8212; Awards&#8217;. </p>
+<p><span id="id2344619"></span>Literary prizes are in the main awarded to works that fall into the
+Imaginative category, but there are some Informative ones also. 
+</p>
+</div>
+<div class="teidiv4" id="body.1_div.1_div.4_div.4_div.1_div.3">
+<h6> Library loans</h6>
+<p><span id="id2344630"></span>The source of statistics in this category was the record of loans
+under Public Lending Right, kindly provided by Dr J. Parker, the
+Registrar. The information comprised lists of the hundred most issued
+books and the hundred most issued children's books, in both cases for
+the years 1987 to 1993.
+</p>
+<p><span id="id2344639"></span>The lists consist almost exclusively of imaginative literature, and
+many titles found there also appear in the lists of bestsellers and
+prize winners. 
+</p>
+</div>
+<div class="teidiv4" id="body.1_div.1_div.4_div.4_div.1_div.4">
+<h6> Additional texts</h6>
+<p><span id="id2344649"></span>As collection proceeded, monitoring disclosed potential shortfalls
+in certain domains. A further selection was therefore made, based on the
+&#8216;Short Loan&#8217; collections of seven University libraries. (Short
+Loan collections typically contain books required for academic courses,
+which are consequently in heavy demand.)  
+</p>
+</div>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.4_div.2">
+<h5>1.4.4.2  Periodicals and magazines</h5>
+<p><span id="id2344667"></span>Periodicals, magazines and newspapers account for 30 per cent  of
+the total text in the corpus. Of these, about 250 titles were issues of
+newspapers. These were selected to cover as wide a spectrum of interests
+and language as possible. Newspapers were selected to represent as wide
+a geographic spread as possible:
+<i>The Scotsman</i> and the <i>Belfast Telegraph</i>
+are both represented, for example. 
+</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.4_div.3">
+<h5>1.4.4.3  Other media</h5>
+<p><span id="id2344689"></span>In addition to samples from books, periodicals, and magazines, the
+written part of the corpus contains about seven million words classified as
+&#8216;Miscellaneous Published&#8217;, &#8216;Miscellaneous Unpublished&#8217;, or
+as
+&#8216;Written to be spoken&#8217;.  The distinction between &#8216;published&#8217;
+and &#8216;unpublished&#8217; is not an easy one; the former category largely
+contains publicity leaflets, brochures, fact sheets, and similar items,
+while the latter has a substantial proportion of school and university
+essays, unpublished creative writing or letters, and internal company
+memoranda. The &#8216;written to be spoken&#8217; material includes  scripted
+material, intended to be read aloud such as television news broadcasts; 
+transcripts of more informal broadcast materials such as discussions or
+phone-ins are included in the spoken part of the corpus. 
+</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.4_div.4_div.4">
+<h5>1.4.4.4  Copyright permissions</h5>
+<p><span id="id2344732"></span>Before a selected text could be included, permissions had to be 
+obtained from the copyright owner (publisher, agent, or author).  A
+standard Permissions Request was drafted with considerable care, but
+some requests were refused, or simply not answered even after prompting,
+so that the texts concerned had to be excluded or replaced.
+</p>
+</div>
+</div>
+</div>
+<div class="teidiv1" id="spodes">
+<h3>1.5  Design of the spoken component</h3>
+<p><span id="id2344750"></span>Lexicographers and linguists have long hoped for corpus evidence
+about spoken language, but the practical difficulties of transcribing
+sufficiently large quantities of text have prevented the construction of
+a spoken corpus of over one million words. The British National Corpus
+project undertook to produce 
+five to ten million words of orthographically transcribed speech,
+covering a wide range of speech variation. A
+large proportion of the spoken part of the corpus &#8212; over four million words
+&#8212; comprises spontaneous conversational English. The importance of
+conversational dialogue to linguistic study is unquestionable: it is the
+dominant component of general language both in terms of language
+reception and language production.  
+</p>
+<p><span id="id2344778"></span>As with the written part of the corpus, the most important 
+considerations in constructing the spoken part were 
+sampling and representativeness. The method of transcription was also an
+important issue.
+</p>
+<p><span id="id2344785"></span>The issues of corpus sampling and representativeness have been
+discussed at great length by many corpus linguists.  
+With  spoken language there
+are no obvious objective measures that can be used to define the target
+population or construct a sampling frame. A comprehensive list of text
+types can be drawn up but there is no accurate way of estimating the
+relative proportions of each text type other than by a priori
+linguistically motivated analysis. An alternative approach, one well
+known to sociological researchers, is <span class="term">demographic sampling</span>,
+and this was broadly the approach adopted for approximately half of the
+spoken part of the corpus.  The sampling frame was defined in terms of
+the language production of the population of British English speakers in
+the United Kingdom. Representativeness was achieved by sampling a spread
+of language producers in terms of age, gender, social group, and region,
+and recording their language output over a set period of time.  
+</p>
+<p><span id="id2344808"></span>We recognised, however, that many types of spoken text are produced
+only rarely in comparison with the total output of all &#8216;speech
+producers&#8217;: for example, broadcast interviews, lectures, legal
+proceedings, and other texts produced in situations where &#8212;
+broadly speaking &#8212; there are few producers and many receivers. A
+corpus constituted solely on the demographic model would thus omit
+important spoken text types. Consequently, the demographic component of
+the corpus was complemented with a separate text typology intended to
+cover the full range of linguistic variation found in spoken language;
+this is termed the <span class="term">context-governed</span> part of the corpus. 
+</p>
+<div class="teidiv2" id="body.1_div.1_div.5_div.1">
+<h4>1.5.1  The demographically sampled part of the corpus</h4>
+<p><span id="id2344841"></span>The approach adopted uses demographic parameters to sample the
+population of British English speakers in the United Kingdom.
+Established random location sampling procedures were used to select
+individual members of the population by personal interview from across
+the country taking into account age, gender, and social group. Selected
+individuals used a portable tape recorder to record their own speech and
+the speech of people they conversed with over a period of up to a week.
+In this way a unique record of the language people use in everyday
+conversation was constructed.
+</p>
+<div class="teidiv3" id="body.1_div.1_div.5_div.1_div.1">
+<h5>1.5.1.1  Sampling procedure</h5>
+<p><span id="id2344859"></span>124 adults (aged 15+) were recruited from across the United
+Kingdom.  Recruits were of both sexes and from all age groups and social
+classes. The intention was, as far as possible, to recruit equal numbers
+of men and women, equal numbers from each of the six age groups, and
+equal numbers from each of four social classes. 
+</p>
+<p><span id="id2344867"></span>Additional recordings were gathered for the BNC as part of the
+University of Bergen COLT Teenager Language Project. This project used
+the same recording methods and transcription scheme as the BNC, but
+selected only respondents aged 16 or below.
+</p>
+<p><span id="id2344875"></span>The tables below give figures for the amount of transcribed
+material collected by each respondent, classified by their age, 
+class, and sex.
+</p>
+<div class="p">
+<span id="id2344881"></span><div class="left">
+<span id="sdeage"></span><table class="center">
+<caption>Table 13. Age-group</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Respondent Age 0-14</td>
+<td valign="top">26</td>
+<td valign="top">267005</td>
+<td valign="top">6.30</td>
+<td valign="top">41036</td>
+<td valign="top">6.72</td>
+</tr>
+<tr>
+<td valign="top" class="label">Respondent Age 15-24</td>
+<td valign="top">36</td>
+<td valign="top">665358</td>
+<td valign="top">15.71</td>
+<td valign="top">97993</td>
+<td valign="top">16.04</td>
+</tr>
+<tr>
+<td valign="top" class="label">Respondent Age 25-34</td>
+<td valign="top">29</td>
+<td valign="top">853832</td>
+<td valign="top">20.16</td>
+<td valign="top">121752</td>
+<td valign="top">19.94</td>
+</tr>
+<tr>
+<td valign="top" class="label">Respondent Age 35-44</td>
+<td valign="top">22</td>
+<td valign="top">845153</td>
+<td valign="top">19.96</td>
+<td valign="top">126690</td>
+<td valign="top">20.74</td>
+</tr>
+<tr>
+<td valign="top" class="label">Respondent Age 45-59</td>
+<td valign="top">20</td>
+<td valign="top">963483</td>
+<td valign="top">22.75</td>
+<td valign="top">136530</td>
+<td valign="top">22.36</td>
+</tr>
+<tr>
+<td valign="top" class="label">Respondent Age 60+</td>
+<td valign="top">20</td>
+<td valign="top">639124</td>
+<td valign="top">15.09</td>
+<td valign="top">86556</td>
+<td valign="top">14.17</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="p">
+<span id="id2345027"></span><div class="left">
+<span id="sdecla"></span><table class="center">
+<caption>Table 14. Social class</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">7</td>
+<td valign="top">37622</td>
+<td valign="top">0.88</td>
+<td valign="top">5340</td>
+<td valign="top">0.87</td>
+</tr>
+<tr>
+<td valign="top" class="label">AB respondent</td>
+<td valign="top">59</td>
+<td valign="top">1372933</td>
+<td valign="top">32.42</td>
+<td valign="top">197795</td>
+<td valign="top">32.39</td>
+</tr>
+<tr>
+<td valign="top" class="label">C1 respondent</td>
+<td valign="top">36</td>
+<td valign="top">1104279</td>
+<td valign="top">26.08</td>
+<td valign="top">169387</td>
+<td valign="top">27.74</td>
+</tr>
+<tr>
+<td valign="top" class="label">C2 respondent</td>
+<td valign="top">31</td>
+<td valign="top">1087808</td>
+<td valign="top">25.69</td>
+<td valign="top">144876</td>
+<td valign="top">23.72</td>
+</tr>
+<tr>
+<td valign="top" class="label">DE respondent</td>
+<td valign="top">20</td>
+<td valign="top">631313</td>
+<td valign="top">14.91</td>
+<td valign="top">93159</td>
+<td valign="top">15.25</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="left">
+<span id="sdesex"></span><table class="center">
+<caption>Table 15. Sex</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">5</td>
+<td valign="top">16245</td>
+<td valign="top">0.38</td>
+<td valign="top">2407</td>
+<td valign="top">0.39</td>
+</tr>
+<tr>
+<td valign="top" class="label">Male respondent</td>
+<td valign="top">73</td>
+<td valign="top">1742222</td>
+<td valign="top">41.14</td>
+<td valign="top">248241</td>
+<td valign="top">40.65</td>
+</tr>
+<tr>
+<td valign="top" class="label">Female respondent</td>
+<td valign="top">75</td>
+<td valign="top">2475488</td>
+<td valign="top">58.46</td>
+<td valign="top">359909</td>
+<td valign="top">58.94</td>
+</tr>
+</table>
+</div>
+<p><span id="id2345308"></span>Recruits who agreed to take part in the project were asked to
+record all of their conversations over a two to seven day period. The
+number of days varied depending on how many conversations each recruit
+was involved in and was prepared to record. Results indicated that most
+people recorded nearly all of their conversations, and that the limiting
+factor was usually the number of conversations a person had per day. 
+The placement day was varied, and recruits were asked to record on the
+day after placement and on any other day or days of the week.  In this
+way a broad spread of days of the week including weekdays and weekends
+was achieved. A conversation log allowed recruits to enter details of
+every conversation recorded, and included date, time and setting, and
+brief details of other participants. 
+</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.5_div.1_div.2">
+<h5>1.5.1.2  Recording procedure</h5>
+<p><span id="id2345304"></span>All conversations were recorded as unobtrusively as possible, so
+that the material gathered approximated closely to natural, spontaneous
+speech. In many cases the only person aware that the conversation was
+being taped was the person carrying the recorder. Although an initial
+unnaturalness on the part of the recruit was not uncommon this soon
+seemed to disappear. Similarly, where non-intrusive recording was not
+possible, for example at a family gathering where everyone is aware they
+are being recorded, the same initial period of unease sometimes
+occurred, but in our experience again vanished quickly. The guarantee of
+confidentiality and complete anonymity (all references to full names and
+addresses have been removed from the corpus and the log), and the fact
+that there was an intermediary between those being recorded and those
+listening to the recordings certainly helped. </p>
+<p><span id="id2345357"></span>For each conversational exchange the person carrying the recorder
+told all participants they had been recorded and explained why. Whenever
+possible this happened after the conversation had taken place. If any
+participant was unhappy about being recorded the recording was erased.
+During the project  around 700 hours of recordings were gathered.
+</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.5_div.1_div.3">
+<h5>1.5.1.3  Sample size</h5>
+<p><span id="id2345371"></span>The number of people recruited may seem small in comparison to some
+demographic studies of the population of the United Kingdom.  As with
+any sampling method, some  compromise between what was theoretically
+desirable and what was feasible within the constraints of the BNC
+project had to be made. There is no doubt that recruiting 1000 people
+would have given greater statistical validity but the practical
+difficulties and cost implications of recruiting 1000 people and
+transcribing 50&#8211;100 million words of speech made this impossible.
+Given that we were not attempting to represent the complete range of age
+and social groups within each region we considered a sample size between
+100 and 130 would  be adequate. The
+total number of participants in all conversations was well in excess of
+a thousand. 
+</p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.5_div.1_div.4">
+<h5>1.5.1.4  Piloting the demographic sampling approach</h5>
+<div class="p">
+<span id="id2345396"></span>Because this approach to spoken corpus sampling had to our
+knowledge never previously been attempted a detailed piloting project
+was carried out to investigate:
+<ul>
+<li>the likelihood that enough material would be obtained from a
+sample of around 100 respondents
+</li>
+<li>any problems that might be encountered during the recruitment and
+collection stages
+</li>
+<li>any problems or difficulties experienced by recruits during
+taping or with logging details of conversations and participants
+</li>
+<li>any areas where the documentation designed for the project could
+be improved
+</li>
+<li>whether the recording quality under a wide range of conditions
+would be good enough for accurate transcription
+</li>
+<li>whether the predicted throughput rates for tape editing,
+transcription and checking were accurate.
+</li>
+</ul>
+</div>
+<p><span id="id2345432"></span>The results of the pilot generally confirmed predictions and allowed
+some procedures to be refined for the full project. 
+</p>
+</div>
+</div>
+<div class="teidiv2" id="body.1_div.1_div.5_div.2">
+<h4>1.5.2  The context-governed part of the corpus</h4>
+<p><span id="id2345442"></span>As mentioned above, the spoken texts in the demographic part of
+the corpus consists mainly of conversational English. A complementary
+approach was developed to create what is termed the
+<span class="term">context-governed</span> part of the corpus. As in other spoken
+corpora, the range of text types was selected according to a
+priori linguistically motivated categories. At the top layer
+of the typology is a division into four equal-sized contextually based
+categories: educational, business, public/institutional, and leisure.
+Each is divided into the subcategories monologue (40 per cent) and
+dialogue (60 per cent). Each monologue subcategory therefore totals 10
+per cent of the context-governed part of the corpus, and each dialogue
+subcategory 15 per cent.
+</p>
+<p><span id="id2345465"></span>Within each subcategory a range of text types was defined. This
+range was not fixed, and the design was
+flexible enough to allow the inclusion of additional text types. The
+sampling methodology was different for each text type but the overall
+aim was to achieve a balanced selection within each, taking into account
+such features as region, level, gender of speakers, and topic. Other
+features, such as purpose, were applied on the basis of post
+hoc judgements. 
+</p>
+<div class="teidiv3" id="body.1_div.1_div.5_div.2_div.1">
+<h5>1.5.2.1  Sampling procedure</h5>
+<p><span id="id2345489"></span>For the most part, a variety of text types were sampled within three
+geographic  regions. However, 
+some text types,
+such as parliamentary proceedings, and most broadcast categories, apply
+to the country as a whole and were not regionally sampled. Different
+sampling strategies were required for each text type, and these are
+outlined below.
+</p>
+<div class="teidiv4" id="body.1_div.1_div.5_div.2_div.1_div.1">
+<h6> Educational and informative:</h6>
+<dl>
+<dt>Lectures, talks, educational demonstrations</dt>
+<dd> Within each sampling area a university (or college of further
+education) and a school were selected. A range of lectures and talks was
+recorded, varying the topic, level, and speaker gender.</dd>
+<dt>News commentaries</dt>
+<dd> Regional sampling was not applied, but both national and
+regional broadcasting companies were sampled.  The topic, level, and
+gender of commentator was varied.</dd>
+<dt>Classroom interaction</dt>
+<dd> Schools were regionally sampled and the level (generally based
+on student age) and topic were varied. Home tutorials were also
+included.</dd>
+</dl>
+</div>
+<div class="teidiv4" id="body.1_div.1_div.5_div.2_div.1_div.2">
+<h6> Business:</h6>
+<dl>
+<dt>Company talks and interviews</dt>
+<dd> Sampling took into account company size, areas of activity, and
+gender of speakers.</dd>
+<dt>Trade union talks</dt>
+<dd> Talks to union members, branch meetings and annual conferences
+were all sampled.</dd>
+<dt>Sales demonstrations</dt>
+<dd> A range of topics was included.</dd>
+<dt>Business meetings</dt>
+<dd> Companies were selected according to size, area of activity, and
+purpose of meeting.</dd>
+<dt>Consultations</dt>
+<dd> These included medical, legal, business and professional
+consultations.</dd>
+</dl>
+<p><span id="id2345592"></span>All categories under this heading were regionally sampled.</p>
+</div>
+<div class="teidiv4" id="body.1_div.1_div.5_div.2_div.1_div.3">
+<h6> Public or institutional:</h6>
+<dl>
+<dt>Political speeches</dt>
+<dd> Regional sampling of local politics, plus speeches in both the
+House of Commons and the House of Lords (in the latter case,
+transcriptions were made by the project, and are not taken from the official
+Hansard report).</dd>
+<dt>Sermons</dt>
+<dd> Different denominations were sampled.</dd>
+<dt>Public/government talks</dt>
+<dd> Regional sampling of local inquiries and meetings, plus national
+issues at different levels.</dd>
+<dt>Council meetings</dt>
+<dd> Regionally sampled, covering parish, town, district, and county
+councils.</dd>
+<dt>Religious meetings</dt>
+<dd> Includes church meetings, group discussions, and so on. </dd>
+<dt>Parliamentary proceedings</dt>
+<dd> Sampling of main sessions and committees, House of Commons and
+House of Lords.</dd>
+<dt>Legal proceedings</dt>
+<dd>Royal Courts of Justice, and local Magistrates and similar courts
+were sampled.
+</dd>
+</dl>
+</div>
+<div class="teidiv4" id="body.1_div.1_div.5_div.2_div.1_div.4">
+<h6> Leisure:</h6>
+<dl>
+<dt>Speeches</dt>
+<dd> Regionally sampled, covering a variety of occasions and
+speakers.</dd>
+<dt>Sports commentaries</dt>
+<dd> Exclusively broadcast, sampling a variety of sports,
+commentators, and TV/radio channels.</dd>
+<dt>Talks to clubs </dt>
+<dd> Regionally sampled, covering a range of topics and speakers.</dd>
+<dt>Broadcast chat shows and phone-ins</dt>
+<dd> Only those that include a significant amount of unscripted
+speech were selected from both television and radio. 
+</dd>
+<dt>Club meetings</dt>
+<dd> Regionally sampled, covering a wide range of clubs.</dd>
+</dl>
+</div>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.5_div.2_div.2">
+<h5>1.5.2.2  Sample size</h5>
+<p><span id="id2345723"></span>Each monologue text type contains up to 200,000 words of text, and
+each dialogue text type up to 300,000 words. The length of text units
+within each text type vary &#8212; for example, news commentaries may
+be only a few minutes long (several hundred words), lectures are
+typically up to one hour (10,000 words), and some business meetings
+and parliamentary proceedings may last for several hours (20,000
+words+).  For the context-governed part of the corpus an upper limit
+of 10,000 words per text unit was generally imposed, although a few
+texts are slightly above this.  </p>
+</div>
+<div class="teidiv3" id="body.1_div.1_div.5_div.2_div.3">
+<h5>1.5.2.3  Composition of the spoken component</h5>
+<div class="p">
+<span id="id2345748"></span>A total of 757 texts (6,153,671 words) make up the context-governed
+part of the corpus. The following contexts are distinguished: 
+<div class="left">
+<span id="scgdom"></span><table class="center">
+<caption>Table 16. Spoken context</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Educational/Informative</td>
+<td valign="top">169</td>
+<td valign="top">1646380</td>
+<td valign="top">26.65</td>
+<td valign="top">118987</td>
+<td valign="top">27.83</td>
+</tr>
+<tr>
+<td valign="top" class="label">Business</td>
+<td valign="top">129</td>
+<td valign="top">1282416</td>
+<td valign="top">20.76</td>
+<td valign="top">107366</td>
+<td valign="top">25.11</td>
+</tr>
+<tr>
+<td valign="top" class="label">Public/Institutional</td>
+<td valign="top">262</td>
+<td valign="top">1672658</td>
+<td valign="top">27.08</td>
+<td valign="top">96500</td>
+<td valign="top">22.57</td>
+</tr>
+<tr>
+<td valign="top" class="label">Leisure</td>
+<td valign="top">195</td>
+<td valign="top">1574442</td>
+<td valign="top">25.49</td>
+<td valign="top">104670</td>
+<td valign="top">24.48</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="p">
+<span id="id2345858"></span>In addition, the following classifications are applicable  to  both
+demographic and context-governed spoken texts:
+
+<div class="left">
+<span id="sporeg"></span><table class="center">
+<caption>Table 17. Region</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Unknown</td>
+<td valign="top">35</td>
+<td valign="top">448458</td>
+<td valign="top">4.30</td>
+<td valign="top">27496</td>
+<td valign="top">2.64</td>
+</tr>
+<tr>
+<td valign="top" class="label">South </td>
+<td valign="top">311</td>
+<td valign="top">4687877</td>
+<td valign="top">45.03</td>
+<td valign="top">457726</td>
+<td valign="top">44.09</td>
+</tr>
+<tr>
+<td valign="top" class="label">Midlands</td>
+<td valign="top">213</td>
+<td valign="top">2492236</td>
+<td valign="top">23.94</td>
+<td valign="top">240306</td>
+<td valign="top">23.14</td>
+</tr>
+<tr>
+<td valign="top" class="label">North</td>
+<td valign="top">349</td>
+<td valign="top">2781280</td>
+<td valign="top">26.71</td>
+<td valign="top">312552</td>
+<td valign="top">30.10</td>
+</tr>
+</table>
+</div>
+<div class="left">
+<span id="spolog"></span><table class="center">
+<caption>Table 18. Interaction type</caption>
+<tr class="label">
+<td valign="top"></td>
+<td valign="top">texts</td>
+<td valign="top">w-units</td>
+<td valign="top">%</td>
+<td valign="top">s-units</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top" class="label">Monologue</td>
+<td valign="top">207</td>
+<td valign="top">1562017</td>
+<td valign="top">15.00</td>
+<td valign="top">92619</td>
+<td valign="top">8.92</td>
+</tr>
+<tr>
+<td valign="top" class="label">Dialogue</td>
+<td valign="top">701</td>
+<td valign="top">8847834</td>
+<td valign="top">84.99</td>
+<td valign="top">945461</td>
+<td valign="top">91.07</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Next: </i><a class="navigation" href="cdifbase.html">2  Basic structure</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:46Z-->
+</address>
+</div>
+</div></body>
+</html>

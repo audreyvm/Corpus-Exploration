@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Introduction</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Introduction">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="intro">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle"> Introduction</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Next: </i><a class="navigation" href="BNCdes.html">1  Design of the corpus</a></p>
+<div class="teidiv1" id="front.1_div.1_div.1">
+<h3> Overview</h3>
+<p><span id="id2335458"></span>The Users Reference Guide for the British
+National Corpus contains a description of the design principles
+underlying the British National Corpus (BNC), and detailed information
+about the way in which it is encoded, covering both the markup conventions
+applied and the linguistic annotation with which the corpus was
+enriched.</p>
+<p><span id="id2333327"></span>This revised edition  has been slightly reorganized and considerably expanded to
+provide a complete reference work for users of the corpus in its new
+XML form. The text of the manual is available in TEI-XML and in HTML
+format, and also from the BNC website at <a class="link_ptr" href="http://www.natcorp.ox.ac.uk/XMLedition/urg.html" title=""><span>http://www.natcorp.ox.ac.uk/XMLedition/urg.html</span></a>, from which
+updated versions may be obtained. </p>
+<p><span id="id2333640"></span>The material presented in this manual derives originally from a
+number of BNC Project internal documents, combining contributions
+from all the participants in the project (see further <a class="link_ptr" href="intro.html#thanx" title="Acknowledgments"> Acknowledgments</a>); any errors introduced are the responsibility of
+the editor. Please send any comments or corrections to
+<tt>natcorp@oucs.ox.ac.uk</tt>. </p>
+<p><span id="id2334139"></span>Section <a class="link_ptr" href="cdifbase.html" title="Basic structure">2  Basic structure</a> describes the basic structure of
+the BNC encoding scheme, in terms of the XML elements and attributes
+distinguished and the tags used to mark them. Section <a class="link_ptr" href="cdifwr.html" title="Written texts">3  Written texts</a> describes features which are peculiar to written
+texts, and section <a class="link_ptr" href="cdifsp.html" title="Spoken texts">4  Spoken texts</a> those peculiar to spoken
+texts. In each case, a distinction is made between those elements
+which are marked up in all texts and those which (for technical or
+financial reasons) are not always so distinguished, and hence appear
+in some texts only. It should be noted that by no means all of the
+features described here will be present in every text of the corpus,
+nor, if present, will they necessarily be tagged.
+</p>
+<p><span id="id2340721"></span>Section <a class="link_ptr" href="cdifhd.html" title="The header">5  The header</a> describes the structure of the
+detailed metadata associated with each text, in the form of the
+<code>&lt;teiHeader&gt;</code> element attached to each component of the corpus,
+and also to the whole corpus itself.</p>
+<p><span id="id2334278"></span> This is complemented in section <a class="link_ptr" href="posguide.html" title="Wordclass Tagging in BNC XML">6   Wordclass Tagging in BNC XML</a> by a
+detailed presentation of the linguistic annotation or wordclass
+tagging applied throughout the corpus. (This chapter is derived from
+the Tagging Guide (Smith et al) originally distributed separately with
+BNC World) </p>
+<p><span id="id2339589"></span>Section <a class="link_ptr" href="cdifsmop.html" title="Software for the BNC">7  Software for the BNC</a> discusses briefly some
+ways of exploiting the  the BNC  computationally. 
+Section <a class="link_ptr" href="codes.html" title="Miscellaneous tables">9  Miscellaneous tables</a> complements the metadata supplied in
+the header by listing and documenting several of the coded values used
+in the markup. A brief bibliography combining significant background readings
+about the BNC with works cited elsewhere in the manual is provided in section <a class="link_ptr" href="refs.html" title="References">8  References</a> and a complete list of all the original sources from which the corpus
+was compiled is given in section <a class="link_ptr" href="bibliog.html" title="List of Sources">10  List of Sources</a>.  </p>
+<p><span id="id2336993"></span>Section <a class="link_ptr" href="xairaspec.html" title="The Xaira Specification">11  The Xaira Specification</a> documents suggested settings
+for those wishing to use the XAIRA system to index and query the
+BNC. The pre-built XAIRA index delivered as part of the BNC XML
+package was made using the XAIRA specification described in this
+section. This section is provided for the convenience of XAIRA users;
+it may be ignored if you are using some other software to search or
+manage the corpus. </p>
+<p><span id="id2335223"></span>Finally, a reference section (<a class="link_ptr" href="bnctags.html" title="Formal Specification of the BNC XML schema">12  Formal Specification of the BNC XML schema</a>) provides an
+alphabetical list of all XML elements and attributes used in the
+markup of the corpus, together with the model and attribute classes to
+which they belong, and macros used to simplify references to them.
+This specification conforms to the 2007 (P5) edition of the TEI
+Guidelines (<a class="link_ptr" href="refs.html#TEIP5" title="Sperberg-McQueen, C.M. and Burnard, L (eds) (2007).">[26]</a>), with which it should be read in
+conjunction. </p>
+<div class="p">
+<span id="id2341455"></span>The BNC was originally created by an academic-industrial consortium whose
+original members were:
+<ul>
+<li>Oxford University Press</li>
+<li>Longman Group Ltd</li>
+<li>Chambers Harrap</li>
+<li>Oxford University Computing Services</li>
+<li>Unit for Computer Research on the English Language (Lancaster University)</li>
+<li>British Library Research and Development Department</li>
+</ul>
+</div>
+<p><span id="id2341483"></span>Creation of the corpus was funded by the UK Department of Trade and
+Industry and the Science and Engineering Research Council  under grant number
+IED4/1/2184  (1991-1994), within the DTI/SERC Joint Framework for
+Information Technology. Additional funding was provided by the British
+Library and the British Academy.</p>
+<div class="p">
+<span id="id2341491"></span>Maintenance, distribution, and development of the corpus has been carried out at
+Oxford University Computing Services. There have been three major
+revisions of the corpus:
+<ul>
+<li>BNC 1.0 (1995)</li>
+<li>BNC World Edition (2000)</li>
+<li>BNC XML Edition (2007)</li>
+</ul>
+For a brief historical overview of the project see <a class="link_ref" href="refs.html" title="References">Burnard 2002</a>.  </div>
+</div>
+<div class="teidiv1" id="thanx">
+<h3> Acknowledgments</h3>
+<div class="teidiv2" id="front.1_div.1_div.2_div.1">
+<h4> BNC 1.0</h4>
+<div class="p">
+<span id="id2341528"></span>Management of the original BNC project was co-ordinated by an executive 
+committee whose members were as follows:
+<dl>
+<dt>OUP</dt>
+<dd>Tim Benbow; Simon Murison-Bowie</dd>
+<dt>Longman</dt>
+<dd>Della Summers; Rob Francis</dd>
+<dt>Chambers Harrap</dt>
+<dd>John Clement</dd>
+<dt>OUCS</dt>
+<dd>Lou Burnard</dd>
+<dt>UCREL</dt>
+<dd>Geoffrey Leech</dd>
+<dt>British Library</dt>
+<dd>Terry Cannon</dd>
+<dt>DTI observers</dt>
+<dd>Gerry Gavigan; Donald Bell</dd>
+</dl>
+</div>
+<div class="p">
+<span id="id2341581"></span>An Advisory Council supervised the running of the project 1991-1994. 
+Members of this Council were:
+<ul>
+<li>Dr Michael Brady</li>
+<li>Christopher Butler</li>
+<li>Professor David Crystal</li>
+<li>Sir Antony Kenny (chair)</li>
+<li>Dr Nicholas Ostler</li>
+<li>Professor Sir Randolph Quirk</li>
+<li>Tim Rix</li>
+<li>Dr Henry Thompson </li>
+</ul>
+</div>
+<div class="p">
+<span id="id2341613"></span>Many people within each member organization made 
+major contributions to the success of the
+project. It is a pleasure to acknowledge their 
+hard work and dedication here. 
+<dl>
+<dt>OUP</dt>
+<dd>Lyndsay Brown; Jeremy Clear (project manager 1991-2); 
+Caroline Davis; Ginny Frewer; Frank Keenan; Tom McLean; Anita Sabin; 
+Ray Woodall (project manager 1992-4)</dd>
+<dt>Longman</dt>
+<dd>Steve Crowdy (project manager); Denise Denney; Duncan Pettigrew  </dd>
+<dt>Chambers Harrap</dt>
+<dd>Robert Allen; Ilona Morison  </dd>
+<dt>OUCS</dt>
+<dd>Glynis Baguley; Gavin Burnage;  Tony Dodd;
+Dominic Dunlop (project manager 1992-4) </dd>
+<dt>UCREL</dt>
+<dd>Tom Barney; Michael Bryant (project manager 1991-3); Elizabeth Eyes;
+Jean Forrest; Roger Garside; Mary Hodges; Mary Kinane; Nicholas Smith; 
+Xungfeng Xu. </dd>
+</dl>
+</div>
+<div class="p">
+<span id="id2341664"></span>The project also benefited greatly from the advice and support of many
+external consultants. Listing all those who have influenced our thinking
+and to whom we are indebted would be very difficult, but chief amongst them
+we would like to thank:
+<ul>
+<li>Sue Atkins </li>
+<li>Clive Bradley</li>
+<li>Ann Brumfitt</li>
+<li>Charles Clark </li>
+<li>James Clark </li>
+<li>Bruce Heywood</li>
+<li>Mark Lefanu</li>
+<li>Michael Rundle</li>
+<li>Richard Sharman </li>
+<li>Michael Sperberg-McQueen </li>
+<li>Anna-Brita Stenström</li>
+<li>Russell Sweeney  </li>
+</ul>
+</div>
+</div>
+<div class="teidiv2" id="front.1_div.1_div.2_div.2">
+<h4> BNC World</h4>
+<p><span id="id2341724"></span>After the completion of the first edition of the BNC, a phase of
+tagging improvement was undertaken at Lancaster University with
+funding from the Engineering and Physical Sciences Research Council
+(Research Grant No. GR/F 99847). This tagging enhancement project was
+led by Geoffrey Leech, Roger Garside and Tony McEnery.  The main
+objective was to correct as many tagging errors as possible, using an
+enhanced version of Claws4. In addition, a new tool was developed (the
+Template Tagger) for &#8216;patching&#8217; the corpus in such
+a way as to eliminate further sets of errors by rule.  This tool was
+developed by Michael Pacey, building on a prototype written by Steven
+Fligelstone. The research team working on tagging improvement was
+Nicholas Smith (lead researcher), Martin Wynne and Paul Baker.</p>
+<p><span id="id2341743"></span>Correction and validation of the bibliographic and contextual
+information in all the BNC Headers was carried out at OUCS by Lou
+Burnard, with assistance at various stages from Andrew Hardie and Paul
+Groves, who helped check demographic details for all spoken texts, and
+in particular from David Lee, who checked bibliographic and
+classification information for the bulk of the written texts. Thanks
+are also due to the many users of the original version of the BNC who
+took the time to notify us of errors they found.  </p>
+</div>
+<div class="teidiv2" id="front.1_div.1_div.2_div.3">
+<h4> BNC XML</h4>
+<p><span id="id2341761"></span>Thanks are due to Martin Wynne and Ylva Berglund who first
+suggested the idea of an XML version of a subset of the BNC.
+Production of that edition (BNC Baby) provided valuable experience in
+automatic conversion of the World edition. The bulk of the technical
+work involved in producing the XML edition was carried out by Tony
+Dodd and Lou Burnard, with assistance and advice from many BNC
+users and beta-testers worldwide, in particular Guy Aston, Andrew Hardie, Paul
+Rayson, and Sebastian Rahtz. Without their input the present revision would
+have been impossible.
+</p>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Next: </i><a class="navigation" href="BNCdes.html">1  Design of the corpus</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:46Z-->
+</address>
+</div>
+</div></body>
+</html>

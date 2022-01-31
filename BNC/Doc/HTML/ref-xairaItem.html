@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;xairaItem&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;xairaItem&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;xairaItem&gt;</h1>
+</div>
+<div>
+<span id="xairaItem"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">xairaItem</td>
+<td colspan="2" class="wovenodd-col2">provides data needed to define one part of a  XAIRA specification.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.identifiable.html">att.identifiable</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element xairaItem
+{
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.identifiable.html">att.identifiable.attribute.ident</a>,
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.identifiable.html">att.identifiable.attribute.ns</a>,
+   attribute type
+   {
+      "element"
+    | "form"
+    | "addKey"
+    | "lemmaScheme"
+    | "region"
+    | "textRef"
+    | "scopeRef"
+    | "unitRef"
+    | "indexPol"
+    | "defaultLang"
+    | "langRules"
+   },
+   (
+      <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-desc.html">desc</a>*,
+      (
+         ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-valSource.html">valSource</a>, <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-labelGen.html">labelGen</a>? )
+       | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-attList.html">attList</a>
+       | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-nameList.html">nameList</a>
+       | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-elementPolicy.html">elementPolicy</a>
+       | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-attributePolicy.html">attributePolicy</a>
+       | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-tokenize.html">tokenize</a>
+       | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-collate.html">collate</a>
+      )?
+   )
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [<a class="classlink" href="ref-att.identifiable.html">att.identifiable</a> ] )<table>
+<tr>
+<td class="attDef">type</td>
+<td colspan="2">indicates what is defined by this part of the specification.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span><b>Required</b>
+</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Legal values are:<table class="valList">
+<tr>
+<td valign="top"><b>element</b></td>
+<td valign="top"> an element and its attributes.</td>
+</tr>
+<tr>
+<td valign="top"><b>form</b></td>
+<td valign="top">a lexical form.</td>
+</tr>
+<tr>
+<td valign="top"><b>addKey</b></td>
+<td valign="top">an additional key.</td>
+</tr>
+<tr>
+<td valign="top"><b>lemmaScheme</b></td>
+<td valign="top">a lemmatization scheme.</td>
+</tr>
+<tr>
+<td valign="top"><b>region</b></td>
+<td valign="top">a region.</td>
+</tr>
+<tr>
+<td valign="top"><b>textRef</b></td>
+<td valign="top">the reference used to identify
+a document in the corpus.</td>
+</tr>
+<tr>
+<td valign="top"><b>scopeRef</b></td>
+<td valign="top">the default scope for results
+obtained from a corpus.</td>
+</tr>
+<tr>
+<td valign="top"><b>unitRef</b></td>
+<td valign="top">the reference used to identify
+some segmentation of a corpus document.</td>
+</tr>
+<tr>
+<td valign="top"><b>indexPol</b></td>
+<td valign="top">the indexing policy for some
+corpus component.</td>
+</tr>
+<tr>
+<td valign="top"><b>defaultLang</b></td>
+<td valign="top">the default language for
+a corpus.</td>
+</tr>
+<tr>
+<td valign="top"><b>langRules</b></td>
+<td valign="top">any additional tokenization or
+collation rules for some language used in a corpus.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">module-from-bncxml</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

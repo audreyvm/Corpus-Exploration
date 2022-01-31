@@ -1,0 +1,184 @@
+<div xml:id="cdifsmop"><head>Software for the BNC</head> 
+
+<div><head>Why XML?</head>
+
+<p>A design goal of the original BNC project was that it should not be
+delivered in a format which was proprietary or which required the use
+of any particular piece of software. This, together with the desire to
+conform to emerging international standards, was a key factor in
+determining the choice of SGML as the vehicle for the corpus
+interchange format.  A decade after this decision, SGML is still a
+widely used international standard format for which many public domain
+and commercial utilities exist. However, it is in the shape of XML, which is
+a simplified version of the original standard, SGML now dominates
+development of the world wide web, and hence of most sectors of the
+information processing community. New XML software appears almost
+every week, and it has been adopted by all current <soCalled>major
+players</soCalled> from Sun and IBM to Microsoft. </p>
+
+<p>That said, it must be recognised that the requirements of corpus
+linguists and others wishing to make use of the BNC are often rather
+specialised, and therefore unlikely to be supported by mainstream
+commercially produced software. For this and other reasons, the
+research user of the BNC who wishes to go beyond simple concordancing
+or word searching activities should expect to have to do some
+programming. This is another reason behind the choice of  XML
+as a vehicle for the system: because of the wide take up of this
+language, there exist many utility libraries and generic
+programming interfaces which greatly simplify such processes as
+extracting the tags from a file, selecting portions of the text
+according to its logical structure, picking out files with certain
+attributes by searching their headers, and so on.</p>
+
+<p>The BNC uses XML in a simple and straightforward way described in
+the rest of this manual; simple programs can be readily written using
+standard UNIX utilities such as grep or perl to access the corpus just
+as plain text files. More reliably, programs can be written to
+application programming interfaces (APIs) such as the W3C's Document
+Object Model (DOM) or the Simple API for XML (SAX), using application
+libraries developed for almost every modern programming language (C,
+Perl, Python, tcl etc.). Furthermore, a standard stylesheet language
+(XSLT) now exists which can be used to specify the transformation of
+XML source texts into almost any desired format by those with only
+minimal programming skills.  Information about software resources is
+not provided here, but is readily found on the World Wide Web:
+currently, one good place to start looking is <ref
+target="http://www.xml.com">www.xml.com</ref>. Increasingly, support
+for XML is built into standard utilities such as web browsers,
+database systems, and stylesheet processors offering a high level of
+sophistication are readily available. </p>
+ 
+<p>When the BNC was first published, the top of the range personal
+computer might have as much as 50 or even 100 megabytes of disk
+storage and 8 Mb of RAM.  At the time of writing, 50 or 100 gigabyte
+hard disks and 640 Mb of RAM are commonplace on entry level
+machines. It is thus quite likely that software capable of efficiently
+handling the four or five gigabytes of text which make up the BNC will
+also soon become commonplace. For the moment, however, it has to be
+recognized that general purpose tools for XML do not always cope very
+well with the large size of the whole corpus, although they can still
+be very useful for processing subsets extracted from it. To handle the
+whole of the corpus, special purpose indexing software will usually be
+necessary.  Although such systems exist, they are often expensive or
+difficult to implement.  For that reason, the XML edition of the BNC
+is still provided along with its own access software called XAIRA
+(which can, incidentally, be used with any collection of XML texts,
+not simply the BNC). It should be emphasized however that use of the
+BNC is not synonymous with use of XAIRA. Most generic tools developed
+for corpus linguistics and NLP can be used with the BNC, although the
+tools may be vary in the extent to which they can make use of the
+markup in the corpus.<note place="foot">Recent examples of
+concordancing tools which have been used successfully with the BNC
+include <ref target="http://www.oucs.ox.ac.uk/rts/xaira/">Xaira</ref>,
+<ref target="http://homepage.mac.com/bncweb/home.html">BNCWeb</ref>,
+<ref target="http://www.lexically.net/wordsmith/">WordSmith</ref>, and
+the <ref target="http://www.sketchengine.co.uk/">Sketch
+Engine</ref></note></p>
+
+<p>Whatever software is used,  it is necessary to have a clear
+understanding of the various elements tagged in the corpus, the
+contexts in which they may appear, and their intended semantics. The
+syntax of an XML document is defined by a <term>schema</term>. For TEI
+conformant texts, the TEI Header provides additional
+meta-information. The semantics of XML elements are provided by
+documentation such as that provided elsewhere in this manual.
+</p>
+</div>
+<div xml:id="bncfiles"><head>The BNC delivery format</head> 
+
+
+<p>The BNC is delivered in compressed format, using the GNU tar
+utility. As a single compressed archive file it only occupies about
+600 Mb, but when expanded, it comprises over 4000 distinct files, ranging
+in size from 1 to 45 Kbytes, and totalling about 4.5 Gbytes.  Each
+file contains a single BNC document, i.e. a TEI header and its
+associated spoken or written text, and has the same name as the value
+of the <ident>id</ident> attribute on its <gi>bncDoc</gi> element, for
+example ABC. Files are grouped according to their names into a
+three-level hierarchy. For example, all files with names beginning
+<mentioned>AA</mentioned> are in a subdirectory <ident>AA</ident>,
+which is within a subdirectory <ident>A</ident> (along with all other
+subdirectories beginning with the letter
+<mentioned>A</mentioned>). These top level directories are all grouped
+within a single directory called <ident>Texts</ident>. The full name for the corpus
+text with identifier <ident>ABC</ident> is thus
+<ident>Texts/A/AB/ABC</ident>.
+</p>
+
+<p>Note that not all possible three-letter filenames are actually
+used. Furthermore, the three-character identifiers  (and hence the
+directory structure) are <emph>entirely arbitrary</emph> and do not
+convey any information about the type of text contained. Each text
+contains a TEI Header which specifies all relevant meta information,
+either directly, or by reference to the corpus header, as described in
+section <ptr target="#cdifhd"/>. </p>
+
+
+
+</div>
+
+<div><head>XML components</head> 
+
+<p>All ancillary files relating to the XML structure and processing of
+the corpus are included in the standard release within a subdirectory
+called <ident>XML</ident>. This contains the following files:
+<list type="gloss"><label><ident>bncxml.rng</ident></label>
+<item>The BNC XML schema expressed in RelaxNG syntax</item>
+<label><ident>bncxml.rnc</ident></label>
+<item>The BNC XML schema expressed in RelaxNG compact syntax</item>
+<label><ident>bncxml.xsd</ident></label>
+<item>The BNC XML schema expressed in W3C schema language</item>
+<label><ident>bncxml.dtd</ident></label>
+<item>The BNC XML schema expressed as a Document Type Definition (DTD)</item>
+<label><ident>Scripts</ident> </label>
+<item>Some example XSLT scripts for processing the BNC.</item>
+</list> 
+</p>
+
+<p>The BNC XML schema, in whatever form, is primarily useful as a
+means of validating the corpus files, but may also be useful for other
+purposes. It may be used to process a single file or the whole corpus,
+depending on the software deployed. </p>
+
+<p>For some purposes, chiefly the validation of the classification
+codes used, it may be necessary to process the corpus header along with
+the individual text or texts to be processed. For most purposes,
+however, individual texts in the corpus can be regarded as
+free-standing.</p>
+
+<p>A number of XSLT stylesheets are provided to demonstrate some
+simple tasks. These include:
+<list type="gloss">
+<label><ident>display.xsl</ident></label>
+<item>converts a BNC text to an HTML format which can be read directly
+in a browser</item>
+<label><ident>justTheText.xsl</ident></label>
+<item>removes all the tagging from a BNC text; also removes the whole
+of the header.</item>
+<label><ident>oneWordPerLine.xsl</ident></label>
+<item>converts a BNC text to a "one word per line" format </item>
+<label><ident>justTheCodes.xsl</ident></label>
+<item>removes all the words from a BNC text; also removes the whole
+of the header.</item>
+<label><ident>whoSpeaks.xsl</ident></label>
+<item>produces a "dramatis personae" for a spoken text indicating how
+much each speaker contributes to it.</item>
+</list>
+</p>
+
+<p>Any XSLT processor can be used to process any of these scripts
+against any of the BNC texts. For example, to produce an HTML version
+of text ABC  using the xsltproc utility, one might type
+<eg>xsltproc XML/Scripts/display.xsl Texts/A/AB/ABC.xml > ABC.html</eg>
+at the command prompt. Other XML processing software will offer other
+interfaces.</p>
+</div>
+
+</div>
+
+
+
+
+
+
+

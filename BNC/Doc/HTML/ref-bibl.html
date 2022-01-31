@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;bibl&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;bibl&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;bibl&gt;</h1>
+</div>
+<div>
+<span id="bibl"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">bibl</td>
+<td colspan="2" class="wovenodd-col2">(bibliographic citation) contains any bibliographic reference, occurring either within
+the header of a written corpus text in which case it has a fixed
+substructure, or within the body of a corpus text, in which case it
+contains only s elements.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.rendered.html">att.rendered</a> <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.biblLike.html">model.biblLike</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element bibl
+{
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.rendered.html">att.rendered.attribute.rend</a>,
+   ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-s.html">s</a>+ | ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-title.html">title</a>+, ( <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-editor.html">editor</a> | <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-author.html">author</a> )*, <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-imprint.html">imprint</a>, <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-pp.html">pp</a>? ) )
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (Global attributes and those inherited from  [<a class="classlink" href="ref-att.rendered.html">att.rendered</a> ] )</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;bibl<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"&gt;</span><br/>  <span class="element">&lt;title&gt;</span>British intelligence services in action. <span class="element">&lt;/title&gt;</span><br/>  <span class="element">&lt;author <span class="attribute">n</span>="LindsK1" <span class="attribute">born</span>="1924"&gt;</span>Lindsay, Kennedy<span class="element">&lt;/author&gt;</span><br/>  <span class="element">&lt;imprint <span class="attribute">n</span>="DUNROD1"&gt;</span><br/>   <span class="element">&lt;publisher&gt;</span>Dunrod Press<span class="element">&lt;/publisher&gt;</span><br/>   <span class="element">&lt;pubPlace&gt;</span>Dundalk, Ireland<span class="element">&lt;/pubPlace&gt;</span><br/>   <span class="element">&lt;date <span class="attribute">value</span>="1980"&gt;</span>1980<span class="element">&lt;/date&gt;</span><br/>  <span class="element">&lt;/imprint&gt;</span><br/>  <span class="element">&lt;pp&gt;</span>74-176<span class="element">&lt;/pp&gt;</span><br/> <span class="element">&lt;/bibl&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><!--pointers--></td>
+<td colspan="2" class="wovenodd-col2">
+<a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>
+</td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">core</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

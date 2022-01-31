@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;note&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;note&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;note&gt;</h1>
+</div>
+<div>
+<span id="note"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">note</td>
+<td colspan="2" class="wovenodd-col2">contains a note or annotation.</td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-model.divPart.html">model.divPart</a> <a xmlns="http://www.w3.org/1999/xhtml" href="http://tei.oucs.ox.ac.uk/Query/tag.xq?name=att.placement&amp;documentationLanguage=en">att.placement</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element note { attribute place { text }?, attribute n { text }?, <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-s.html">s</a>+ }</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [att.placement ] )<table>
+<tr>
+<td class="attDef">place</td>
+<td colspan="2">specifies where the note is placed in the original source.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Values are:<table class="valList">
+<tr>
+<td valign="top"><b>FOOT</b></td>
+<td valign="top">footnote.</td>
+</tr>
+<tr>
+<td valign="top"><b>SIDE</b></td>
+<td valign="top">side note.</td>
+</tr>
+<tr>
+<td valign="top"><b>END</b></td>
+<td valign="top">endnote.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">n</td>
+<td colspan="2">internal identifier.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+text</code>
+</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;note <span class="attribute">place</span>="SIDE"<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="477"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>The <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0-NN1" <span class="attribute">hw</span>="short" <span class="attribute">pos</span>="ADJ"&gt;</span>short <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="film" <span class="attribute">pos</span>="SUBST"&gt;</span>film <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="about" <span class="attribute">pos</span>="PREP"&gt;</span>about <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1-VVG" <span class="attribute">hw</span>="sailing" <span class="attribute">pos</span>="SUBST"&gt;</span>sailing<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span>...<span class="element">&lt;/note&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><!--pointers--></td>
+<td colspan="2" class="wovenodd-col2">
+<a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>
+</td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">core</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>

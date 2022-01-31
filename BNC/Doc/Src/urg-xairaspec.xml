@@ -1,0 +1,793 @@
+
+<div xml:id="xairaspec"><head>The Xaira Specification</head>
+
+<p>The <gi>xairaSpecification</gi> supplied in the corpus header
+determines the behaviour of the XAIRA indexer, and hence of the
+XAIRA-indexed system delivered with the BNC. In this section, we
+document that specification as it applies to the BNC only. The
+information provided here is for reference purposes only, and is of no
+interest unless you are using the XAIRA system to index the BNC or a
+similar corpus. Note however that this document is not an exhaustive
+description of the capabilities of the XAIRA system: for more
+information on that, please consult the project web site at <ptr
+url="http://www.xaira.org/"/>
+</p>
+
+<p>The <gi>xairaSpecification</gi> element
+is as a member of the
+<att>model.encodingPart</att> class, and may therefore be included
+within the <gi>encodingDesc</gi> element of the TEI Header for any
+corpus. It is organized as a number of
+<gi>xairaList</gi> elements, each of which contains a number of
+<gi>xairaItem</gi> elements. Both of these latter elements have a
+<att>type</att> attribute which specifies more exactly the function of
+the item or list, by supplying one of a number of predefined codes, as
+further described in this section. 
+<specList>
+<specDesc key="xairaSpecification"/>
+<specDesc key="xairaList" atts="type"/>
+<specDesc key="xairaItem" atts="type ns ident" />
+</specList>
+
+</p>
+
+
+<p>The following values are
+ defined for the <att>type</att> attribute on <gi>xairaList</gi>:
+
+<list type="gloss">
+<label>elementSpec</label><item>lists and glosses the elements,
+attributes, and codebooks used in a corpus (<ptr target="#dictspec"/>)</item>
+<label>keySpec</label><item>specifies how items are to be indexed (<ptr target="#keyspec"/>)</item>
+<label>regionSpec</label><item>specifies any predefined regions to be
+made available to the client (<ptr target="#regionspec"/>)</item>
+<label>lemmaSpec</label><item>specifies any lemmatization schemes used  (<ptr target="#lemmaspec"/>)</item>
+<label>refSpec</label><item>specifies how items are to be referenced (<ptr target="#refsys"/>)</item>
+<label>indexSpec</label><item>specifies any special indexing policies (<ptr target="#indexpol"/>)</item>
+<label>langSpec</label><item>specifies any language-specific rules (<ptr target="#langspec"/>)</item>
+</list>
+All of these are used in the BNC.
+</p>
+
+<p>The following values are defined for the <att>type</att> attribute
+on the <gi>xairaItem</gi> element:
+
+<list type="gloss">
+<label>element</label><item>an element</item>
+<label>form</label><item>a lexical form for the indexer</item>
+<label>addKey</label><item>an additional key for the indexer</item>
+<label>lemmaScheme</label><item>a lemmatization scheme</item>
+<label>region</label><item>a region</item>
+<label>textRef</label><item>a reference identifying a document</item>
+<label>unitRef</label><item>a reference identifying a low level unit
+within a document</item>
+<label>scopeRef</label><item>a reference identifying a low level unit
+used to delimit results obtained when querying a corpus</item>
+<label>indexPol</label><item>defines an index policy</item>
+<label>defaultLang</label><item>specifies the default language for a corpus</item>
+<label>langRules</label><item>specifies non-default tokenization or collation
+rules for a language used in a corpus</item>
+</list>
+All of these except the last are used in the BNC.
+</p>
+
+<div xml:id="dictspec"><head>Element specification</head>
+
+<p>A XAIRA element specification consists of a <gi>xairaList</gi> of
+type <code>elementSpec</code> containing one or more
+<gi>xairaItem</gi> elements, one for each element that the Xaira
+indexer or client needs to be aware of. Elements which are not
+mentioned within the Xaira element specification may however appear
+within a corpus. When the indexer finds such an element, it will index
+it using all default options; the client will not have access to any
+explanatory text or gloss for such elements. Equally, the
+specification may include definitions for elements which do not appear
+within the corpus. </p>
+
+<p>The simplest form of element specification just provides a description for
+the element:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="pause">
+<desc>marks a pause in the transcription</desc>
+</xairaItem>
+</egXML></p>
+
+<p>More usually, an element specification will also supply glosses for the
+attributes of an element. These are supplied by an <gi>attList</gi>
+element embedded within the <gi>xairaItem</gi>, consisting of one
+<gi>attDef</gi> element for each attribute concerned:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="w">
+ <desc>a lexical token as identified by CLAWS</desc>
+ <attList>
+    <attDef ident="c5">
+       <desc>the part of speech assigned to a token by CLAWS</desc>
+    </attDef>
+    <attDef ident="hw">
+      <desc>the base form of a word as determined by the
+		 Lancaster lemmatization scheme</desc>
+    </attDef>
+    <attDef ident="pos">
+      <desc>a simplified part of speech code derived from
+		 the  CLAWS C5 tag</desc>
+    </attDef>
+</attList>
+</xairaItem></egXML>
+</p>
+<p>Descriptions may also be supplied for the values indexed for given
+attributes. This is accomplished by providing a <gi>valList</gi>
+element within the <gi>attDef</gi>, as in the following example:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="person">
+<desc>a person whose speech is recorded in the corpus</desc>
+<attList>
+<attDef ident="ageGroup">
+<desc>the age group to which a person belongs</desc>
+<valList>
+<valItem ident="A0">unknown age</valItem>
+<valItem ident="A1">under 16 years old</valItem>
+<valItem ident="A2">aged 16 to 35 years</valItem>
+<valItem ident="A3">aged 36 to 45 years</valItem>
+<valItem ident="A4">46 or older</valItem>
+</valList></attDef>
+</attList>
+</xairaItem></egXML></p>
+
+<p>The values A0, A1 etc. supplied by the <att>ident</att> attribute
+on <gi>valItem</gi> need not be unique across the corpus. </p>
+<!-- If the
+<gi>valList</gi> itself carries an <att>ident</att> attribute however,
+then that identifier should be unique. This facility enables a
+particular list of values (codebook) to be re-used across a
+corpus. For example, in the BNC, the same set of values is used for
+the attribute <att>c5</att>, whether this appears on a <gi>w</gi> or
+<gi>mw</gi> element. </p>
+
+<p>First we define the codebook:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="w">
+ <desc>a lexical token as identified by CLAWS</desc>
+ <attList>
+    <attDef ident="c5">
+       <desc>the part of speech assigned to a token by CLAWS</desc>
+       <valList ident="C5tags">
+        <valItem ident="ADJ">adjective</valItem>
+        <valItem ident="NN1">common singular noun</valItem>
+        <valItem ident="NN2">common plural noun</valItem>
+       ...
+      </valList>
+    </attDef>
+    ...
+</attList>
+</xairaItem></egXML>
+The definition of the <att>c5</att> attribute on the <gi>mw</gi>
+element can re-use this definition by means of a
+<att>copyOf</att> attribute on its <gi>valList</gi> element:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="mw">
+<desc>a multi-word unit  as identified by CLAWS</desc>
+<attList>
+<attDef ident="c5">
+<desc>the part of speech assigned to a token by CLAWS</desc>
+<valList copyOf="c5codes"/>
+</attDef>
+</attList></xairaItem>
+</egXML></p>
+-->
+<p>A single definition may be supplied for <soCalled>global</soCalled>
+attributes which appear on any element by using the following syntax:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="*">
+<desc>global attributes</desc>
+<attList>
+<attDef ident="n">
+<desc>a name or number used to label any element</desc>
+</attDef>
+</attList></xairaItem></egXML></p>
+
+<p>If the element or attribute to be defined is taken from some non-default
+namespace, the <att>ns</att> attribute must be supplied on the
+<gi>xairaItem</gi> element:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="element" ident="*" 
+ ns="http://www.w3.org/XML/1998/namespace">
+<desc>global attributes</desc>
+<attList>
+<attDef ident="id">
+<desc>a name or number used to label any element</desc>
+</attDef>
+</attList></xairaItem></egXML>Here the globally-available <att>xml:id</att> attribute is explicitly
+associated with the namespace
+<code>http://www.w3.org/XML/1998/namespace</code>
+
+</p>
+
+
+<p>A <att>type</att> attribute may also be specified on the
+<gi>valList</gi> element to indicate whether the list of values it
+contains is exhaustive or exemplary; at present Xaira does not use
+this information however.</p>
+
+<p>In this section, we have introduced the following elements:
+
+<specList>
+<specDesc key="desc"/>
+<specDesc key="attList" />
+<specDesc key="attDef" atts="ident"/>
+<specDesc key="valList" atts="ident type copyOf"/>
+<specDesc key="valItem" atts="ident ns"/>
+</specList>
+</p>
+
+</div>
+
+<div xml:id="keyspec"><head>Key specification</head>
+
+<p>A Xaira key specification is used to define how the indexer should
+identify which parts of the input documents are to be regarded as
+<term>lexical forms</term> and what <term>additional keys</term> should
+be associated with those forms. Additional keys are used to
+distinguish otherwise identical forms in the index (for example, the
+same spelling with two different POS codes); they are also used too
+build up <term>lemma schemes</term> and <term>regions</term> on which
+see below. </p>
+<p>The key specification
+consists of a <gi>xairaList</gi> of type
+<val>keySpec</val>. If no specification is given, the indexer will
+assume default implicit tokenization is in force and no additional
+keys are defined.
+ </p>
+
+<p>If a key specification is supplied, it contains at least one <gi>xairaItem
+type="form"</gi>, optionally followed by one or more <gi>xairaItem
+type="addKey"</gi> elements, each of which may contain a <gi>desc</gi>
+element to document its purpose, and should also contain a
+<gi>valSource</gi> element to specify an
+element or attribute within the corpus being indexed which is to be
+used as the source for the values to be used as a key.
+</p>
+
+<p>The BNC index specification begins by specifying that the elements
+<gi>w</gi> and <gi>c</gi> delimit the forms which the indexer must
+index:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaList type="keySpec">
+        <xairaItem type="form">
+          <valSource type="element" ident="c"/>
+        </xairaItem>
+        <xairaItem type="form">
+          <valSource type="element" ident="w"/>
+        </xairaItem>
+...
+</xairaList></egXML>
+</p>
+
+<p>The <gi>valSource</gi> element specifies where the
+indexer is to find the value which is to be treated as the form part
+of the index entry. In both cases, it is found as element content, of
+a <gi>c</gi> or <gi>w</gi> element. Since no further information is
+given about where such elements are to be found, this will apply to 
+ every occurrence of a <gi>w</gi> or <gi>c</gi> element, irrespective
+of its context. Since no namespace is specified, the element is
+assumed to be in the current or default namespace.</p>
+
+<p>Next, the BNC index specification defines three additional keys,
+corresponding with the attributes <att>c5</att>,
+<att>hw</att>, and <att>pos</att>. First, the CLAWS
+C5 code which is supplied as the value of a <att>c5</att> attribute
+on the elements <gi>w</gi> and <gi>c</gi>:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+        <xairaItem type="addKey" ident="c5">
+          <valSource type="attribute" ident="c5">
+            <nameList>
+              <gi>w</gi>
+              <gi>c</gi>
+            </nameList>
+            <defaultVal>XXX</defaultVal>
+          </valSource>
+        </xairaItem>
+</egXML>
+
+</p><p>This defines an additional key called <att>c5</att>, the
+value of which is supplied by the attribute also called <att>c5</att>,
+but only when that attribute is supplied on an element called
+<gi>w</gi> or <gi>c</gi> and at any point in the document
+structure. Other attributes called <att>c5</att> (such as that on
+<gi>mw</gi>) will not be used
+for this purpose. </p>
+
+<p>When an additional key value is required, but no value is
+available, because the attribute or element specified does not exist
+or has no value, the literal content of the <gi>defaultVal</gi> element
+(<val>XXX</val> in the example above) will be used instead. In the
+BNC, this should not happen, and this value should not therefore appear.
+</p>
+<p>The remaining two additional keys are defined in much the same way,
+except that they derive from attributes specified only for the
+<gi>w</gi> element: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+        <xairaItem type="addKey" ident="Headword">
+          <valSource type="attribute" ident="hw" caseFold="true">
+            <nameList>
+              <gi>w</gi>
+            </nameList>
+          </valSource>
+        </xairaItem>
+
+        <xairaItem type="addKey" ident="pos">
+          <valSource type="attribute" ident="pos">
+            <nameList>
+              <gi>w</gi>
+            </nameList>
+            <defaultVal>XXX</defaultVal>
+          </valSource>
+        </xairaItem>
+</egXML>
+These addkeys are used in the BNC lemma scheme specification discussed
+below (<ptr target="#lemmaspec"/>).</p>
+
+<p>The <att>caseFold</att> attribute
+is used to specify that forms should be case folded before indexing,
+so that forms differing only in letter case will be stored
+identically.</p>
+
+<p>The last additional key defined in the BNC index specification is
+derived from a source other than an element or attribute:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+        <xairaItem ident="region" type="addKey">
+          <desc>defines the additional keys used to support filtering of text
+from different regions of selected texts</desc>
+          <valSource caseFold="false" ident="name()" type="pseudo">
+            <nameList>
+              <gi>stext</gi>
+              <gi>teiHeader</gi>
+              <gi>wtext</gi>
+            </nameList>
+            <defaultVal>nowhere</defaultVal>
+          </valSource>
+        </xairaItem>
+</egXML>
+</p><p>
+The effect of this is to define an additional  key called
+<att>region</att>, the value of which on a given form in the
+index will be one of the strings <code>stext, teiHeader, wtext,</code>
+or <code>nowhere</code> depending on the location of the form being
+indexed.  The <code>name()</code> identifier here indicates that it is the name
+of the associated elements which is to be used as the value of
+the key, rather than their content. If no <gi>nameList</gi> were provided, then
+the key generated would contain the name of the nearest ancestor
+element. This key is used in the subsequent  region specification (see
+<ptr target="#regionspec"/>).
+
+</p></div>
+
+<div xml:id="lemmaspec"><head>Lemma Scheme Specification</head>
+
+<p>Any combination of additional keys may be used to form a
+<term>lemma scheme</term>. This enables the values of the nominated
+keys to be treated as alternate forms for the associated index
+entries. For example, occurrences of words such as "dogs", "dogged",
+"dogging" etc in the BNC all have the value "dog"
+for an additional key called "Headword". To distinguish verbal senses
+from nominal ones, this additional key would need to be combined with
+another key giving the part of speech (noun or verb) for each
+occurrence. The resulting lemma scheme would then distinguish forms of
+"dog (noun)" from forms of "dog (verb)".</p>
+
+<p>Xaira supports the definition of multiple lemma schemes, but only a
+single one is defined for the BNC. All lemma schemes are defined together
+in a single <gi>xairaList type="lemmaSpec"</gi> element, containing
+one <gi>xairaItem type="lemmaScheme"</gi> for each scheme. This
+element contains an optional <gi>desc</gi>, followed by a <gi>nameList</gi>
+containing the names of the additional keys used to constitute the
+scheme. (The name of the additional key is the name supplied by the
+<att>ident</att> attribute when the key was defined.). Thus, the lemma
+scheme defined for the BNC has the following specification:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <xairaList type="lemmaSpec">
+        <xairaItem type="lemmaScheme" ident="BNC">
+          <nameList>
+            <att>Headword</att>
+            <att>pos</att>
+          </nameList>
+        </xairaItem>
+      </xairaList>
+</egXML>
+</p><p>
+This defines a lemma scheme called BNC which is based on the
+combination of the values given by the additional keys
+<att>Headword</att> and <att>pos</att> which were defined in
+the previous section.</p></div>
+
+<div xml:id="regionspec"><head>Region Specification</head>
+
+<p>A <term>region</term> is a collection of possibly discontinuous
+sections of a corpus defined by the XML tagging within it. For
+example, each BNC document contains a <gi>teiHeader</gi> element and either a
+<gi>wtext</gi> or an <gi>stext</gi> element. We say that all the parts of
+each document contained by a <gi>teiHeader</gi> element constitute one
+region. All the parts contained by either a <gi>wtext</gi> or a
+<gi>stext</gi> element constitute another region. Regions (unlike
+partitions) span document boundaries, and are not made up of whole
+texts but of defined parts of them.</p>
+
+<p>A region is defined by means of a <gi>xairaItem</gi> of type
+<code>region</code>. The <att>ident</att> attribute on the
+<gi>xairaItem</gi> supplies a name for the region, which can be used
+by the client to limit searches to locations within the named
+region. </p>
+<p>The definition of the region is contained within a
+<gi>nameList</gi>. It combines the name of a previously-defined
+additional key (<ident>region</ident> in the case of the BNC) which is
+tagged as an <gi>ident</gi> element, with a
+list of one or more values. Word occurrences whose
+<ident>region</ident> additional key has the value specified will be
+considered to fall  within the region being defined. Since these
+values are element names, they are tagged within the
+<gi>nameList</gi> using the <gi>gi</gi> element. </p>
+
+<p>For example:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+        <xairaItem type="region" ident="speechOnly">
+          <nameList>
+            <ident>region</ident>
+            <gi>stext</gi>
+          </nameList>
+        </xairaItem>
+</egXML>
+
+This part of the BNC region specification defines  a region called <code>speechOnly</code>. Any
+word for which the additional key <code>region</code> has the value
+<code>stext</code> will fall within this region.</p>
+
+<p>Two other regions are defined in a very similar way in the BNC:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <xairaList type="regionSpec">
+        <xairaItem type="region" ident="headerOnly">
+          <nameList>
+            <ident>region</ident>
+            <gi>teiHeader</gi>
+          </nameList>
+        </xairaItem>
+        <xairaItem type="region" ident="textOnly">
+          <nameList>
+            <ident>region</ident>
+            <gi>stext</gi>
+            <gi>wtext</gi>
+          </nameList>
+        </xairaItem>
+      </xairaList>
+</egXML>
+</p>
+<p>The first of these defines the region <code>headerOnly</code>, for
+words occurring within the header; the second defines the region
+<code>textOnly</code> for words occurring within <gi>wtext</gi> or
+<gi>stext</gi> elements, as indicated by the values supplied for their
+respective <ident>region</ident> additional key.</p>
+</div>
+
+<div xml:id="refsys"><head>Reference specification</head>
+
+<p>The index maps occurrences of index terms as defined in the
+previous section to locations in the corpus, which may be identified in a
+number of ways, additional to the internally-defined location
+system. This external <term>referencing scheme</term> is used by the
+system to label the context of occurrences found by the search
+program. Occurrences themselves are precisely located by the internal
+location scheme. Although the index contains information about the
+complete xpath location of occurrences within the corpus, the internal
+location scheme is highly optimized and cannot be used to support
+access via arbitrary Xpaths or XQL queries.</p>
+
+<p>The referencing scheme used to identify contexts has the following
+components:
+<list>
+<item>a single <soCalled>text</soCalled> identifier: this may be derived from
+a system identifier, or specified by a nominated attribute on the
+element which contains the text, or it may calculated by the indexer
+in terms of the XML structure indexed.</item>
+<item>a single <soCalled>scope</soCalled> identifier: this may be derived from
+ the value of a specified attribute on any element in the text;
+calculated by the indexer in terms of the XML structure; or derived
+from the physical input structure.</item>
+<item>optionally additional  <soCalled>unit</soCalled> labels: these may derived
+from the value of a specified attribute on any element in the text;
+calculated by the indexer in terms of the XML structure; or derived
+from the physical input line number.</item>
+     </list></p>
+
+<p>The element from which the text identifier is derived also delimits
+a single <soCalled>text</soCalled> in the corpus. This effectively limits the
+kinds of value which may be used to identify it: it must be an attribute value
+or a pseudo value; element content is not permitted.</p>
+
+<p>The referencing specification for a Xaira index is given by a <gi>xairaList
+type="refSpec"</gi>, containing exactly one <gi>xairaItem
+type="textRef"</gi>, followed by one <gi>xairaItem type="scopeRef"</gi> and optionally
+one or more further <gi>xairaItem type="unitRef"</gi> elements. Each such
+<gi>xairaItem</gi> element contains a <gi>valSource</gi> element as
+defined above, to indicate where the value for the reference is to be
+obtained in the input document. It may also contain a
+<gi>labelGen</gi> element which further defines the parts of the document to
+which the reference applies and its format.
+</p>
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <xairaList type="refSpec">
+        <xairaItem type="textRef">
+          <valSource type="attribute" ident="id" ns="http://www.w3.org/XML/1998/namespace">
+            <nameList>
+              <gi>bncDoc</gi>
+            </nameList>
+          </valSource>
+        </xairaItem>
+        <xairaItem type="scopeRef">
+          <valSource type="attribute" ident="n">
+            <nameList>
+              <gi>s</gi>
+            </nameList>
+            <labelGen>%1.%2</labelGen>
+          </valSource>
+        </xairaItem>
+      </xairaList>
+</egXML>
+
+<p>In the BNC, each <gi>bncDoc</gi> begins a new <q>text</q>, which is
+identified by the value of its <att>xml:id</att> attribute, and
+the scope for each query is to be a complete 
+<gi>s</gi> element, identified by its
+<att>n</att> attribute. The reference is to be formatted with a dot
+between the two values.</p>
+<p>This specification will produce references like
+<code>ABC.123</code> for an  <gi>s</gi> element with attribute
+<att>n</att> set to 123, found within a
+<gi>bncDoc</gi> element whose <att>xml:id</att> attribute has the value
+<code>ABC</code>. 
+</p>
+</div>
+
+
+<div xml:id="indexpol"><head>Indexing Policies</head>
+
+<p>In addition to index terms derived from the lexical content of a
+     corpus, a Xaira index also contains information about the
+     occurrence of XML start- and end-tags within the corpus. This
+     information is used to facilitate a number of search options:
+     searching for non-lexical features, searching for lexical
+     features within a given structural context, scoping
+     co-occurrences of lexical or non-lexical features, etc.</p>
+
+<p>By default an entry is made in the index for each occurrence of each tag,
+     both start and end. This entry may also distinguish start-tag
+     occurrences depending on the values of specified attributes
+     supplied with them. (Note that this is independent of the use of
+     such  attribute values in the creation of index terms as described in the previous section).</p>
+<p>For example:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><head>The heading</head>     </egXML>will create index entries for the tags <gi>head</gi> and <gi>/head</gi>
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><head type="sub">The subheading</head></egXML>will create index entries for the tags <gi>head</gi>, <gi>head type="sub"</gi> and <gi>/head</gi>
+
+    </p>
+
+<p>The content of every element found in a corpus is indexed by
+default, as are all of the tags, and all of their attributes. This
+behaviour may be modified by specifying explicit indexing policies for
+elements to which this default policy does not apply. An indexing
+policy may not be specified for elements or attributes which have been
+nominated as the sources for an additional key or reference, since
+these are indexed in a different way. Any indexing policy
+specified for such elements or attributes will be ignored by the indexer.
+</p>
+<p>The following indexing policies are used in the BNC:
+<list type="gloss">
+<label>none</label>
+<item>No part of the specified element  or attribute will be
+     indexed. In the case of an element, this means that none of its start and
+end tags, its attributes,  its child elements, and its character data content
+will be included in  the index. In the case of an attribute, its
+value will be omitted.</item>
+<label>markup</label>
+<item>This policy applies only to elements. Only start-and end-tags and attributes for the specified element
+and for any child elements will be indexed; no content of the element or its children will be indexed. 
+</item>
+<label>jointo</label>
+<item>This policy applies only to attributes. The specified attribute
+is available for use as the target of an attribute indexed with the
+<code>joinfrom</code> policy.</item>
+<label>joinfrom</label>
+<item>This policy applies only to attributes. The attribute specified
+has values which correspond with those on an attribuite of some other
+element which has been indexed with the
+jointo policy, or (if no jointo attribute has been defined) which uses
+the <att>xml:id</att> attribute</item>
+<label>taxonomy</label>
+<item>This policy applies only to attributes. The attribute specified
+has values which correspond with the xml:id attribute on some
+<gi>category</gi> element within a TEI-conformant <gi>taxonomy</gi>
+element.</item>
+</list>
+</p>
+
+<p>For every element or attribute to which a non-default indexing
+policy applies, a <gi>xairaItem type="indexPol"</gi> appears within
+the <gi>xairaList type="indexSpec"</gi> element. This may contain
+either an <gi>elementPolicy</gi> or an <gi>attributePolicy</gi>,
+element depending on whether it relates to elements or attributes.</p>
+
+
+<div><head>Index policies NONE and MARKUP</head>
+
+<p>Within the BNC, an attribute policy of <code>none</code> is applied
+to the element <gi>revisionDesc</gi>:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="indexPol">
+   <elementPolicy type="none" ident="revisionDesc"/>
+</xairaItem></egXML>
+
+The effect of this is that, although <gi>revisionDesc</gi> elements
+will be visible in search results, they cannot be searched for and a query
+for one or for anything contained by of one, will return no hits</p>
+
+
+<p>The indexing policy <code>markup</code> is applied to the element
+<gi>bibliography</gi>. One occurrence of this element, declared in its
+own name space, is necessary for a XAIRA system: it holds metadata
+relating to each text constituting the corpus. In the BNC this
+bibliographic information is copied from the text headers, which are
+also indexed in their own right. To avoid duplication of this content,
+the indexer is instructed to index only the structure of the
+bibliography but not its content:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><xairaItem type="indexPol">
+   <elementPolicy type="markup" ident="bibliography" ns="http://xaira.org/ns/1.0/bibliography"/>
+</xairaItem></egXML>
+</p>
+
+</div>
+
+<div><head>Index policies JOINFROM and JOINTO</head>
+
+<p>The purpose of <code>joinfrom</code> and <code>jointo</code> indexing policies is
+to support <term>join queries</term>. A join query is one in which 
+attributes are effectively  transferred from one element to another.
+For example, in the BNC, each text header contains detailed data about individual
+speakers within the <gi>person</gi> element, and
+also uses the attribute <att>who</att> to identify the
+speaker or speakers of each speech in the
+transcribed part of the corpus: 
+<eg><![CDATA[<person xml:id="ABC" age="A" soc="B1"> ... </person>
+<person xml:id="DEF" age="Z" soc="A1"> ... </person>
+...
+<u who="ABC">....</u>
+<u who="DEF"> .... </u>]]></eg></p>
+<p>Since the values for <att>who</att> all correspond with the value of
+an  <att>xml:id</att> attribute on some <gi>person</gi> element,  a join query can be
+effected. The XAIRA client can  be configured to
+support queries in which the attributes <att>age</att> and <att>soc</att> appear to be
+attributes of the <gi>u</gi> element, their values being transferred
+from the <gi>person</gi> element whose <att>xml:id</att> value is equal to that
+given by the <att>who</att> attribute on <gi>u</gi>. The effect is
+as it would be if  the <gi>u</gi> elements above looked like this:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<u who="ABC" who.age="A" who.soc="B1">....</u>
+<u who="DEF" who.age="Z" who.soc="A1"> .... </u>
+</egXML></p>
+<p> This is accomplished by the following set of indexing policies:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">        <xairaItem type="indexPol">
+          <attributePolicy ident="id" type="jointo" ns="http://www.w3.org/XML/1998/namespace">
+          </attributePolicy>
+        </xairaItem>
+        <xairaItem type="indexPol">
+          <attributePolicy type="joinfrom" ident="who">
+            <nameList>
+              <gi>u</gi>
+            </nameList>
+            <joinTo>
+              <gi>person</gi>
+            </joinTo>
+          </attributePolicy>
+        </xairaItem>
+</egXML>
+</p>
+
+<p>First, we declare a join-to policy for any <att>xml:id</att>
+attribute. Next we declare the join-from policy for the <att>who</att>
+attribute on the <gi>u</gi> element. As well as specifying which
+attribute carries the value required (who), we need additionally to
+supply the name of the element on which the corresponding join-to
+attribute should be found (<gi>u</gi>). Values are transferred when a
+match is found between the value for the <att>who</att> attribute and
+that of whichever attribute of the nominated element has been indexed
+with the join-to policy. Note that only one attribute of a given
+element may be indexed with the join-to policy and that the values of
+attributes indexed with the join-to policy must be unique within the
+specified element and attribute combination. Thus, there may be only
+<gi>person</gi> element with the value ABC for its <att>xml:id</att>
+attribute, though the same value may appear on other attributes. If
+the value appears on the <att>xml:id</att> attribute of some other
+element, it will not be found with this join-to policy. Note that,
+since the globally-available <att>xml:id</att> attribute is used to
+hold the joint-to attribute, its values must be unique across the
+whole corpus.</p>
+
+</div>
+
+<div><head>Index policy <code>taxonomy</code></head>
+
+<p>A <term>taxonomy</term> is a special kind of codebook, the purpose
+of which is to provide a set of defined codes to classify the texts
+making up a corpus. The BNC defines several different taxonomies as
+means of classifying its constituent texts, as further described in
+<ptr target="#hdeccd"/>.  The element or attribute within a particular
+text which identifies its classification, by referencing one or more
+codes within a taxonomy, is called its <term>classifier</term>. </p>
+
+<p>Each distinct taxonomy for a corpus is defined by a TEI
+<gi>taxonomy</gi> element, within the corpus header. This defines the
+codes available for use and gives a gloss to them.  Where, as is
+usual, the texts in a corpus are classified along more than one
+dimension (for example, by text type, by medium of distribution, by
+audience type etc.), a <gi>taxonomy</gi> must be defined for each
+dimension, rather than defining a single taxonomy with disjoint sets
+of children. Note that the classification codes used must be unique
+across the whole corpus, irrespective of the taxonomy to which they
+belong.  This approach also enables the client to regard each taxonomy
+as defining a partition of the corpus. </p>
+
+<p>To use a taxonomy defined in this way, the relevant attribute must be defined
+with the <code>taxonomy</code> indexing policy. In the case of the
+BNC, classification information is carried by two attributes:
+<list>
+<item>the
+<att>targets</att>  attribute on the <gi>catRef</gi> element in each
+text header supplies a list of values for all the original selection
+and descriptive criteria, described in <ptr target="#BNCdes"/></item>
+<item>the <att>type</att> attribute on <gi>wtext</gi> and
+<gi>stext</gi> elements carries a broadbrush text-type categorization,
+derived from the other classification codes, see further <ptr
+target="#tagcounts"/></item>
+</list>
+The following declarations achieve this effect:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+        <xairaItem type="indexPol">
+          <attributePolicy ident="targets" type="taxonomy">
+            <nameList>
+              <gi>catRef</gi>
+            </nameList>
+          </attributePolicy>
+        </xairaItem>
+        <xairaItem type="indexPol">
+          <attributePolicy ident="type" type="taxonomy">
+            <nameList>
+              <gi>wtext</gi>
+              <gi>stext</gi>
+            </nameList>
+          </attributePolicy>
+        </xairaItem>
+</egXML>
+</p></div>
+</div>
+
+<div xml:id="langspec"><head>Language specification</head>
+
+<p>As a Unicode system, XAIRA is able to handle data in any natural
+language or writing system. However, it is still necessary to
+specify the language or languages used in the corpus being
+indexed. This specification is performed by a <gi>xairaList</gi> of
+type <code>langspec</code>. This contains at least one
+<gi>xairaItem type="defaultLang"</gi>, and optionally other
+<gi>xairaItem type="langRules"</gi> elements. 
+</p>
+<p>The BNC uses only standard English and thus contains only a default
+language specification, which looks like this:
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <xairaList type="langSpec">
+        <xairaItem type="defaultLang" ident="en-GB"/>
+      </xairaList>
+</egXML>
+</p>
+</div>
+</div>

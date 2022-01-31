@@ -1,0 +1,475 @@
+<div xml:id="cdifbase"><head>Basic structure</head> 
+
+<p>The original British National Corpus was provided as an
+application of ISO 8879, the Standard Generalized Mark-Up Language
+(SGML). This international standard provides, amongst other things, a
+method of specifying an application-independent document grammar, in
+terms of the elements which may appear in a document, their
+attributes, and the ways in which they may legally be combined.  SGML
+was a predecessor of XML, the extensible markup language defined by
+the World Wide Web Consortium and now in general use on the World Wide
+Web. XML was originally designed as a means of distributing SGML
+documents on the web.
+</p>
+
+<p>This XML edition of the BNC is delivered in an XML format which is
+documented in this manual in section <ptr target="#cdifsgml"/> below;
+more detailed information about XML itself is readily available in
+many places.<note place="foot">The article in Wikipedia (<ptr
+target="http://en.wikipedia.org/wiki/XML"/>) is probably as
+good a starting point as any; another is at <ptr
+target="http://homepages.inf.ed.ac.uk/wadler/xml/"/></note>
+
+</p>
+
+<p>The original BNC encoding format was also strongly influenced by the
+proposals of the Text Encoding Initiative (<abbr>TEI</abbr>). This
+international research project resulted in the development of a set of
+comprehensive guidelines for the encoding and interchange of a wide
+range of electronic texts amongst researchers. An initial report
+appeared in 1991, and a substantially revised and expanded version in
+early 1994. A conscious attempt was made to conform to
+<abbr>TEI</abbr> recommendations, where these had already been
+formulated, but in the first version of the BNC there were a number of
+differences in tag names, and models. In the second edition of the BNC
+(BNC World), the tagging scheme was changed to conform as far as
+possible with the published <title>Recommendations</title> of the TEI
+(<ptr target="#TEI94"/>). In the XML edition, this process has continued,
+and the corpus schema is now supplied in the form of  a TEI customization: see
+further <ptr target="#bnctags"/>.
+</p>
+
+<div xml:id="cdifsgml" ><head>Markup conventions</head> 
+
+<p>The BNC XML edition is marked up in XML and encoded in
+Unicode. These formats are now so pervasive as to need little
+explication here; for the sake of completeness however, we give a
+brief summary of their chief characteristics. We strongly recommend
+the use of XML-aware processing tools to process the corpus; see
+further <ptr target="#cdifsmop"/>. </p>
+<p>An XML document, such as the BNC consists of a single <term>root
+element</term>, within which are nested occurrences of other element
+types. All element occurrences are delimited by
+<term>tags</term>. There are two forms of tag, a
+<term>start-tag</term>, marking the beginning of an
+<term>element</term>, and an <term>end-tag</term> marking its end (in
+the case of <soCalled>empty elements</soCalled>, the two may be
+combined; see below).
+Tags are delimited by the characters &lt; and &gt;, and contain the
+name of the element (its <term>gi</term>, for <term>generic
+identifier</term>), preceded by a solidus (/) in the case of an
+end-tag.
+</p>
+<p>For example, a heading or title in a written text will be preceded
+by a tag of the form <gi>head</gi> and followed by a tag in the form
+<gi>/head</gi>. Everything between these two tags is regarded as the
+<term>content</term> of an <term>element</term> of type <gi>head</gi>.
+</p>
+<p><term>Attributes</term> applicable to element instances, if
+present, are also indicated within the start-tag, and take the form of
+an attribute name, an equals sign and the attribute value, in the form
+of a quoted literal. Attribute values are used
+for a variety of purposes, notably to represent the part of speech codes
+allocated to particular words by the CLAWS tagging scheme. 
+</p>
+<p>For example, the <gi>head</gi> element may take an attribute
+<att>type</att> which categorizes it in some way. A main heading
+will thus appear with a start tag <gi>head type="MAIN"</gi>, and a
+subheading with a start tag <gi>head type="SUB"</gi>. 
+</p>
+
+<p>The names of elements and attributes are case-significant, as are
+attribute values. The style adopted throughout the BNC scheme is to
+use lower-case letters for identifiers, unless they are derived from
+more than one word, in which case the first letter of the second and
+any subsequent word is capitalized: examples include
+<gi>teiHeader</gi> or <gi>particDesc</gi> (for <q>participant description</q>). </p>
+
+<p>Unless it is empty, every occurrence of an element
+must have both a start-tag and an end-tag. Empty elements may use a
+special syntax in which start and end-tags are combined together: for
+example, the point at which a page break occurs in an original source
+is marked <gi>pb/</gi> rather than <gi>pb>&lt;/pb</gi></p>
+
+<p>The BNC  is delivered in UTF-8 encoding: this means that almost
+all characters in the corpus are represented directly by the
+appropriate Unicode character. The chief exceptions are the ampersand
+(&amp;) which is always represented by the special string
+<code>&amp;amp;</code>, the double quotation mark, which is sometimes
+represented by the special string <code>&amp;quot;</code>, and the
+arithmetic less-than sign, which always appears as
+<code>&amp;lt;</code>. These <soCalled>named entity
+references</soCalled> use a syntactic convention of XML which is
+followed by this version of the corpus. All other characters,
+including accented letters such as é or special characters such as —,
+are represented directly.
+</p>
+
+<p>The number of linebreaks in the corpus has been reduced to a
+minimum in order to simplify processing by non-XML aware utilities. In particular:
+<list>
+<item>XML tags are never broken across linebreaks; </item>
+<item>the TEI Header prefixed to each text contains no
+linebreaks</item>
+<item>each <gi>s</gi> element begins on a new line</item>
+</list>. Many XML aware utilities are available to convert this representation as required.</p>
+
+ </div>
+
+<div xml:id="xml-eg"><head>An example</head>
+<p>Here is the opening of text J10 (a novel by Michael Pearce). In
+this example, as elsewhere, we have placed each element on a separate
+line for clarity; this is not a requirement of XML however.
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><wtext  type="FICTION"><pb n="5"/>
+<div level="1">
+  <head>
+    <s n="1">
+       <w c5="NN1" hw="chapter" pos="SUBST">CHAPTER </w>
+       <w c5="CRD" hw="1" pos="ADJ">1</w>
+    </s>
+  </head>
+  <p>
+    <s n="2">
+       <c c5="PUQ">‘</c>
+       <w c5="CJC" hw="but" pos="CONJ">But</w>
+       <c c5="PUN">,</c>
+       <c c5="PUQ">’ </c>
+       <w c5="VVD" hw="say" pos="VERB">said </w>
+       <w c5="NP0" hw="owen" pos="SUBST">Owen</w>
+       <c c5="PUN">,</c><c c5="PUQ">‘</c>
+       <w c5="AVQ" hw="where" pos="ADV">where </w>
+       <w c5="VBZ" hw="be" pos="VERB">is </w>
+       <w c5="AT0" hw="the" pos="ART">the </w>
+       <w c5="NN1" hw="body" pos="SUBST">body</w>
+       <c c5="PUN">?</c>
+       <c c5="PUQ">’</c>
+    </s>
+  </p>
+    ....
+ </div>
+</wtext></egXML>
+This example has been reformatted to make its structure more apparent:
+as noted above, in the actual corpus texts, newlines appear only at
+the start of each <gi>s</gi> element, rather than (as here) at the
+start of each element. The original files also lack the extra white
+space at the start of each line, used in the above example to indicate
+how the XML elements nest within one another.</p>
+
+<p>The example begins with the start tag for a <gi>wtext</gi>
+(written text) element,
+which bears a <att>type</att> attribute, the value of which is
+<code>FICTION</code>, the code used for texts derived from published
+fiction. The start tag is followed by an empty <gi>pb</gi> element,
+which provides the page number in the original source text. This in
+turn is followed by the start of a <gi>div</gi> element, which
+contains the first subdivision (chapter) of this text. This first
+chapter begins with a heading (marked by a <gi>head</gi> element)
+followed by a paragraph (marked by the <gi>p</gi> element). Further
+details and examples are provided for all of these elements and their
+functions elsewhere in this documentation. </p>
+
+<p>Each distinct word and punctuation mark in the text, as identified
+by the CLAWS tagger, has been separately tagged with a <gi>w</gi> or
+<gi>c</gi> element as appropriate. These elements both bear a
+<att>c5</att> attribute, which indicates the code from the CLAWS
+C5 tagset allocated to that word by the CLAWS POS-tagger; <gi>w</gi>
+elements also bear a <att>pos</att> attribute, which provides a less
+fine-grained part of speech classification for the word, and an
+<att>hw</att> attribute, which indicates the root form of the
+word. For example, the word <q>said</q> in this example has the CLAWS
+5 code <val>VVD</val>, the simplified POS tag <val>VERB</val>, and the
+headword <val>say</val>.  The sequence of words and punctuation marks
+making up a complete segment is tagged as an <gi>s</gi> element, and
+bears an <att>n</att> attribute, which supplies its sequence
+number within the text. A combination of text identifier (the three
+letter code) and <gi>s</gi> number may be used to reference any part
+of the corpus: the example above contains J10 1 and J10 2. </p>
+
+<p>This is not, of course, a complete text: in particular, it lacks
+the TEI header which is prefixed to each text file making up the
+corpus. Its purpose is to indicate how the corpus is encoded. Any XML
+aware processing software, including common Web browsers, should be
+able to operate directly on BNC texts in XML format. </p>
+<p>The remainder of this manual describes in more detail the intended
+semantics for each of the XML elements used in the corpus, with
+examples of their use. 
+</p></div>
+
+<div xml:id="cdif2"><head>Corpus and text elements</head> 
+<p>The BNC  contains a large number of
+<term>text samples</term>, some spoken and some written. Each such
+sample has some associated descriptive or bibliographic information
+particular to it, and there is also a large body of descriptive
+information which applies to the whole corpus.
+</p>
+
+<p>In XML terms, the corpus  consists of a single 
+element, tagged <gi>bnc</gi>.  This element contains a single
+<gi>teiHeader</gi> element, containing metadata which relates to the
+whole corpus, followed by a sequence of <gi>bncDoc</gi>
+elements. Each such <gi>bncDoc</gi> element contains its own
+<gi>teiHeader</gi>, containing metadata relating to that specific
+text, followed by either a <gi>wtext</gi> element (for
+written texts) or an <gi>stext</gi> element (for spoken texts). </p>
+
+<p>Each bncDoc element also carries an <att>xml:id</att> attribute, which
+supplies its standard three-character identifier.
+
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><bncDoc xml:id="ABC">
+<teiHeader>
+  <!-- header for document ABC here -->
+</teiHeader>
+<wtext type="FICTION">
+  <!-- sentences from ABC (a written text classified as fiction) here -->
+</wtext>
+</bncDoc>
+</egXML>
+</p>
+<p>The components of the TEI header are fully documented in section <ptr
+target="#cdifhd"/>. <!-- Further discussion of XML concepts and practices
+is provided in section <ptr target="#cdifsmop"/>.-->
+</p>
+
+<p>Note that different elements are used for spoken and written texts
+because each has a different substructure; this represents a departure
+from <abbr>TEI</abbr> recommended practice.   
+</p>
+<p>The function of these elements and their attributes may be summarized as follows:
+<specList><specDesc key="wtext" atts="type"/><specDesc
+key="stext" atts="type"/></specList>
+ </p></div> 
+
+<div xml:id="cdifcomp"><head>Segments and words</head> 
+
+<p>The <gi>s</gi> element is the basic organizational principle for
+the whole corpus: every text, spoken or written, is represented as a
+sequence of <gi>s</gi> elements, possibly grouped into
+higher-level constructs, such as paragraphs or utterances. Each
+<gi>s</gi> element in turn contains <gi>w</gi> or <gi>c</gi> elements
+representing words and punctuation marks.</p>
+
+<p>The <att>n</att> attribute is used to provide a sequential
+number for the <gi>s</gi> element to which it is attached. To identify any part of the corpus
+uniquely therefore, all that is needed is the three character text
+identifier (given as the value of the attribute <att>xml:id</att>
+on the <gi>bncDoc</gi> containing the text, followed by the value of
+the <att>n</att> attribute of the <gi>s</gi> element containing
+the passage to be identified.</p>
+
+<p>These numbers are, as far as possible, preserved across versions of
+the corpus, to facilitate referencing. This implies that the sequence
+numbering may have gaps, where duplicate sequences or segmentation
+errors have been identified and removed from the corpus. In a few
+(about 700) cases, sequences formerly regarded as a single <gi>s</gi>
+have subsequently been split into two or more <gi>s</gi> units. For
+compatibility with previous versions of the corpus, the same number is
+retained for each new <gi>s</gi>, but it is suffixed by a fragment
+number. For example, in text A18, the <gi>s</gi> formerly numbered
+1307, has now been replaced by two <gi>s</gi> elements, numbered
+1307_1 and 1307_2 respectively. </p>
+
+<p> Fragmentary sentences such as headings or labels in lists are
+also encoded as <gi>s</gi> elements, as in the following example from
+text CBE:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><div type="u">
+<head type="MAIN">
+  <s n="835">
+   <w c5="AJ0" hw="serious" pos="ADJ">Serious </w>
+   <w c5="NN1" hw="fit" pos="SUBST">fit </w>
+   <w c5="PRF" hw="of" pos="PREP">of </w>
+   <w c5="NN2" hw="giggle" pos="SUBST">giggles</w>
+  </s>
+</head>
+<p>
+<s n="836">
+   <w c5="AT0" hw="a" pos="ART">A </w>
+   <w c5="NN0" hw="pair" pos="SUBST">PAIR </w>
+   <w c5="PRF" hw="of" pos="PREP">of </w>
+   <w c5="NN1" hw="tv" pos="SUBST">TV </w>
+   <w c5="NN2" hw="newsreader" pos="SUBST">newsreaders </w>
+... 
+</s>...</p> ... </div></egXML> 
+</p>
+<p>As noted above, at the lowest level, the corpus consists of
+<gi>w</gi> (word) and <gi>c</gi> (punctuation) elements, grouped into
+<gi>s</gi> (segment) elements. Each <gi>w</gi> element contains three
+attributes to indicate its morphological class or part of speech, as
+determined by the CLAWS tagger, a simplified form of that POS code,
+and an automatically-derived root form or lemma. Each <gi>c</gi>
+element also carries codes for part of speech, but not for lemma. For
+example, the word <soCalled>corpora</soCalled> wherever it appears in
+the BNC is presented like this: <egXML xmlns="http://www.tei-c.org/ns/Examples"><w c5="NN2" pos="SUBST"
+hw="corpus">corpora </w></egXML></p>
+
+<p>Any white space following a word in the original source is
+preserved within the <gi>w</gi> tag, as in the previous example. White
+space is not added if no space is present in the source, as in the
+following example:
+
+ <egXML xmlns="http://www.tei-c.org/ns/Examples"><w c5="NN2" pos="SUBST" hw="corpus">corpora</w><c c5="PUN" pos="PUN">. </c></egXML></p>
+
+ <p>The <gi>w</gi> element encloses a single token as identified by
+ the CLAWS tagger. Usually this willl correspond with a word as
+ conventionally spelled; there are however two important
+ exceptions. Firstly, CLAWS regards certain common abbreviated or
+ enclitic forms such as <soCalled>'s</soCalled> in
+ <soCalled>he's</soCalled> or <soCalled>dog's</soCalled> as distinct tokens, thus
+ enabling it to distinguish them as being an auxiliary verb in the
+ first case, and a genitive marker in the second.  For example,
+ <soCalled>It's</soCalled> is encoded as follows:
+<egXML xmlns="http://www.tei-c.org/ns/Examples">
+<w c5="PNP" hw="it" pos="PRON">It</w>
+<w c5="VBZ" hw="be" pos="VERB">'s </w>
+</egXML>while <soCalled>dog's</soCalled> is encoded:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><w c5="NN1" hw="dog" pos="SUBST">dog</w>
+<w c5="POS" hw="'s" pos="UNK">'s </w> </egXML></p>
+<p> Secondly, CLAWS treats certain common multi-word units as if they
+were single tokens, giving the whole of a sequence such as
+<soCalled>in spite of</soCalled> a single POS code. These multiword
+sequences were not distinguished from individual <gi>w</gi> elements
+in earlier versions of the corpus; in the present version however a
+new element <gi>mw</gi> (for multiword) has been introduced to mark
+them explicitly. The individual components of a <gi>mw</gi> sequence
+are also tagged as <gi>w</gi> elements in the same way as
+elsewhere. Thus, the phrase <soCalled>in terms of</soCalled>, which
+in earlier editions of the BNC would have been encoded as a single
+<gi>w</gi> element, is now encoded as follows:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><mw c5="PRP">
+ <w c5="PRP" hw="in" pos="PREP">in </w>
+ <w c5="NN2" hw="term" pos="SUBST">terms </w>
+ <w c5="PRF" hw="of" pos="PREP">of
+</w></mw></egXML>
+</p>
+
+<p>Detailed information about the procedures by which the part of
+speech and lemmatization information was added to the corpus is
+provided in section <ptr target="#posguide"/>, which is derived from 
+the <title>Manual to accompany The British National Corpus
+(Version 2) with Improved Word-class Tagging</title> by Geoffrey Leech
+and Nicholas Smith, as distributed along with the BNC World
+edition of the corpus. 
+A brief summary of the codes used and their significance is also
+provided in the reference section below
+(<ptr target="#bnctags"/>).
+
+<specList>
+<specDesc key="s" atts="n"/>
+<specDesc key="w" atts="pos c5 hw"/>
+<specDesc key="c" atts="pos c5"/>
+<specDesc key="mw" atts="c5"/>
+</specList>
+</p>
+</div>
+
+<div xml:id="cdifed"><head>Editorial indications</head> 
+<p>Despite the best efforts of its creators, any corpus as large as
+the BNC will inevitably contain many errors, both in transcription and
+encoding.  Every attempt has been made to reduce the incidence of such
+errors to an acceptable level, using a number of automatic and
+semi-automatic validation and correction procedures, but exhaustive
+proof-reading of a corpus of this size remains economically
+infeasible. Editorial interventions in the marked up texts take three forms. On a
+few occasions, where markup or commentary introduced by transcribers
+during the process of creating the corpus may be helpful to subsequent
+users, it has been retained in the form of an XML comment. On some
+occasions, encoders have decided to correct material evidently wrong
+in their copy text: such corrections are marked using the
+<gi>corr</gi> element. And on several occasions, sampling,
+anonymization or other concerns, have led to the omission of
+significant parts of the original source; such omissions are marked by
+means of the <gi>gap</gi> element. </p>
+
+<p>The transcription and editorial policies defined for the corpus may
+not have been applied uniformly by different transcribers and
+consequently the usage of these elements is not consistent across all
+texts. The <gi>tagsDecl</gi> element in each text's header may be
+consulted for an indication of the usage of these and other elements
+within it (see further section <ptr target="#hdenc"/>). Their absence
+should not be taken to imply that the text is either complete or
+perfectly transcribed.
+</p>
+
+
+<p>In the following example, the first three chapters have been omitted
+for sampling reasons:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><wtext  type="FICTION">
+<div level="1" n="1">
+<head>
+  <s n="1">
+    <w c5="NP0" hw="friday" pos="SUBST">Friday </w>
+    <w c5="CRD" hw="16" pos="ADJ">16 </w>
+    <w c5="NP0" hw="september" pos="SUBST">September </w>
+    <w c5="PRP" hw="to" pos="PREP">to </w>
+    <w c5="NP0" hw="tuesday" pos="SUBST">Tuesday </w>
+    <w c5="CRD" hw="20" pos="ADJ">20 </w>
+    <w c5="NP0" hw="september" pos="SUBST">September</w>
+  </s>
+</head>
+<gap desc="chapters 1–3 of book 1" reason="sampling strategy"/>
+<pb n="17"/>
+<div level="2" n="4">
+<p>
+  <s n="2">
+    <w c5="AV0" hw="once" pos="ADV">Once </w>
+    <w c5="AJ0" hw="free" pos="ADJ">free </w>
+    <w c5="PRF" hw="of" pos="PREP">of </w>
+    <w c5="AT0" hw="the" pos="ART">the </w>
+    <w c5="AJ0" hw="knotted" pos="ADJ">knotted </w>
+    <w c5="NN2" hw="tentacle" pos="SUBST">tentacles </w><w c5="PRF"
+    hw="of" pos="PREP">of </w><w c5="AT0" hw="the" pos="ART">the
+</w><w c5="AJ0" hw="eastern" pos="ADJ">eastern </w><w c5="NN2"
+hw="suburb" pos="SUBST">suburbs</w><c c5="PUN">, </c><w c5="NP0"
+hw="dalgliesh" pos="SUBST">Dalgliesh </w><w c5="VVD" hw="make"
+pos="VERB">made </w><w c5="AJ0" hw="good" pos="ADJ">good </w><w
+c5="NN1" hw="time" pos="SUBST">time </w><w c5="CJC" hw="and"
+pos="CONJ">and </w><w c5="PRP" hw="by" pos="PREP">by </w><w c5="CRD"
+hw="three" pos="ADJ">three </w><w c5="PNP" hw="he" pos="PRON">he
+</w><w c5="VBD" hw="be" pos="VERB">was </w><w c5="VVG" hw="drive"
+pos="VERB">driving </w><w c5="PRP" hw="through" pos="PREP">through
+</w><w c5="NP0" hw="lydsett" pos="SUBST">Lydsett </w><w c5="NN1"
+hw="village" pos="SUBST">village</w><c c5="PUN">.</c></s></p>... </div>...</div></wtext><!-- C8T --></egXML> 
+</p>
+<p>In the following example, a proper name has been omitted: 
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><s n="547">
+  <w c5="PNP" hw="i" pos="PRON">I </w>
+  <w c5="VVD" hw="ask" pos="VERB">asked </w>
+  <w c5="NP0" hw="mr" pos="SUBST">Mr  </w>
+  <gap desc="name" reason="anonymization"/>
+  <w c5="CJC" hw="and" pos="CONJ">and   </w>
+...</s><!-- KBC --></egXML> 
+</p>
+<p>In the following example, a telephone number has been omitted:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><s n="762"><w c5="PNP" hw="he" pos="PRON">He </w><w c5="VVD" hw="appeal" pos="VERB">appealed </w><w c5="PRP" hw="for" pos="PREP">for </w><w c5="PNI" hw="anyone" pos="PRON">anyone </w><w c5="PRP" hw="with" pos="PREP">with </w><w c5="NN1" hw="information" pos="SUBST">information </w><w c5="TO0" hw="to" pos="PREP">to </w><w c5="VVI" hw="contact" pos="VERB">contact </w><w c5="PNP" hw="he" pos="PRON">him </w><w c5="AVP" hw="on" pos="ADV">on </w><gap desc="telephone number"/><c c5="PUN">.</c></s><!-- K3C --></egXML>
+</p>
+<p>In the following example, a typographic error in the original has been
+corrected:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><s n="48">...
+<w c5="AJ0" hw="good" pos="ADJ">good </w>
+<w c5="CJC" hw="or" pos="CONJ">or </w>
+<corr sic="herioc"> 
+   <w c5="AJ0" hw="heroic" pos="ADJ">heroic </w>
+</corr>
+<w c5="NN1" hw="behaviour" pos="SUBST">behaviour</w>
+...</s><!-- B17 --></egXML> 
+</p>
+<p>In the following example, a word ommitted in the original has been
+supplied as correction:
+<egXML xmlns="http://www.tei-c.org/ns/Examples"><s n="1838"><mw
+								c5="PRP"><w c5="AV0" hw="apart" pos="ADV">Apart </w><w c5="PRP" hw="from" pos="PREP">from </w></mw><w c5="DT0" hw="some" pos="ADJ">some </w><w c5="NN1" hw="eye-liner" pos="SUBST">eye-liner </w><w c5="NN2" hw="aberration" pos="SUBST">aberrations </w><w c5="PRP" hw="as" pos="PREP">as </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="NN1" hw="teenager" pos="SUBST">teenager</w><c c5="PUN">, </c><w c5="NP0" hw="mr" pos="SUBST">Mr </w><w c5="NP0" hw="punch" pos="SUBST">Punch</w><c c5="PUN">, </c><w c5="PNP" hw="it" pos="PRON">it </w><w c5="VM0" hw="must" pos="VERB">must </w><corr sic=""> <w c5="VBI" hw="be" pos="VERB">be </w></corr><w c5="VVN" hw="say" pos="VERB">said</w><c c5="PUN">, </c><w c5="VBZ" hw="be" pos="VERB">is </w><w c5="AV0" hw="absolutely" pos="ADV">absolutely </w><w c5="AJ0" hw="straight" pos="ADJ">straight </w><w c5="PRP-CJS" hw="as" pos="PREP">as </w><w c5="AT0" hw="a" pos="ART">a </w><w c5="NN1-VVB" hw="die" pos="SUBST">die</w><c c5="PUN">.</c></s><!-- BNT --></egXML> 
+</p>
+
+
+<p>The usage of these elements may be summarized as follows:
+
+<specList>
+<specDesc key="gap" atts="desc reason resp"/>
+<specDesc key="corr" atts="sic rend resp"/>
+</specList>
+
+<!-- why doesnt corr get resp from the same class as gap? -->
+
+Note that the <gi>sic</gi> element used in preceding editions of the
+BNC is no longer used.</p>
+</div>
+
+</div>

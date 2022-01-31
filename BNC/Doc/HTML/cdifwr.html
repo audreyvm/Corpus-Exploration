@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Written texts</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Written texts">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="subsection" id="cdifwr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">3  Written texts</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="cdifbase.html">2  Basic structure</a><i> Next: </i><a class="navigation" href="cdifsp.html">4  Spoken texts</a></p>
+<div class="teidiv1" id="cdif21">
+<h3>3.1  Divisions of written texts</h3>
+<div class="p">
+<span id="id2348492"></span>Written texts exhibit a rich variety of different structural
+forms. Some have very little organization at levels higher than the
+paragraphs; others may have a complex hierarchy of parts, sections,
+chapters etc. Novels are divided into chapters, newspapers into
+sections, reference works into articles and so forth. In the BNC all
+such structural divisions are represnted uniformly by means of the
+<code>&lt;div&gt;</code> element.
+
+<ul class="specList"><li>
+<b>&lt;<a href="ref-div.html">div</a>&gt;</b> (text division) contains a subdivision of the front, body, or back of a
+text.<table class="attList">
+<tr>
+<td class="Attribute">n</td>
+<td colspan="2">supplies an additional name or number for this division, taken
+from the original source.</td>
+</tr>
+<tr>
+<td class="Attribute">level</td>
+<td colspan="2">specifies the hierarchic level of this division as a number
+between  1 (outermost or largest division) and 4
+(innermost or smallest).</td>
+</tr>
+<tr>
+<td class="Attribute">type</td>
+<td colspan="2">identifies the type or function of the division (for a written text).</td>
+</tr>
+</table>
+</li></ul>
+</div>
+<div class="p">
+<span id="id2348515"></span>In written texts, the <span class="att">n</span> attribute is sometimes used to supply an
+identifying name or number used within the text for a given division,
+for example, a chapter number, as in the following example: 
+<div class="pre"> <span class="element">&lt;div <span class="attribute">type</span>="chapter" <span class="attribute">n</span>="three" <span class="attribute">level</span>="1"&gt;</span>...<span class="element">&lt;/div&gt;</span></div>More often, however, chapter names or numbers will appear within
+the text, tagged using the <code>&lt;head&gt;</code> element discussed in section
+<a class="link_ptr" href="cdifwr.html#cdif51" title="Headings and captions">3.2.1  Headings and captions</a> below. </div>
+<p><span id="id2348549"></span>The value of the attribute <span class="att">type</span> is used to
+characterise the function of the textual division (see the <a class="link_ref" href="./urg.html#div" title="reference documentation">reference documentation</a> for the values used). If a value is supplied for one
+division at a given level, it may be assumed to apply to all
+subsequent divisions at the same level until the end of the enclosing
+element, although it is not always explicitly specified.
+</p>
+<p><span id="id2348568"></span>Where <code>&lt;div&gt;</code> levels are nested, for example where the
+chapters of a novel are grouped into parts each of which may have its own
+title or number, the <span class="att">level</span> attribute is used to
+indicate the depth of nesting. This is not strictly necessary (since
+an XML-aware processor retains this information) but has been added
+for the convenience of users of previous versions of the corpus, in
+which the level was explicitly coded into the name of the surrounding
+element (<code>&lt;div1&gt;</code>, <code>&lt;div2&gt;</code> etc.) </p>
+<div class="p">
+<span id="id2348593"></span>In text ANY, for example, each chapter of the original novel
+corresponds with a <code>&lt;div level="2"&gt;</code>, because the work contains
+groups of chapters, each of which begins with a page containing
+just a date. The opening
+of the text is therefore encoded as follows:
+<div class="pre"> <span class="element">&lt;wtext <span class="attribute">type</span>="FICTION"&gt;</span><br/>  <span class="element">&lt;div <span class="attribute">level</span>="1" <span class="attribute">n</span>="1"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="monday" <span class="attribute">pos</span>="SUBST"&gt;</span>Monday<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="january" <span class="attribute">pos</span>="SUBST"&gt;</span>January <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="ORD" <span class="attribute">hw</span>="13th" <span class="attribute">pos</span>="ADJ"&gt;</span>13th<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="1986" <span class="attribute">pos</span>="ADJ"&gt;</span>1986<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;div <span class="attribute">level</span>="2" <span class="attribute">n</span>="1"&gt;</span><br/>    <span class="element">&lt;p&gt;</span><br/>     <span class="element">&lt;s <span class="attribute">n</span>="2"&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="victor" <span class="attribute">pos</span>="SUBST"&gt;</span>Victor <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="wilcox" <span class="attribute">pos</span>="SUBST"&gt;</span>Wilcox <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="VVZ" <span class="attribute">hw</span>="lie" <span class="attribute">pos</span>="VERB"&gt;</span>lies <span class="element">&lt;/w&gt;</span><br/>      <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="awake" <span class="attribute">pos</span>="ADJ"&gt;</span>awake<span class="element">&lt;/w&gt;</span><br/>     ...<br/>       <span class="element">&lt;/s&gt;</span><br/>    <span class="element">&lt;/p&gt;</span><br/>   <span class="element">&lt;/div&gt;</span><br/>  <span class="element">&lt;/div&gt;</span>...<span class="element">&lt;/wtext&gt;</span><br/>&lt;!-- ANY --&gt;</div>
+</div>
+<p><span id="id2348733"></span>Note however that in some texts initial sentences (like &#8216;Monday, January
+13th, 1986&#8217; above) may have been misplaced, so that they appear at the start
+of an inner <code>&lt;div&gt;</code> rather than the start of its parent.</p>
+<p><span id="id2348745"></span>A sequence of paragraph-level elements of arbitrary length may
+precede the first structural subdivision at any level. A text may have
+no structural divisions within it at all. Note that any prefatory or
+appended matter not forming part of a text will not generally be
+captured: the tei elements <code>&lt;front&gt;</code> and
+<code>&lt;back&gt;</code> elements are not used. </p>
+</div>
+<div class="teidiv1" id="cdif5">
+<h3>3.2  Paragraph-level elements and chunks</h3>
+<div class="p">
+<span id="id2348775"></span>Written texts may be organized into structural units containing more
+than one <code>&lt;s&gt;</code> element and smaller than any of the divisions
+discussed in section <a class="link_ptr" href="cdifwr.html#cdif21" title="Divisions of written texts">3.1  Divisions of written texts</a> above. The most commonly
+found such element is the <code>&lt;p&gt;</code> (paragraph):
+
+<ul class="specList"><li>
+<b>&lt;<a href="ref-p.html">p</a>&gt;</b> (paragraph) marks paragraphs in prose.</li></ul>
+
+Several other elements may however appear directly within <code>&lt;div&gt;</code>
+or within <code>&lt;text&gt;</code> elements, not nested within some other element
+such as a paragraph. An list of these elements
+follows:
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-head.html">head</a>&gt;</b> (heading) contains any type of heading, for example the title of a section
+or a poem.<table class="attList">
+<tr>
+<td class="Attribute">type</td>
+<td colspan="2">describes the kind of heading.</td>
+</tr>
+<tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr>
+</table>
+</li>
+<li>
+<b>&lt;<a href="ref-quote.html">quote</a>&gt;</b> (quotation) contains a phrase or passage attributed by the narrator or
+  author to some agency external to the text.<table class="attList"><tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-sp.html">sp</a>&gt;</b> (speech) An individual speech in a performance text, or a passage
+	  presented as such in a prose or verse text.<table class="attList"><tr>
+<td class="Attribute">who</td>
+<td colspan="2">indicates the person, or group of
+	people, to whom the element content is ascribed.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-lg.html">lg</a>&gt;</b> (line group) contains a group of verse lines functioning as a formal unit,
+e.g. a stanza, refrain, verse paragraph, etc.</li>
+<li>
+<b>&lt;<a href="ref-list.html">list</a>&gt;</b> contains any sequence of items organized as a list.</li>
+<li>
+<b>&lt;<a href="ref-note.html">note</a>&gt;</b> contains a note or annotation.<table class="attList">
+<tr>
+<td class="Attribute">place</td>
+<td colspan="2">specifies where the note is placed in the original source.</td>
+</tr>
+<tr>
+<td class="Attribute">n</td>
+<td colspan="2">internal identifier.</td>
+</tr>
+</table>
+</li>
+<li>
+<b>&lt;<a href="ref-bibl.html">bibl</a>&gt;</b> (bibliographic citation) contains any bibliographic reference, occurring either within
+the header of a written corpus text in which case it has a fixed
+substructure, or within the body of a corpus text, in which case it
+contains only s elements.<table class="attList"><tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr></table>
+</li>
+</ul>
+</div>
+<p><span id="id2348858"></span>Each of these elements contains one or more <code>&lt;s&gt;</code> elements, as
+discussed above; in some cases enclosed by an intermediate
+element. They are used chiefly to indicate the function of sections of
+the text, as indicated in the list above. </p>
+<p><span id="id2348868"></span>The following sections provide examples for the use of each of
+these elements.</p>
+<div class="bum" id="cdif51">
+<h4>3.2.1  Headings and captions</h4>
+<div class="p">
+<span id="id2348883"></span> One or more <code>&lt;head&gt;</code> elements of specified types may appear in sequence at the
+start of any <code>&lt;div&gt;</code> element, or at the start of a <code>&lt;list&gt;</code> or
+<code>&lt;poem&gt;</code>, as in the following examples:. 
+<div class="pre"> <span class="element">&lt;div <span class="attribute">level</span>="1" <span class="attribute">n</span>="1"&gt;</span><br/>  <span class="element">&lt;head <span class="attribute">type</span>="MAIN"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="ageism" <span class="attribute">pos</span>="SUBST"&gt;</span>AGEISM<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/head&gt;</span><br/>  <span class="element">&lt;head <span class="attribute">type</span>="SUB"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="2"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>THE <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="foundation" <span class="attribute">pos</span>="SUBST"&gt;</span>FOUNDATION <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>OF <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="age" <span class="attribute">pos</span>="SUBST"&gt;</span>AGE <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="discrimination" <span class="attribute">pos</span>="SUBST"&gt;</span>DISCRIMINATION<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/head&gt;</span><br/>  <span class="element">&lt;head <span class="attribute">type</span>="BYLINE"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="3"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="steve" <span class="attribute">pos</span>="SUBST"&gt;</span>STEVE <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NP0-NN1" <span class="attribute">hw</span>="scrutton" <span class="attribute">pos</span>="SUBST"&gt;</span>SCRUTTON<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/head&gt;</span>...<span class="element">&lt;/div&gt;</span><br/>&lt;!-- B01  --&gt;</div>
+</div>
+<p><span id="id2349021"></span>As shown above, the <span class="att">type</span> attribute is used to distinguish more
+exactly the function of a heading.</p>
+<p><span id="id2349029"></span>Note that, in the BNC, captions or headings which &#8216;float&#8217; within the text,
+that is, which appear elsewhere than at the very beginning of the
+section which they name, are not encoded as <code>&lt;head&gt;</code> elements. A <code>&lt;head&gt;</code> element
+can appear only at the start of a text division and is logically
+associated with it (for example, chapter titles, newspaper headlines
+etc.). Paragraphs which provide heading or captioning information,
+but which are logically independent of
+their position within a textual division (for example,
+captions attached to pictures or figures,
+or &#8216;pull-quotes&#8217; embedded within the text) are represented in the same way as any other
+paragraph of text, using the <code>&lt;p&gt;</code> element, but specifying the
+value <tt>caption</tt> in their rend attribute.</p>
+<div class="p">
+<span id="id2349069"></span>In the following example, the <code>&lt;head&gt;</code> element is followed by
+a number of captions introducing particular parts of
+a magazine story: <div class="pre"> <span class="element">&lt;div <span class="attribute">level</span>="1"&gt;</span><br/>  <span class="element">&lt;head&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="40"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="trousers" <span class="attribute">pos</span>="SUBST"&gt;</span>TROUSERS <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB-NN1" <span class="attribute">hw</span>="suit" <span class="attribute">pos</span>="VERB"&gt;</span>SUIT<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/head&gt;</span><br/>  <span class="element">&lt;p <span class="attribute">type</span>="caption"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="41"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="EX0" <span class="attribute">hw</span>="there" <span class="attribute">pos</span>="PRON"&gt;</span>There <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNI" <span class="attribute">hw</span>="nothing" <span class="attribute">pos</span>="PRON"&gt;</span>nothing
+<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="masculine" <span class="attribute">pos</span>="ADJ"&gt;</span>masculine <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="about" <span class="attribute">pos</span>="PREP"&gt;</span>about <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="these" <span class="attribute">pos</span>="ADJ"&gt;</span>these
+<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="new" <span class="attribute">pos</span>="ADJ"&gt;</span>new <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="trousers" <span class="attribute">pos</span>="SUBST"&gt;</span>trouser <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVZ-NN2" <span class="attribute">hw</span>="suit" <span class="attribute">pos</span>="VERB"&gt;</span>suits
+<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="in" <span class="attribute">pos</span>="PREP"&gt;</span>in <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="summer" <span class="attribute">pos</span>="SUBST"&gt;</span>summer<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="POS" <span class="attribute">hw</span>="'s" <span class="attribute">pos</span>="UNC"&gt;</span>'s <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="soft" <span class="attribute">pos</span>="ADJ"&gt;</span>soft <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="pastel" <span class="attribute">pos</span>="SUBST"&gt;</span>pastels<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span>...<span class="element">&lt;/p&gt;</span>...<span class="element">&lt;/div&gt;</span><br/>&lt;!--C8B --&gt;</div>
+</div>
+</div>
+<div class="teidiv2" id="cdif52">
+<h4>3.2.2  Quotations</h4>
+<p><span id="id2349254"></span>A quotation is an extract from some other work than the text itself
+which is embedded within it, for example as an epigraph or illustration.
+It is marked up using the <code>&lt;quote&gt;</code> element. This may contain any
+combination of other chunks (for example paragraphs, poems, lists) but
+may not directly contain <code>&lt;w&gt;</code> or <code>&lt;s&gt;</code> elements. A reference for the
+citation may also be contained within it.
+</p>
+<div class="p">
+<span id="id2349274"></span>For example: 
+<div class="pre"> <span class="element">&lt;quote&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="2080"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="this" <span class="attribute">pos</span>="ADJ"&gt;</span>This <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="way" <span class="attribute">pos</span>="SUBST"&gt;</span>way <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="for" <span class="attribute">pos</span>="PREP"&gt;</span>for
+<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="sorrowful" <span class="attribute">pos</span>="ADJ"&gt;</span>sorrowful <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="city" <span class="attribute">pos</span>="SUBST"&gt;</span>city<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  ...<br/>  <span class="element">&lt;s <span class="attribute">n</span>="2083"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="abandon" <span class="attribute">pos</span>="VERB"&gt;</span>Abandon <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="all" <span class="attribute">pos</span>="ADJ"&gt;</span>all <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="hope" <span class="attribute">pos</span>="SUBST"&gt;</span>hope<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNQ" <span class="attribute">hw</span>="who" <span class="attribute">pos</span>="PRON"&gt;</span>who <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="enter" <span class="attribute">pos</span>="VERB"&gt;</span>enter<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8230;<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;bibl&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="2084"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="dante" <span class="attribute">pos</span>="SUBST"&gt;</span>Dante<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/bibl&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/> <span class="element">&lt;/quote&gt;</span><br/>&lt;!-- C8L --&gt;</div>
+</div>
+</div>
+<div class="teidiv2" id="cdif5x">
+<h4>3.2.3  Spoken paragraphs</h4>
+<div class="p">
+<span id="id2349433"></span>As noted above, the <code>&lt;sp&gt;</code> element is used to mark parts of a
+written text which were or are intended to be spoken, for example the
+speeches in a dramatic text or a published interview. Such parts are
+generally readily identifiable by the use of such conventions as speaker
+prefixes (the label supplying the name of the speaker) and stage
+directions, for which the following additional elements are used:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-speaker.html">speaker</a>&gt;</b> A specialized form of heading or label, giving the name of
+one or more speakers in a dramatic text or fragment.</li>
+<li>
+<b>&lt;<a href="ref-stage.html">stage</a>&gt;</b> (stage direction) contains any kind of stage direction within a dramatic text or
+fragment.<table class="attList"><tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr></table>
+</li>
+</ul>
+</div>
+<p><span id="id2349465"></span>The <code>&lt;sp&gt;</code> element is used only for speech which is presented
+as such in a written text, by contrast with  the element <code>&lt;u&gt;</code>
+discussed in section <a class="link_ptr" href="cdifsp.html#cdifspu" title="Utterances">4.2  Utterances</a>, which is used <em>only</em>
+for speaker turns identified in a spoken text, i.e. one which has been
+transcribed from audio tape.
+</p>
+<p><span id="id2349487"></span>If present, a <code>&lt;speaker&gt;</code> element will  appear only at the start of
+the
+<code>&lt;sp&gt;</code> element, followed by one or more <code>&lt;p&gt;</code> elements
+containing the actual speech. </p>
+<div class="p">
+<span id="id2349503"></span>Here is an example of a stage direction occurring within a speech:
+<div class="pre"> <span class="element">&lt;sp&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1115"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="seven" <span class="attribute">pos</span>="ADJ"&gt;</span>Seven <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="book" <span class="attribute">pos</span>="SUBST"&gt;</span>books <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="week" <span class="attribute">pos</span>="SUBST"&gt;</span>week<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/>  <span class="element">&lt;stage <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1119"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="he" <span class="attribute">pos</span>="PRON"&gt;</span>He <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVZ" <span class="attribute">hw</span>="dance" <span class="attribute">pos</span>="VERB"&gt;</span>dances<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/stage&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1122"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="library" <span class="attribute">pos</span>="SUBST"&gt;</span>Library <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="book" <span class="attribute">pos</span>="SUBST"&gt;</span>books<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/> <span class="element">&lt;/sp&gt;</span><br/>&lt;!-- A06 --&gt;</div>
+</div>
+<div class="p">
+<span id="id2349634"></span>These elements appear frequently in formal transcriptions of
+written proceedings, notably those parts of the BNC which are
+extracted from Hansard:
+<div class="pre"> <span class="element">&lt;sp&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="20468"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="that" <span class="attribute">pos</span>="ADJ"&gt;</span>That <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="millionaire" <span class="attribute">pos</span>="SUBST"&gt;</span>millionaire <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="mammy" <span class="attribute">pos</span>="SUBST"&gt;</span>mammy<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="POS" <span class="attribute">hw</span>="'s" <span class="attribute">pos</span>="UNC"&gt;</span>'s <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="boy" <span class="attribute">pos</span>="SUBST"&gt;</span>boy <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212;<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;stage&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="20469"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="interruption" <span class="attribute">pos</span>="SUBST"&gt;</span>Interruption<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/stage&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/> <span class="element">&lt;/sp&gt;</span><br/> <span class="element">&lt;sp&gt;</span><br/>  <span class="element">&lt;speaker&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="20470"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="mr." <span class="attribute">pos</span>="SUBST"&gt;</span>Mr. <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="speaker" <span class="attribute">pos</span>="SUBST"&gt;</span>Speaker<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/speaker&gt;</span><br/>  <span class="element">&lt;p&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="20471"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1-VVB" <span class="attribute">hw</span>="order" <span class="attribute">pos</span>="SUBST"&gt;</span>Order<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="20472"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="that" <span class="attribute">pos</span>="ADJ"&gt;</span>That <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="XX0" <span class="attribute">hw</span>="not" <span class="attribute">pos</span>="ADV"&gt;</span>not <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="wholly" <span class="attribute">pos</span>="ADV"&gt;</span>wholly <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="unparliamentary" <span class="attribute">pos</span>="ADJ"&gt;</span>unparliamentary<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/> <span class="element">&lt;/sp&gt;</span><br/>&lt;!-- HHV --&gt;</div>
+</div>
+</div>
+<div class="teidiv2" id="cdif53">
+<h4>3.2.4  Poetry</h4>
+<p><span id="id2349817"></span>Poetry is distinguished from prose in the BNC where it is so
+presented in the original, for example as fragments of verse or song appearing within or
+between paragraphs of prose. The <code>&lt;l&gt;</code> (line) element is used to mark each
+verse line; where there are several such lines, perhaps with a
+heading, they are grouped together using the <code>&lt;lg&gt;</code> (linegroup) element, and any title or heading present is marked with a
+<code>&lt;head&gt;</code> element. </p>
+<div class="p">
+<span id="id2349838"></span>For example: 
+
+<div class="pre"> <span class="element">&lt;lg&gt;</span><br/>  <span class="element">&lt;l&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="906"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>I <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="send" <span class="attribute">pos</span>="VERB"&gt;</span>send <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DPS" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>my <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="soul" <span class="attribute">pos</span>="SUBST"&gt;</span>soul <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="through" <span class="attribute">pos</span>="PREP"&gt;</span>through <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="time" <span class="attribute">pos</span>="SUBST"&gt;</span>time <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1-VVB" <span class="attribute">hw</span>="space" <span class="attribute">pos</span>="SUBST"&gt;</span>space <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="TO0" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="greet" <span class="attribute">pos</span>="VERB"&gt;</span>greet <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/l&gt;</span><br/>  <span class="element">&lt;l&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="907"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>You <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VBD" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>were <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="poet" <span class="attribute">pos</span>="SUBST"&gt;</span>poet<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="908"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>You <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="will" <span class="attribute">pos</span>="VERB"&gt;</span>will <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="understand" <span class="attribute">pos</span>="VERB"&gt;</span>understand<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/l&gt;</span><br/> <span class="element">&lt;/lg&gt;</span><br/>&lt;!-- CCB --&gt;</div>
+</div>
+<p><span id="id2350032"></span>Note that the <code>&lt;l&gt;</code> element is not used to mark typographic
+lineation. Layout information is not, in general, preserved in the BNC.</p>
+</div>
+<div class="teidiv2" id="cdif54">
+<h4>3.2.5  Lists</h4>
+<div class="p">
+<span id="id2350048"></span>A list is a collection of distinct items flagged as such by special 
+layout  in written texts, often functioning as a single  syntactic unit.
+ Lists may appear within or between paragraphs. Where marked, lists are
+tagged with the <code>&lt;list&gt;</code> element, which may contain the following
+subelements:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-head.html">head</a>&gt;</b> (heading) contains any type of heading, for example the title of a section
+or a poem.</li>
+<li>
+<b>&lt;<a href="ref-label.html">label</a>&gt;</b> contains the label associated with an item in a list; in
+glossaries, marks the term being defined.<table class="attList"><tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-item.html">item</a>&gt;</b> contains one
+component of a list.<table class="attList"><tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr></table>
+</li>
+</ul>
+</div>
+<p><span id="id2350080"></span>A <code>&lt;list&gt;</code> element consists of an optional <code>&lt;head&gt;</code>
+element, followed by one or more <code>&lt;item&gt;</code> elements, each of which
+may optionally be preceded by a <code>&lt;label&gt;</code> element, used to hold
+the identifier or tag sometimes attached to a list item, for example
+&#8216;(a)&#8217;.  It may also contain a word or phrase used for a similar
+purpose.
+</p>
+<p><span id="id2350106"></span>The <code>&lt;item&gt;</code> element may appear only inside lists. It contains
+the same mixture of elements as a paragraph,  and may thus contain one
+or more nested lists. It may also contains a series of paragraphs, each
+marked with a <code>&lt;p&gt;</code> element.
+</p>
+<div class="p">
+<span id="id2350120"></span>Here is an example of a simple list:
+
+<div class="pre"> <span class="element">&lt;list&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="87"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>Is <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DPS" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>your <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="nylon" <span class="attribute">pos</span>="SUBST"&gt;</span>nylon <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="nightie" <span class="attribute">pos</span>="SUBST"&gt;</span>nightie <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/hi&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="fireproof" <span class="attribute">pos</span>="ADJ"&gt;</span>fireproof<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="88"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>The <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="hurricane" <span class="attribute">pos</span>="SUBST"&gt;</span>hurricane <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VBD" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>was <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="mighty" <span class="attribute">pos</span>="ADV"&gt;</span>mighty <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/hi&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="fierce" <span class="attribute">pos</span>="ADJ"&gt;</span>fierce<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="89"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="will" <span class="attribute">pos</span>="VERB"&gt;</span>Will <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="mow" <span class="attribute">pos</span>="VERB"&gt;</span>mow <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/hi&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="lawn" <span class="attribute">pos</span>="SUBST"&gt;</span>lawn<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="90"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VDD" <span class="attribute">hw</span>="do" <span class="attribute">pos</span>="VERB"&gt;</span>Did <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="know" <span class="attribute">pos</span>="VERB"&gt;</span>know
+<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/hi&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="time" <span class="attribute">pos</span>="SUBST"&gt;</span>time<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/> <span class="element">&lt;/list&gt;</span><br/>&lt;!-- C9R --&gt;</div>
+</div>
+<div class="p">
+<span id="id2350355"></span>Here is an example of a labelled list: 
+<div class="pre"> <span class="element">&lt;list&gt;</span><br/>  <span class="element">&lt;label&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="424"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="1" <span class="attribute">pos</span>="ADJ"&gt;</span>1<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/label&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="425"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1-NP0" <span class="attribute">hw</span>="surya" <span class="attribute">pos</span>="SUBST"&gt;</span>Surya <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212; <span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="sun" <span class="attribute">pos</span>="SUBST"&gt;</span>Sun <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212; <span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="creative" <span class="attribute">pos</span>="ADJ"&gt;</span>Creative <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="agent" <span class="attribute">pos</span>="SUBST"&gt;</span>agent<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/>  <span class="element">&lt;label&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="426"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="2" <span class="attribute">pos</span>="ADJ"&gt;</span>2<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/label&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;p&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="427"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1-NP0" <span class="attribute">hw</span>="vayu" <span class="attribute">pos</span>="SUBST"&gt;</span>Vayu <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212; <span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="air" <span class="attribute">pos</span>="SUBST"&gt;</span>Air <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212; <span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="VVG-AJ0" <span class="attribute">hw</span>="preserve" <span class="attribute">pos</span>="VERB"&gt;</span>Preserving <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="agent" <span class="attribute">pos</span>="SUBST"&gt;</span>agent <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;pb <span class="attribute">n</span>="43"/&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/p&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/>  <span class="element">&lt;label&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="428"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="3" <span class="attribute">pos</span>="ADJ"&gt;</span>3<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;/label&gt;</span><br/>  <span class="element">&lt;item&gt;</span><br/>   <span class="element">&lt;p&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="429"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="agni" <span class="attribute">pos</span>="SUBST"&gt;</span>Agni <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212;
+<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1-VVB" <span class="attribute">hw</span>="fire" <span class="attribute">pos</span>="SUBST"&gt;</span>Fire <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212;
+<span class="element">&lt;/c&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="destructive" <span class="attribute">pos</span>="ADJ"&gt;</span>Destructive <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="agent" <span class="attribute">pos</span>="SUBST"&gt;</span>agent<span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/p&gt;</span><br/>  <span class="element">&lt;/item&gt;</span><br/> <span class="element">&lt;/list&gt;</span><br/>&lt;!-- CB9 --&gt;</div>
+</div>
+</div>
+<div class="teidiv2" id="cdif55">
+<h4>3.2.6  Notes and citations</h4>
+<p><span id="id2350582"></span>Annotations occurring in written texts, and bibliographic citations
+or references, have been marked up in some texts, using the <code>&lt;note&gt;</code>
+element. </p>
+<p><span id="id2350591"></span>Original notes may contain any mixture of other chunks, and may also
+contain paragraphs: they appear in written texts only. They may
+be relocated to the end of the section in which they appear. 
+</p>
+<div class="p">
+<span id="id2350597"></span>For example: 
+<div class="pre"> <span class="element">&lt;note <span class="attribute">place</span>="SIDE"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="477"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>The <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0-NN1" <span class="attribute">hw</span>="short" <span class="attribute">pos</span>="ADJ"&gt;</span>short <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="film" <span class="attribute">pos</span>="SUBST"&gt;</span>film <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="about" <span class="attribute">pos</span>="PREP"&gt;</span>about <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1-VVG" <span class="attribute">hw</span>="sailing" <span class="attribute">pos</span>="SUBST"&gt;</span>sailing<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span>...<span class="element">&lt;/note&gt;</span><br/>&lt;!-- A6C --&gt;</div>
+
+Note the use of the <span class="att">n</span> attribute to carry the
+original footnote number in the above example.</div>
+</div>
+<div class="teidiv2" id="cdifbib">
+<h4>3.2.7  Bibliographic references</h4>
+<p><span id="id2350703"></span>Bibliographic citations or references within running texts may also
+be marked, using the <code>&lt;bibl&gt;</code> element; in the present version of
+the corpus this is done in some texts
+only.
+</p>
+<div class="p">
+<span id="id2350714"></span>For example: <div class="pre"> <span class="element">&lt;quote&gt;</span><br/>  <span class="element">&lt;p <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;s <span class="attribute">n</span>="1943"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="zombie" <span class="attribute">pos</span>="SUBST"&gt;</span>Zombie <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="no" <span class="attribute">pos</span>="ART"&gt;</span>no <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="go" <span class="attribute">pos</span>="SUBST"&gt;</span>go <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="CJS" <span class="attribute">hw</span>="unless" <span class="attribute">pos</span>="CONJ"&gt;</span>unless <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="tell" <span class="attribute">pos</span>="VERB"&gt;</span>tell <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVB-NN1" <span class="attribute">hw</span>="im" <span class="attribute">pos</span>="VERB"&gt;</span>im <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="TO0" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="go" <span class="attribute">pos</span>="VERB"&gt;</span>go<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;bibl&gt;</span><br/>    <span class="element">&lt;s <span class="attribute">n</span>="1944"&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>The <span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="communards" <span class="attribute">pos</span>="SUBST"&gt;</span>Communards<span class="element">&lt;/w&gt;</span><br/>     <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>    <span class="element">&lt;/s&gt;</span><br/>   <span class="element">&lt;/bibl&gt;</span><br/>  <span class="element">&lt;/p&gt;</span><br/> <span class="element">&lt;/quote&gt;</span><br/>&lt;!-- A0L --&gt;</div>
+</div>
+<p><span id="id2350855"></span>Note that the <code>&lt;bibl&gt;</code> element used within corpus texts has
+none of the more detailed sub-elements described for it in <a class="link_ptr" href="cdifhd.html#hdbib" title="Structured bibliographic record">5.1.5.2  Structured bibliographic record</a>. Like all the other elements described in the present
+subsection, the <code>&lt;bibl&gt;</code> element appearing within corpus texts
+contains only <code>&lt;s&gt;</code> elements. </p>
+</div>
+</div>
+<div class="teidiv1" id="cdif6">
+<h3>3.3  Phrase-level elements</h3>
+<div class="p">
+<span id="id2350887"></span>Phrase-level elements are elements which cannot appear directly
+within a textual division, but must be contained by some other element.
+In practice, this means they will be contained within an <code>&lt;s&gt;</code>
+element. In addition to the <code>&lt;w&gt;</code>, <code>&lt;mw&gt;</code>, and <code>&lt;c&gt;</code> elements
+already discussed, only the following phrase-level elements  appear within
+<code>&lt;s&gt;</code> elements in written texts: 
+
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-pb.html">pb</a>&gt;</b> (page break) marks the boundary between one page of a text and the next
+in a standard reference system.<table class="attList"><tr>
+<td class="Attribute">n</td>
+<td colspan="2">gives the number of the page beginning here.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-hi.html">hi</a>&gt;</b> (highlighted) marks a word or phrase as graphically distinct from the
+surrounding text, for reasons concerning which no claim is
+made. <table class="attList"><tr>
+<td class="Attribute">rend</td>
+<td colspan="2">a code briefly characterising the way the element content was originally
+presented.</td>
+</tr></table>
+</li>
+</ul>
+</div>
+<div class="teidiv2" id="body.1_div.3_div.3_div.1">
+<h4>3.3.1  Page breaks</h4>
+<div class="p">
+<span id="id2350933"></span>Wherever possible, the original pagination and page numbering of the source text
+has been preserved. The <code>&lt;pb&gt;</code> element is used to mark the
+approximate position in the text at which each new page starts, and
+its <span class="att">n</span> attribute supplies the number of the page. 
+<div class="pre"> <span class="element">&lt;l&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="1403"&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212; <span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="creditor" <span class="attribute">pos</span>="SUBST"&gt;</span>creditors <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVB" <span class="attribute">hw</span>="grow" <span class="attribute">pos</span>="VERB"&gt;</span>grow <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="cruel" <span class="attribute">pos</span>="ADJ"&gt;</span>cruel<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>,<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/l&gt;</span><br/> <span class="element">&lt;l&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="1404"&gt;</span><br/>   <span class="element">&lt;pb <span class="attribute">n</span>="75"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="so" <span class="attribute">pos</span>="ADV"&gt;</span>so <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="he" <span class="attribute">pos</span>="PRON"&gt;</span>he <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVZ" <span class="attribute">hw</span>="bow" <span class="attribute">pos</span>="VERB"&gt;</span>bows <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN2-VVZ" <span class="attribute">hw</span>="scrape" <span class="attribute">pos</span>="SUBST"&gt;</span>scrapes<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>,<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/l&gt;</span><br/>&lt;!-- HNU --&gt;</div>
+</div>
+<div class="p">
+<span id="id2351060"></span>Where several pages have been left out of a transcription, for
+example because they are blank or contain illustrations only, a
+<code>&lt;pb&gt;</code> element may be given for each, as in this example:
+
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="1323"&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>I <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VHB" <span class="attribute">hw</span>="have" <span class="attribute">pos</span>="VERB"&gt;</span>have<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="XX0" <span class="attribute">hw</span>="not" <span class="attribute">pos</span>="ADV"&gt;</span>n't <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VBN" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>been <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="an" <span class="attribute">pos</span>="ART"&gt;</span>an <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="organized" <span class="attribute">pos</span>="ADJ"&gt;</span>organized <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="campsite" <span class="attribute">pos</span>="SUBST"&gt;</span>campsite <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="for" <span class="attribute">pos</span>="PREP"&gt;</span>for    <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;pb <span class="attribute">n</span>="64"/&gt;</span><br/>  <span class="element">&lt;pb <span class="attribute">n</span>="65"/&gt;</span><br/>  <span class="element">&lt;pb <span class="attribute">n</span>="66"/&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="perhaps" <span class="attribute">pos</span>="ADV"&gt;</span>perhaps <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="fifteen" <span class="attribute">pos</span>="ADJ"&gt;</span>fifteen <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="year" <span class="attribute">pos</span>="SUBST"&gt;</span>years<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="so" <span class="attribute">pos</span>="ADV"&gt;</span>so <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="all" <span class="attribute">pos</span>="ADJ"&gt;</span>all <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="this" <span class="attribute">pos</span>="ADJ"&gt;</span>this <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="new" <span class="attribute">pos</span>="ADJ"&gt;</span>new <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>me<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/> <span class="element">&lt;/s&gt;</span><br/>&lt;!-- A6T --&gt;</div>
+</div>
+</div>
+<div class="teidiv2" id="cdif62">
+<h4>3.3.2  Highlighted phrases</h4>
+<div class="p">
+<span id="id2351268"></span>Typographic changes or highlighting in the original may not be marked in the
+transcript at all. Alternatively, highlighted phrases, and the kind of
+highlighting used, may be recorded in one of two ways: 
+<ul>
+<li>using the <span class="att">rend</span> (rendition) attribute on elements
+for which this is defined
+</li>
+<li>using the <code>&lt;hi&gt;</code> (highlighted) element
+</li>
+</ul>
+</div>
+<p><span id="id2351292"></span>The former is used where the whole of the content of one of the
+elements <code>&lt;bibl&gt;</code>, <code>&lt;corr&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;head&gt;</code>,
+<code>&lt;item&gt;</code>, <code>&lt;l&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;list&gt;</code>, <code>&lt;p&gt;</code>,
+<code>&lt;quote&gt;</code> or <code>&lt;stage&gt;</code> is highlighted. The latter is
+used on all other occasions. The values available for the <span class="att">rend</span>
+attribute in either case and their significance are as listed in the
+<a class="link_ref" href="./urg.html#att.rendered" title="reference documentation">reference documentation</a> in
+all cases.</p>
+<p><span id="id2351347"></span>It should be noted that the purpose of the <span class="att">rend</span>
+attribute is <em>not</em> to provide information adequate to the
+needs of a typesetter, but simply to record some qualitative information
+about the original. </p>
+<p><span id="id2351360"></span>Like all other phrase-level elements, each <code>&lt;hi&gt;</code> element must
+be entirely contained by an <code>&lt;s&gt;</code> element.  This implies that
+where, for example, a bolded passage contains more than one sentence, or
+an italicised phrase begins in one verse line and ends in another, the
+<code>&lt;hi&gt;</code> element must be closed at the end of the enclosing element,
+and then re-opened within the next. 
+</p>
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="2211"&gt;</span><br/>  <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="apple" <span class="attribute">pos</span>="SUBST"&gt;</span>Apple
+<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/hi&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN0" <span class="attribute">hw</span>="fruit" <span class="attribute">pos</span>="SUBST"&gt;</span>fruit <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/hi&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="CJS-PRP" <span class="attribute">hw</span>="as" <span class="attribute">pos</span>="CONJ"&gt;</span>as
+<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="dog" <span class="attribute">pos</span>="SUBST"&gt;</span>dog <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/hi&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VBZ" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>is <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to
+<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="ZZ0" <span class="attribute">hw</span>="x" <span class="attribute">pos</span>="SUBST"&gt;</span>X <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/hi&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/> <span class="element">&lt;/s&gt;</span><br/>&lt;!-- FAC  --&gt;</div>
+<div class="p">
+<span id="id2351483"></span>For example, in the following four lines of verse, the first three
+are rendered in italics, and the <span class="att">rend</span> attribute is
+therefore specified for each <code>&lt;l&gt;</code> element. In the fourth line,
+only the first few words are in italics: a <code>&lt;hi&gt;</code> element must be
+used within the <code>&lt;l&gt;</code> to carry this information.  
+
+<div class="pre"> <span class="element">&lt;l <span class="attribute">rend</span>="it"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="394"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="it" <span class="attribute">pos</span>="PRON"&gt;</span>It <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VBD" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>was <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="one" <span class="attribute">pos</span>="ADJ"&gt;</span>one <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRF" <span class="attribute">hw</span>="of" <span class="attribute">pos</span>="PREP"&gt;</span>of <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN0" <span class="attribute">hw</span>="pair" <span class="attribute">pos</span>="SUBST"&gt;</span>pair<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="395"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DPS" <span class="attribute">hw</span>="it" <span class="attribute">pos</span>="PRON"&gt;</span>Its <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="precious" <span class="attribute">pos</span>="ADJ"&gt;</span>precious <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="twin" <span class="attribute">pos</span>="SUBST"&gt;</span>twin<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/l&gt;</span><br/> <span class="element">&lt;l <span class="attribute">rend</span>="it"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="396"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VBD" <span class="attribute">hw</span>="be" <span class="attribute">pos</span>="VERB"&gt;</span>was <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVN" <span class="attribute">hw</span>="steal" <span class="attribute">pos</span>="VERB"&gt;</span>stolen <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="by" <span class="attribute">pos</span>="PREP"&gt;</span>by <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN2" <span class="attribute">hw</span>="soldier" <span class="attribute">pos</span>="SUBST"&gt;</span>soldiers<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="397"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="all" <span class="attribute">pos</span>="ADJ"&gt;</span>All <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="time" <span class="attribute">pos</span>="SUBST"&gt;</span>time<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/l&gt;</span><br/> <span class="element">&lt;l <span class="attribute">rend</span>="it"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="398"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DPS" <span class="attribute">hw</span>="she" <span class="attribute">pos</span>="PRON"&gt;</span>her <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="uncle" <span class="attribute">pos</span>="SUBST"&gt;</span>uncle <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="stand" <span class="attribute">pos</span>="VERB"&gt;</span>stood <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="there" <span class="attribute">pos</span>="ADV"&gt;</span>there <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVG" <span class="attribute">hw</span>="clutch" <span class="attribute">pos</span>="VERB"&gt;</span>clutching <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="this" <span class="attribute">pos</span>="ADJ"&gt;</span>this <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNI" <span class="attribute">hw</span>="one" <span class="attribute">pos</span>="PRON"&gt;</span>one <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AVP-PRP" <span class="attribute">hw</span>="in" <span class="attribute">pos</span>="ADV"&gt;</span>in<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/l&gt;</span><br/> <span class="element">&lt;l&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="399"&gt;</span><br/>   <span class="element">&lt;hi <span class="attribute">rend</span>="it"&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="DPS" <span class="attribute">hw</span>="he" <span class="attribute">pos</span>="PRON"&gt;</span>his <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="big" <span class="attribute">pos</span>="ADJ"&gt;</span>big <span class="element">&lt;/w&gt;</span><br/>    <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="fist" <span class="attribute">pos</span>="SUBST"&gt;</span>fist <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;/hi&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>&#8212; <span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="so" <span class="attribute">pos</span>="ADV"&gt;</span>so<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>!<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="400"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="she" <span class="attribute">pos</span>="PRON"&gt;</span>She <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VDZ" <span class="attribute">hw</span>="do" <span class="attribute">pos</span>="VERB"&gt;</span>does <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="little" <span class="attribute">pos</span>="ADJ"&gt;</span>little <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="mime" <span class="attribute">pos</span>="SUBST"&gt;</span>mime<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/l&gt;</span><br/>&lt;!-- C8X --&gt;</div>
+</div>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="cdifbase.html">2  Basic structure</a><i> Next: </i><a class="navigation" href="cdifsp.html">4  Spoken texts</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:46Z-->
+</address>
+</div>
+</div></body>
+</html>

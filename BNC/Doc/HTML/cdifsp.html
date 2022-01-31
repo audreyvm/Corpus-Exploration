@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xml:lang="en">
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (2)--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Spoken texts</title>
+<meta name="author" content="edited by Lou Burnard">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="Spoken texts">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<link href="urg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()"><div class="teidiv0" id="cdifsp">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">4  Spoken texts</h1>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="cdifwr.html">3  Written texts</a><i> Next: </i><a class="navigation" href="cdifhd.html">5  The header</a></p>
+<div class="teidiv1" id="cdif22">
+<h3>4.1  Basic structure: spoken texts</h3>
+<p><span id="id2351887"></span>The spoken material transcribed for the BNC  is also organized into
+&#8216;texts&#8217;, which are subdivided into
+&#8216;divisions&#8217;, made up of <code>&lt;w&gt;</code> and <code>&lt;mw&gt;</code>
+elements grouped into <code>&lt;s&gt;</code> elements in the same way as  written
+texts. However there a number of other elements specific to spoken
+texts, and their hierarchic organization is naturally not the same as that of
+written texts. For this reason, a different element (<code>&lt;stext&gt;</code>)
+is used to represent a spoken text.
+</p>
+<p><span id="id2351917"></span>In demographically sampled spoken texts, each distinct conversation
+recorded by a given respondent is treated as a distinct <code>&lt;div&gt;</code>
+element. All the conversations from a single respondent are then
+grouped together to form a single <code>&lt;stext&gt;</code>
+element. Context-governed spoken texts, however, do not use the
+<code>&lt;div&gt;</code> element: the <code>&lt;stext&gt;</code> element for a context
+governed text is composed only of <code>&lt;u&gt;</code> elements, not grouped
+into any unit smaller than the <code>&lt;stext&gt;</code> itself. </p>
+<p><span id="id2351948"></span>The <code>&lt;s&gt;</code> elements making up a spoken text are grouped not
+into <code>&lt;p&gt;</code> or other similar elements, but instead into <code>&lt;u&gt;</code>
+elements. Each <code>&lt;u&gt;</code> (utterance) element marks a stretch of
+uninterrupted speech from a given speaker; (see section <a class="link_ptr" href="cdifsp.html#cdifspu" title="Utterances">4.2  Utterances</a>). Interspersed within and between <code>&lt;u&gt;</code>
+elements, a variety of other
+elements indicate para-linguistic phenomena noticed
+by the transcribers (see section <a class="link_ptr" href="cdifsp.html#cdifspp" title="Paralinguistic phenomena">4.3  Paralinguistic phenomena</a>). </p>
+<p><span id="id2351988"></span>The methods and principles applied in transcription and
+normalisation of speech are defined in a BNC working paper TGCW21
+<i>Spoken Corpus Transcription Guide</i>, and have also been
+described in subsequent publications (e.g. Crowdy 1994). The editorial tags
+discussed in section <a class="link_ptr" href="cdifbase.html#cdifed" title="Editorial indications">2.5  Editorial indications</a> above are also used to
+represent normalisation practice when dealing with transcribed speech.
+</p>
+</div>
+<div class="subsubsect" id="cdifspu">
+<h3>4.2  Utterances</h3>
+<div class="p">
+<span id="id2352016"></span>The term  <span class="term">utterance</span> is used in the BNC to refer to a
+continuous stretch of speech produced
+by one participant in a
+conversation, or by a group of participants. Structurally, the
+corresponding element behaves in a similar way to the <code>&lt;p&gt;</code>
+element in a written text &#8212; it groups a sequence of <code>&lt;s&gt;</code>
+elements together.
+<ul class="specList"><li>
+<b>&lt;<a href="ref-u.html">u</a>&gt;</b> (utterance) a stretch of speech usually preceded and followed by
+silence or by a change of speaker.<table class="attList"><tr>
+<td class="Attribute">who</td>
+<td colspan="2">indicates the person, or group of
+	people, to whom the element content is ascribed.</td>
+</tr></table>
+</li></ul>
+</div>
+<div class="p">
+<span id="id2352044"></span>The  <span class="att">who</span> attribute is required on every <code>&lt;u&gt;</code>: its function is to
+identify the person or group of people making the utterance, using the
+unique code defined for that person in the appropriate section of the
+header.  A simple example follows: 
+
+<div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="PS1LW"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="159"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="ITJ" <span class="attribute">hw</span>="mm" <span class="attribute">pos</span>="INTERJ"&gt;</span>Mm <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="ITJ" <span class="attribute">hw</span>="mm" <span class="attribute">pos</span>="INTERJ"&gt;</span>mm<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/>&lt;!-- F7F --&gt;</div> The code <tt>PS1LW</tt> used here will be specified as
+the value for the <span class="att">xml:id</span> attribute of some <code>&lt;person&gt;</code>
+element within the header of the text from which this example is
+taken.  Where the speaker cannot be confidently identified, or where
+there is more than one aspeaker, a special
+code is used; see further discussion at <a class="link_ptr" href="cdifhd.html#persdis" title="The person element">5.3.3.1  The person element</a>.
+
+</div>
+</div>
+<div class="teidiv1" id="cdifspp">
+<h3>4.3  Paralinguistic phenomena</h3>
+<div class="p">
+<span id="id2352133"></span>In transcribing spoken language, it is necessary to select from the
+possibly very large set of distinct paralinguistic phenomena which might
+be of interest. In the texts transcribed for the BNC, encoders were
+instructed to mark the following such phenomena:
+<dl>
+<dt>voice quality</dt>
+<dd>for example, whispering, laughing, etc., both as discrete events
+and as changes in voice quality affecting passages within an utterance.</dd>
+<dt>non-verbal but vocalised sounds</dt>
+<dd>for example, coughs, humming noises etc. </dd>
+<dt>non-verbal and non-vocal events</dt>
+<dd>for example passing lorries, animal noises,  and other matters
+considered worthy of note.
+</dd>
+<dt>significant pauses</dt>
+<dd>silence, within or between utterances, longer than  was judged
+normal for the speaker or speakers.
+</dd>
+<dt>unclear passages</dt>
+<dd>whole utterances or passages within them which were inaudible or
+incomprehensible for a variety of reasons.</dd>
+<dt>speech management phenomena</dt>
+<dd>for example truncation, false starts, and correction.</dd>
+<dt>overlap</dt>
+<dd>points at which more than one speaker was active.</dd>
+</dl>    Other aspects of spoken texts are not explicitly recorded in
+the encoding, although their headers contain considerable amounts of
+situational and participant information. 
+</div>
+<p><span id="id2352205"></span>In many cases, because no standardized set of descriptions was predefined,
+transcribers gave very widely differing accounts of the same
+phenomena. An attempt has however been made to normalize the descriptions for
+some of these elements in the BNC XML editions.</p>
+<div class="p">
+<span id="id2352213"></span>The elements used to mark these phenomena are listed below in
+alphabetical order:
+<ul class="specList">
+<li>
+<b>&lt;<a href="ref-event.html">event</a>&gt;</b> any phenomenon or occurrence, not necessarily vocalized or
+communicative, for example incidental noises or other events affecting
+communication.<table class="attList">
+<tr>
+<td class="Attribute">desc</td>
+<td colspan="2">provides a brief description of the event.</td>
+</tr>
+<tr>
+<td class="Attribute">dur</td>
+<td colspan="2">(duration) indicates the duration of the element in seconds.</td>
+</tr>
+</table>
+</li>
+<li>
+<b>&lt;<a href="ref-pause.html">pause</a>&gt;</b> a pause either between or within utterances.<table class="attList"><tr>
+<td class="Attribute">dur</td>
+<td colspan="2">(duration) indicates the duration of the element in seconds.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-shift.html">shift</a>&gt;</b> marks the point at which some paralinguistic feature of a series of
+utterances by any one speaker changes.<table class="attList"><tr>
+<td class="Attribute">new</td>
+<td colspan="2">specifies the new state of the paralinguistic feature specified.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-trunc.html">trunc</a>&gt;</b> contains one or more truncated words in transcribed speech.</li>
+<li>
+<b>&lt;<a href="ref-unclear.html">unclear</a>&gt;</b> contains a word, phrase, or passage which cannot be transcribed
+with certainty because it is illegible or inaudible in the source.<table class="attList"><tr>
+<td class="Attribute">dur</td>
+<td colspan="2">(duration) indicates the duration of the element in seconds.</td>
+</tr></table>
+</li>
+<li>
+<b>&lt;<a href="ref-vocal.html">vocal</a>&gt;</b> (Vocalized semi-lexical) any vocalized but not necessarily lexical phenomenon, for example
+voiced pauses, non-lexical backchannels, etc.<table class="attList">
+<tr>
+<td class="Attribute">desc</td>
+<td colspan="2">provides a brief description of the vocal event.</td>
+</tr>
+<tr>
+<td class="Attribute">dur</td>
+<td colspan="2">(duration) indicates the duration of the element in seconds.</td>
+</tr>
+<tr>
+<td class="Attribute">who</td>
+<td colspan="2">indicates the person, or group of
+	people, to whom the element content is ascribed.</td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+<p><span id="id2352258"></span>The value of the <span class="att">dur</span> attribute is normally specified
+only if it is greater than 5 seconds, and its accuracy is only
+approximate.  </p>
+<p><span id="id2352267"></span>With the exception of the <code>&lt;trunc&gt;</code> element, which is a
+special case of the editorial tags discussed in section <a class="link_ptr" href="cdifbase.html#cdifed" title="Editorial indications">2.5  Editorial indications</a> above, all of these elements are empty, and may appear anywhere within
+a transcription. 
+</p>
+<div class="p">
+<span id="id2352282"></span>The following example shows an event, several pauses and a patch of
+unclear speech:
+
+
+
+<div class="pre"> <span class="element">&lt;s <span class="attribute">n</span>="5490"&gt;</span><br/>  <span class="element">&lt;event <span class="attribute">desc</span>="radio on"/&gt;</span><br/>  <span class="element">&lt;pause <span class="attribute">dur</span>="34"/&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>You <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VVN" <span class="attribute">hw</span>="get" <span class="attribute">pos</span>="VERB"&gt;</span>got<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="TO0" <span class="attribute">hw</span>="ta" <span class="attribute">pos</span>="PREP"&gt;</span>ta  <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;unclear/&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="radio" <span class="attribute">pos</span>="SUBST"&gt;</span>Radio <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="CRD" <span class="attribute">hw</span>="two" <span class="attribute">pos</span>="ADJ"&gt;</span>Two <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="with" <span class="attribute">pos</span>="PREP"&gt;</span>with <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="DT0" <span class="attribute">hw</span>="that" <span class="attribute">pos</span>="ADJ"&gt;</span>that<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/> <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;s <span class="attribute">n</span>="5491"&gt;</span><br/>  <span class="element">&lt;pause <span class="attribute">dur</span>="6"/&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="bloody" <span class="attribute">pos</span>="ADJ"&gt;</span>Bloody
+<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="pirate" <span class="attribute">pos</span>="SUBST"&gt;</span>pirate <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="station" <span class="attribute">pos</span>="SUBST"&gt;</span>station <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="would" <span class="attribute">pos</span>="VERB"&gt;</span>would<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="XX0" <span class="attribute">hw</span>="not" <span class="attribute">pos</span>="ADV"&gt;</span>n't <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you<span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/> <span class="element">&lt;/s&gt;</span><br/>&lt;!-- KB2 --&gt;</div>
+</div>
+<div class="p">
+<span id="id2352433"></span>Where the whole of an utterance is unclear, that is, where no speech
+has actually been transcribed, the <code>&lt;unclear&gt;</code> element is used on
+its own, with an optional <span class="att">who</span> attribute to indicate who
+is speaking, if this is identifiable. For example: 
+<div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="xx"&gt;</span><br/>  <span class="element">&lt;s&gt;</span>....<span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/> <span class="element">&lt;unclear <span class="attribute">who</span>="yy"/&gt;</span><br/> <span class="element">&lt;u <span class="attribute">who</span>="xx"&gt;</span><br/>  <span class="element">&lt;s&gt;</span>... <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span></div>
+Here YY's remarks, whatever they are, are too unclear to be
+transcribed, and so no <code>&lt;u&gt;</code> element is provided. 
+</div>
+<div class="p">
+<span id="id2352475"></span>The values used for the <span class="att">desc</span> attribute of the
+<code>&lt;event&gt;</code> element are not constrained in the current version of
+the corpus, and more than a thousand different values exist in the
+corpus. Some common examples follow:
+<div class="pre"> <span class="element">&lt;event <span class="attribute">desc</span>="laughter"/&gt;</span><br/> <span class="element">&lt;event <span class="attribute">desc</span>="telephone noise"/&gt;</span></div> 
+A list of the most frequent values is given in <a class="link_ptr" href="codes.html#eventcodes" title="Event descriptions">9.4  Event descriptions</a>.
+</div>
+<div class="p">
+<span id="id2352505"></span>As noted above, a distinction is made between discrete vocal events,
+such as laughter, and changes in voice quality, such as words which are
+spoken in a laughing tone. The former are encoded using the
+<code>&lt;vocal&gt;</code> element, as in the following example: 
+<div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="PS09T"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="4307"&gt;</span><br/>   <span class="element">&lt;vocal <span class="attribute">desc</span>="laugh"/&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="will" <span class="attribute">pos</span>="VERB"&gt;</span>'ll <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VHI" <span class="attribute">hw</span>="have" <span class="attribute">pos</span>="VERB"&gt;</span>have <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="TO0" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVI" <span class="attribute">hw</span>="take" <span class="attribute">pos</span>="VERB"&gt;</span>take <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DT0-CJT" <span class="attribute">hw</span>="that" <span class="attribute">pos</span>="ADJ"&gt;</span>that <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AVP-PRP" <span class="attribute">hw</span>="off" <span class="attribute">pos</span>="ADV"&gt;</span>off <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="there" <span class="attribute">pos</span>="ADV"&gt;</span>there  <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;vocal <span class="attribute">desc</span>="laugh"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="ITJ" <span class="attribute">hw</span>="yeah" <span class="attribute">pos</span>="INTERJ"&gt;</span>yeah <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VM0" <span class="attribute">hw</span>="can" <span class="attribute">pos</span>="VERB"&gt;</span>can   <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;pause/&gt;</span><br/>   <span class="element">&lt;vocal <span class="attribute">desc</span>="laugh"/&gt;</span><br/>   <span class="element">&lt;pause/&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/>&lt;!-- KC2 --&gt;</div>  The <code>&lt;shift&gt;</code> element is used instead where the laughter
+indicates a change in voice quality, as in the following example:
+
+<div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="PS01V"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="4188"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>And <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="UNC" <span class="attribute">hw</span>="erm" <span class="attribute">pos</span>="UNC"&gt;</span>erm  <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;pause/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="then" <span class="attribute">pos</span>="ADV"&gt;</span>then <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="we" <span class="attribute">pos</span>="PRON"&gt;</span>we <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="go" <span class="attribute">pos</span>="VERB"&gt;</span>went <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="get" <span class="attribute">pos</span>="VERB"&gt;</span>got <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="DPS" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>my <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN0" <span class="attribute">hw</span>="fruit" <span class="attribute">pos</span>="SUBST"&gt;</span>fruit <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="veg" <span class="attribute">pos</span>="SUBST"&gt;</span>veg <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="then" <span class="attribute">pos</span>="ADV"&gt;</span>then <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="we" <span class="attribute">pos</span>="PRON"&gt;</span>we <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="go" <span class="attribute">pos</span>="VERB"&gt;</span>went <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="in" <span class="attribute">pos</span>="PREP"&gt;</span>in <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0-NN1" <span class="attribute">hw</span>="top" <span class="attribute">pos</span>="ADJ"&gt;</span>Top <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="marks" <span class="attribute">pos</span>="SUBST"&gt;</span>Marks <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="get" <span class="attribute">pos</span>="VERB"&gt;</span>got <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="they" <span class="attribute">pos</span>="PRON"&gt;</span>them  <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;shift <span class="attribute">new</span>="laughing"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="so" <span class="attribute">pos</span>="ADV"&gt;</span>so <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="we" <span class="attribute">pos</span>="PRON"&gt;</span>we <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="never" <span class="attribute">pos</span>="ADV"&gt;</span>never <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="get" <span class="attribute">pos</span>="VERB"&gt;</span>got  <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;shift/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="we" <span class="attribute">pos</span>="PRON"&gt;</span>we <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVD" <span class="attribute">hw</span>="go" <span class="attribute">pos</span>="VERB"&gt;</span>went <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AVP" <span class="attribute">hw</span>="through" <span class="attribute">pos</span>="ADV"&gt;</span>through <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="for" <span class="attribute">pos</span>="PREP"&gt;</span>for <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="video" <span class="attribute">pos</span>="SUBST"&gt;</span>video <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="really" <span class="attribute">pos</span>="ADV"&gt;</span>really<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>, <span class="element">&lt;/c&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="never" <span class="attribute">pos</span>="ADV"&gt;</span>never <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVN-VVD" <span class="attribute">hw</span>="get" <span class="attribute">pos</span>="VERB"&gt;</span>got <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AVP" <span class="attribute">hw</span>="round" <span class="attribute">pos</span>="ADV"&gt;</span>round <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="to" <span class="attribute">pos</span>="PREP"&gt;</span>to <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVG" <span class="attribute">hw</span>="look" <span class="attribute">pos</span>="VERB"&gt;</span>looking <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="for" <span class="attribute">pos</span>="PREP"&gt;</span>for <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="a" <span class="attribute">pos</span>="ART"&gt;</span>a <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="video" <span class="attribute">pos</span>="SUBST"&gt;</span>video <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VDD" <span class="attribute">hw</span>="do" <span class="attribute">pos</span>="VERB"&gt;</span>did <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="we" <span class="attribute">pos</span>="PRON"&gt;</span>we<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>?<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/>&lt;!-- KB2 --&gt;</div>
+</div>
+<p><span id="id2353043"></span>When no
+ <span class="att">new</span> attribute is supplied on a
+<code>&lt;shift&gt;</code> element, the meaning is that the voice quality
+indicated reverts to a normal or unmarked state. Hence, in this example,
+the passage between the tags <code>&lt;shift new="laughing"/&gt;</code>
+and <code>&lt;shift/&gt;</code> is spoken with a laughing intonation
+</p>
+<p><span id="id2353064"></span>A list of values currently used for the <span class="att">new</span>
+attribute is given below in section <a class="link_ptr" href="codes.html#shiftcodes" title="Voice quality codes">9.2  Voice quality codes</a>.
+</p>
+</div>
+<div class="teidiv1" id="cdif632">
+<h3>4.4  Alignment of overlapping speech</h3>
+<div class="p">
+<span id="id2353089"></span>By default it is assumed that the events represented in a
+transcription are non-overlapping and that they are transcribed in
+temporal sequence.  That is, unless otherwise specified, it is implied
+that the end of one utterance precedes the start of the next following
+it in the text, perhaps with an interposed <code>&lt;pause&gt;</code> element.
+Where this is not the case, the following element is used: 
+
+<ul class="specList"><li>
+<b>&lt;<a href="ref-align.html">align</a>&gt;</b> marks an temporal alignment point within transcribed speech.<table class="attList"><tr>
+<td class="Attribute">with</td>
+<td colspan="2">supplies an arbitrary identifier; all
+      elements specifying the same value for this attribute are
+      understood to be aligned with each other in time.</td>
+</tr></table>
+</li></ul>
+</div>
+<p><span id="id2353112"></span>The <span class="att">with</span> attribute of an <code>&lt;align&gt;</code> element
+may be thought of as identifying some point in time. Where two or
+more <code>&lt;align&gt;</code> elements specify the same value for this
+attribute, their locations are assumed to be synchronised.
+</p>
+<div class="p">
+<span id="id2353129"></span>The following example demonstrates how this mechanism is used to
+indicate that one speaker's attempt to take the floor has been
+unsuccessful: 
+
+<div class="pre"> <span class="element">&lt;u <span class="attribute">who</span>="PS6U5"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="485"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="poor" <span class="attribute">pos</span>="ADJ"&gt;</span>Poor <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="old" <span class="attribute">pos</span>="ADJ"&gt;</span>old <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NP0" <span class="attribute">hw</span>="luxembourg" <span class="attribute">pos</span>="SUBST"&gt;</span>Luxembourg<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VHZ" <span class="attribute">hw</span>="have" <span class="attribute">pos</span>="VERB"&gt;</span>'s <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVN-AJ0" <span class="attribute">hw</span>="beat" <span class="attribute">pos</span>="VERB"&gt;</span>beaten<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="486"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>You <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VHB" <span class="attribute">hw</span>="have" <span class="attribute">pos</span>="VERB"&gt;</span>'ve <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="you" <span class="attribute">pos</span>="PRON"&gt;</span>you<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VHB" <span class="attribute">hw</span>="have" <span class="attribute">pos</span>="VERB"&gt;</span>'ve <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="absolutely" <span class="attribute">pos</span>="ADV"&gt;</span>absolutely <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0" <span class="attribute">hw</span>="just" <span class="attribute">pos</span>="ADV"&gt;</span>just <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVN" <span class="attribute">hw</span>="go" <span class="attribute">pos</span>="VERB"&gt;</span>gone <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AV0-AJ0" <span class="attribute">hw</span>="straight" <span class="attribute">pos</span>="ADV"&gt;</span>straight <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;align <span class="attribute">with</span>="KNYLC01D"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PRP" <span class="attribute">hw</span>="over" <span class="attribute">pos</span>="PREP"&gt;</span>over <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="it" <span class="attribute">pos</span>="PRON"&gt;</span>it <span class="element">&lt;/w&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/> <span class="element">&lt;u <span class="attribute">who</span>="PS4YX"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="487"&gt;</span><br/>   <span class="element">&lt;align <span class="attribute">with</span>="KNYLC01D"/&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="PNP" <span class="attribute">hw</span>="i" <span class="attribute">pos</span>="PRON"&gt;</span>I <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VHB" <span class="attribute">hw</span>="have" <span class="attribute">pos</span>="VERB"&gt;</span>have<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="XX0" <span class="attribute">hw</span>="not" <span class="attribute">pos</span>="ADV"&gt;</span>n't<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/> <span class="element">&lt;u <span class="attribute">who</span>="PS6U5"&gt;</span><br/>  <span class="element">&lt;s <span class="attribute">n</span>="488"&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="CJC" <span class="attribute">hw</span>="and" <span class="attribute">pos</span>="CONJ"&gt;</span>and <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="VVN" <span class="attribute">hw</span>="forget" <span class="attribute">pos</span>="VERB"&gt;</span>forgotten <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AT0" <span class="attribute">hw</span>="the" <span class="attribute">pos</span>="ART"&gt;</span>the <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="poor" <span class="attribute">pos</span>="ADJ"&gt;</span>poor <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="AJ0" <span class="attribute">hw</span>="little" <span class="attribute">pos</span>="ADJ"&gt;</span>little <span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;w <span class="attribute">c5</span>="NN1" <span class="attribute">hw</span>="country" <span class="attribute">pos</span>="SUBST"&gt;</span>country<span class="element">&lt;/w&gt;</span><br/>   <span class="element">&lt;c <span class="attribute">c5</span>="PUN"&gt;</span>.<span class="element">&lt;/c&gt;</span><br/>  <span class="element">&lt;/s&gt;</span><br/> <span class="element">&lt;/u&gt;</span><br/>&lt;!-- KNY --&gt;</div>
+</div>
+<div class="p">
+<span id="id2353405"></span>This encoding is the CDIF equivalent of what might be presented in a
+conventional playscript as follows: 
+<div class="pre">W0001: Poor old Luxembourg's beaten. You, you've, you've absolutely just
+gone straight over it --
+W0014: (interrupting) I haven't.
+W0001: (at the same time) and forgotten the poor little country.
+</div>
+</div>
+</div>
+<p class="right"><i> Up: </i><a class="navigation" href="index.html">Contents</a><i> Previous: </i><a class="navigation" href="cdifwr.html">3  Written texts</a><i> Next: </i><a class="navigation" href="cdifhd.html">5  The header</a></p>
+<div class="stdfooter">
+<hr>
+<div class="footer">
+<a class="plain" href="http://www.tei-c.org/" target="_top"></a> | <a class="plain" href="http://www.natcorp.ox.ac.uk" target="_top">British National Corpus</a> | <a class="plain" href="http://www.google.com" target="_top">Search</a> | <a class="plain" href="mailto:natcorp@oucs.ox.ac.uk" target="_top">Feedback</a>
+</div>
+<hr>
+<address> edited by Lou Burnard.
+      Date: January 2007<br>This page is copyrighted<!--
+	  Generated  using an XSLT version 1.0 stylesheet
+	  based on http://www.tei-c.org/Stylesheets/teic/tei.xsl
+	  processed using libxslt
+	  on 2007-03-06T16:38:46Z-->
+</address>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--THIS IS A GENERATED FILE. DO NOT EDIT (7) --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>&lt;recording&gt;</title>
+<link href="urg.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Text Encoding Initiative Consortium XSLT stylesheets">
+<meta name="DC.Title" content="&lt;recording&gt;">
+<script type="text/javascript">
+	    function startUp() {
+	  } 
+
+	function openpopup(location){ 
+	var newwin =
+        window.open(location,"OUCSPopup","status=no,menu=no,toolbar=no,width=350,height=400,resizable=yes,scrollbars=yes")
+          }
+	</script>
+</head>
+<body id="TOP" onload="startUp()">
+<div id="hdr">
+<h2 class="institution">BNC User Reference Guide</h2>
+<h2 class="department"></h2>
+<h1 class="maintitle">&lt;recording&gt;</h1>
+</div>
+<div>
+<span id="recording"></span><table border="1" class="wovenodd">
+<tr>
+<td class="elementSpec">recording</td>
+<td colspan="2" class="wovenodd-col2">(recording event) details of an audio or video recording event
+used as the source of a spoken text, either directly or from
+a public broadcast. </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Class</span></td>
+<td colspan="2" class="wovenodd-col2">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.uniqueId.html">att.uniqueId</a> </td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Declaration</span></td>
+<td colspan="2" class="wovenodd-col2"><pre class="eg">
+element recording
+{
+   attribute date { <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.temporal.html">data.temporal</a> }?,
+   attribute n { text }?,
+   attribute time { text }?,
+   attribute type { text }?,
+   attribute dur { <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.count.html">data.count</a> }?,
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-att.uniqueId.html">att.uniqueId.attribute.xmlid</a>,
+   <a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-macro.phraseSeq.html">macro.phraseSeq</a>
+}</pre></td>
+</tr>
+<tr>
+<td valign="top" class="wovenodd-col1"><span class="label">Attributes</span></td>
+<td class="wovenodd-col2"><table class="attList"><tr><td> (In addition to global attributes and those inherited from  [<a class="classlink" href="ref-att.uniqueId.html">att.uniqueId</a> ] )<table>
+<tr>
+<td class="attDef">date</td>
+<td colspan="2">date of the recording in standardized form.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.temporal.html">data.temporal</a></code>
+</td>
+</tr>
+<tr>
+<td class="attDef">n</td>
+<td colspan="2">tape number.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+text</code>
+</td>
+</tr>
+<tr>
+<td class="attDef">time</td>
+<td colspan="2">time of day the recording was made.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td class="attDef">type</td>
+<td colspan="2">kind of recording.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Default</span>: audio</td>
+</tr>
+<tr>
+<td><!-- --></td>
+<td valign="top">Values are:<table class="valList">
+<tr>
+<td valign="top"><b>dat</b></td>
+<td valign="top">recording made directly to Digital Audio tape.</td>
+</tr>
+<tr>
+<td valign="top"><b>walkman</b></td>
+<td valign="top">recording made to Walkman tape.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="attDef">dur</td>
+<td colspan="2">duration of the recording in seconds.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<span class="label">Status: </span>Optional</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2" valign="top">
+<span class="label">Datatype (1&#8211;1)</span><code class="eg">
+<a xmlns="http://www.w3.org/1999/xhtml" class="link_odd" href="ref-data.count.html">data.count</a></code>
+</td>
+</tr>
+</table>
+</td></tr></table></td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Example</span></td>
+<td colspan="2" class="wovenodd-col2"><div class="pre"> <span class="element">&lt;recording <span class="attribute">n</span>="087902" <span class="attribute">date</span>="1993-04-30" <span class="attribute">type</span>="DAT"<br/>  xmlns:xaira="http://www.xaira.org/ns/1.0/spec"<br/>  xmlns:xsd="http://www.w3.org/2001/XMLSchema"<br/>  xmlns:rng="http://relaxng.org/ns/structure/1.0"/&gt;</span></div></td>
+</tr>
+<tr>
+<td valign="top"><!--pointers--></td>
+<td colspan="2" class="wovenodd-col2">
+<a class="link_ptr" href=""></a>; <a class="link_ptr" href=""></a>
+</td>
+</tr>
+<tr>
+<td valign="top"><span class="label">Module</span></td>
+<td colspan="2" class="wovenodd-col2">header</td>
+</tr>
+</table>
+</div>
+<div style="margin: 20pt; font-weight: bold;"><a href="%24"></a></div>
+</body>
+</html>
