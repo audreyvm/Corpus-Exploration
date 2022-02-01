@@ -1,39 +1,46 @@
 from nltk.corpus.reader.bnc import BNCCorpusReader as bnc
 import pandas as pd
 import re
+import xml.etree.ElementTree as ET
+import os
 
-bnc_reader = bnc(root="C:/Users/Audrey/OneDrive/Documents/Masters/Thesis/Corpus Exploration/BNC/Texts", fileids=r'[A-K]/\w*/\w*\.xml')
+bnc_reader = bnc(root="BNC/Texts", fileids=r'[A-K]/\w*/\w*\.xml')
 adjs = pd.read_csv('Adjective_list.csv')
 adj_list =adjs['Adjective'].tolist()
 
-filecount = 0
-wordcount = 0
-lst = []
+
+def get_root(fileid):
+    filename=os.path.join('','BNC','Texts',fileid)
+    tree = ET.parse(filename)
+    root = tree.getroot()
+    return root
+
+def get_sentence(tree_root):
+    sentence = []
+    sent_id = s.get('n')
+    sentence.append(sent_id)
+    for w in s.iter('w'):
+            pos = w.get('c5')
+            lemma = w.get('hw')
+            word = w.text
+            word_tuple = pos, lemma, word
+            sentence.append(word_tuple)
+    return sentence
+
+total_list = []    
+count = 0        
 for fileid in bnc_reader.fileids():
-    if filecount <= 100:
-        filecount += 1
-        for sent in bnc_reader.tagged_sents(fileid):
-            if wordcount <=300:
-                wordcount+=1
-                lst.append(sent)
-            else: break
-    
-    else:break
+    count += 1
+    if count <=5:
+        file_root = get_root(fileid)
+        for s in file_root.iter('s'):
+            for w in s.iter('w'):
+                pos = w.get('c5')
+                lemma = w.get('hw')
+                if pos == 'AJ0' and lemma in adj_list:
+                    tuples = get_sentence(file_root)
+                    print(tuples)
+                    total_list.append(tuples)
+    else: break
 
-count = 0    
-sent_list = []
-for sent in lst:
-    for x in sent:
-        if x[1] == 'ADJ' and x[0] in adj_list:
-            sent_list.append(sent)
-
-sent_string = str(sent_list)
-#print(sent_string[0:500])
-prep_phrase = r'\(\S+\s\'PREP\'\).+?\'ADJ\'\).+?\'SUBST\'\)'
-          
-#for sent in sent_list:
-#    phrases = re.findall(prep_phrase, sent)        
-phrases = re.findall(prep_phrase, sent_string) 
-print(phrases)   
-    
-            
+sentenceDB = pd.DataFrame(total_list).set_index([0])
