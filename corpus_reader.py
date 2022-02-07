@@ -83,7 +83,7 @@ type_lst = []
 count = 0        
 for fileid in bnc_reader.fileids():
     count += 1
-    if count <=4:
+    if count <=20:
         file_root = get_root(fileid)
         for s in file_root.iter('s'):
             tuples = get_sentence(file_root)
@@ -124,9 +124,19 @@ for fileid in bnc_reader.fileids():
 print('creating database')
 lst_tuples = list(zip(id_lst,adj_type, target_lst,headnoun_lst, pos_lst, lemmas_lst, words_lst, type_lst))
 data = pd.DataFrame(lst_tuples, columns=['ID', 'Adjective Type', 'Target Adj','Head word', 'POS','Lemmas', 'Words', 'Type'])
+data = data.sort_values(by=['Adjective Type', 'Type'])
 print('Dataframe 1 created')
 
-# txt = nlp(sentence)
-# for token in txt:
-#     if token.text in adj_list and token.pos_ == 'ADJ':
-#         print(token, token.pos_ ,token.dep_,token.head)
+relPP = ((data['Adjective Type'] == 'Relational') & (data['Type'] == 'PP')).sum()
+relMOD = ((data['Adjective Type'] == 'Relational') & (data['Type'] == 'Modifier')).sum()
+qualPP = ((data['Adjective Type'] == 'Qualitative') & (data['Type'] == 'PP')).sum()
+qualMOD = ((data['Adjective Type'] == 'Qualitative') & (data['Type'] == 'Modifier')).sum()
+polyPP = ((data['Adjective Type'] == 'Polysemous') & (data['Type'] == 'PP')).sum()
+polyMOD = ((data['Adjective Type'] == 'Polysemous') & (data['Type'] == 'Modifier')).sum()
+
+relPPpercent = relPP/(relPP+relMOD)
+print(relPPpercent)
+qualPPpercent = qualPP/(qualPP+qualMOD)
+print(qualPPpercent)
+polyPPpercent = polyPP/(polyPP+polyMOD)
+print(polyPPpercent)
