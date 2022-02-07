@@ -2,13 +2,14 @@ from nltk.corpus.reader.bnc import BNCCorpusReader as bnc
 import pandas as pd
 import xml.etree.ElementTree as ET
 import os
-import re
 import spacy
-from spacy import displacy
 
 bnc_reader = bnc(root="BNC/Texts", fileids=r'[A-K]/\w*/\w*\.xml')
-adjs = pd.read_csv('Adjective_list.csv')
-adj_list =adjs['Adjective'].tolist()
+adjs = pd.read_csv('Adjective_list.csv',sep=';')
+all_list =adjs['All'].tolist()
+rel_list =adjs['Relational'].tolist()
+poly_list =adjs['Polysemous'].tolist()
+qual_list =adjs['Qualitative'].tolist()
 nlp=spacy.load('en_core_web_sm')
 
 
@@ -44,7 +45,7 @@ def has_target(string):
     txt = nlp(string)
     count = 0
     for token in txt:
-        if token.text in adj_list and token.pos_ == 'ADJ':
+        if token.text in all_list and token.pos_ == 'ADJ':
             count +=1
         else: continue
     if count == 0:
@@ -55,7 +56,7 @@ def has_target(string):
 def get_target(string):
     txt = nlp(string)
     for token in txt:
-        if token.text in adj_list and token.pos_ == 'ADJ':
+        if token.text in all_list and token.pos_ == 'ADJ':
             return token.text
 
 #for all sentences not only with target words - need to figure this out
@@ -69,13 +70,16 @@ def pos_string(string):
     return pos_lst
                     
 tuples_lst = []
+adj_type = []
 lemmas_lst = []
 words_lst = []
 target_lst = []
 pos_lst = []
 id_lst = []
 headnoun_lst=[]
-type_lst=[]
+type_lst = []
+
+
 count = 0        
 for fileid in bnc_reader.fileids():
     count += 1
@@ -88,39 +92,40 @@ for fileid in bnc_reader.fileids():
             if has_target(words) == True:
                 txt = nlp(words)
                 for token in txt:
-                    if token.text in adj_list and token.pos_ == 'ADJ':
+                    if token.text in all_list and token.pos_ == 'ADJ':
+                        x = token.head
+                        if token.text in rel_list:
+                            adj_type.append('Relational')
+                        if token.text in poly_list:
+                            adj_type.append('Polysemous')
+                        if token.text in qual_list:
+                            adj_type.append('Qualitative')                            
+                        target = get_target(words)
+                        pos = pos_string(words)
+                        file_id = fileid
+                        new_id = sent_id + ' ' + file_id[5:8]
                         headnoun_lst.append(token.head.text)
                         tuples_lst.append(tuples)
                         lemmas_lst.append(lemmas)
                         words_lst.append(words)
-                        target = get_target(words)
                         target_lst.append(target)
-                        pos = pos_string(words)
                         pos_lst.append(pos)
-                        file_id = fileid
-                        new_id = sent_id + ' ' + file_id[5:8]
                         id_lst.append(new_id)
-                    else: continue
-                for token in txt:
-                    x = token.head
-                    if token.text in adj_list and token.pos_ == 'ADJ':
-                            if x.head.dep_ == 'prep':
-                                type_lst.append('PP')
-                            elif x.pos_ == 'VERB':
-                                type_lst.append('Predicate')
-                            elif x.pos_ == 'NOUN':
-                                type_lst.append('Non-PP Mod')
-                            else: type_lst.append('other')
+                        if x.head.dep_ == 'prep':
+                            type_lst.append('PP')
+                        elif x.pos_ == 'VERB':
+                            type_lst.append('Predicate')
+                        elif x.pos_ == 'NOUN':
+                            type_lst.append('Modifier')
+                        else: 
+                            type_lst.append('Other')  
+        
     else: break
 print('creating database')
-lst_tuples = list(zip(id_lst, target_lst,headnoun_lst, pos_lst, lemmas_lst, words_lst, type_lst))
-data = pd.DataFrame(lst_tuples, columns=['ID', 'Target Adj','Head word', 'POS','Lemmas', 'Words', 'Type'])
-data = data.set_index('ID')
-print('Dataframe created')
+lst_tuples = list(zip(id_lst,adj_type, target_lst,headnoun_lst, pos_lst, lemmas_lst, words_lst, type_lst))
+data = pd.DataFrame(lst_tuples, columns=['ID', 'Adjective Type', 'Target Adj','Head word', 'POS','Lemmas', 'Words', 'Type'])
+print('Dataframe 1 created')
 
-sentence = data.loc[["57 A02"],['Words']]
-print(sentence)
-                    
 # txt = nlp(sentence)
 # for token in txt:
 #     if token.text in adj_list and token.pos_ == 'ADJ':
