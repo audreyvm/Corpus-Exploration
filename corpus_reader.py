@@ -1,8 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Feb  7 12:20:33 2022
+
+@author: Audrey
+"""
+
 from nltk.corpus.reader.bnc import BNCCorpusReader as bnc
 import pandas as pd
 import xml.etree.ElementTree as ET
 import os
 import spacy
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 
 bnc_reader = bnc(root="BNC/Texts", fileids=r'[A-K]/\w*/\w*\.xml')
 adjs = pd.read_csv('Adjective_list.csv',sep=';')
@@ -10,7 +19,6 @@ all_list =adjs['All'].tolist()
 rel_list =adjs['Relational'].tolist()
 poly_list =adjs['Polysemous'].tolist()
 qual_list =adjs['Qualitative'].tolist()
-nlp=spacy.load('en_core_web_sm')
 
 
 #makes it iterable with element tree
@@ -69,7 +77,7 @@ def pos_string(string):
         pos_lst.append(x)
     return pos_lst
                     
-tuples_lst = []
+
 adj_type = []
 lemmas_lst = []
 words_lst = []
@@ -77,13 +85,14 @@ target_lst = []
 pos_lst = []
 id_lst = []
 headnoun_lst=[]
+prep_lst=[]
 type_lst = []
 
 
 count = 0        
 for fileid in bnc_reader.fileids():
     count += 1
-    if count <=20:
+    if count <=30:
         file_root = get_root(fileid)
         for s in file_root.iter('s'):
             tuples = get_sentence(file_root)
@@ -105,13 +114,13 @@ for fileid in bnc_reader.fileids():
                         file_id = fileid
                         new_id = sent_id + ' ' + file_id[5:8]
                         headnoun_lst.append(token.head.text)
-                        tuples_lst.append(tuples)
+                        prep_lst.append(x.head.text)
                         lemmas_lst.append(lemmas)
                         words_lst.append(words)
                         target_lst.append(target)
                         pos_lst.append(pos)
                         id_lst.append(new_id)
-                        if x.head.dep_ == 'prep':
+                        if  x.pos_ == 'NOUN' and x.dep_ == 'pobj':
                             type_lst.append('PP')
                         elif x.pos_ == 'VERB':
                             type_lst.append('Predicate')
@@ -122,10 +131,10 @@ for fileid in bnc_reader.fileids():
         
     else: break
 print('creating database')
-lst_tuples = list(zip(id_lst,adj_type, target_lst,headnoun_lst, pos_lst, lemmas_lst, words_lst, type_lst))
-data = pd.DataFrame(lst_tuples, columns=['ID', 'Adjective Type', 'Target Adj','Head word', 'POS','Lemmas', 'Words', 'Type'])
+lst_tuples = list(zip(id_lst,adj_type, target_lst,headnoun_lst, prep_lst, pos_lst, lemmas_lst, words_lst, type_lst))
+data = pd.DataFrame(lst_tuples, columns=['ID', 'Adjective Type', 'Target Adj','Head word', 'Prep','POS','Lemmas', 'Words', 'Type'])
 data = data.sort_values(by=['Adjective Type', 'Type'])
-print('Dataframe 1 created')
+print('Dataframe created')
 
 relPP = ((data['Adjective Type'] == 'Relational') & (data['Type'] == 'PP')).sum()
 relMOD = ((data['Adjective Type'] == 'Relational') & (data['Type'] == 'Modifier')).sum()
