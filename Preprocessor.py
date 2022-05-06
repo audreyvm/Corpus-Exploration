@@ -13,7 +13,9 @@ import en_core_web_sm
 nlp = en_core_web_sm.load()
 
 adjs = pd.read_csv('Adjective_list.csv',sep=';')
-all_list =adjs['All'].tolist()
+rel_list = [x for x in adjs['Relational'] if str(x)!= 'nan']
+qual_list = [x for x in adjs['Qualitative'] if str(x)!= 'nan']
+all_list = rel_list + qual_list
 
 
 
@@ -28,6 +30,9 @@ def get_root(fileid):
 def get_sentence(tree_root, sentence):
     s = []
     for w in sentence.iter('w'):
+        if w.text is None: 
+            continue
+        else:
             lemma = w.get('hw')
             word = w.text.lower()
             word_tuple = lemma, word
@@ -46,28 +51,31 @@ def make_strings(sentence):
 
 #checks for presence of target word
 def has_target(string):
-    txt = nlp(string)
     count = 0
-    for token in txt:
-        if token.text in all_list and token.pos_ == 'ADJ':
+    sentence = string.split()
+    for word in sentence:
+        if word in all_list:
             count +=1
         else: continue
     if count == 0:
         return False
     else: return True
+    
+    # txt = nlp(string)
+    # count = 0
+    # for token in txt:
+    #     if token.text 
         
 #returns list of target words
-def get_target(string):
-    txt = nlp(string)
+def get_target(txt):
     for token in txt:
         if token.text in all_list and token.pos_ == 'ADJ':
             return token.text
 
 #for all sentences not only with target words - need to figure this out
-def pos_string(string):
+def pos_string(spacey_obj):
     pos_lst = []
-    txt = nlp(string)
-    for token in txt:
+    for token in spacey_obj:
         x = token.pos_
         x = str(x)
         pos_lst.append(x)
