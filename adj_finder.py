@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Created on Sat Mar 12 09:02:26 2022
@@ -23,13 +24,13 @@ for fileid in tqdm(bnc_reader.fileids()):
     file_root = pp.get_root(fileid)
     for s in file_root.iter('s'):
         for w in s.iter('w'):
-            if w.get('pos') == 'ADJ' and re.search ('.*(al|ary|an|ic)$', w.text.strip()):
-                rel_adj_list.append(w.text.lower())
+            if w.get('pos') == 'ADJ' and re.search ('?!.*(al|ary|an|ic)$', w.text.strip()):
+                qual_adj_list.append(w.text.lower())
 
                     
 
 
-rel_counts = collections.Counter(rel_adj_list)
+qual_counts = collections.Counter(rel_adj_list)
 full_rel_adjs =[adj for adj, c in rel_counts.items()]
 common_rel_adjs = [adj for adj, c in rel_counts.items() if c>=30]
 unique_rel_adjs = [adj for adj, c in rel_counts.items() if c==1]
