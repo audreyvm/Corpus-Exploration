@@ -121,11 +121,11 @@ print('Dataframe created')
 
 
 print('Checking for bare NPs')
-target_adj = [target for target in data['Target Adj']]
+#target_adj = [target for target in data['Target Adj']]
 sentence_list = [sentence.split() for sentence in data['Words']]
 
 bare_nps = []    
-for target, sentence, pos_list in tqdm(zip(target_adj, sentence_list, data['POS'])):
+for target, sentence, pos_list in tqdm(zip(target_lst, sentence_list, data['POS'])):
         for i, (word, pos) in enumerate(zip( sentence, pos_list)):
             if word == target:
                 noun_chunk = str(pos_list[i-2:i])
@@ -147,5 +147,8 @@ hwconcrete = [concrete.loc[concrete['Word'] == hw, 'Conc.M'].item() if str(hw) i
               else 'N/A' for hw in data['Head word']]
 pphwconcrete = [concrete.loc[concrete['Word'] == pphw, 'Conc.M'].item() if str(pphw) in words 
                 else 'N/A' for pphw in data['PP_Head_text']]
+
+data['HW Concreteness'] = hwconcrete
+data['PP HW Concreteness'] = pphwconcrete
 
 data.to_csv('Corpus.csv')
